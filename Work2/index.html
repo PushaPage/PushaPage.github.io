@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>	
+</head>
+<style type="text/css">
+	div{
+		text-align: center;
+		padding: 20px;
+	}
+	form{
+		display: inline-block;
+		font-size: 18px;
+	}
+	label{
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 5px;
+	}
+	input{
+		width: 110px;
+	}
+	button{
+		display: block;
+		margin: 0 auto;		
+	}
+	#palind{
+		width: 70px;
+		height: 20px;
+		outline: 1px solid grey;
+	}	
+</style>
+<body>
+	<div>
+		<form>
+		  <fieldset>
+		    <legend>Сумма чисел: </legend>
+		    <label>Введите число: <input type="number" id="number"></label>
+			<button id="calc">Посчитать</button>		
+		  </fieldset>
+		</form>
+	</div>
+	<div>
+		<form>
+		  <fieldset>
+		    <legend>Твой идеальнный вес, по формуле Брокка:</legend>
+		    <label>Введите свой рост, см: <input type="text" id="growth">
+		    </label>
+		    <label>Выберете свой пол: 
+		    	   <select id="gender">
+		    	   <option>Не выбрано</option>    	   
+		    	   <option>Муж</option>
+		    	   <option>Жен</option>
+		    	   </select>
+		    </label>
+		   <button id="cal">Посчитать</button>
+		  </fieldset>
+		</form>
+	</div>
+	<div>
+		<form>
+		  <fieldset>
+		    <legend>Палиндром: </legend>
+		    <label>введите слово: <input type="text" id="palindrom"></label>
+		    	<p id="palind"></p>
+					
+		  </fieldset>
+		</form>
+	</div>
+
+
+
+<script>
+	document.getElementById('calc').onclick = function(){
+		let y = document.getElementById('number').value;
+		let sum = 0;
+  		for (let i = 1; i <= y; i++) {
+    	sum += i;    
+    	// alert(sum);  
+  };
+  
+  alert(sum);
+};
+
+
+
+
+document.getElementById('cal').onclick = function(){
+	var growth = document.getElementById('growth').value;	
+	var gender = document.getElementById('gender').value;
+	if (growth=='', gender=='Не выбрано')alert('Введите пожалуйста свой вес и выберите пол!');
+	if (gender=='Муж'){
+		var calc = (growth-100) * 1.15;
+		var	calc = parseInt(calc);
+		alert('Ваш идеальный вес:' + calc + 'кг');
+	}	
+	if (gender=='Жен'){
+		var calc = (growth-110) * 1.15;
+		var	calc = parseInt(calc);
+		alert('Ваш идеальный вес:' + calc + 'кг');
+	}
+
+   };
+
+   
+   function (palindrom){
+   	var palindrom = document.getElementById('palindrom').value;
+   		var palindrom = palindrom.toLowerCase();
+   		var str2 = palindrom.split('');
+   		str2 = str2.reverse();
+   		str2 = str2.join('');
+   		if (palindrom == str2) return document.getElementById('palind').innerHTML = 'ok';
+   		else return false;
+
+   		return str2;
+   }
+
+   // alert(palindrom('olo'))
+
+
+
+ 
+ 
+
+
+
+
+
+
+</script>	
+</body>
+</html>
