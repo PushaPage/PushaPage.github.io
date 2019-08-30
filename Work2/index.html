@@ -62,46 +62,32 @@
 		let sum = 0;
   		for (let i = 1; i <= y; i++) {
     	sum += i;    
-    	// alert(sum);  
-  };
-  
-  alert(sum);
-};
+  		}
+  		alert(sum);  
+	}
 
 
 
 
-document.getElementById('cal').onclick = function(){
+	document.getElementById('cal').onclick = function(){
 	var growth = document.getElementById('growth').value;	
 	var gender = document.getElementById('gender').value;
 	if (growth=='', gender=='Не выбрано')alert('Введите пожалуйста свой вес и выберите пол!');
 	if (gender=='Муж'){
 		var calc = (growth-100) * 1.15;
 		var	calc = parseInt(calc);
-		alert('Ваш идеальный вес:' + calc + 'кг');
-	}	
+		alert('Ваш идеальный вес:' + calc + 'кг');		
+	};
+		
 	if (gender=='Жен'){
 		var calc = (growth-110) * 1.15;
 		var	calc = parseInt(calc);
-		alert('Ваш идеальный вес:' + calc + 'кг');
-	}
+		alert('Ваш идеальный вес:' + calc + 'кг');		
+	};	
 
    };
 
    
-   function (palindrom){
-   	var palindrom = document.getElementById('palindrom').value;
-   		var palindrom = palindrom.toLowerCase();
-   		var str2 = palindrom.split('');
-   		str2 = str2.reverse();
-   		str2 = str2.join('');
-   		if (palindrom == str2) return document.getElementById('palind').innerHTML = 'ok';
-   		else return false;
-
-   		return str2;
-   }
-
-   // alert(palindrom('olo'))
 
 
 
