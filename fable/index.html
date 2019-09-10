@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+<link href="https://fonts.googleapis.com/css?family=Pattaya|Ruslan+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Pattaya&display=swap" rel="stylesheet">
+<style type="text/css">
+  #fable{
+      font-family: 'Pattaya', sans-serif;
+      width: 1200px;
+      margin: 0 auto;
+      font-weight: 200;
+      padding: 40px 60px;
+      font-size: 20px;
+      background: #fff3d4;
+      letter-spacing: 1px;
+      white-space: pre-line;
+    }
+    #fable:first-letter{       
+       font-family: 'Ruslan Display', cursive;     
+       font-size: 66px;       
+       color: red;       
+       line-height: 1;       
+       text-transform: uppercase;
+    }
+    form{
+      display: inline-block;          
+    }
+    fieldset{
+      padding: 20px;
+      display: flex;
+      font-size: 20px;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 20px;
+      font-family: 'Ruslan Display', cursive;  
+    }
+    #output{
+      margin: 10px auto 0;
+      padding: 8px;
+      font-family: 'Ruslan Display', cursive;
+      font-size: 16px;
+      border-radius: 10px;
+      background: #fff3d4;
+    }
+    
+    #changeName{
+      width: 1200px;
+      padding: 20px;
+      margin: 0 auto;
+      font-size: 20px;
+      text-align: center;
+    }
+    #name{
+      height: 30px;
+      width: 150px;
+      padding: 0 0 0 5px;
+      font-size: 18px;
+      border-radius: 10px;
+      font-family: 'Pattaya', sans-serif;      
+    }
+  
+</style>
+<body>
+   <div id="changeName">
+    <form>
+      <fieldset>
+        <legend>Ввод имени: </legend>
+        <label>Введите любое имя: <input type="text" id="name" autocomplete="off"></label>
+         <button type="button" id="output">Изменить</button>  
+      </fieldset>
+    </form>
+  </div>
+  <div id="fable">
+      В далеком предалеком государстве жил был Роман..
+    Не хмур, не зол был этот богатирь веба современного. Сидел себе ровно на жопе и созерцал кодовые массы своих учеников верных. Был тихий пятничный вечер.. Ничто не предвещало беды.. но тут вспомнил Рома, что пора пойти за тридевять земель и направить юнцов ленивых на путь истинный. Собрался с духом он, переключил свой ум с состояния сансары в состояние нирваны, завел своего коня верного и помчался на встречу опасности...
+    Приехал, к пищере ужасной, ввел код в замок кодовый и стал подниматься на гору высокую, откуда доносились душераздирающие, жуткие звуки, и пахло кофе с баночки. Страшно было Роману, но в его руке был его друг верный - ЖС добра! И задрожала земля в предвкушении страшной битвы! И завизжали, и кинулись в бегство лентяи маленькие. А не маленькие лентяи стали ЖС добра отбирать, говорят:  - "Отдай нам ЖС, по добру по здорову! А не то мы тут сидеть молча будем и смотреть на тебя своим взглядом лютым! "  И налились глаза Романа кровью, от слов этих. И взмахнул он ЖСом своим великим, и как дал всем.. да так что сжались булки у злодеев с бешаной плотностью. И стали с тех пор о нем легенды ходить, и стар и молод знали имя его! И стало с тех пор лучше чем было до этого! А потом пришла прекрасная принцесса Карина, и внаграду за поступок этот подключила его макбук к проектору!
+    И Я там был, мёд-пиво пил, по бороде текло а в рот не попало. 
+  </div>
+ 
+   
+  <script>
+      var story = fable.textContent;      
+
+    document.getElementById('output').onclick = function(){
+
+      var name = document.getElementById('name').value;    
+      var newString = story.replace(/Рома./g, name);
+      var newStory = newString;
+      document.getElementById('fable').textContent = newStory;       
+    
+    };
+
+ 
+  
+    
+
+   
+  </script>
+
+</body>
+
+</html>
