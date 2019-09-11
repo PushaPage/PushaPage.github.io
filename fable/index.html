@@ -61,6 +61,9 @@
       border-radius: 10px;
       font-family: 'Pattaya', sans-serif;      
     }
+    span{
+      color: red;
+    }
   
 </style>
 <body>
@@ -82,18 +85,19 @@
  
    
   <script>
-       var story = fable.textContent;      
+      var story = fable.textContent;      
 
     document.getElementById('output').onclick = function(){     
-      var name = document.getElementById('name').value;
+      var name = document.getElementById('name').value;      
       if (name == ''){
         alert('Введите имя!');
       }else{
       var myPattern = /Рома./g;
       var myResult =  story.match(myPattern);     
-      var newString = story.replace(/Рома./g, name);
+      var newString = story.replace(/Рома./g, '<span>' + name + '</span>');
       var newStory = newString;
-      document.getElementById('fable').textContent = newStory;      
+      document.getElementById('fable').innerHTML = newStory;
+      // alert(myResult);
       }       
     
     };
