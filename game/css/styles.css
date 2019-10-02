@@ -1,0 +1,85 @@
+ body{
+      padding-top: 100px;
+    }
+    #playingField{
+      margin: 200px auto 0;
+      width: 1152px;
+      border: 1px solid rgb(28, 28, 30);
+      height:1000px;
+      position: relative;
+
+    }
+    .bugActive{
+      display: block;
+      color: rgb(48, 209, 88);
+      font-size: 50px;
+      transform: scale(-1);     
+      margin: 0 8px;     
+      width: 50px;
+      height: 50px;
+      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+    }
+    .bugUltra{
+      color: rgb(255, 59, 48);
+    }
+
+    [id^=level] {
+      position: absolute;
+      left: 200px;
+      z-index: -5;
+      display: flex;
+    }
+    #levelOne{      
+      top: 50px;
+    }
+    #levelTwo{
+      top: 120px;     
+    }    
+    #levelThree{
+      top: 190px;
+    }
+    #levelFour{
+      top: 260px;
+    }
+    #levelFive{
+      top: 330px;
+    }
+    .bullet{
+      position: absolute;
+      font-size: 35px;      
+      width: 30px;
+      height: 30px;
+      color: rgb(52, 199, 89);     
+      bottom: 0;      
+      left: 39%;
+     /* z-index:-5;*/
+      transform: translateY(-20px);     
+    }
+
+    #android{
+      position: absolute;
+      display: block;
+      color: rgb(48, 209, 88);
+      width: 100px;
+      height: 100px;
+      left: 50%;
+      bottom: -5px;
+      font-size: 100px;
+      transform: translateX(-50%);
+      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+    }
+     [id^=arrow] {
+      position: absolute;
+      font-size: 60px;
+      color: rgb(28, 28, 30);     
+      bottom: 20px;
+      transition: all ease .2s;
+      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+     
+    }
+    #arrowRight{
+      left: 105%;
+    }
+    #arrowLeft{
+      right: 105%;
+    }
