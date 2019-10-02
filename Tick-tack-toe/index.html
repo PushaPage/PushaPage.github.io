@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Tick-tack-toe</title>
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Righteous|Titillium+Web&display=swap" rel="stylesheet">
+   <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">   
+  <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css"> 
+</head>
+<body>
+  <div id="container">
+    <h1>Tic-tac-toe</h1>
+     <table id="TickTackToe">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <p></p>    
+    <button id="playAgain" type="button" class="btn btn-outline-light">Play again</button>      
+  </div>  
+  <script type="text/javascript">
+    ;(function(){
+      var allcells = document.querySelectorAll('#TickTackToe td');
+      var p = document.querySelector('p');
+          
+      var stroke = 0;
+      var x = 'x';
+      var o = 0;
+     
+
+      TickTackToe.onclick = function (event) {
+       
+        if(event.target.tagName == 'TD'){
+          if(event.target.innerHTML == ''){
+             if(stroke % 2 == 0){
+                event.target.innerHTML = 'x';                
+             }else{
+              event.target.innerHTML = '0';             
+             };
+
+            stroke ++;
+            winner();            
+          };
+        };
+
+      };
+
+      function winner (){               
+      //winner tik-tak
+         if(allcells[0].innerHTML == 'x' && allcells[1].innerHTML == 'x' && allcells[2].innerHTML == 'x'){
+            TickTackToe.classList.add('crossedX1');         
+            whoWon (x);
+         
+          }; 
+         if(allcells[3].innerHTML == 'x' && allcells[4].innerHTML == 'x' && allcells[5].innerHTML == 'x'){
+            TickTackToe.classList.add('crossedX2');         
+            whoWon (x);
+            
+          }; 
+         if(allcells[6].innerHTML == 'x' && allcells[7].innerHTML == 'x' && allcells[8].innerHTML == 'x'){
+            TickTackToe.classList.add('crossedX3');         
+            whoWon (x);
+            
+          }; 
+         if(allcells[0].innerHTML == 'x' && allcells[3].innerHTML == 'x' && allcells[6].innerHTML == 'x'){
+            TickTackToe.classList.add('crossedY1');          
+            whoWon (x);
+            
+          }; 
+         if(allcells[1].innerHTML == 'x' && allcells[4].innerHTML == 'x' && allcells[7].innerHTML == 'x'){
+            TickTackToe.classList.add('crossedY2');          
+            whoWon (x);
+            
+          }; 
+         if(allcells[2].innerHTML == 'x' && allcells[5].innerHTML == 'x' && allcells[8].innerHTML == 'x'){
+            TickTackToe.classList.add('crossedY3');          
+            whoWon (x);
+            
+          }; 
+         if(allcells[0].innerHTML == 'x' && allcells[4].innerHTML == 'x' && allcells[8].innerHTML == 'x'){
+            TickTackToe.classList.add('crossedAngleLeft');           
+            whoWon (x);
+           
+            
+          }; 
+         if(allcells[2].innerHTML == 'x' && allcells[4].innerHTML == 'x' && allcells[6].innerHTML == 'x'){
+            TickTackToe.classList.add('crossedAngleRight');          
+            whoWon (x);
+            
+          }; 
+    
+      //winner toe
+         if(allcells[0].innerHTML == '0' && allcells[1].innerHTML == '0' && allcells[2].innerHTML == '0'){
+            TickTackToe.classList.add('crossedX1');           
+            whoWon (o);
+            
+          };
+         if(allcells[3].innerHTML == '0' && allcells[4].innerHTML == '0' && allcells[5].innerHTML == '0'){
+            TickTackToe.classList.add('crossedX2');         
+            whoWon (o);
+            
+          };
+         if(allcells[6].innerHTML == '0' && allcells[7].innerHTML == '0' && allcells[8].innerHTML == '0'){
+            TickTackToe.classList.add('crossedX3');         
+            whoWon (o);
+            
+          };
+         if(allcells[0].innerHTML == '0' && allcells[3].innerHTML == '0' && allcells[6].innerHTML == '0'){
+            TickTackToe.classList.add('crossedY1');          
+            whoWon (o);
+            
+          };
+         if(allcells[1].innerHTML == '0' && allcells[4].innerHTML == '0' && allcells[7].innerHTML == '0'){
+            TickTackToe.classList.add('crossedY2');          
+            whoWon (o);
+            
+          };
+         if(allcells[2].innerHTML == '0' && allcells[5].innerHTML == '0' && allcells[8].innerHTML == '0'){ 
+            TickTackToe.classList.add('crossedY3');         
+            whoWon (o);
+            
+          };
+         if(allcells[0].innerHTML == '0' && allcells[4].innerHTML == '0' && allcells[8].innerHTML == '0'){ 
+            TickTackToe.classList.add('crossedAngleLeft');        
+            whoWon (o);
+            
+          };
+         if(allcells[2].innerHTML == '0' && allcells[4].innerHTML == '0' && allcells[6].innerHTML == '0'){
+            TickTackToe.classList.add('crossedAngleRight');          
+            whoWon (o);            
+          };
+
+        };
+
+      function whoWon (won) {               
+          p.innerHTML = won + '- won!';          
+          p.style.left = '0';         
+          playAgain.style.opacity = '1';
+          playAgain.style.transition = 'opacity .5s ease-out .5s';
+          TickTackToe.querySelectorAll('td').forEach( el => {
+          el.style.pointerEvents = 'none';                           
+        });
+
+      }     
+
+      playAgain.onclick = function () {         
+          TickTackToe.querySelectorAll('td').forEach( el => {
+            el.innerHTML = '';
+            el.style.pointerEvents = 'auto';                                   
+          });
+          TickTackToe.classList = ''; 
+          p.style.left = '';
+          playAgain.style.opacity = '0';
+          playAgain.style.transition = 'none';        
+      };
+    
+    }());
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+ body{
+      background: rgb(209, 209, 214)
+    }
+    #container{
+      font-family: 'Mansalva', cursive;
+      margin: 40px auto;
+      width: 930px;
+      height: 650px;
+      position: relative;
+      background: #fff;
+      padding: 40px  0;
+      text-align: center;
+      overflow: hidden;
+      border-radius: 30px;         
+      box-shadow: 0 8px 8px rgba(0, 0, 0, .6), 0 0 8px rgba(0, 0, 0, .4);
+      background: url('../img/Tick-tack-toe.jpg') no-repeat 50%/cover;
+    }
+    #container:before{
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background: rgba(28, 28, 30, .8);
+    }
+    h1{
+     position: relative; 
+     letter-spacing: 2px;
+     font-size: 53px;
+     padding: 9px 0;   
+     background: linear-gradient(to left,transparent 20%, rgb(242, 242, 247), transparent 80%);
+    }
+    p{
+      position: relative; 
+      padding: 0 39% 0 0; 
+      background: linear-gradient(to right, rgb(242, 242, 247) 30%, transparent 80%);
+      letter-spacing: 2px;
+      font-size: 53px;
+      left: -100%;
+      transition: left .8s ease;            
+    }
+    p:first-letter{
+      text-transform: uppercase;
+      padding-right: 10px;
+    }
+
+    #TickTackToe{
+      transform: skew(-8deg, -13deg);
+      margin: 40px auto;
+      position: relative;
+    }
+    [class^=crossed]:before{
+      content: "";
+      position: absolute;                
+    }
+    [class^=crossedX]:before{
+      height: 5px;
+      left: 9px;
+      right: 9px;      
+      background: linear-gradient(to left,transparent, rgb(242, 242, 247)10%, rgb(242, 242, 247)90%, transparent);      
+    }
+    .crossedX1:before{            
+      top: 50px;
+    }
+    .crossedX2:before{          
+      top: 152px;
+    }
+    .crossedX3:before{           
+      top: 254px;
+    }
+    [class^=crossedY]:before{
+      width: 5px;
+      top: 9px;
+      bottom: 9px;      
+      background: linear-gradient(to top,transparent, rgb(242, 242, 247)10%, rgb(242, 242, 247)90%, transparent);      
+    }
+    .crossedY1:before{
+      left: 45px;
+    }
+    .crossedY2:before{
+      left: 146px;
+    }
+    .crossedY3:before{
+      left: 247px;
+    }
+    .crossedAngleLeft:before{
+      width: 5px;
+      left: 43px;
+      top: 50px;
+      bottom: -132px;    
+      transform-origin: top;
+      transform: rotate(-45deg) translateY(-47px);    
+      background: linear-gradient(to top,transparent, rgb(242, 242, 247)10%, rgb(242, 242, 247)90%, transparent); 
+    }
+    .crossedAngleRight:before{
+      width: 5px;
+      left: 247px;
+      top: 52px;
+      bottom: -132px;    
+      transform-origin: top;
+      transform: rotate(45deg) translateY(-47px);    
+      background: linear-gradient(to top,transparent, rgb(242, 242, 247)10%, rgb(242, 242, 247)90%, transparent); 
+    }
+    td{      
+      padding: 5px;
+      width: 100px;
+      height: 100px;
+      color: rgb(242, 242, 247);
+      font-size: 50px;
+      cursor: pointer;   
+      border-collapse: collapse;
+      text-transform: uppercase;
+      text-align: center;         
+    }
+
+    tr:nth-child(1) td:nth-child(1){
+      border: 5px solid rgb(209, 209, 214);
+      border-left: none; 
+      border-top: none;
+    }
+     tr:nth-child(1) td:nth-child(2){
+      border: 5px solid rgb(209, 209, 214);
+      border-top: none;      
+    }
+     tr:nth-child(1) td:nth-child(3){
+      border: 5px solid rgb(209, 209, 214);
+      border-right: none; 
+      border-top: none;
+    }
+
+    tr:nth-child(2) td:nth-child(1){
+      border: 5px solid rgb(209, 209, 214);
+      border-left: none;      
+    }
+     tr:nth-child(2) td:nth-child(2){
+      border: 5px solid rgb(209, 209, 214);           
+    }
+     tr:nth-child(2) td:nth-child(3){
+      border: 5px solid rgb(209, 209, 214);
+      border-right: none;      
+    }
+
+     tr:nth-child(3) td:nth-child(1){
+      border: 5px solid rgb(209, 209, 214);
+      border-left: none; 
+      border-bottom: none;
+    }
+     tr:nth-child(3) td:nth-child(2){
+      border: 5px solid rgb(209, 209, 214);
+      border-bottom: none;      
+    }
+     tr:nth-child(3) td:nth-child(3){
+      border: 5px solid rgb(209, 209, 214);
+      border-right: none; 
+      border-bottom: none;
+    }
+    #playAgain{
+      position: absolute;
+      font-size: 40px;      
+      padding: 5px 45px 5px 0;
+      letter-spacing: 2px;
+      font-weight: 500;
+      top: 50%;
+      right: 0;color: rgb(242, 242, 247);
+      border: none;
+      border-radius: 0;
+      opacity: 0;
+      transform: translateY(-50%);      
+      overflow: hidden;
+    }
+    #playAgain:after{
+      content: "?";
+      position: absolute;
+      right: 20px;
+      top: 11%;
+      opacity: 1;
+      background: none;
+      transition: top linear .3s, opacity ease .2s;
+    }
+    #playAgain:before{
+      content: "!";
+      position: absolute;
+      font-size: 45px;
+      right: 23px;
+      top: -75%;
+      opacity: 0;
+      transition: top linear .3s, opacity ease .2s;
+    }
+    #playAgain:hover,#playAgain:active{
+       color: rgb(242, 242, 247);
+       text-shadow: 0 5px 5px rgba(242, 242, 247, .5), 0 0 5px rgba(242, 242, 247, .4);
+       background: none;
+       outline: none;
+       box-shadow: none;
+     
+    }
+    #playAgain:hover:after{
+      top: 100%;
+      opacity: 0;
+    }
+    #playAgain:hover:before{
+      top: 3%;
+      opacity: 1;
+    }
