@@ -144,8 +144,10 @@
          if(allcells[2].innerHTML == '0' && allcells[4].innerHTML == '0' && allcells[6].innerHTML == '0'){
             TickTackToe.classList.add('crossedAngleRight');          
             whoWon (o);            
-          };
-
+          }else if (allcells[0].innerHTML != '' && allcells[1].innerHTML != '' && allcells[2].innerHTML != '' && allcells[3].innerHTML != '' && allcells[4].innerHTML != '' && allcells[5].innerHTML != '' && allcells[6].innerHTML != '' && allcells[7].innerHTML != '' && allcells[8].innerHTML != ''){
+            playAgain.style.opacity = '1';
+            playAgain.style.transition = 'opacity .5s ease-out .5s';
+          }
         };
 
       function whoWon (won) {               
