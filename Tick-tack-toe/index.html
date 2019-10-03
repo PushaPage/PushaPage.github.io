@@ -4,8 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Tick-tack-toe</title>
-  <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Righteous|Titillium+Web&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="img/xo.png" type="image/png"> 
    <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">   
@@ -37,13 +36,16 @@
   </div>  
   <script type="text/javascript">
     ;(function(){
-      var allcells = document.querySelectorAll('#TickTackToe td');
-      var p = document.querySelector('p');          
-      var stroke = 0;
-      var x = 'x';
-      var o = 0;     
+      var allcells = document.querySelectorAll('#TickTackToe td'),
+          p = document.querySelector('p'),          
+          stroke = 0,
+          x = 'x',
+          o = 0;
+            
+     
 
-      TickTackToe.onclick = function (event) {       
+      TickTackToe.onclick = function (event) {
+       
         if(event.target.tagName == 'TD'){
           if(event.target.innerHTML == ''){
              if(stroke % 2 == 0){
@@ -51,79 +53,99 @@
              }else{
               event.target.innerHTML = '0';             
              };
+
             stroke ++;
             winner();            
-          };
+          };        
         };
+
       };
 
       function winner (){               
       //winner tik-tak
          if(allcells[0].innerHTML == 'x' && allcells[1].innerHTML == 'x' && allcells[2].innerHTML == 'x'){
             TickTackToe.classList.add('crossedX1');         
-            whoWon (x);         
+            whoWon (x);
+         
           }; 
          if(allcells[3].innerHTML == 'x' && allcells[4].innerHTML == 'x' && allcells[5].innerHTML == 'x'){
             TickTackToe.classList.add('crossedX2');         
-            whoWon (x);            
+            whoWon (x);
+            
           }; 
          if(allcells[6].innerHTML == 'x' && allcells[7].innerHTML == 'x' && allcells[8].innerHTML == 'x'){
             TickTackToe.classList.add('crossedX3');         
-            whoWon (x);            
+            whoWon (x);
+            
           }; 
          if(allcells[0].innerHTML == 'x' && allcells[3].innerHTML == 'x' && allcells[6].innerHTML == 'x'){
             TickTackToe.classList.add('crossedY1');          
-            whoWon (x);            
+            whoWon (x);
+            
           }; 
          if(allcells[1].innerHTML == 'x' && allcells[4].innerHTML == 'x' && allcells[7].innerHTML == 'x'){
             TickTackToe.classList.add('crossedY2');          
-            whoWon (x);            
+            whoWon (x);
+            
           }; 
          if(allcells[2].innerHTML == 'x' && allcells[5].innerHTML == 'x' && allcells[8].innerHTML == 'x'){
             TickTackToe.classList.add('crossedY3');          
-            whoWon (x);            
+            whoWon (x);
+            
           }; 
          if(allcells[0].innerHTML == 'x' && allcells[4].innerHTML == 'x' && allcells[8].innerHTML == 'x'){
             TickTackToe.classList.add('crossedAngleLeft');           
-            whoWon (x);            
+            whoWon (x);
+           
+            
           }; 
          if(allcells[2].innerHTML == 'x' && allcells[4].innerHTML == 'x' && allcells[6].innerHTML == 'x'){
             TickTackToe.classList.add('crossedAngleRight');          
-            whoWon (x);            
-          };     
+            whoWon (x);
+            
+          }; 
+    
       //winner toe
          if(allcells[0].innerHTML == '0' && allcells[1].innerHTML == '0' && allcells[2].innerHTML == '0'){
             TickTackToe.classList.add('crossedX1');           
-            whoWon (o);            
+            whoWon (o);
+            
           };
          if(allcells[3].innerHTML == '0' && allcells[4].innerHTML == '0' && allcells[5].innerHTML == '0'){
             TickTackToe.classList.add('crossedX2');         
-            whoWon (o);            
+            whoWon (o);
+            
           };
          if(allcells[6].innerHTML == '0' && allcells[7].innerHTML == '0' && allcells[8].innerHTML == '0'){
             TickTackToe.classList.add('crossedX3');         
-            whoWon (o);            
+            whoWon (o);
+            
           };
          if(allcells[0].innerHTML == '0' && allcells[3].innerHTML == '0' && allcells[6].innerHTML == '0'){
             TickTackToe.classList.add('crossedY1');          
-            whoWon (o);            
+            whoWon (o);
+            
           };
          if(allcells[1].innerHTML == '0' && allcells[4].innerHTML == '0' && allcells[7].innerHTML == '0'){
             TickTackToe.classList.add('crossedY2');          
-            whoWon (o);            
+            whoWon (o);
+            
           };
          if(allcells[2].innerHTML == '0' && allcells[5].innerHTML == '0' && allcells[8].innerHTML == '0'){ 
             TickTackToe.classList.add('crossedY3');         
-            whoWon (o);            
+            whoWon (o);
+            
           };
          if(allcells[0].innerHTML == '0' && allcells[4].innerHTML == '0' && allcells[8].innerHTML == '0'){ 
             TickTackToe.classList.add('crossedAngleLeft');        
-            whoWon (o);            
+            whoWon (o);
+            
           };
          if(allcells[2].innerHTML == '0' && allcells[4].innerHTML == '0' && allcells[6].innerHTML == '0'){
             TickTackToe.classList.add('crossedAngleRight');          
-            whoWon (o);      
+            whoWon (o);            
           };
+
         };
 
       function whoWon (won) {               
@@ -134,6 +156,7 @@
           TickTackToe.querySelectorAll('td').forEach( el => {
           el.style.pointerEvents = 'none';                           
         });
+
       }     
 
       playAgain.onclick = function () {         
@@ -145,8 +168,10 @@
           p.style.left = '';
           playAgain.style.opacity = '0';
           playAgain.style.transition = 'none';        
-      };    
+      };
+    
     }());
+
   </script>
 </body>
 </html>
