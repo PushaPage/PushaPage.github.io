@@ -87,7 +87,6 @@
       <i class="fas fa-spider bugActive bugUltra"></i>
       <i class="fas fa-bug bugActive"></i>
       <i class="fas fa-bug bugActive"></i>
-
     </div>   
    
    <!-- <div class="bullet">
@@ -102,6 +101,7 @@
   <div class="container">
     <button type="button" class="btn btn-danger btn-lg" data-game="play">Play</button>
     <button type="button" class="btn btn-warning btn-lg" data-game="shot">Shot</button>
+    <button type="button" class="btn btn-warning btn-lg" data-game="pause">Pause</button>
   </div>
   
 
@@ -124,26 +124,7 @@
     
      
     var step = 10;
-   
-    var worldPlayers = [];
-    var coordBugs = [];
-   
-    
- console.log(playingField.offsetTop)
-
       
-        
-      
-      playingField.querySelectorAll('.bugActive').forEach( (el,i) => {         
-      
-        coordBugs.push(el.getBoundingClientRect());
-      })
-
-   
-  
-      
-
-
       
     
     var offsetX1 = levelOne.offsetLeft;
@@ -207,17 +188,20 @@
 
       switch (target) {
          case 'play':          
-               requestAnimationFrame(frame);         
+               requestAnimationFrame(frame);                   
             break;
          case 'shot':
                createBullet ();               
-            break;     
+            break; 
+         case 'pause':
+               myStopFunction()              
+            break;        
       };
     });
 
       function createBullet () {
       var bullet = document.createElement('div');      
-      bullet.classList = 'bullet fab fa-ubuntu';       
+      bullet.classList = 'bullet fab fa-ubuntu';            
       bullet.style.left = (android.offsetLeft  - 25) + 'px';
       playingField.append(bullet);
       aboimaBullets.push(bullet);
@@ -230,39 +214,89 @@
 
     var update = (step) => {    
       
-       aboimaBullets.forEach((o)=>{        
-        o.style.bottom = (o.offsetTop - speedBullet)  + 'px';
+       aboimaBullets.forEach((o)=>{ 
 
+        o.style.bottom = (o.offsetTop - speedBullet)  + 'px';
+        console.log(o.offsetTop);
+        
       
-     
+     //level Five check
        if((levelFive.offsetTop+levelFive.offsetHeight) == o.offsetTop){
 
         levelFive.querySelectorAll('.bugActive').forEach( el => {
         
-          if ((levelFive.offsetLeft + el.offsetLeft + el.offsetWidth >= o.offsetLeft) && (levelFive.offsetLeft + el.offsetLeft<= o.offsetLeft + o.offsetWidth)){         
+          if ((levelFive.offsetLeft + el.offsetLeft + el.offsetWidth >= o.offsetLeft) && (levelFive.offsetLeft + el.offsetLeft<= o.offsetLeft + o.offsetWidth)){ 
+          if(el.classList=='fas fa-spider bugActive bugUltra'){
+            el.classList.remove('bugUltra');
+            o.remove();
+          }else{        
               o.remove();
               el.remove();
-                    
+              var cloned = el.cloneNode(true);
+              playingField.append(cloned);
+
+              cloned.style.left = (playingField.offsetWidth) + 'px';
+              
+              // el.remove();
+             }     
             }
         });     
 
       };
-
-
- //ЭТА ПРОВЕРКА НЕ РАБОТАЕТ!!!
-      if((levelFour.offsetTop+levelFour.offsetHeight) == o.offsetTop){    
-
+ 
+ //level Four check
+      if((levelFour.offsetTop+levelFour.offsetHeight) + 10 == o.offsetTop){    
+        
         levelFour.querySelectorAll('.bugActive').forEach( el => {
         
           if ((levelFour.offsetLeft + el.offsetLeft + el.offsetWidth >= o.offsetLeft) && (levelFour.offsetLeft + el.offsetLeft<= o.offsetLeft + o.offsetWidth)){
-            alert()
+            // alert()
+              o.remove();
+              el.remove();                    
+            }
+        });
+      };
+
+  //level Three check    
+      if((levelThree.offsetTop+levelThree.offsetHeight) == o.offsetTop){    
+        
+        levelThree.querySelectorAll('.bugActive').forEach( el => {
+        
+          if ((levelThree.offsetLeft + el.offsetLeft + el.offsetWidth >= o.offsetLeft) && (levelThree.offsetLeft + el.offsetLeft<= o.offsetLeft + o.offsetWidth)){
+
               o.remove();
               el.remove();
                     
             }
-        });     
-
+        });
       };
+
+    //level Two check 
+      if((levelTwo.offsetTop+levelTwo.offsetHeight) == o.offsetTop){    
+        
+        levelTwo.querySelectorAll('.bugActive').forEach( el => {
+        
+          if ((levelTwo.offsetLeft + el.offsetLeft + el.offsetWidth >= o.offsetLeft) && (levelTwo.offsetLeft + el.offsetLeft<= o.offsetLeft + o.offsetWidth)){
+                      
+              o.remove();
+              el.remove();
+                    
+            }
+        });
+      };
+
+    //level One check 
+      if((levelOne.offsetTop+levelOne.offsetHeight) + 10 == o.offsetTop){    
+        
+        levelOne.querySelectorAll('.bugActive').forEach( el => {
+        
+          if ((levelOne.offsetLeft + el.offsetLeft + el.offsetWidth >= o.offsetLeft) && (levelOne.offsetLeft + el.offsetLeft<= o.offsetLeft + o.offsetWidth)){                 
+              o.remove();
+              el.remove();
+                    
+            }
+        });
+      };  
 
       });
 
@@ -302,7 +336,7 @@
       if (playingField.offsetWidth < (levelFour.offsetLeft + levelFour.offsetWidth)) {
         direction4 = 1;
       }
-       //Level5
+      //Level5
        if (playingField.offsetWidth < (levelFive.offsetLeft + levelFive.offsetWidth)) {
         direction5 = -1;
         }
@@ -327,6 +361,7 @@
       window.rafTimer = setTimeout(func, 1000 / (window.maxFPS || 60));
     };
 
+
     // game loop
     var last = performance.now(),
         step = 1 / 60, // обновление должно вызываться 60 раз в секунду
@@ -343,11 +378,17 @@
       last = now;
 
       render();
-      requestAnimationFrame(frame);
+      requestAnimationFrame(frame); 
     }
 
-      requestAnimationFrame(frame);   
-
+      
+      // requestAnimationFrame(frame); 
+     
+   
+     function myStopFunction() {
+     clearTimeout(window.rafTimer);
+    }
+     myStopFunction()
 
   
   }());
