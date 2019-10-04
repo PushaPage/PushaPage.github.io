@@ -124,6 +124,7 @@
     
      
     var step = 10;
+    console.log(levelThree.offsetTop + levelThree.offsetHeight)
       
       
     
@@ -232,6 +233,7 @@
           }else{        
               o.remove();
               el.remove();
+              levelFive.style.top = (levelFive.offsetTop + 6) + 'px';
               var cloned = el.cloneNode(true);
               playingField.append(cloned);
 
@@ -258,7 +260,7 @@
       };
 
   //level Three check    
-      if((levelThree.offsetTop+levelThree.offsetHeight) == o.offsetTop){    
+      if((levelThree.offsetTop + levelThree.offsetHeight) -10 == o.offsetTop){   
         
         levelThree.querySelectorAll('.bugActive').forEach( el => {
         
