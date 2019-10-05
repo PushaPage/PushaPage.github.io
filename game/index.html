@@ -121,6 +121,7 @@
     var android = document.getElementById('android');
     var bugActive = document.querySelectorAll('.bugActive');
     var aboimaBullets = [];
+    var goPlay = true;
     
      
     var step = 10;
@@ -141,7 +142,7 @@
     var direction5 = 1;
     var directionBullet = 1;  
     var stepAndroid = 10;
-    var speedBullet = 1;
+    var speedBullet = 5;
 
       document.addEventListener('keydown', function(event){  
         let offsetAndroid = android.offsetLeft;
@@ -189,13 +190,13 @@
 
       switch (target) {
          case 'play':          
-               requestAnimationFrame(frame);                   
+               goPlay = false;                   
             break;
          case 'shot':
                createBullet ();               
             break; 
          case 'pause':
-               myStopFunction()              
+               goPlay = true;              
             break;        
       };
     });
@@ -208,101 +209,75 @@
       aboimaBullets.push(bullet);
    };
 
+   // подсчет длинны гипотенузы по теореме Пифагора
+  function _distance(a, b) {
+    return Math.sqrt(
+      Math.pow(Math.abs(a.left - b.left), 2) + 
+      Math.pow(Math.abs(a.top  - b.top ), 2)
+    );
+  }
+
+  function collision (el,bul) {
+ 
+      el.getBoundingClientRect();
+      bul.getBoundingClientRect(); 
+
+  var radius1 = (el.offsetHeight / 2);
+  var radius2 = (bul.offsetHeight / 2);
+  
+  // растояние между центрами обьектов
+  var distance = _distance(
+    _center(el), 
+    _center(bul)
+  );
+   
+   if (distance < (radius1 + radius2)) {
+     el.remove();
+     bul.remove();
+    // alert('Столкновение! Спасайтесь кто может!');
+  }  
+  
+  };
+
+  // функция которая вычисляет координаты центра блока
+  function _center (el){
+  var rect = el.getBoundingClientRect();
+  
+  // координаты относительно документа
+  // (pageYOffset и pageXOffset это размер прокрутки, если она есть)
+  var y = (rect.top + pageYOffset);
+  var x = (rect.left + pageXOffset);
+
+  return {
+    top: y + (el.offsetHeight / 2), // y + половина высоты
+    left: x + (el.offsetWidth / 2)  // x + половина ширины
+    };
+  }
 
 
 
 
 
-    var update = (step) => {    
+    var update = (step) => {
+
+      if(!goPlay){    
       
        aboimaBullets.forEach((o)=>{ 
 
         o.style.bottom = (o.offsetTop - speedBullet)  + 'px';
-        console.log(o.offsetTop);
-        
+
+            console.log(o.offsetTop);        
       
-     //level Five check
-       if((levelFive.offsetTop+levelFive.offsetHeight) == o.offsetTop){
 
-        levelFive.querySelectorAll('.bugActive').forEach( el => {
-        
-          if ((levelFive.offsetLeft + el.offsetLeft + el.offsetWidth >= o.offsetLeft) && (levelFive.offsetLeft + el.offsetLeft<= o.offsetLeft + o.offsetWidth)){ 
-          if(el.classList=='fas fa-spider bugActive bugUltra'){
-            el.classList.remove('bugUltra');
-            o.remove();
-          }else{        
-              o.remove();
-              el.remove();
-              levelFive.style.top = (levelFive.offsetTop + 6) + 'px';
-              var cloned = el.cloneNode(true);
-              playingField.append(cloned);
-
-              cloned.style.left = (playingField.offsetWidth) + 'px';
-              
-              // el.remove();
-             }     
-            }
-        });     
-
-      };
- 
- //level Four check
-      if((levelFour.offsetTop+levelFour.offsetHeight) + 10 == o.offsetTop){    
-        
-        levelFour.querySelectorAll('.bugActive').forEach( el => {
-        
-          if ((levelFour.offsetLeft + el.offsetLeft + el.offsetWidth >= o.offsetLeft) && (levelFour.offsetLeft + el.offsetLeft<= o.offsetLeft + o.offsetWidth)){
-            // alert()
-              o.remove();
-              el.remove();                    
-            }
+        playingField.querySelectorAll('.bugActive').forEach( el => {
+              collision(el,o);        
+         
         });
-      };
-
-  //level Three check    
-      if((levelThree.offsetTop + levelThree.offsetHeight) -10 == o.offsetTop){   
-        
-        levelThree.querySelectorAll('.bugActive').forEach( el => {
-        
-          if ((levelThree.offsetLeft + el.offsetLeft + el.offsetWidth >= o.offsetLeft) && (levelThree.offsetLeft + el.offsetLeft<= o.offsetLeft + o.offsetWidth)){
-
-              o.remove();
-              el.remove();
-                    
-            }
-        });
-      };
-
-    //level Two check 
-      if((levelTwo.offsetTop+levelTwo.offsetHeight) == o.offsetTop){    
-        
-        levelTwo.querySelectorAll('.bugActive').forEach( el => {
-        
-          if ((levelTwo.offsetLeft + el.offsetLeft + el.offsetWidth >= o.offsetLeft) && (levelTwo.offsetLeft + el.offsetLeft<= o.offsetLeft + o.offsetWidth)){
-                      
-              o.remove();
-              el.remove();
-                    
-            }
-        });
-      };
-
-    //level One check 
-      if((levelOne.offsetTop+levelOne.offsetHeight) + 10 == o.offsetTop){    
-        
-        levelOne.querySelectorAll('.bugActive').forEach( el => {
-        
-          if ((levelOne.offsetLeft + el.offsetLeft + el.offsetWidth >= o.offsetLeft) && (levelOne.offsetLeft + el.offsetLeft<= o.offsetLeft + o.offsetWidth)){                 
-              o.remove();
-              el.remove();
-                    
-            }
-        });
-      };  
+       
 
       });
 
-      // ЕСЛИ Я УВЕЛИЧИВАЮ СКОРОСТЬ ДВИЖЕНИЯ ПУЛИ ЛЕТЯТ МИМО
+      
       offsetX1 += 2 * direction1;
       offsetX2 -= 2 * direction2;
       offsetX3 += 2 * direction3;
@@ -346,7 +321,7 @@
         direction5 = 1;
       }
     
-
+      }
     };
 
     var render = () => {
@@ -370,6 +345,7 @@
         dt = 0,
         now;
 
+
     var frame = () => {
       now = performance.now();
       dt += (now - last) / 1000;
@@ -382,17 +358,9 @@
       render();
       requestAnimationFrame(frame); 
     }
-
       
-      // requestAnimationFrame(frame); 
-     
-   
-     function myStopFunction() {
-     clearTimeout(window.rafTimer);
-    }
-     myStopFunction()
+      requestAnimationFrame(frame); 
 
-  
   }());
  
   
