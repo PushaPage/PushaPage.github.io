@@ -235,6 +235,9 @@
     var stepAndroid = 10;
     var speedBullet = 5;
     var speedBul = 6;
+
+    var bulletBottomStartPos;
+    
     
 
       document.addEventListener('keydown', function(event){  
@@ -299,7 +302,8 @@
       bullet.classList = 'bullet fab fa-ubuntu';            
       bullet.style.left = (android.offsetLeft  - 25) + 'px';
       playingField.append(bullet);      
-      clipBullets.push(bullet);
+      clipBullets.push({bullet: bullet, pos: bullet.offsetTop, newPos: bullet.offsetTop});
+      // bulletBottomStartPos = bullet.offsetTop
    };
    
    
@@ -397,21 +401,22 @@
 
     var update = (step) => {      
       
-      
        clipBullets.forEach((o)=>{
 
 
-        o.style.bottom = (o.offsetTop - speedBullet)  + 'px';
+        // o.style.bottom = (o.offsetTop - speedBullet)  + 'px';
+
+        o.bullet.style.bottom = (o.pos - (o.newPos -= 10)) + 'px'
                    
       
-       if(o.offsetTop == -5 || o.offsetTop == -10){
-            o.remove()
+       if(o.bullet.offsetTop == -5 || o.bullet.offsetTop == -10){
+            o.bullet.remove()
        }
        
         
         playingField.querySelectorAll('i').forEach( el => {
           
-              collision(el,o);        
+              collision(el,o.bullet);        
          
         });
         
