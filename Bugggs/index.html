@@ -356,7 +356,7 @@
         });
      }
      if(el.classList == 'far fa-bug bugOrdinary bugManyFaces'){
-        RandomBugName(el);
+        // RandomBugName(el);
         // el.classlist ='fas fa-bug bugOrdinary';
 
         // el.classList = randomClass;
@@ -407,10 +407,12 @@
         // o.style.bottom = (o.offsetTop - speedBullet)  + 'px';
 
         o.bullet.style.bottom = (o.pos - (o.newPos -= 10)) + 'px'
-                   
+        console.log(1)         
       
-       if(o.bullet.offsetTop == -5 || o.bullet.offsetTop == -10){
+       if(o.newPos < 0){
             o.bullet.remove()
+            console.log(123)
+            clipBullets.shift(o)
        }
        
         
