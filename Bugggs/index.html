@@ -112,7 +112,7 @@
 
 
     var playingField = document.getElementById('playingField');
-    var rowOne = document.getElementById('rowOne');
+    // var rowOne = document.getElementById('rowOne');
     
 
     // var levelTwo = document.getElementById('levelTwo');
@@ -123,35 +123,86 @@
     // var bugActive = document.querySelectorAll('.bugActive');
     
     var clipBullets = [];
-    // var goPlay = true;
+    var bugArray = []
+    var goPlay = true;
+    var bugLive = true;
      var bugs = [];
 
-    var selectClass = [
-        'fas fa-spider bugActive',
-        'fal fa-bug bugActive',
-        'fas fa-bug bugActive',
+     function RandomBugName (bug){
+        let selectClass = [
+          'fas fa-bug bugOrdinary',
+          'fas fa-spider bugOrdinary bugArmored',
+          'fal fa-bug bugOrdinary bugArmoredManyFaces',//оборотень бронерованный        
+          'far fa-bug bugOrdinary bugManyFaces',//оборотень обычный
+          'fad fa-bug bugOrdinary bugOrdinary',//опускают ряд на 10px
+        ]; 
+        let randomClass = selectClass[Math.floor(Math.random()*selectClass.length)];
+        bug.classList = randomClass; 
+     };
+     function BugNoArmored (bug) {
+        bug.classList = 'fal fa-bug bugOrdinary bugArmoredManyFaces';
+        // bug.classList.remove('bugArmoredManyFaces');
+
+     };
+     function BugRemove (bug) {       
+        bug.remove();      
+       if(!bugLive) return false;
+        // bug.classList.remove('bugArmoredManyFaces');
+     };
+
+      // function notDead() {                 
+      //   bugLive = false;
+      // }     
+
+
+      var selectClass = [
+        'fas fa-bug bugOrdinary',
+        'fas fa-spider bugOrdinary bugArmored',//бронерованный
+        'fal fa-bug bugOrdinary bugArmoredManyFaces',//оборотень бронерованный        
+        'far fa-bug bugOrdinary bugManyFaces',//оборотень обычный
+        'fad fa-bug bugOrdinary bugRowDown',//опускают ряд на 10px
+        'fad fa-spider bugOrdinary bugRowDown2',//опускают ряд на 20px
     ]; 
-    var randomClass = selectClass[Math.floor(Math.random()*selectClass.length)];  
+   
+   var randomClass = selectClass[Math.floor(Math.random()*selectClass.length)]; 
 
 
     function createBugs() {
-          for(let i = 1; i<=11; i++){
+        for(let i = 1; i<=11; i++){
            el = document.createElement('i');
-           el.classList = randomClass;
+           el.classList = 'fas fa-spider bugOrdinary bugArmored';
            el.style.left = 200 + (60 * i) + 'px';
-           el.style.top = 0;
-           rowOne.appendChild(el);
+           el.style.top = '50px';
+           playingField.appendChild(el);
            bugs.push({el});
-        }                                            
+        } 
+        for(let i = 1; i<=11; i++){
+           el = document.createElement('i');
+           el.classList = 'fas fa-bug bugOrdinary';
+           el.style.left = 200 + (60 * i) + 'px';
+           el.style.top = '120px';
+           playingField.appendChild(el);           
+        }                                           
       }; 
       createBugs();
 
 
 
-      var rowOneBugs = document.querySelectorAll('.bugActive');
-               
-      console.log(randomClass)
-      var rowOneBug = rowOne.querySelector('.bugActive');
+      var rowOneBugs = playingField.querySelectorAll('i');
+          // rowOneBugs[0].classList = randomClass;
+          // rowOneBugs[1].classList = 'fas fa-bug bugOrdinary';
+          // rowOneBugs[2].classList = randomClass;
+          // rowOneBugs[3].classList = 'fas fa-bug bugOrdinary';
+          // rowOneBugs[4].classList = randomClass;
+          // rowOneBugs[5].classList = 'fas fa-bug bugOrdinary';
+          // rowOneBugs[6].classList = 'fas fa-bug bugOrdinary';
+          // rowOneBugs[7].classList = randomClass;
+          // rowOneBugs[8].classList = 'fas fa-bug bugOrdinary';
+          // rowOneBugs[9].classList = randomClass;
+          // rowOneBugs[10].classList = randomClass;
+                   
+      console.log(bugArray)
+      
   
      
     var step = 10;
@@ -183,6 +234,7 @@
     var directionBullet = 1;  
     var stepAndroid = 10;
     var speedBullet = 5;
+    var speedBul = 6;
     
 
       document.addEventListener('keydown', function(event){  
@@ -246,10 +298,10 @@
       let bullet = document.createElement('div');      
       bullet.classList = 'bullet fab fa-ubuntu';            
       bullet.style.left = (android.offsetLeft  - 25) + 'px';
-      playingField.append(bullet);
-      
+      playingField.append(bullet);      
       clipBullets.push(bullet);
    };
+   
    
 
    // подсчет длинны гипотенузы по теореме Пифагора
@@ -276,8 +328,49 @@
    
    if (distance < (radius1 + radius2)) {
     // alert('Столкновение! Спасайтесь кто может!');
-     el.remove();
-     bul.remove();
+     if(el.classList == 'fas fa-spider bugOrdinary bugArmored'){ 
+        bugLive = false;
+        // BugRemove();
+        
+        setTimeout(el.classList = 'fas fa-spider bugOrdinary', 1000); 
+             
+        // el.classList = 'fas fa-spider bugOrdinary';
+
+
+     }
+     if(el.classList == 'fad fa-bug bugOrdinary bugRowDown'){
+        rowOneBugs.forEach((el)=>{
+
+          el.style.top = (el.offsetTop + 10) + 'px';
+
+        });
+     }
+     if(el.classList == 'fad fa-spider bugOrdinary bugRowDown2'){
+        rowOneBugs.forEach((el)=>{
+          el.style.top = (el.offsetTop + 20) + 'px';
+
+        });
+     }
+     if(el.classList == 'far fa-bug bugOrdinary bugManyFaces'){
+        RandomBugName(el);
+        // el.classlist ='fas fa-bug bugOrdinary';
+
+        // el.classList = randomClass;
+     }else{
+      BugRemove (el);
+      bul.remove();
+     }
+      
+     
+      
+     
+     
+
+   
+     //  (cloned.offsetLeft + directionBullet) + 'px';
+    
+
+     
     
   }  
   
@@ -302,24 +395,21 @@
 
 
 
-    var update = (step) => {
-
-       
+    var update = (step) => {      
       
       
        clipBullets.forEach((o)=>{
 
 
         o.style.bottom = (o.offsetTop - speedBullet)  + 'px';
-
                    
       
-       if(o.offsetTop == -10){
+       if(o.offsetTop == -5 || o.offsetTop == -10){
             o.remove()
        }
        
         
-        rowOne.querySelectorAll('.bugActive').forEach( el => {
+        playingField.querySelectorAll('i').forEach( el => {
           
               collision(el,o);        
          
@@ -344,7 +434,8 @@
       // offsetX4 -= 2 * direction4;
       // offsetX5 += 2 * direction5;
       speedBullet -= 6 * directionBullet;
-      rowOne.querySelectorAll('.bugActive').forEach( (el) => {
+      speedBul-= 6 * directionBullet;
+      playingField.querySelectorAll('i').forEach( (el) => {
             if (playingField.offsetWidth < (el.offsetLeft + el.offsetWidth)) {
                  direction1 = -1;
             } 
