@@ -235,6 +235,9 @@
     var stepAndroid = 10;
     var speedBullet = 5;
     var speedBul = 6;
+
+    var bulletBottomStartPos;
+    
     
 
       document.addEventListener('keydown', function(event){  
@@ -299,7 +302,8 @@
       bullet.classList = 'bullet fab fa-ubuntu';            
       bullet.style.left = (android.offsetLeft  - 25) + 'px';
       playingField.append(bullet);      
-      clipBullets.push(bullet);
+      clipBullets.push({bullet: bullet, pos: bullet.offsetTop, newPos: bullet.offsetTop});
+      // bulletBottomStartPos = bullet.offsetTop
    };
    
    
@@ -352,7 +356,7 @@
         });
      }
      if(el.classList == 'far fa-bug bugOrdinary bugManyFaces'){
-        RandomBugName(el);
+        // RandomBugName(el);
         // el.classlist ='fas fa-bug bugOrdinary';
 
         // el.classList = randomClass;
@@ -397,21 +401,24 @@
 
     var update = (step) => {      
       
-      
        clipBullets.forEach((o)=>{
 
 
-        o.style.bottom = (o.offsetTop - speedBullet)  + 'px';
-                   
+        // o.style.bottom = (o.offsetTop - speedBullet)  + 'px';
+
+        o.bullet.style.bottom = (o.pos - (o.newPos -= 10)) + 'px'
+        console.log(1)         
       
-       if(o.offsetTop == -5 || o.offsetTop == -10){
-            o.remove()
+       if(o.newPos < 0){
+            o.bullet.remove()
+            console.log(123)
+            clipBullets.shift(o)
        }
        
         
         playingField.querySelectorAll('i').forEach( el => {
           
-              collision(el,o);        
+              collision(el,o.bullet);        
          
         });
         
