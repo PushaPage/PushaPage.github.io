@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Tick-tack-toe</title>
   <link rel="shortcut icon" href="img/xo.png" type="image/png"> 
    <!-- Bootstrap -->
@@ -12,35 +12,47 @@
   <link rel="stylesheet" href="css/styles.css"> 
 </head>
 <body>
-  <div id="container">
-    <h1>Tic-tac-toe</h1>
-     <table id="TickTackToe">
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
-    <p></p>    
-    <button id="playAgain" type="button" class="btn btn-outline-light">Play again</button>      
-  </div>  
-  <script type="text/javascript">
+  <div class="container">
+    <div id="container" class="col-12" >
+      <h1>Tic-tac-toe</h1>
+       <table id="TickTackToe">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <p></p>    
+      <button id="playAgain" type="button" class="btn btn-outline-light">
+        <span>P</span>
+        <span>l</span>
+        <span>a</span>
+        <span>y</span>
+        <span>a</span>       
+        <span>g</span>
+        <span>a</span>
+        <span>in</span>        
+      </button>      
+    </div>  
+  </div>
+  <script type="text/javascript">  
     ;(function(){
       var allcells = document.querySelectorAll('#TickTackToe td'),
           p = document.querySelector('p'),          
           stroke = 0,
           x = 'x',
-          o = 0;     
+          o = 0,
+          winMatch;     
 
       TickTackToe.onclick = function (event) {       
         if(event.target.tagName == 'TD'){
@@ -122,9 +134,14 @@
          if(allcells[2].innerHTML == '0' && allcells[4].innerHTML == '0' && allcells[6].innerHTML == '0'){
             TickTackToe.classList.add('crossedAngleRight');          
             whoWon (o);            
-          }else if (allcells[0].innerHTML != '' && allcells[1].innerHTML != '' && allcells[2].innerHTML != '' && allcells[3].innerHTML != '' && allcells[4].innerHTML != '' && allcells[5].innerHTML != '' && allcells[6].innerHTML != '' && allcells[7].innerHTML != '' && allcells[8].innerHTML != ''){
+          } else if (allcells[0].innerHTML != '' && allcells[1].innerHTML != '' && allcells[2].innerHTML != '' && allcells[3].innerHTML != '' && allcells[4].innerHTML != '' && allcells[5].innerHTML != '' && allcells[6].innerHTML != '' && allcells[7].innerHTML != '' && allcells[8].innerHTML != ''){
+            p.innerHTML = 'No one\'s won!';          
+            p.style.left = '0';
             playAgain.style.opacity = '1';
-            playAgain.style.transition = 'opacity .5s ease-out .5s';
+            playAgain.style.transition = 'opacity .5s ease-out .5s';              
+            if(!winMatch) {
+              notMatch();  
+            }            
           }
         };
 
@@ -134,8 +151,12 @@
           playAgain.style.opacity = '1';
           playAgain.style.transition = 'opacity .5s ease-out .5s';
           TickTackToe.querySelectorAll('td').forEach( el => {
-          el.style.pointerEvents = 'none';                           
+          el.style.pointerEvents = 'none';                                  
         });
+          winMatch = true;  
+      }
+
+      function notMatch() {                 
       }     
 
       playAgain.onclick = function () {         
@@ -146,7 +167,7 @@
           TickTackToe.classList = ''; 
           p.style.left = '';
           playAgain.style.opacity = '0';
-          playAgain.style.transition = 'none';        
+          playAgain.style.transition = 'none';                 
       };    
     }());
   </script>

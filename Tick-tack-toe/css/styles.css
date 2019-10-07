@@ -1,10 +1,12 @@
- body{
+    body{
       background: rgb(209, 209, 214)
+    }
+    .container{
+      padding: 0 105px;
     }
     #container{
       font-family: 'Mansalva', cursive;
-      margin: 40px auto;
-      width: 930px;
+      margin: 40px auto;      
       height: 650px;
       position: relative;
       background: #fff;
@@ -55,49 +57,49 @@
       position: absolute;                
     }
     [class^=crossedX]:before{
-      height: 5px;
-      left: 9px;
-      right: 9px;      
+      height: 2%;
+      left: 1%;
+      right: 1%;      
       background: linear-gradient(to left,transparent, rgb(242, 242, 247)10%, rgb(242, 242, 247)90%, transparent);      
     }
     .crossedX1:before{            
-      top: 54px;
+      top: 16%;
     }
     .crossedX2:before{          
-      top: 159px;
+      top: 50%;
     }
     .crossedX3:before{           
-      top: 264px;
+      top: 83%;
     }
     [class^=crossedY]:before{
-      width: 5px;
-      top: 9px;
-      bottom: 9px;      
+      width: 2%;
+      top: 1%;
+      bottom: 1%;      
       background: linear-gradient(to top,transparent, rgb(242, 242, 247)10%, rgb(242, 242, 247)90%, transparent);      
     }
     .crossedY1:before{
-      left: 48px;
+      left: 15%;
     }
     .crossedY2:before{
-      left: 160px;
+      left: 48.5%;
     }
     .crossedY3:before{
-      left: 273px;
+      left: 82.6%;
     }
     .crossedAngleLeft:before{
-      width: 5px;
-      left: 43px;
-      top: 50px;
-      bottom: -132px;
+      width: 1.5%;
+      left: 13.1%;
+      top: 16%;
+      bottom: -42%;
       transform-origin: top;
       transform: rotate(-47deg) translateY(-40px);   
       background: linear-gradient(to top,transparent, rgb(242, 242, 247)10%, rgb(242, 242, 247)90%, transparent); 
     }
     .crossedAngleRight:before{
-      width: 5px;
-      left: 247px;
-      top: 80px;
-      bottom: -181px;
+      width: 1.5%;
+      left: 75%;
+      top: 25.4%;
+      bottom: -59.5%;
       transform-origin: top;
       transform: rotate(47deg) translateY(-90px);
       background: linear-gradient(to top,transparent, rgb(242, 242, 247)10%, rgb(242, 242, 247)90%, transparent); 
@@ -117,24 +119,23 @@
     tr:nth-child(2) td:nth-child(1):after{
       content:"";      
       position: absolute;
-      top: -97px;
-      bottom: -102px;
-      right: -5px;
+      top: -93%;
+      bottom: -97%;
+      right: -5%;
       width: 10px;
       background: linear-gradient(to top,transparent, rgb(209, 209, 214)10%, rgb(209, 209, 214)80%, transparent);
       transform-origin: center;
       transform: rotate(-2deg);     
     }
     tr:nth-child(2) td:nth-child(2){
-      width: 120px;
-            
+      width: 120px;            
     }
     tr:nth-child(2) td:nth-child(2):before{
       content:"";
       position: absolute;
-      left: -127px;
-      right: -125px;
-      top: -12px;
+      left: -106%;
+      right: -104%;
+      top: -11%;
       height: 10px;
       background: linear-gradient(to right,transparent, rgb(209, 209, 214)10%,rgb(209, 209, 214)58%,transparent 64%,rgb(209, 209, 214)75%, rgb(209, 209, 214)80%, transparent);
       transform-origin: center;
@@ -143,9 +144,9 @@
     tr:nth-child(2) td:nth-child(2):after{
       content:"";
       position: absolute;
-      left: -158px;
-      right: -99px;
-      bottom: -12px;
+      left: -132%;
+      right: -82%;
+      bottom: -11%;
       height: 9px;
       background: linear-gradient(to left,transparent, rgb(242, 242, 247)10%,rgb(242, 242, 247)30%,transparent 50%,rgb(242, 242, 247)60%, rgb(242, 242, 247)80%, transparent);
       transform-origin: center;
@@ -154,27 +155,32 @@
     tr:nth-child(2) td:nth-child(3):after{
       content:"";
       position: absolute;
-      top: -111px;
-      bottom: -132px;
-      left: -12px;
+      top: -106%;
+      bottom: -126%;
+      left: -11%;
       width: 8px;
       background: linear-gradient(to bottom,transparent, rgb(242, 242, 247)10%, rgb(242, 242, 247)80%, transparent);
       transform-origin: center;
       transform: rotate(5deg);
     } 
-    #playAgain{
+    #playAgain{      
       position: absolute;
       font-size: 40px;      
       padding: 5px 45px 5px 0;
-      letter-spacing: 2px;
+      letter-spacing: -3px;
       font-weight: 500;
       top: 50%;
-      right: 0;color: rgb(242, 242, 247);
+      right: 0;
+      color: rgb(242, 242, 247);
       border: none;
       border-radius: 0;
       opacity: 0;
-      transform: translateY(-50%);      
+      transform: translate(0,-50%);      
       overflow: hidden;
+    }
+    
+    #playAgain span:nth-child(5){
+      padding-left: 6px; 
     }
     #playAgain:after{
       content: "?";
@@ -185,6 +191,9 @@
       background: none;
       transition: top linear .3s, opacity ease .2s;
     }
+    #playAgain span:nth-child(8){
+      letter-spacing: 1px;
+    } 
     #playAgain:before{
       content: "!";
       position: absolute;
@@ -194,18 +203,158 @@
       opacity: 0;
       transition: top linear .3s, opacity ease .2s;
     }
-    #playAgain:hover,#playAgain:active{
+    #playAgain:hover,#playAgain:active,#playAgain:focus{
        color: rgb(242, 242, 247);
        text-shadow: 0 5px 5px rgba(242, 242, 247, .5), 0 0 5px rgba(242, 242, 247, .4);
        background: none;
        outline: none;
        box-shadow: none;     
     }
-    #playAgain:hover:after{
+    #playAgain:hover:after,#playAgain:active:after,#playAgain:focus:after{
       top: 100%;
       opacity: 0;
     }
-    #playAgain:hover:before{
+    #playAgain:hover:before,#playAgain:active:before,#playAgain:focus:before{
       top: 3%;
       opacity: 1;
+    }
+    @media (max-width: 1200px){
+      body .container{
+      padding: 0 5px;
+    }
+    }
+
+    @media (max-width: 991px){
+     #container #playAgain{
+      width: 153px;
+      }
+     .container #playAgain:after{
+        top: 50%;
+        right: 20px;
+     }        
+     .container #playAgain:before{
+        right: 23px;
+     }
+     .container #playAgain:hover:before,#playAgain:active:before,#playAgain:focus:before{
+      top: 46%;      
+    }    
+    }
+
+    @media (max-width: 767px){
+    .container #TickTackToe{      
+      margin: 40px auto 0 80px;      
+    }
+    .container h1{     
+     font-size: 45px;
+     text-align: left;
+     padding: 9px 0 9px 25px; 
+     background: linear-gradient(to right, rgb(242, 242, 247) 30%, transparent 80%);
+    }
+    .container p{
+      margin: 45px 0 20px 0;
+      font-size: 45px;
+      text-align: left;
+      padding: 9px 0 9px 25px;                  
+    }    
+    #container #playAgain:after{
+        top: 50%;
+        right: 17px;
+    }
+    .container #playAgain:before{
+        right: 19px;
+     } 
+    .container #container {
+      height: 575px;
+    }
+
+    #TickTackToe td {
+        width: 84px;
+        height: 84px;
+        font-size: 45px;
+     } 
+     #TickTackToe tr:nth-child(2) td:nth-child(2){
+      width: 96px;            
+    }    
+    }
+
+    @media (max-width: 515px){
+    #container #playAgain{
+      width: 60px;
+      padding: 0px;
+      top: 44%;
+      right: 4%;
+    }
+    #container #playAgain span{     
+      display: block;
+      font-size: 30px;         
+    }
+    #container #playAgain span:nth-child(1){     
+      padding: 0 0 0px 0px;
+      line-height: 43px;
+      height: 36px; 
+    }
+    #container #playAgain span:nth-child(2){     
+      padding: 0 0 0px 24px;
+      line-height: 21px;
+      height: 19px;  
+    }
+    #container #playAgain span:nth-child(3){     
+      padding: 0 11px 0px 0;
+      height: 20px;
+      line-height: 16px; 
+    }
+    #container #playAgain span:nth-child(4){     
+      padding: 2px 0px 0 5px;
+      line-height: 20px;
+      letter-spacing: 19px;
+      height: 14px;
+    }
+    #container #playAgain span:nth-child(5){     
+      padding: 2px 0px 0 36px;
+      line-height: 26px;
+      letter-spacing: 19px;
+      height: 14px;
+    }
+    #container #playAgain span:nth-child(6){     
+      padding: 5px 10px 0 0px;
+      line-height: 33px;
+    }
+    #container #playAgain span:nth-child(7){
+      text-align: left;
+      padding: 0 0px 0 4px;
+      height: 26px;
+      line-height: 21px;    
+    }
+    #container #playAgain span:nth-child(8){     
+      line-height: 20px;     
+      letter-spacing: 7px;
+      text-align: left;
+    }
+    #container #playAgain:after{     
+      right: 6px;
+      top: auto;
+      bottom: -8%;  
+    }
+    #container #playAgain:hover:after,#playAgain:active:after,#playAgain:focus:after{
+      top: auto;
+      bottom: -30%;
+      opacity: 0;
+    }
+    #container #playAgain:hover:before,#playAgain:active:before,#playAgain:focus:before{
+      top: auto;
+      bottom: -8%;
+
+    }
+    #container #playAgain:before{
+      right: 15px;
+      top: auto;
+      bottom: -100%;       
+    }   
+    }
+
+    @media (max-width: 425px){
+    body .container #TickTackToe{      
+      margin: 40px auto 0 30px;
+      transform: scale(.9);      
+    }
     }
