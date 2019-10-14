@@ -12,7 +12,8 @@
   <section id="wrapper">
     <div id="fieldWrap">
       <div id="playingField" class="fade-out">            
-        <span id="activeScreen">
+        <span id="activeScreen"> 
+        <!-- <div class="bullet fad fa-meteor"></div>  -->       
           <i id="android" class="fab fa-android"></i>
         </span>         
         <span id="arrowLeft" class="fas fa-arrow-alt-circle-left"></span>
@@ -222,8 +223,6 @@
         android.style.color = 'rgb(48, 209, 88)';   
                              
       }; 
-      createBugs();  
-
  
   
    function fadeInFadeOut (fadeIn,fadeOut){
@@ -278,9 +277,11 @@
       switch (target) {
 
         case 'play':
-              fadeInFadeOut (playingField,menuGame);                             
+              fadeInFadeOut (playingField,menuGame);
+              playingField.style.backgroundImage = 'url("img/bg-Field.jpg")';                             
               goPlay = false;
               levelOneFlag = false;
+              createBugs();                
               GameStart();   
             break;
         case 'option':
@@ -315,47 +316,53 @@
               soundOnOff();     
             break;       
         case 'levelTwo':
-              fadeInFadeOut (playingField,levelTwo);             
+              fadeInFadeOut (playingField,levelTwo);
+              playingField.style.backgroundImage = 'url("img/bg-Field2.jpg")';               
               goPlay = false;             
               levelTwoFlag = false;
+              createBugs();
               GameStart();
             break;
         case 'levelThree':
               fadeInFadeOut (playingField,levelThree);            
               goPlay = false;
               levelThreeFlag = false;
+              createBugs();
               GameStart();
             break;
         case 'levelFour':
-              fadeInFadeOut (playingField,levelFour);          
+              fadeInFadeOut (playingField,levelFour);                        
               goPlay = false;
               levelFourFlag = false;
+              createBugs();
               GameStart();
             break;
         case 'levelFive':
-              fadeInFadeOut (playingField,levelFive);         
+              fadeInFadeOut (playingField,levelFive);
+              playingField.style.backgroundImage = 'url("img/bg-Field3.jpg")';           
               goPlay = false;
               levelFiveFlag = false;
+              createBugs();
               GameStart();
             break; 
-        case 'winRestartGame':              
-              fadeInFadeOut (menuGame,gameWin);
+        case 'winRestartGame':
+              counterLevel = 1;  
               levelOneFlag = true;
               levelTwoFlag = true;
               levelThreeFlag = true;
               levelFourFlag = true;
-              levelFiveFlag = true;             
-              counterLevel = 1;                           
+              levelFiveFlag = true;              
+              fadeInFadeOut (menuGame,gameWin);                          
             break;                       
-        case 'restartGame':              
-              fadeInFadeOut (menuGame,GameOver);
+        case 'restartGame':
+              counterLevel = 1; 
               levelOneFlag = true;
               levelTwoFlag = true;
               levelThreeFlag = true;
               levelFourFlag =  true;
-              levelFiveFlag = true;            
-              counterLevel = 1;                           
-            break;
+              levelFiveFlag = true;               
+              fadeInFadeOut (menuGame,GameOver);                
+           break;
          
                  
       };
@@ -427,8 +434,8 @@
     function createBullet () {
       if(!goPlay){ 
         let bullet = document.createElement('div');      
-        bullet.classList = 'bullet fad fa-fingerprint';          
-        bullet.style.left = (android.offsetLeft  - 22) + 'px';
+        bullet.classList = 'bullet fad fa-meteor';          
+        bullet.style.left = (android.offsetLeft  - 10) + 'px';
         playingField.append(bullet); 
         clipBullets.push({bullet: bullet, pos: bullet.offsetTop, newPos: bullet.offsetTop}); 
       }       
@@ -821,6 +828,10 @@ function GameStart(){
        if(o.newPos < 0){
           o.bullet.remove();            
           clipBullets.shift(o);
+       }
+
+       if(o.bullet.getBoundingClientRect().top < activeScreen.getBoundingClientRect().top){
+          o.bullet.remove();
        }       
         
         playingField.querySelectorAll('i').forEach( el => {          
@@ -856,9 +867,7 @@ function GameStart(){
                 });
                  fadeInFadeOut(levelTwo,playingField);                 
                  goPlay = true;
-                 levelOneFlag = true;
-                 setTimeout(createBugs, 1000);
-
+                 levelOneFlag = true;             
               };
               if(counterLevel == 3){
                 playSoundGame (audioEffects[3]);   
@@ -867,8 +876,7 @@ function GameStart(){
                 });
                  fadeInFadeOut(levelThree,playingField);                 
                  goPlay = true;
-                 levelTwoFlag = true;
-                 setTimeout(createBugs, 1000);                                  
+                 levelTwoFlag = true;                                                
               };
               if(counterLevel == 4){
                 playSoundGame (audioEffects[3]);   
@@ -877,8 +885,7 @@ function GameStart(){
                 });
                  fadeInFadeOut(levelFour,playingField);                 
                  goPlay = true;               
-                 levelThreeFlag = true;
-                 setTimeout(createBugs, 1000);                                  
+                 levelThreeFlag = true;                                                  
               };
               if(counterLevel == 5){
                 playSoundGame (audioEffects[3]);   
@@ -887,8 +894,7 @@ function GameStart(){
                 });
                  fadeInFadeOut(levelFive,playingField);                 
                  goPlay = true;                
-                 levelFourFlag = true;
-                 setTimeout(createBugs, 1000);                                  
+                 levelFourFlag = true;                                                   
               };
               if(counterLevel == 6){
                 playSoundGame (audioEffects[5]);   
@@ -896,11 +902,9 @@ function GameStart(){
                   el.remove(); 
                 });
                  fadeInFadeOut(gameWin,playingField);                 
-                 goPlay = true;                 
-                 setTimeout(createBugs, 1000);                                  
+                 goPlay = true;              
               };          
-
-          }
+            };
       
 
       offsetXBug0 += offsetSpeedOne * direction1;

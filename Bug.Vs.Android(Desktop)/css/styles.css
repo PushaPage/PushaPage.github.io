@@ -22,7 +22,8 @@
     #wrapper{
       display: flex;   
       justify-content: center;
-      padding: 10px 0 15px;
+      overflow: hidden;
+      padding: 10px 0 30px;
     }
     #fieldWrap{     
       display: inline-block;
@@ -414,8 +415,10 @@
       border-bottom: 25px solid rgb(28, 28, 30);
       height: 950px;      
       position: relative;
-      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
-      background: url('../img/bg-Field.jpg') no-repeat 50%/cover;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);      
+      background-repeat: no-repeat;
+      background-position: 50%;
+      background-size: cover; 
     }
     #playingField:before{
       content: "";
@@ -483,12 +486,15 @@
     } 
     .bullet{
       position: absolute;
-      font-size: 27px;      
+      font-size: 27px;
+      margin-bottom: 100px;       
       width: 15px;
       height: 15px;
+      line-height: 15px;
       color: rgb(52, 199, 89);         
       bottom: 0;
-      transform: translateY(-100px);
+      transform-origin: center;
+      transform: rotate(137deg);      
       text-shadow: 0 4px 4px rgba(48, 209, 88, .4), 0 0 4px rgba(48, 209, 88, .2);     
     }
     #android{
