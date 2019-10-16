@@ -341,8 +341,9 @@
             rowFiveBugs[9].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2'; 
         };      
                              
-      };    
-   
+      }; 
+    
+    
   
    function fadeInFadeOut (fadeIn,fadeOut){
         fadeIn.classList.add('fade-in');
@@ -510,20 +511,22 @@
 
      
     document.addEventListener('keydown', function(event){ 
-             event.preventDefault(); 
+             
         if(!goPlay){ 
 
           let offsetAndroid = android.offsetLeft;
 
           if (event.key == 'ArrowLeft' || event.code =='KeyA'){
-            android.style.left = (offsetAndroid - stepAndroid) + 'px';
-            arrowRight.style.color = '';
-            arrowLeft.style.color = 'rgb(48, 209, 88)';
+                event.preventDefault(); 
+                android.style.left = (offsetAndroid - stepAndroid) + 'px';
+                arrowRight.style.color = '';
+                arrowLeft.style.color = 'rgb(48, 209, 88)';
           }
           else if (event.key == 'ArrowRight' || event.code =='KeyD'){
-            android.style.left =  (offsetAndroid + stepAndroid) + 'px';
-            arrowLeft.style.color = '';
-            arrowRight.style.color = 'rgb(48, 209, 88)';
+                event.preventDefault(); 
+                android.style.left =  (offsetAndroid + stepAndroid) + 'px';
+                arrowLeft.style.color = '';
+                arrowRight.style.color = 'rgb(48, 209, 88)';
           }
           if(android.offsetLeft < 30){
                 android.style.left =  (offsetAndroid + stepAndroid) - 10 + 'px';
@@ -536,21 +539,24 @@
         };  
     });
 
-    document.addEventListener('keyup', function(event){ 
-        
-        event.preventDefault();
+    document.addEventListener('keyup', function(event){   
+
 
         if (event.key == 'ArrowLeft'|| event.code =='KeyA'){
+            event.preventDefault(); 
             arrowLeft.style.color = '';   
         }
-        if (event.key == 'ArrowRight' || event.code =='KeyD'){          
+        if (event.key == 'ArrowRight' || event.code =='KeyD'){
+            event.preventDefault();           
             arrowRight.style.color = '';        
         } 
         if(event.code == 'ArrowDown' || event.code == 'ControlRight' || event.code == 'ControlLeft' || event.code =='KeyS'){
+              event.preventDefault(); 
               createBullet ();
               playSoundShot ();                
         } 
         if(event.code == 'Space'){
+           event.preventDefault();
            if(!goPlay){                 
             goPlay = true;
             buttonActive (buttonPause,buttonPlayIn);
@@ -560,12 +566,9 @@
            } 
         } 
         if(event.code == 'ShiftRight' || event.code == 'ShiftLeft'){
+           event.preventDefault();
            soundOnOff();
-        } 
-        if(event.code == 'Enter'){                 
-            goPlay = false;
-            buttonActive (buttonPlayIn,buttonPause);                          
-        } 
+        }       
     });
 
  
