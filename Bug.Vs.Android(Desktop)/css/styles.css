@@ -23,7 +23,7 @@
       display: flex;   
       justify-content: center;
       overflow: hidden;
-      padding: 0 0 20px 0;
+      padding: 5px 0 20px 0;
     }
     #fieldWrap{     
       display: inline-block;
@@ -246,7 +246,7 @@
     .button-pause,.button-play-in,#buttonSound{
       position: absolute;
       left: 8%;
-      bottom: -62px;      
+      bottom: -65px;      
       font-size: 30px;   
       height: 40px;
       width: 40px;        
@@ -356,7 +356,7 @@
       width: 300px;
       height: 300px;
       left: -9%;
-      font-size: 250px;
+      font-size: 260px;
       line-height: 300px;
       color: rgb(28, 28, 30);       
     }
@@ -366,7 +366,7 @@
       position: absolute;
       padding: 0;
       left: 50%;
-      bottom: 130px;          
+      bottom: 150px;          
       transform: translateX(-50%);
     }
     .android-dead{
@@ -514,7 +514,7 @@
       border: 1px solid rgb(28, 28, 30);
       border-top: 10px solid rgb(28, 28, 30);
       border-bottom: 23px solid rgb(28, 28, 30);
-      height: 730px;      
+      height: 800px;      
       position: relative;
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);      
       background-repeat: no-repeat;
