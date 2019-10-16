@@ -23,12 +23,12 @@
       display: flex;   
       justify-content: center;
       overflow: hidden;
-      padding: 10px 0 30px;
+      padding: 0 0 20px 0;
     }
     #fieldWrap{     
       display: inline-block;
       position: relative;
-      border: 22px solid  rgba(99, 99, 102, .7);
+      border: 18px solid  rgba(99, 99, 102, .7);
       border-radius: 25px;    
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);   
     }
@@ -55,41 +55,41 @@
       transform: translateX(-50%);
       text-align: center;     
       font-family: 'Righteous', cursive;     
-      font-size: 37px;
+      font-size: 30px;
       letter-spacing: 1px;
       cursor: default;          
     }
     .debug-icon{      
-      font-size: 30px;
+      font-size: 27px;
       line-height: 30px;
       color: rgb(28, 28, 30);  
     }
     .option-page{
       font-family: 'Righteous', cursive;
       color: rgb(28, 28, 30);
-      font-size: 27px;
-      letter-spacing: 2px;      
+      font-size: 20px;
+      letter-spacing: 1px;      
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
     }
     .option-page .option-game{
       display: flex;
       justify-content: flex-start;
-      padding: 0 0 0 75px;
+      padding: 0 0 0 55px;
       align-items: center;
       cursor: default;
-      width: 700px;
+      width: 450px;
     }
     .title-option{
       color: rgba(48, 209, 88, .9);
-      font-size: 30px;
+      font-size: 23px;
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
     }
     .option-arrow{
       display: block;
-      width: 35px;
+      width: 30px;
       color: rgba(48, 209, 88, .8);
-      font-size: 35px;
-      line-height: 30px;
+      font-size: 27px;
+      line-height: 20px;
       margin: 0 5px 0 10px;
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
     }
@@ -109,9 +109,10 @@
       position: relative;
       width: 100%;
       height: 100%;
-      padding: 0 0 0 40px;      
+      cursor: pointer;
+      padding: 0 ;      
       font-family: 'Righteous', cursive;      
-      font-size: 29px;
+      font-size: 25px;
     }
     .button-back:hover,.button-back:active,.button-back:focus{     
       color: rgba(48, 209, 88, .9);
@@ -123,8 +124,8 @@
       left: 12px;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 25px;
-      line-height: 22px;
+      font-size: 20px;
+      line-height: 20px;
     }
     .fade-out{      
       background: rgb(242, 242, 247);
@@ -138,10 +139,10 @@
       transition: opacity ease .8s;
     }
     .option-game{
-      position: relative;
-      width: 500px;      
-      height: 50px;
-      margin: 15px 0;  
+      position: relative;      
+      width: 400px;      
+      height: 40px;
+      margin: 10px 0;  
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
       background: rgba(99, 99, 102, .7);
     }
@@ -151,11 +152,11 @@
     }
     .bug-option-green,.bug-option-red,.bug-option-red2,.bug-option-grey{
       position: absolute;
-      left: 30px;
+      left: 20px;
       top: 6px;
-      font-size: 48px;
-      line-height: 40px;
-      height: 50px;            
+      font-size: 30px;
+      line-height: 30px;
+      height: 30px;            
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);      
     }
     .bug-option-green{
@@ -186,9 +187,9 @@
       }
     }
     .arrow-random-green,.arrow-random-red{
-      width: 35px;      
-      font-size: 35px;
-      line-height: 30px;
+      width: 27px;      
+      font-size: 25px;
+      line-height: 20px;
       margin: 0 12px 0 10px;
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
     }
@@ -199,13 +200,16 @@
       color: rgba(255, 59, 48, .8);
     }   
     #bugSpecification .option-arrow{
-        font-size: 35px;        
-        margin: 2px 7px 0 14px;        
+      font-size: 25px;
+      margin: 2px 5px 0 8px;        
+    }
+    #bugSpecification .option-game{
+      font-size: 18px;
     }
     .bug-option-small-green,.bug-option-small-red{
-      font-size: 35px;
-      line-height: 30px;
-      letter-spacing: 8px;          
+      font-size: 25px;
+      line-height: 20px;
+      letter-spacing: 6px;          
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
     }
     .bug-option-small-green{
@@ -218,19 +222,20 @@
       position: absolute;
       left: 30px;
       top: 0;
-      font-size: 48px;
-      height: 50px;
+      font-size: 37px;
+      height: 37px;
       color: rgba(48, 209, 88, .8);     
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
     }
     .button-game{      
       position: absolute;
       width: 100%;
-      height: 100%;      
+      height: 100%;
+      cursor: pointer;      
       font-family: 'Righteous', cursive;
       color: rgb(28, 28, 30);
-      font-size: 32px;
-      letter-spacing: 2px;
+      font-size: 25px;
+      letter-spacing: 1.5px;
       padding: 0 0 3px 45px;
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);      
     }
@@ -241,18 +246,16 @@
     .button-pause,.button-play-in,#buttonSound{
       position: absolute;
       left: 8%;
-      bottom: -80px;      
-      font-size: 35px;   
-      height: 50px;
-      width: 50px;        
+      bottom: -62px;      
+      font-size: 30px;   
+      height: 40px;
+      width: 40px;        
     }
     .button-play-in{
-      transform: translateX(-125%);
-      font-size: 40px;
+      transform: translateX(-110%);      
     }
     #buttonSound{
-      left: 13.5%;      
-      font-size: 40px;      
+      left: 12.7%;
     }
     .sound-on{
       color: rgba(48, 209, 88, .8);
@@ -280,27 +283,27 @@
     }
     .button-level{      
       position: relative;
-      width: 281px;      
-      height: 50px;  
+      width: 250px;      
+      height: 40px;  
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
       background: rgba(99, 99, 102, .7);     
       padding: 0 0 0 50px;
       font-family: 'Righteous', cursive;     
-      font-size: 32px;
+      font-size: 27px;
       color: rgba(48, 209, 88, .9);
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
     } 
     .button-level:before{
         content: '\f17b';
         position: absolute;
-        left: 30px;
+        left: 35px;
         top: 0;
         font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
         font-weight: 400;
-        font-size: 50px;
-        line-height: 50px;
-        width: 52px;
-        height: 52px;
+        font-size: 45px;
+        line-height: 40px;
+        width: 45px;
+        height: 45px;
     }
     .button-level:hover,.button-level:active,.button-level:focus{      
       background: rgba(99, 99, 102, .7);
@@ -312,7 +315,8 @@
       height: auto;
       cursor: default;
       font-family: 'Righteous', cursive;     
-      font-size: 35px;
+      font-size: 30px;
+      width: 350px;
       margin: 0 0 70px 0;
       color: rgba(48, 209, 88, .8);
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
@@ -320,14 +324,14 @@
     .game-win .option-game:before{
       content: '\f17b';
       position: absolute;
-      left: 50px;
+      left: 45px;
       top: 0;
       font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
       font-weight: 400;
-      font-size: 50px;
-      line-height: 50px;
-      width: 52px;
-      height: 52px;
+      font-size: 45px;
+      line-height: 38px;
+      width: 45px;
+      height: 45px;
     }
     .title-game-over,.title-game-win{
       position: absolute;
@@ -336,14 +340,14 @@
       transform: translateX(-50%);
       text-align: center;     
       font-family: 'Righteous', cursive;     
-      font-size: 35px;
+      font-size: 30px;
       letter-spacing: 2px;
       cursor: default;
       color: rgb(28, 28, 30);      
     }
     .number-one{
       display: inline-block;
-      font-size: 42px;
+      font-size: 35px;
       transform: translateY(2px);
     }
     .trophy{
@@ -352,17 +356,17 @@
       width: 300px;
       height: 300px;
       left: -9%;
-      font-size: 300px;
+      font-size: 250px;
       line-height: 300px;
       color: rgb(28, 28, 30);       
     }
     .coffin-android, .box-won{
-      width: 280px;
-      height: 280px;      
+      width: 260px;
+      height: 260px;      
       position: absolute;
-      padding: 0 0 0 10px;
+      padding: 0;
       left: 50%;
-      bottom: 150px;          
+      bottom: 130px;          
       transform: translateX(-50%);
     }
     .android-dead{
@@ -382,38 +386,135 @@
       font-size: 18px;
       line-height: 18px;
       z-index: 5;
+      opacity: 0;
       transform-origin: center;
       left: 50%;
       top: 50%;
       color: rgba(48, 209, 88, .6);
       text-shadow: 0 2px 2px rgba(48, 209, 88, .3), 0 0 2px rgba(48, 209, 88, .2);
-    }
-    .bug1{
-      left: 45%;
-      top: 25%;
-      transform: rotate(33deg);
-    }
-    .bug2{
-      left: 37%;
-      top: 44%;
-      transform: rotate(-81deg);      
-    }    
-    .bug3{
-      left: 54%;
-      top: 59%;
-      transform: rotate(60deg);          
-    }      
+    } 
     .bug4{
-      left: 81%;
-      top: 53%;
+      opacity: 1;
+      left: 84%;
+      top: 56%;
       transform: rotate(139deg);
+    }  
+
+    @keyframes bugCreepOne{
+      from{
+      opacity: 1;
+      left: 24%;
+      top: 79%;
+      transform: rotate(60deg);            
+      }
+      to{
+      opacity: 1;
+      left: 72%;
+      top: 46%;
+      transform: rotate(60deg);      
+      }
     }
+    @keyframes bugCreepTwo{
+      from{
+      opacity: 1;
+      left: 22.5%;
+      top: 56%;
+      transform: rotate(110deg);            
+      }
+      to{
+      opacity: 1;
+      left: 72%;
+      top: 79%;
+      transform: rotate(110deg);     
+      }
+    }
+    @keyframes bugCreepThree{
+      0%{
+      opacity: 1;
+      left: 72%;
+      top: 67%;
+      transform: rotate(-50deg);           
+      }
+      50%,70%{
+      opacity: 1;
+      left: 44%;
+      top: 51%;
+      transform: rotate(-50deg);    
+      }
+      100%{
+      opacity: 1;
+      left: 26%;
+      top: 39%;
+      transform: rotate(-50deg); 
+      }
+    }
+    @keyframes bugCreepFour{
+      from{
+      opacity: 1;
+      left: 72%;
+      top: 65%;    
+      transform: rotate(-127deg);           
+      }
+      to{
+      opacity: 1;
+      left: 47%;
+      top: 82%;    
+      transform: rotate(-127deg);     
+      }
+    } 
+    @keyframes bugCreepFive{
+      0%{
+      opacity: 1; 
+      left: 58%;
+      font-size: 15px;
+      top: 24%;
+      transform: rotate(-133deg);
+      }
+      30%{
+      opacity: 1; 
+      font-size: 17px;
+      left: 57%;
+      top: 25%;
+      transform: rotate(-133deg);           
+      }
+      100%{
+      opacity: 1;
+      left: 47%;
+      font-size: 17px;
+      top: 33%;
+      transform: rotate(-133deg);     
+      }
+    }
+    @keyframes bugCreepSix{
+      0%{ 
+      opacity: 1;     
+      font-size: 15px;
+      left: 36%;
+      top: 21%;
+      transform: rotate(45deg);
+      }
+      40%{
+      opacity: 1;
+      font-size: 17px;
+      left: 38%;
+      top: 19%;
+      transform: rotate(45deg);         
+      }
+      100%{
+      opacity: 1;      
+      font-size: 17px;
+      left: 47%;
+      top: 11%;
+      transform: rotate(45deg);     
+      }
+    }
+
     #playingField{      
-      width: 1154px;
+      width: 981px;
       border: 1px solid rgb(28, 28, 30);
       border-top: 10px solid rgb(28, 28, 30);
-      border-bottom: 25px solid rgb(28, 28, 30);
-      height: 950px;      
+      border-bottom: 23px solid rgb(28, 28, 30);
+      height: 730px;      
       position: relative;
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);      
       background-repeat: no-repeat;
@@ -437,13 +538,12 @@
       bottom: 0;
       right: 0;
     }
-
     .bugOrdinary{    
       position: absolute;
-      font-size: 50px;
+      font-size: 35px;
       transform: scale(-1);        
-      width: 50px;
-      height: 50px;
+      width: 35px;
+      height: 35px;
       color: rgb(48, 209, 88); 
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
     }
@@ -482,15 +582,15 @@
       position: absolute;
       left:0;
       right: 0;
-      height: 50px;      
+      height: 35px;      
     } 
     .bullet{
       position: absolute;
-      font-size: 27px;
-      margin-bottom: 100px;       
-      width: 15px;
-      height: 15px;
-      line-height: 15px;
+      font-size: 18px;
+      margin-bottom: 82px;       
+      width: 10px;
+      height: 10px;
+      line-height: 10px;
       color: rgb(52, 199, 89);         
       bottom: 0;
       transform-origin: center;
@@ -500,20 +600,21 @@
     #android{
       position: absolute;
       display: block;     
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
       left: 50%;
       bottom: -10px;
-      font-size: 100px;
+      font-size: 80px;
       z-index: 5;
       transform: translateX(-50%);
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
     }
     [id^=arrow] {
       position: absolute;
-      font-size: 60px;
+      font-size: 45px;
       color: rgb(28, 28, 30);     
-      bottom: 20px;
+      bottom: 5px;
       transition: all ease .2s;
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);    
     }
@@ -534,12 +635,12 @@
     .bugDead{
       position: relative;
       display: block;
-      font-size: 55px;
+      font-size: 45px;
       margin-right: 18px;             
-      width: 55px;
-      line-height: 50px;
+      width: 45px;
+      line-height: 40px;
       transform-origin: center; 
-      height: 55px;
+      height: 45px;
       color: rgba(48, 209, 88, .8);      
       text-shadow: 0 4px 4px rgba(99, 99, 102, .7), 0 0 4px rgba(99, 99, 102, .5);
       animation: bugDead 3.5s linear infinite;
@@ -556,8 +657,8 @@
       position: relative;
       display: block;
       background: none;
-      font-size: 52px;
-      line-height: 50px;
+      font-size: 44px;
+      line-height: 44px;
       color: rgba(48, 209, 88, .9);
       font-family: 'Righteous', cursive;
       text-shadow: 0 5px 5px rgba(28, 28, 30, .8), 0 0 5px rgba(28, 28, 30, .6);      
@@ -567,14 +668,14 @@
     #boxlevel{
       position: absolute;
       display: flex;      
-      font-size: 45px;
-      line-height: 40px;
+      font-size: 35px;
+      line-height: 35px;
       letter-spacing: 2px;
       color: rgba(48, 209, 88, .9);
       font-family: 'Righteous', cursive;
       text-shadow: 0 4px 4px rgba(99, 99, 102, .7), 0 0 4px rgba(99, 99, 102, .5);           
       top: 45px;
-      right: 103%;
+      right: 101%;
       height: 55px;    
     }    
     #countlevels{

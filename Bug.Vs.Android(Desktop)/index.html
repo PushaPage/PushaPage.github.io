@@ -49,7 +49,7 @@
           <span class="title-option">Movement</span><span class="far fa-long-arrow-alt-right option-arrow"></span>ArrowLeft / ArrowRight
         </div>         
         <div class="option-game">
-          <span class="title-option">Play / Pause</span><span class="far fa-long-arrow-alt-right option-arrow"></span>Tab
+          <span class="title-option">Play / Pause</span><span class="far fa-long-arrow-alt-right option-arrow"></span>Space
         </div>
         <div class="option-game">
           <span class="title-option">Sound on / off</span><span class="far fa-long-arrow-alt-right option-arrow"></span>Shift 
@@ -103,7 +103,7 @@
       </div>
       <div id="gameWin" class="game-win fade-out">
         <p class="title-game-win">Debugging progress <span class="number-one">1</span><span class="far fa-debug debug-icon"></span><span class="far fa-debug debug-icon"></span><span class="fad fa-percent"></span></p> 
-        <div class="option-game">You Won!</div>
+        <div class="option-game">You Win!</div>
         <div class="box-won">                            
           <span class="fad fa-trophy-alt trophy"></span> 
         </div>        
@@ -116,10 +116,10 @@
         <p class="title-game-over">Don't worry, play again</p> 
         <div class="option-game">Game over</div>
         <div class="coffin-android">
-          <span class="fas fa-bug bug1"></span>
-          <span class="fas fa-bug bug2"></span>
-          <span class="fas fa-bug bug3"></span>
-          <span class="fas fa-bug bug4"></span>                   
+          <span id="creepBug1" class="fas fa-bug bug1"></span>
+          <span id="creepBug2" class="fas fa-bug bug2"></span>
+          <span id="creepBug3" class="fas fa-bug bug3"></span>
+          <span id="creepBug4" class="fas fa-bug bug4"></span>                   
           <span class="fab fa-android android-dead"></span> 
         </div>
         <div class="back-menu">
@@ -133,8 +133,9 @@
   
   <script type="text/javascript">
 
-window.addEventListener('load', function() {
+
   ;(function (){
+  window.addEventListener('load', function() {
 
     var playingField = document.getElementById('playingField'),
         activeScreen = document.getElementById('activeScreen'),            
@@ -143,6 +144,10 @@ window.addEventListener('load', function() {
         bugSpecification = document.getElementById('bugSpecification'),
         countlevels = document.getElementById('countlevels'),
         GameOver = document.getElementById('GameOver'),
+        creepBugOne = document.getElementById('creepBug1'),
+        creepBugTwo = document.getElementById('creepBug2'),
+        creepBugThree = document.getElementById('creepBug3'),
+        creepBugFour = document.getElementById('creepBug4'),
         gameWin = document.getElementById('gameWin'),
         buttonPlayIn = document.querySelector('.button-play-in'),
         buttonPause = document.querySelector('.button-pause'),
@@ -166,6 +171,7 @@ window.addEventListener('load', function() {
         levelFourFlag = true,
         levelFiveFlag = true,       
         victoryResults = null,
+        creepBugs = null,
         soundShot = new Audio(),
         soundBug = new Audio(),
         audioEffects = [
@@ -185,7 +191,7 @@ window.addEventListener('load', function() {
            el = document.createElement('div');
            el.setAttribute('id', 'row' + i);        
            el.style.position = 'absolute';    
-           el.style.top = 40 + (70 * (i - 1)) + 'px';
+           el.style.top = 20 + (50 * (i - 1)) + 'px';
            el.style.pointerEvents = 'none';
            playingField.appendChild(el);                    
         };                                
@@ -193,31 +199,31 @@ window.addEventListener('load', function() {
         for(let i = 1; i<=10; i++){
            el = document.createElement('i');
            el.classList = 'fas fa-bug bugOrdinary';           
-           el.style.left = 195 + (65 * i) + 'px';           
+           el.style.left = 190 + (50 * i) + 'px';           
            row1.appendChild(el);          
         }; 
         for(let i = 1; i<=10; i++){
            el = document.createElement('i');
            el.classList = 'fas fa-bug bugOrdinary';           
-           el.style.left = 195 + (65 * i) + 'px';         
+           el.style.left = 190 + (50 * i) + 'px';         
            row2.appendChild(el);           
         }; 
         for(let i = 1; i<=10; i++){
            el = document.createElement('i');
            el.classList = 'fas fa-bug bugOrdinary';          
-           el.style.left = 195 + (65 * i) + 'px';           
+           el.style.left = 190 + (50 * i) + 'px';           
            row3.appendChild(el);           
         };
         for(let i = 1; i<=10; i++){
            el = document.createElement('i');
            el.classList = 'fas fa-bug bugOrdinary';           
-           el.style.left = 195 + (65 * i) + 'px';          
+           el.style.left = 190 + (50 * i) + 'px';          
            row4.appendChild(el);           
         };
         for(let i = 1; i<=10; i++){
            el = document.createElement('i');
            el.classList = 'fas fa-bug bugOrdinary';         
-           el.style.left = 195 + (65 * i) + 'px';        
+           el.style.left = 190 + (50 * i) + 'px';        
            row5.appendChild(el);
         };
         android.style.color = 'rgb(48, 209, 88)';   
@@ -267,8 +273,23 @@ window.addEventListener('load', function() {
        }else{
         sound = false;             
             }; 
-  }; 
+  };
 
+  function CreepBug (){ 
+     setTimeout ( () => {
+        creepBugOne.style.animation = 'bugCreepFive 4s linear 2s';
+        creepBugTwo.style.animation = 'bugCreepOne 7s linear';
+        creepBugThree.style.animation = 'bugCreepThree 6.8s linear .7s';
+        creepBugFour.style.animation = 'bugBlink 1.1s ease infinite'; 
+      }, 900);
+     setTimeout ( () => {
+        creepBugOne.style.animation = 'bugCreepSix 4s linear 1s';
+        creepBugTwo.style.animation = 'bugCreepTwo 5s linear .5s';
+        creepBugThree.style.animation = 'bugCreepFour 3.5s linear 1s';  
+      }, 9000);
+    }; 
+    
+     
       //Game Play
     document.addEventListener('click', function (event){
       let target = event.target.dataset.game;
@@ -360,7 +381,8 @@ window.addEventListener('load', function() {
               levelTwoFlag = true;
               levelThreeFlag = true;
               levelFourFlag =  true;
-              levelFiveFlag = true;               
+              levelFiveFlag = true; 
+              clearInterval(creepBugs);               
               fadeInFadeOut (menuGame,GameOver);                
            break;
          
@@ -374,7 +396,8 @@ window.addEventListener('load', function() {
     });
 
      
-    document.addEventListener('keydown', function(event){  
+    document.addEventListener('keydown', function(event){ 
+             event.preventDefault(); 
         if(!goPlay){ 
 
           let offsetAndroid = android.offsetLeft;
@@ -389,18 +412,21 @@ window.addEventListener('load', function() {
             arrowLeft.style.color = '';
             arrowRight.style.color = 'rgb(48, 209, 88)';
           }
-          if(android.offsetLeft < 40){
+          if(android.offsetLeft < 30){
                 android.style.left =  (offsetAndroid + stepAndroid) - 10 + 'px';
                 arrowLeft.style.color = 'rgb(255, 69, 58)';
           }
-          if (playingField.offsetWidth < (android.offsetLeft + android.offsetWidth - 70)) {
+          if (playingField.offsetWidth < (android.offsetLeft + android.offsetWidth - 60)) {
                 android.style.left = (offsetAndroid - stepAndroid) + 10 + 'px';
                 arrowRight.style.color = 'rgb(255, 69, 58)';
           }        
         };  
     });
 
-    document.addEventListener('keyup', function(event){         
+    document.addEventListener('keyup', function(event){ 
+        
+        event.preventDefault();
+
         if (event.key == 'ArrowLeft'|| event.code =='KeyA'){
             arrowLeft.style.color = '';   
         }
@@ -411,7 +437,7 @@ window.addEventListener('load', function() {
               createBullet ();
               playSoundShot ();                
         } 
-        if(event.code == 'Tab'){
+        if(event.code == 'Space'){
            if(!goPlay){                 
             goPlay = true;
             buttonActive (buttonPause,buttonPlayIn);
@@ -435,7 +461,7 @@ window.addEventListener('load', function() {
       if(!goPlay){ 
         let bullet = document.createElement('div');      
         bullet.classList = 'bullet fad fa-meteor';          
-        bullet.style.left = (android.offsetLeft  - 10) + 'px';
+        bullet.style.left = (android.offsetLeft  - 5) + 'px';
         playingField.append(bullet); 
         clipBullets.push({bullet: bullet, pos: bullet.offsetTop, newPos: bullet.offsetTop}); 
       }       
@@ -830,7 +856,7 @@ function GameStart(){
           clipBullets.shift(o);
        }
 
-       if(o.bullet.getBoundingClientRect().top < activeScreen.getBoundingClientRect().top){
+       if(o.bullet.getBoundingClientRect().top < activeScreen.getBoundingClientRect().top - 5){
           o.bullet.remove();
        }       
         
@@ -840,7 +866,7 @@ function GameStart(){
       });
         playingField.querySelectorAll('i').forEach( (el,i) => {            
           victoryResults = i;                   
-            if(el.getBoundingClientRect().top >= (android.getBoundingClientRect().bottom - 90)){
+            if(el.getBoundingClientRect().top >= (android.getBoundingClientRect().bottom - 70)){
                 android.style.color = 'rgb(28, 28, 30)';
                 playSoundGame (audioEffects[4]);   
                 goPlay = true;                            
@@ -850,7 +876,10 @@ function GameStart(){
               playingField.querySelectorAll('.bugOrdinary').forEach( (el) => { 
                   el.remove();
               });
-              fadeInFadeOut (GameOver,playingField);                           
+              fadeInFadeOut (GameOver,playingField);
+              CreepBug ();
+              creepBugs = setInterval(CreepBug, 14700);
+                                        
             }   
         });
 
@@ -1112,9 +1141,10 @@ function GameStart(){
       
       requestAnimationFrame(frame); 
     };
-     
+  
+   });   
   }());
-});
+
   
             
       
