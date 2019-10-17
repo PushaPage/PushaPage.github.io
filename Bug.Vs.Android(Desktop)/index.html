@@ -181,9 +181,10 @@
             'audio/levelUp.mp3', 
             'audio/gameOver.mp3',
             'audio/gameWin.mp3',            
-            ]
-        clipBullets = [];    
- 
+            ],         
+        clipBullets = []; 
+
+      
     function createBugs() {
 
        for(let i = 1; i<=5; i++){               
@@ -233,6 +234,7 @@
              rowThreeBugs = row3.querySelectorAll('i'),
              rowFourBugs = row4.querySelectorAll('i'),
              rowFiveBugs = row5.querySelectorAll('i');
+
 
         if(!levelOneFlag){   
             rowOneBugs[4].classList = 'fas fa-spider bugOrdinary bugArmored';
@@ -399,7 +401,8 @@
      setTimeout ( () => {
         creepBugOne.style.animation = 'bugCreepSix 4s linear 1s';
         creepBugTwo.style.animation = 'bugCreepTwo 5s linear .5s';
-        creepBugThree.style.animation = 'bugCreepFour 3.5s linear 1s';  
+        creepBugThree.style.animation = 'bugCreepFour 3.5s linear 1s';
+        creepBugFour.style.animation = 'bugBlink 2s ease';  
       }, 9000);
     }; 
     
@@ -869,6 +872,7 @@ function GameStart(){
 
        if(o.bullet.getBoundingClientRect().top < activeScreen.getBoundingClientRect().top - 5){
           o.bullet.remove();
+
        }       
         
         playingField.querySelectorAll('i').forEach( el => {          
