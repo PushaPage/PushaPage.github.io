@@ -171,6 +171,16 @@
         levelFourFlag = true,
         levelFiveFlag = true,       
         victoryResults = null,
+        rowOne = null, 
+        rowTwo = null, 
+        rowThree = null, 
+        rowFour = null, 
+        rowFive = null, 
+        rowOneBugs = null, 
+        rowTwoBugs = null, 
+        rowThreeBugs = null, 
+        rowFourBugs = null, 
+        rowFiveBugs = null,
         creepBugs = null,
         soundShot = new Audio(),
         soundBug = new Audio(),
@@ -229,10 +239,16 @@
 
         android.style.color = 'rgb(48, 209, 88)';
 
-        let  rowOneBugs = row1.querySelectorAll('i'),
-             rowTwoBugs = row2.querySelectorAll('i'),
-             rowThreeBugs = row3.querySelectorAll('i'),
-             rowFourBugs = row4.querySelectorAll('i'),
+             rowOne = row1; 
+             rowTwo = row2; 
+             rowThree = row3; 
+             rowFour = row4; 
+             rowFive = row5; 
+
+             rowOneBugs = row1.querySelectorAll('i');
+             rowTwoBugs = row2.querySelectorAll('i');
+             rowThreeBugs = row3.querySelectorAll('i');
+             rowFourBugs = row4.querySelectorAll('i');
              rowFiveBugs = row5.querySelectorAll('i');
 
 
@@ -734,21 +750,6 @@ function GameStart(){
         left: x + (el.offsetWidth / 2)  // x + половина ширины
         };
       }
-
-
-   
-      var rowOne = document.getElementById('row1'),
-          rowTwo = document.getElementById('row2'),
-          rowThree = document.getElementById('row3'),
-          rowFour = document.getElementById('row4'),
-          rowFive = document.getElementById('row5');         
-
-      var rowOneBugs = rowOne.querySelectorAll('i'),
-          rowTwoBugs = rowTwo.querySelectorAll('i'),
-          rowThreeBugs = rowThree.querySelectorAll('i'),
-          rowFourBugs = rowFour.querySelectorAll('i'),
-          rowFiveBugs = rowFive.querySelectorAll('i');
-
      
    
       var step = 10;
@@ -1012,8 +1013,8 @@ function GameStart(){
       offsetYrowFive += .1 * directionRow;
 
     
-      if(offsetYrowOne < 40){
-        directionRow = 1;        
+      if(offsetYrowOne < 10){
+        directionRow = 2.5;        
       }
 
     //rowOneBugs
