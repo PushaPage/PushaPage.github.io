@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<title>Home</title>
+<style type="text/css">
+    body{
+        background: url(img/country_field.png) no-repeat 50%/cover;
+    }
+    #livingWorld{        
+        margin: 50px;
+        
+    }
+    img{
+        display: block;
+        position: absolute;
+    }
+    .aviary{    
+        list-style: none;
+        width: 150px;
+        height: 100%;        
+        padding: 0;
+        margin: 0; 
+    }
+    .aviary>li{
+        width: 150px;
+        height: 150px;
+        position: relative;
+        
+    }
+</style>
+<body>
+    <h1>Двойной клик запускает персонаж, правая кнопка мыши информация о персонаже.</h1>
+    <div id="livingWorld">
+     <ul class="aviary">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>   
+    </div>
+
+    <script>
+
+       ;(function(){
+        var livingWorld = document.getElementById('livingWorld');
+        var aviary = document.querySelectorAll('.aviary>li');
+
+        var  livingWorldArray = [
+
+            'img/iconfinder_blackbird_72185.png',
+            'img/iconfinder_redbird_72184.png',
+            'img/iconfinder_redbirdbig_72182.png',            
+            'img/iconfinder_greenbird_72180.png',            
+            'img/iconfinder_whitebird_72186.png',
+            'img/iconfinder_yellowbird_72181.png',
+            'img/iconfinder_Minion_Pig-01_1585876.png',
+
+        ];
+        var birdBlack = document.createElement('img');       
+            birdBlack.src = livingWorldArray[0];    
+        var birdRed = document.createElement('img');
+            birdRed.src = livingWorldArray[1];
+        var birdRedBig = document.createElement('img');
+            birdRedBig.src = livingWorldArray[2];
+        var birdGreen = document.createElement('img');
+            birdGreen.src = livingWorldArray[3];
+        var birdWhite = document.createElement('img');
+            birdWhite.src = livingWorldArray[4];
+        var birdYellow = document.createElement('img');
+            birdYellow.src = livingWorldArray[5];
+        var pigMinion = document.createElement('img');
+            pigMinion.src = livingWorldArray[6];              
+    
+
+        function fly (element){
+               element.style.left = element.offsetLeft + 200 +'px';
+        }
+
+        function livingCreatures (kind,name,power,speed,fall,view){
+           
+            this.kind = kind;
+            this.name = name;            
+            this.power = power;
+            this.speed = speed;
+            this.fall = fall;
+            this.view = view;          
+            this.info = view.oncontextmenu = function (event) { 
+                   event.preventDefault();                
+                alert('Kind:'+' '+kind +'\n'+'Name:'+' '+name+'\n'+'Power:'+' '+power+'\n'+'Speed:'+' '+speed);               
+            };
+            this.fly = view.ondblclick = function () { 
+
+                let power2 = power/2;    
+
+                let flying = setInterval( function () {
+                    view.style.left = view.offsetLeft + speed + 'px';
+                    view.style.top = view.offsetTop + (fall) + 'px';
+                    
+                     power -= speed;
+
+                   if(power < power2){ 
+                    view.style.top = view.offsetTop - (fall*2) + 'px';           
+                                       
+                   } 
+                   if(power < 1){ 
+                                      
+                     clearInterval(flying);                    
+                   }      
+                }, 50);   
+            } 
+
+        } 
+
+        var blackBird = new livingCreatures ('Bird', 'Black Bird', 1300, 10, 5, birdBlack),
+            redBird = new livingCreatures ('Bird', 'Red Bird', 1400, 25, 10, birdRed),
+            redBirdBig = new livingCreatures ('Bird', 'Red Big Bird', 400, 5, -1, birdRedBig),
+            greenBird = new livingCreatures ('Bird', 'Green Bird', 1500, 15, -5, birdGreen),
+            whiteBird = new livingCreatures ('Bird', 'White Bird', 1200, 8, -6, birdWhite),
+            yellowBird = new livingCreatures ('Bird', 'Yellow Bird', 1500, 10, -2, birdYellow),
+            minionPig = new livingCreatures ('Pig', 'Minion Pig', 1200, 10, 0, pigMinion);
+
+         
+
+
+        
+
+        aviary[0].append(blackBird.view);
+        aviary[1].append(redBird.view);        
+        aviary[2].append(greenBird.view);
+        aviary[3].append(whiteBird.view);
+        aviary[4].append(yellowBird.view);        
+        aviary[5].append(redBirdBig.view);
+        aviary[6].append(minionPig.view);
+
+    
+
+       }()); 
+
+       
+
+    </script>
+
+</body>
+</html>
