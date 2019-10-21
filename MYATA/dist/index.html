@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>MYATA</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="shortcut icon" href="img/favicon.png" type="image/png">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+ 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">	
+	<script src="js/jquery-1.8.2.min.js"></script>	
+	<script src="js/swiper.min.js"></script> 
+  	<script src="js/main.js"></script> 
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/main.min.css">
+</head>
+<body id="main">
+	<header>		
+		<div class="container d-flex justify-content-between flex-wrap p-0">
+		 	<div class="logo col-8 col-sm-7 col-md-4 col-lg-3 order-0">
+		 		<img src="img/logo.png" alt="myta" class="img-fluid">
+		 	</div>		 
+		 	<div class="d-flex flex-column-reverse flex-lg-column col-sm-12 col-sm-12 col-lg-5 col-xl-6 order-2 order-lg-1 p-0">
+			 	<ul class="contacts d-flex flex-column flex-sm-row align-items-center justify-content-center">
+			 		<li class="tel">(096) <span>923-90-99</span></li>
+			 		<li class="tel">(063) <span>616-91-66</span></li>
+			 	</ul>
+			 	<div class="input-group mx-auto col-10 col-sm-9 col-md-8 col-lg-11 col-xl-9">
+	      			<div class="label-search">
+	      				<input class="form-control" type="search" placeholder="Поиск по сайту">
+		      			<button class="btn btn-search" type="button">
+		      				<span href="#" class="icon-search" ></span>
+		      			</button>
+	      			</div>
+				</div>		 	
+		 	</div>
+		 	<div class="col-12 col-md-8 col-lg-4 col-xl-3 order-1 order-lg-2 p-0">
+		 		<ul class="entrance d-flex justify-content-start justify-content-lg-center">
+			 		<li><a href="#" class="entry">Вход</a></li>
+			 		<li><a href="#" class="registration">Регистрация</a></li>
+			 	</ul>
+			 	<div class="d-flex justify-content-end">
+			 		<button type="button" class="btn basket d-flex justify-content-center align-items-center p-0">
+			 			<span class="icon-basket"></span>
+			 			<ul class="backet-text">
+			 				<li>Товаров: <span>25 шт.</span></li>
+			 				<li>На сумму: <span>3 750 грн.</span></li>
+			 			</ul>			 		
+			 		</button>
+			 	</div>
+		 	</div>		 	
+		</div>		
+		<nav class="navbar navbar-expand-xl p-0">  
+			<div class="container p-0">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="hamberger-icon-top"></span>
+				    <span class="hamberger-icon-middle"></span>
+				    <span class="hamberger-icon-bottom"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+				    <ul class="navbar-nav col-10 col-md-8 col-xl-12">
+				    	<li class="nav-item nav-item-active">
+				        	<a class="nav-link" href="#">Главная<span class="sr-only">(current)</span></a>
+				      	</li>
+				      	<li class="nav-item">
+				        	<a class="nav-link" href="#">О нас</a>
+				      	</li>
+				      	<li class="nav-item">
+				        	<a class="nav-link" href="#">Доставка</a>
+				      	</li>
+				      	<li class="nav-item">
+				        	<a class="nav-link" href="#">Как сделать заказ</a>
+				      	</li>
+				      	<li class="nav-item">
+				        	<a class="nav-link" href="#">Возврат товара</a>
+				      	</li>
+				      	<li class="nav-item">
+				        	<a class="nav-link" href="#">Сотрудничество</a>
+				      	</li>
+				      	<li class="nav-item">
+				        	<a class="nav-link" href="#">Акции</a>
+				      	</li>
+				      	<li class="nav-item">
+				        	<a class="nav-link" href="#">Новости</a>
+				      	</li>
+				      	<li class="nav-item">
+				        	<a class="nav-link" href="#">Контакты</a>
+				      	</li>			     
+				    </ul>
+				</div>
+			</div>
+		</nav>  
+	</header>
+	<section id="slider">
+		<div class="container d-flex flex-wrap p-0">			
+			<div class="wrap-catalog col-10 col-md-8 col-lg-3 mx-auto order-1 order-lg-0">
+				<ul class="catalog d-flex flex-column p-0">
+					<li><span class="position-relative">Каталог</span></li>
+					<li><a href="#">Формы для выпечки</a></li>
+					<li><a href="#">Кондитерский инвентарь</a></li>
+					<li><a href="#">Кондитерские ингредиенты</a></li>
+					<li><a href="#">Оборудование</a></li>
+					<li><a href="#">Всё для кухни</a></li>				
+					<li><a href="#">Фототорт.
+					Печать на пищевой бумаге</a>
+						<div class="wrap-drop-menu">
+							<ul class="drop-down-menu">
+								<li><a href="#">Индивидуальные картинки</a></li>
+								<li><a href="#">Картинки с деньгами</a></li>
+								<li><a href="#">Прочие картинки</a></li>
+								<li><a href="#">Пищевые картинки из	разных мультиков</a></li>
+								<li><a href="#">Индивидуальные картинки</a></li>
+								<li><a href="#">Картинки с деньгами</a></li>
+								<li><a href="#">Прочие картинки</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>			
+			<div class="slider d-none d-md-block col-12 col-lg-9 order-0 order-lg-1">
+				<div id="swiper-container-one" class="swiper-container">
+					<div class="swiper-wrapper">
+					    <div class="swiper-slide">
+					    	<img class="img-fluid" src="img/slide-img-1.jpg" alt="myta">
+					    	<div class="slide-item-text">
+					    		<h3>Только в этом месяце!</h3>
+					    		<p class="discount">Скидка на формы для кексов 35%!!!</p>
+					    		<button type="button" class="btn btn-discount">Подробнее</button>
+					    	</div>
+					    </div>
+					    <div class="swiper-slide">
+					    	<img class="img-fluid" src="img/slide-img-1.jpg" alt="myta">
+					    	<div class="slide-item-text">
+					    		<h3>Только в этом месяце!</h3>
+					    		<p class="discount">Скидка на формы для кексов 35%!!!</p>
+					    		<button type="button" class="btn btn-discount">Подробнее</button>
+					    	</div>
+					    </div>
+					    <div class="swiper-slide">
+					    	<img class="img-fluid" src="img/slide-img-1.jpg" alt="myta">
+					    	<div class="slide-item-text">
+					    		<h3>Только в этом месяце!</h3>
+					    		<p class="discount">Скидка на формы для кексов 35%!!!</p>
+					    		<button type="button" class="btn btn-discount">Подробнее</button>
+					    	</div>
+					    </div>			     
+					</div>			  
+					<div id="swiper-pagination-one" class="swiper-pagination"></div>
+				</div>
+			</div>				
+		</div>
+	</section>
+	<section id="our-advantages">
+		<h3>Наши преимущества</h3>
+		<ul class="container d-flex flex-wrap p-0">
+			<li class="advantages-item col-6 col-sm-3">
+				<img src="img/clipboard.jpg" alt="myta">
+				<p class="advantages-text">Мы следим за качеством наших товаров</p>
+			</li>
+			<li class="advantages-item col-6 col-sm-3">
+				<img src="img/bag.jpg" alt="myta">
+				<p class="advantages-text">У нас большой выбор товаров</p>
+			</li>
+			<li class="advantages-item col-6 col-sm-3">
+				<img src="img/time.jpg" alt="myta">
+				<p class="advantages-text">Мы доставим Ваш заказ вовремя</p>
+			</li>
+			<li class="advantages-item col-6 col-sm-3">
+				<img src="img/gift.jpg" alt="myta">
+				<p class="advantages-text">У нас постоянные акции 
+				и скидки</p>
+			</li>
+		</ul>
+	</section>
+	<section id="offers">
+		<div class="container p-0">
+			<div id="swiper-container-two" class="swiper-container">			
+				<div id="swiper-pagination-two" class="swiper-pagination"></div>    
+				<div id="swiper-button-next-two" class="swiper-button-next d-none d-lg-block"></div>
+				<div id="swiper-button-prev-two" class="swiper-button-prev d-none d-lg-block"></div>
+				<div class="swiper-wrapper">
+			    	<div class="swiper-slide slide-swiper-two" data-name="Хиты продаж">
+			    		<ul class="available-offer d-flex flex-wrap justify-content-center justify-content-sm-between justify-content-md-around justify-content-lg-between">
+			    			<li class="col-10 col-sm-6 col-md-5 col-lg-3">
+			    				<div class="available-offer-photo">			    					
+			    					<img src="img/offer-photo-1.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-hit">Хит</span>
+			    					<span class="marker-available"></span>
+			    					<span class="marker-available-text">В наличии</span>
+			    				</div>
+			    				<p class="available-offer-text">Набор силиконовых порционных 
+			    				форм Корзиночка-Квадрат, 10 шт.</p>
+			    				<p class="available-offer-price">55 грн.</p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>
+			    			</li>
+			    			<li class="col-10 col-sm-6 col-md-5 col-lg-3">
+			    				<div class="available-offer-photo">			    					
+			    					<img src="img/offer-photo-2.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-hit">Хит</span>
+			    					<span class="marker-available"></span>
+			    					<span class="marker-available-text">В наличии</span>
+			    				</div>
+			    				<p class="available-offer-text">Фонтан шоколадный Altezoro 
+			    				KZ-24/3</p>
+			    				<p class="available-offer-price"><span class="old-price">2 300 грн.</span><span class="new-price">1 800 грн.</span></p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>
+			    			</li>
+			    			<li class="col-10 col-sm-6 col-md-5 col-lg-3">
+			    				<div class="available-offer-photo">			    					
+			    					<img src="img/offer-photo-3.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-hit">Хит</span>
+			    					<span class="marker-available"></span>
+			    					<span class="marker-available-text">В наличии</span>
+			    				</div>
+			    				<p class="available-offer-text">Плунжеры для мастики Листики с
+			    				металлическим толкателем</p>
+			    				<p class="available-offer-price">48 грн.</p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>		
+			    			</li>
+			    			<li class="col-10 col-sm-6 col-md-5 col-lg-3">
+			    				<div class="no-available-offer-photo">			    					
+			    					<img src="img/offer-photo-4.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-hit">Хит</span>
+			    					<span class="marker-no-available">
+			    						<span class="marker-no-available-icon"></span>	
+			    					</span>
+			    					<span class="marker-available-text">Нет в наличии</span>
+			    				</div>
+			    				<p class="available-offer-text">Магнитная планка-держатель для 
+			    				ножей</p>
+			    				<p class="available-offer-price"><span class="old-price">165 грн.</span><span class="new-price">140 грн.</span></p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>
+			    			</li>
+			    			<li class="col-3 d-none d-lg-block">
+			    				<div class="available-offer-photo">			    					
+			    					<img src="img/offer-photo-1.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-hit">Хит</span>
+			    					<span class="marker-available"></span>
+			    					<span class="marker-available-text">В наличии</span>
+			    				</div>
+			    				<p class="available-offer-text">Набор силиконовых порционных 
+			    				форм Корзиночка-Квадрат, 10 шт.</p>
+			    				<p class="available-offer-price">55 грн.</p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>
+			    			</li>
+			    			<li class="col-3 d-none d-lg-block">
+			    				<div class="available-offer-photo">			    					
+			    					<img src="img/offer-photo-2.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-hit">Хит</span>
+			    					<span class="marker-available"></span>
+			    					<span class="marker-available-text">В наличии</span>
+			    				</div>
+			    				<p class="available-offer-text">Фонтан шоколадный Altezoro 
+			    				KZ-24/3</p>
+			    				<p class="available-offer-price"><span class="old-price">2 300 грн.</span><span class="new-price">1 800 грн.</span></p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>
+			    			</li>
+			    			<li class="col-3 d-none d-lg-block">
+			    				<div class="available-offer-photo">			    					
+			    					<img src="img/offer-photo-3.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-hit">Хит</span>
+			    					<span class="marker-available"></span>
+			    					<span class="marker-available-text">В наличии</span>
+			    				</div>
+			    				<p class="available-offer-text">Плунжеры для мастики Листики с
+			    				металлическим толкателем</p>
+			    				<p class="available-offer-price">48 грн.</p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>		
+			    			</li>
+			    			<li class="col-3 d-none d-lg-block">
+			    				<div class="no-available-offer-photo">			    					
+			    					<img src="img/offer-photo-4.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-hit">Хит</span>
+			    					<span class="marker-no-available">
+			    						<span class="marker-no-available-icon"></span>	
+			    					</span>
+			    					<span class="marker-available-text">Нет в наличии</span>
+			    				</div>
+			    				<p class="available-offer-text">Магнитная планка-держатель для 
+			    				ножей</p>
+			    				<p class="available-offer-price"><span class="old-price">165 грн.</span><span class="new-price">140 грн.</span></p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>
+			    			</li>
+			    		</ul>
+			    		<button type="button" class="btn show-all" data-show-all="Available">Все хиты</button>
+			    	</div>
+			    	<div class="swiper-slide slide-swiper-two" data-name="Акции">
+			    		<ul class="available-offer d-flex flex-wrap justify-content-center justify-content-sm-between justify-content-md-around justify-content-lg-between">
+			    			<li class="col-10 col-sm-6 col-md-5 col-lg-3">
+			    				<div class="available-offer-photo">			    					
+			    					<img src="img/offer-photo-1.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-action">Акция</span>
+			    					<span class="marker-available"></span>
+			    					<span class="marker-available-text">В наличии</span>
+			    				</div>
+			    				<p class="available-offer-text">Набор силиконовых порционных 
+			    				форм Корзиночка-Квадрат, 10 шт.</p>
+			    				<p class="available-offer-price">55 грн.</p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>
+			    			</li>
+			    			<li class="col-10 col-sm-6 col-md-5 col-lg-3">
+			    				<div class="available-offer-photo">			    					
+			    					<img src="img/offer-photo-2.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-action">Акция</span>
+			    					<span class="marker-available"></span>
+			    					<span class="marker-available-text">В наличии</span>
+			    				</div>
+			    				<p class="available-offer-text">Фонтан шоколадный Altezoro 
+			    				KZ-24/3</p>
+			    				<p class="available-offer-price"><span class="old-price">2 300 грн.</span><span class="new-price">1 800 грн.</span></p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>
+			    			</li>
+			    			<li class="col-10 col-sm-6 col-md-5 col-lg-3">
+			    				<div class="no-available-offer-photo">			    					
+			    					<img src="img/offer-photo-3.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-action">Акция</span>
+			    					<span class="marker-no-available">
+			    						<span class="marker-no-available-icon"></span>	
+			    					</span>
+			    					<span class="marker-available-text">Нет в наличии</span>			    					
+			    				</div>
+			    				<p class="available-offer-text">Плунжеры для мастики Листики с
+			    				металлическим толкателем</p>
+			    				<p class="available-offer-price">48 грн.</p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>		
+			    			</li>
+			    			<li class="col-10 col-sm-6 col-md-5 col-lg-3">
+			    				<div class="available-offer-photo">			    					
+			    					<img src="img/offer-photo-4.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-action">Акция</span>
+			    					<span class="marker-available"></span>
+			    					<span class="marker-available-text">В наличии</span>			    					
+			    				</div>
+			    				<p class="available-offer-text">Магнитная планка-держатель для 
+			    				ножей</p>
+			    				<p class="available-offer-price"><span class="old-price">165 грн.</span><span class="new-price">140 грн.</span></p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>
+			    			</li>
+			    			<li class="col-3 d-none d-lg-block">
+			    				<div class="available-offer-photo">			    					
+			    					<img src="img/offer-photo-1.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-action">Акция</span>
+			    					<span class="marker-available"></span>
+			    					<span class="marker-available-text">В наличии</span>
+			    				</div>
+			    				<p class="available-offer-text">Набор силиконовых порционных 
+			    				форм Корзиночка-Квадрат, 10 шт.</p>
+			    				<p class="available-offer-price">55 грн.</p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>
+			    			</li>
+			    			<li class="col-3 d-none d-lg-block">
+			    				<div class="available-offer-photo">			    					
+			    					<img src="img/offer-photo-2.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-action">Акция</span>
+			    					<span class="marker-available"></span>
+			    					<span class="marker-available-text">В наличии</span>
+			    				</div>
+			    				<p class="available-offer-text">Фонтан шоколадный Altezoro 
+			    				KZ-24/3</p>
+			    				<p class="available-offer-price"><span class="old-price">2 300 грн.</span><span class="new-price">1 800 грн.</span></p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>
+			    			</li>
+			    			<li class="col-3 d-none d-lg-block">
+			    				<div class="no-available-offer-photo">			    					
+			    					<img src="img/offer-photo-3.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-action">Акция</span>
+			    					<span class="marker-no-available">
+			    						<span class="marker-no-available-icon"></span>	
+			    					</span>
+			    					<span class="marker-available-text">Нет в наличии</span>			    					
+			    				</div>
+			    				<p class="available-offer-text">Плунжеры для мастики Листики с
+			    				металлическим толкателем</p>
+			    				<p class="available-offer-price">48 грн.</p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>		
+			    			</li>
+			    			<li class="col-3 d-none d-lg-block">
+			    				<div class="available-offer-photo">			    					
+			    					<img src="img/offer-photo-4.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-action">Акция</span>
+			    					<span class="marker-available"></span>
+			    					<span class="marker-available-text">В наличии</span>			    					
+			    				</div>
+			    				<p class="available-offer-text">Магнитная планка-держатель для 
+			    				ножей</p>
+			    				<p class="available-offer-price"><span class="old-price">165 грн.</span><span class="new-price">140 грн.</span></p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>
+			    			</li>
+			    		</ul>
+			    		<button type="button" class="btn show-all" data-show-all="Action">Все акции</button>
+			    	</div>
+			    	<div class="swiper-slide slide-swiper-two" data-name="Новинки">
+			    		<ul class="available-offer d-flex flex-wrap justify-content-center justify-content-sm-between justify-content-md-around justify-content-lg-between">
+			    			<li class="col-10 col-sm-6 col-md-5 col-lg-3">
+			    				<div class="available-offer-photo">			    					
+			    					<img src="img/offer-photo-1.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-new">New</span>
+			    					<span class="marker-available"></span>
+			    					<span class="marker-available-text">В наличии</span>
+			    				</div>
+			    				<p class="available-offer-text">Набор силиконовых порционных 
+			    				форм Корзиночка-Квадрат, 10 шт.</p>
+			    				<p class="available-offer-price">55 грн.</p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>
+			    			</li>
+			    			<li class="col-10 col-sm-6 col-md-5 col-lg-3">
+			    				<div class="no-available-offer-photo">			    					
+			    					<img src="img/offer-photo-2.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-new">New</span>
+			    					<span class="marker-no-available">
+			    						<span class="marker-no-available-icon"></span>	
+			    					</span>
+			    					<span class="marker-available-text">Нет в наличии</span>			    					
+			    				</div>
+			    				<p class="available-offer-text">Фонтан шоколадный Altezoro 
+			    				KZ-24/3</p>
+			    				<p class="available-offer-price"><span class="old-price">2 300 грн.</span><span class="new-price">1 800 грн.</span></p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>
+			    			</li>
+			    			<li class="col-10 col-sm-6 col-md-5 col-lg-3">
+			    				<div class="available-offer-photo">			    					
+			    					<img src="img/offer-photo-3.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-new">New</span>
+			    					<span class="marker-available"></span>
+			    					<span class="marker-available-text">В наличии</span>
+			    				</div>
+			    				<p class="available-offer-text">Плунжеры для мастики Листики с
+			    				металлическим толкателем</p>
+			    				<p class="available-offer-price">48 грн.</p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>		
+			    			</li>
+			    			<li class="col-10 col-sm-6 col-md-5 col-lg-3">
+			    				<div class="available-offer-photo">			    					
+			    					<img src="img/offer-photo-4.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-new">New</span>
+			    					<span class="marker-available"></span>
+			    					<span class="marker-available-text">В наличии</span>			    					
+			    				</div>
+			    				<p class="available-offer-text">Магнитная планка-держатель для 
+			    				ножей</p>
+			    				<p class="available-offer-price"><span class="old-price">165 грн.</span><span class="new-price">140 грн.</span></p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>
+			    			</li>
+			    			<li class="col-3 d-none d-lg-block">
+			    				<div class="available-offer-photo">			    					
+			    					<img src="img/offer-photo-1.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-new">New</span>
+			    					<span class="marker-available"></span>
+			    					<span class="marker-available-text">В наличии</span>
+			    				</div>
+			    				<p class="available-offer-text">Набор силиконовых порционных 
+			    				форм Корзиночка-Квадрат, 10 шт.</p>
+			    				<p class="available-offer-price">55 грн.</p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>
+			    			</li>
+			    			<li class="col-3 d-none d-lg-block">
+			    				<div class="no-available-offer-photo">			    					
+			    					<img src="img/offer-photo-2.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-new">New</span>
+			    					<span class="marker-no-available">
+			    						<span class="marker-no-available-icon"></span>	
+			    					</span>
+			    					<span class="marker-available-text">Нет в наличии</span>			    					
+			    				</div>
+			    				<p class="available-offer-text">Фонтан шоколадный Altezoro 
+			    				KZ-24/3</p>
+			    				<p class="available-offer-price"><span class="old-price">2 300 грн.</span><span class="new-price">1 800 грн.</span></p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>
+			    			</li>
+			    			<li class="col-3 d-none d-lg-block">
+			    				<div class="available-offer-photo">			    					
+			    					<img src="img/offer-photo-3.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-new">New</span>
+			    					<span class="marker-available"></span>
+			    					<span class="marker-available-text">В наличии</span>
+			    				</div>
+			    				<p class="available-offer-text">Плунжеры для мастики Листики с
+			    				металлическим толкателем</p>
+			    				<p class="available-offer-price">48 грн.</p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>		
+			    			</li>
+			    			<li class="col-3 d-none d-lg-block">
+			    				<div class="available-offer-photo">			    					
+			    					<img src="img/offer-photo-4.png" alt="myta" class="img-fluid">
+			    					<span class="marker-offer-new">New</span>
+			    					<span class="marker-available"></span>
+			    					<span class="marker-available-text">В наличии</span>			    					
+			    				</div>
+			    				<p class="available-offer-text">Магнитная планка-держатель для 
+			    				ножей</p>
+			    				<p class="available-offer-price"><span class="old-price">165 грн.</span><span class="new-price">140 грн.</span></p>
+			    				<button type="button" class="btn in-basket" data-basket="in-basket">В корзину</button>
+			    				<button type="button" class="btn click-buy">Купить в один клик</button>
+			    			</li>
+			    		</ul>
+			    		<button type="button" class="btn show-all" data-show-all="New">Все новинки</button>
+			    	</div>	      
+				</div>    
+			</div>			
+		</div>
+	</section>
+	<section id="about-us">
+		<h3>Коротко о нас</h3>
+		<div class="container d-flex flex-wrap position-relative p-0">		
+			<p class="about-us-text clearfix">
+				<img src="img/about-us-photo.jpg" alt="myta" class="about-us-photo img-fluid col-6 col-md-5 col-lg-3">Кондитерский интернет-магазин (Киев, Львов, Харьков) – место, где можно приобрести все для украшения тортов и десертов. Давно ищете где купить готовую мастику, качественные пищевые красители или упаковку для тортов и кексов? У нас можно купить всё, что необходимо для украшения кондитерских изделий.
+			<span class="section-text">В нынешнее время спрос на мастичные торты просто огромен. И чтобы кондитерам популяризировать свои шедевры, необходимо постоянно придумывать новые варианты оформления, удивляя своих клиентов.</span>
+			<span class="section-text">Поэтому в продаже постоянно появляются новые силиконовые молды, плунжеры и вырубки для мастики, фигурные скалки и многое другое.</span>
+			<span class="section-text">Для вашего удобства мы постарались расширить ассортимент интернет-магазина и выйти за рамки лишь кондитерского дела. Поэтому у нас можно приобрести формы для выпечки, кухонные принадлежности, удобные гаджеты для готовки.</span>
+			<span class="section-text">Также в ответ на ваши просьбы появилась новостная страничка, где будут публиковаться полезные статьи и обзоры кондитерских инструментов нашего интернет-магазина.</span>
+			<span class="section-text">Купить ингредиенты и инструмент в кондитерском интернет-магазине (Житомир,Чернигов,Винница) можно в пару кликов либо в телефонном режиме.</span></p>		
+		</div>
+	</section>
+	<section id="news">
+		<h3>Новости</h3>
+		<div class="container p-0">
+			<ul class="news-block d-flex flex-wrap justify-content-center justify-content-sm-between justify-content-md-around justify-content-lg-between">
+				<li class="col-10 col-sm-6 col-md-5 col-lg-3">
+				    <div class="news-photo">			    					
+				    	<img src="img/news-photo-1.jpg" alt="myta" class="img-fluid">		    					
+				    </div>
+				    <h4 class="news-title">Как выбрать силиконовую форму</p>
+				    <p class="news-date">28.09.2015</p>
+				    <div class="news-text-box">
+				    	<p class="news-text">Силиконовые формы привлекают нас своим удобством, яркими цветами и огромным ассортиментом фигурок.
+				    	Силиконовые формы привлекают нас своим удобством, яркими цветами и огромным ассортиментом фигурок.</p>	
+				    	<button type="button" class="btn news-read-more" data-show-all="Read-more">Читать далее</button>
+				    </div>
+				</li>
+				<li class="col-10 col-sm-6 col-md-5 col-lg-3">
+				    <div class="news-photo">			    					
+				    	<img src="img/news-photo-2.jpg" alt="myta" class="img-fluid">		    					
+				    </div>
+				    <h4 class="news-title">Мехенди-Торт. Украшения кремом под роспись хной</p>
+				    <p class="news-date">15.09.2015</p>
+					<div class="news-text-box">
+					 	<p class="news-text">Традиционное искусство придает определенную символику и экзотическую красоту в любой свадебный торт.
+					 	Традиционное искусство придает определенную символику и экзотическую красоту в любой свадебный торт.</p>
+					 	<button type="button" class="btn news-read-more" data-show-all="Read-more">Читать далее</button>
+					</div>
+				</li>
+				<li class="col-10 col-sm-6 col-md-5 col-lg-3">
+				    <div class="news-photo">			    					
+				    	<img src="img/news-photo-3.jpg" alt="myta" class="img-fluid">		    					
+				    </div>
+				    <h4 class="news-title">Классический рецепт творожной пасхи</p>
+				    <p class="news-date">08.07.2015</p>
+				   <div class="news-text-box">
+				   	 <p class="news-text">Все мы привыкли к тому, что на Пасху пекутся куличи, это стало своего рода национальной традицией.
+				   	 Все мы привыкли к тому, что на Пасху пекутся куличи, это стало своего рода национальной традицией.</p>		
+				   	<button type="button" class="btn news-read-more" data-show-all="Read-more">Читать далее</button>
+				   </div>
+				</li>
+				<li class="col-10 col-sm-6 col-md-5 col-lg-3">
+				    <div class="news-photo">			    					
+				    	<img src="img/news-photo-4.jpg" alt="myta" class="img-fluid">		    					
+				    </div>
+				    <h4 class="news-title">Коврики для мастики. Как пользоваться</p>
+				    <p class="news-date">30.05.2015</p>
+				    <div class="news-text-box">
+				    	<p class="news-text">Силиконовые накладки-коврики для мастики представляют собой новейшую разработку в декорировании тортов.
+				    	Силиконовые накладки-коврики для мастики представляют собой новейшую разработку в декорировании тортов.</p>
+				    	<button type="button" class="btn news-read-more" data-show-all="Read-more">Читать далее</button>
+				    </div>
+				</li>			    					
+			</ul>			
+			<a href="#main" class="on-up"></a>			
+		</div>
+	</section>
+	<footer>
+		<div class="container d-flex flex-wrap justify-content-between align-items-center p-0">
+			<ul class="nav-footer d-flex flex-column flex-md-row align-items-center align-items-sm-start justify-content-md-center justify-content-xl-start col-md-12 col-sm-6 col-xl-7 p-0">
+				<li>
+				    <a class="nav-footer-link" href="#">О нас</a>
+				</li>				
+				<li>
+				    <a class="nav-footer-link" href="#">Доставка</a>
+				</li>
+				<li>
+				    <a class="nav-footer-link" href="#">Карта сайта</a>
+				</li>
+				<li>
+				    <a class="nav-footer-link" href="#">Производители</a>
+				</li>				      
+				<li>
+				    <a class="nav-footer-link" href="#">Акции</a>
+				</li>				      		         	
+			</ul>
+			<div class="contacts-footer d-flex flex-column flex-xl-row  justify-content-xl-end align-items-center col-sm-6 col-md-12 col-xl-5">
+				<ul class="d-flex flex-column flex-md-row flex-xl-column align-items-xl-end">
+					<li class="tel-footer">(096)<span>923-90-99</span></li>
+					<li class="tel-footer">(063)<span>616-91-66</span></li>
+					<li class="e-mail-footer">
+						<a href="#">info@myata.in.ua</a>
+					</li>
+				</ul>
+				<ul class="social-nets d-flex justify-content-start justify-content-xl-end">
+					<li>
+						<a href="#" class="social-link">B</a>
+					</li>
+					<li>
+						<a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+					</li>
+					<li>
+						<a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+					</li>
+					<li>
+						<a href="#" class="social-link"><i class="fab fa-google-plus-g"></i></a>
+					</li>
+					<li>
+						<a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<h5>Интернет-магазин “Мята” &#169; 2015 г</h5>
+		</div>		
+	</footer>
+</body>
+</html>
