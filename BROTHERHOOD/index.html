@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+	<meta charset="UTF-8">
+	<title>BROTHERHOOD</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="shortcut icon" href="img/marker-map.png" type="image/png">			
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+ 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 	   	    
+	<script src="js/jquery-1.8.2.min.js"></script>
+	<script async src="js/zoomsl.min.js"></script>
+	<script src="js/swiper.min.js"></script>  	
+  	<script src="js/google.map.js"></script>
+  	<script src="js/main.js"></script>
+  	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCj2yPeAadf-BzcRQaQRc3URyTWc7E1XE&callback=initMap"></script> 
+	<link rel="stylesheet" href="css/swiper.min.css">	     	
+	<link rel="stylesheet" href="css/styles.css">	
+</head>
+<body>
+	<header>
+		<div class="container d-flex justify-content-between flex-wrap p-0">			
+			<div class="logo col-9 col-sm-6 col-md-7 col-lg-4">
+				<img class="img-fluid" src="img/logo.png" alt="brotherhood">
+			</div>
+			<div class="col-3 col-sm-6 col-md-5 col-lg-5 p-0">
+				<div class="nav justify-content-center flex-column flex-sm-row">	
+					<a class="lang-select" href="#">Рус</a>	
+					<a class="lang-select lang-select-active" href="#">Укр</a>		
+					<a class="lang-select" href="#">Eng</a>  
+				</div>
+			</div>
+			<div class="d-flex justify-content-end justify-content-lg-center align-items-center  col-11 col-sm-7 col-md-5 col-lg-3 p-0 ml-auto">
+				<button type="button" class="btn btn-outline-secondary d-flex justify-content-center align-items-center basket">
+					<span class="d-inline-block icon-basket"></span>
+					<span class="basket-item">Кошик: <span>27 товарів</span></span>
+				</button>
+			</div>	
+		</div>
+		<nav class="navbar navbar-expand-lg navbar-dark p-0">
+			<div class="container p-0">
+			  	<button class="menu navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
+			    	<span class="hamberger-icon"></span>
+			  	</button>
+			  	<div class="collapse navbar-collapse" id="navbar1">
+			    	<ul class="navbar-nav col-lg-12 p-0">
+			      		<li class="nav-item col-lg-2 p-0">
+			        		<a class="nav-link-menu nav-link-menu-active" href="#">новини<span class="sr-only">(current)</span></a>
+			      		</li>
+					    <li class="nav-item col-lg-2 p-0">
+					    	<a class="nav-link-menu" href="#">магазин</a>
+					    </li>
+					    <li class="nav-item col-lg-2 p-0">
+					    	<a class="nav-link-menu" href="#dealers">дилери</a>
+					    </li>
+					    <li class="nav-item col-lg-2 p-0">
+					    	<a class="nav-link-menu" href="#">доставка</a>
+					    </li>
+					    <li class="nav-item col-lg-2 p-0">
+					    	<a class="nav-link-menu" href="#">про нас</a>
+					    </li>
+					    <li class="nav-item col-lg-2 p-0">
+					    	<a class="nav-link-menu" href="#contacts">контакти</a>
+					    </li>			      		
+			    	</ul>			    	
+			  	</div>
+			</div>  	
+		</nav>
+	</header>
+	<section id="tabs">		
+		<ul class="nav nav-tabs justify-content-center">
+			<li class="nav-item m-0">
+			    <a class="nav-link-tab active d-flex align-items-center" data-toggle="tab" href="#tactical">Tactical</a>
+			</li>
+			<li class="nav-item m-0">
+			    <a class="nav-link-tab d-flex align-items-center" data-toggle="tab" href="#highland">Highland</a>
+			</li>
+			<li class="nav-item m-0">
+			    <a class="nav-link-tab d-flex align-items-center" data-toggle="tab" href="#simple">Simple</a>
+			</li>
+		</ul>		
+		<div class="tab-content">
+		    <div id="tactical" class="container-fuild tab-pane active">
+		    	<aside>			
+					<span class="aside-element">
+						<span class="aside-icon"></span>
+						<span class="aside-item">
+							<a href="#" class="aside-item-text">Замовити зворотнiй дзвiнок</a>
+						</span>	
+					</span>
+					<span class="aside-element">
+						<span class="aside-icon"></span>
+						<span class="aside-item">
+							<a href="#" class="aside-item-text">Мiняємо Ваш e-mail на знижку або подарунок</a>
+						</span>	
+					</span>
+					<span class="aside-element">
+						<span class="aside-icon"></span>
+						<span class="aside-item">
+							<a href="#" class="aside-item-text">sales@brother-hood.com.ua</a>
+						</span>	
+					</span>			
+				</aside>
+		    	<div class="container tab-item d-flex p-0">	    		
+		    		<div class="col-sm-8 col-md-4 mt-5 p-0">
+			    		<p class="specification">Серія</p>
+				      	<h2>Tactical</h2>
+				      	<p class="tab-item-text"><span>Власна розробка</span> українських військових, 
+				      	 що увібрала в себе <span>найкраще</span> з нині
+				      	 можливого:</p>
+				      	<ul class="check-list">
+				      	 	<li>
+				      	 		<input id="check-one-tab1" type="checkbox" checked>
+				      	 		<label for="check-one-tab1">якість тканин і пошиву</label>
+				      	 	</li>
+				      	 	<li>
+				      	 		<input id="check-two-tab1" type="checkbox" checked>
+				      	 		<label for="check-two-tab1">зручність крою</label>
+				      	 	</li>
+				      	 	<li>
+				      	 		<input id="check-three-tab1" type="checkbox" checked>
+				      	 		<label for="check-three-tab1">функціональність у використанні</label>
+				      	 	</li>
+				      	 	<li class="go-to-catalog">
+				      	 		<span>
+				      	 			<a href="#">Перейти до каталогу</a>
+				      	 		</span>
+				      	 	</li>
+				      	</ul>			      	 
+			      	</div>
+			      	<div class="col-sm-4 col-md-8 p-0 position-relative">
+			    		<img class="soldier-md d-md-none" src="img/soldier-md.png" alt="brotherhood">
+			    		<img class="soldier-tab1 soldier-md d-none d-lg-block" src="img/soldier-md.png" alt="brotherhood">
+			    		<img class="soldier-tab1 soldier-lg d-none d-md-block" src="img/soldier-lg.png" alt="brotherhood" data-large="img/soldier-lg.png">			    		
+			    		<span class="sight-line-upright position-absolute
+			    		d-none d-md-block">
+			    			<span class="sight-line-aflat position-absolute">
+			    				<span class="zoom-in zoom-in-tab1">				
+			    					<span class="line-left position-absolute d-none d-lg-block"></span>
+			    				</span>
+			    			</span>
+			    		</span>
+		    		</div>
+		      	</div>
+		    </div>
+		    <div id="highland" class="container-fuild tab-pane fade">
+		      	<aside>			
+					<span class="aside-element">
+						<span class="aside-icon"></span>
+						<span class="aside-item">
+							<a href="#" class="aside-item-text">Замовити зворотнiй дзвiнок</a>
+						</span>	
+					</span>
+					<span class="aside-element">
+						<span class="aside-icon"></span>
+						<span class="aside-item">
+							<a href="#" class="aside-item-text">Мiняємо Ваш e-mail на знижку або подарунок</a>
+						</span>	
+					</span>
+					<span class="aside-element">
+						<span class="aside-icon"></span>
+						<span class="aside-item">
+							<a href="#" class="aside-item-text">sales@brother-hood.com.ua</a>
+						</span>	
+					</span>			
+				</aside>
+		    	<div class="container tab-item d-flex p-0">	    		
+		    		<div class="col-sm-8 col-md-4 mt-5 p-0">
+			    		<p class="specification">Серія</p>
+				      	<h2>Highland</h2>
+				      	<p class="tab-item-text"><span>Власна розробка</span> українських військових, 
+				      	 що увібрала в себе <span>найкраще</span> з нині
+				      	 можливого:</p>
+				      	<ul class="check-list">
+				      	 	<li>
+				      	 		<input id="check-one-tab2" type="checkbox" checked>
+				      	 		<label for="check-one-tab2">якість тканин і пошиву</label>
+				      	 	</li>
+				      	 	<li>
+				      	 		<input id="check-two-tab2" type="checkbox" checked>
+				      	 		<label for="check-two-tab2">зручність крою</label>
+				      	 	</li>
+				      	 	<li>
+				      	 		<input id="check-three-tab2" type="checkbox" checked>
+				      	 		<label for="check-three-tab2">функціональність у використанні</label>
+				      	 	</li>
+				      	 	<li class="go-to-catalog">
+				      	 		<span>
+				      	 			<a href="#">Перейти до каталогу</a>
+				      	 		</span>
+				      	 	</li>
+				      	</ul>					      	 
+			      	</div>
+			      	<div class="col-sm-4 col-md-8 p-0 position-relative">
+			    		<img class="soldier-md d-md-none" src="img/soldier-md.png" alt="brotherhood">
+			    		<img class="soldier-tab2 soldier-md d-none d-md-block" src="img/soldier-md.png" alt="brotherhood">
+			    		<img class="soldier-tab2 soldier-lg d-none d-lg-block" src="img/soldier-lg.png" alt="brotherhood" data-large="img/soldier-lg.png">  
+			    		<span class="sight-line-upright position-absolute
+			    		d-none d-md-block">
+			    			<span class="sight-line-aflat position-absolute">
+			    				<span class="zoom-in zoom-in-tab2">				
+			    					<span class="line-left position-absolute d-none d-lg-block"></span>
+			    				</span>
+			    			</span>
+			    		</span>
+		    		</div>
+		      	</div>
+		    </div>
+		    <div id="simple" class="container-fuild tab-pane fade">
+		      	<aside>			
+					<span class="aside-element">
+						<span class="aside-icon"></span>
+						<span class="aside-item">
+							<a href="#" class="aside-item-text">Замовити зворотнiй дзвiнок</a>
+						</span>	
+					</span>
+					<span class="aside-element">
+						<span class="aside-icon"></span>
+						<span class="aside-item">
+							<a href="#" class="aside-item-text">Мiняємо Ваш e-mail на знижку або подарунок</a>
+						</span>	
+					</span>
+					<span class="aside-element">
+						<span class="aside-icon"></span>
+						<span class="aside-item">
+							<a href="#" class="aside-item-text">sales@brother-hood.com.ua</a>
+						</span>	
+					</span>			
+				</aside>
+		    	<div class="container tab-item d-flex p-0">	    		
+		    		<div class="col-sm-8 col-md-4 mt-5 p-0">
+			    		<p class="specification">Серія</p>
+				      	<h2>Simple</h2>
+				      	<p class="tab-item-text"><span>Власна розробка</span> українських військових, 
+				      	 що увібрала в себе <span>найкраще</span> з нині
+				      	 можливого:</p>
+				      	<ul class="check-list">
+				      	 	<li>
+				      	 		<input id="check-one-tab3" type="checkbox" checked>
+				      	 		<label for="check-one-tab3">якість тканин і пошиву</label>
+				      	 	</li>
+				      	 	<li>
+				      	 		<input id="check-two-tab3" type="checkbox" checked>
+				      	 		<label for="check-two-tab3">зручність крою</label>
+				      	 	</li>
+				      	 	<li>
+				      	 		<input id="check-three-tab3" type="checkbox" checked>
+				      	 		<label for="check-three-tab3">функціональність у використанні</label>
+				      	 	</li>
+				      	 	<li class="go-to-catalog">
+				      	 		<span>
+				      	 			<a href="#">Перейти до каталогу</a>
+				      	 		</span>
+				      	 	</li>
+				      	</ul>				      	 
+			      	</div>
+			      	<div class="col-sm-4 col-md-8 p-0 position-relative">
+			    		<img class="soldier-md d-md-none" src="img/soldier-md.png" alt="brotherhood">
+			    		<img class="soldier-tab3 soldier-md d-none d-md-block" src="img/soldier-md.png" alt="brotherhood">
+			    		<img class="soldier-tab3 soldier-lg d-none d-lg-block" src="img/soldier-lg.png" alt="brotherhood" data-large="img/soldier-lg.png"> 
+			    		<span class="sight-line-upright position-absolute
+			    		d-none d-md-block">
+			    			<span class="sight-line-aflat position-absolute">
+			    				<span class="zoom-in zoom-in-tab3">				
+			    					<span class="line-left position-absolute d-none d-lg-block"></span>
+			    				</span>
+			    			</span>
+			    		</span>
+		    		</div>
+		      	</div>
+		    </div>	  		
+		</div>
+	</section>
+	<section id="slider">
+		<div id="swiper-container-one" class="swiper-container container">
+			<h2>Тканина</h2>
+		    <div id="swiper-pagination-one" class="swiper-pagination"></div> 			
+		    <div class="swiper-wrapper">
+		    	<div class="swiper-slide">
+		    		<div class="slide-item col-10 mx-auto">		
+			    		<p class="specification">Тип тканини: <span>Кордура</span></p>
+			    		<p class="slide-item-text">Тканина кордура - нейлонова водонепроникна тканина з підвищеною стійкістю до будь механічних впливів. PU просочення і особливе плетіння ниток забезпечують повну водоніпроніцаемость. Тканина стійка до перепадів температур і впливу ультрафіолету.</p>
+			    		<p class="plus"><span>Переваги:</span> вологостійкість, вогнестійкість</p>
+			    		<span class="available">Доступні кольори:</span>
+			    		<ul class="available-select d-flex flex-wrap p-0 col-7 col-sm-12">
+			    			<li>
+			    				<img src="img/select-1.jpg" alt="brotherhood">
+			    			</li>			    			
+			    			<li>
+			    				<img src="img/select-3.jpg" alt="brotherhood">
+			    			</li>	
+			    			<li>
+			    				<img src="img/select-4.jpg" alt="brotherhood">
+			    			</li>			    			
+			    			<li>
+			    				<img src="img/select-6.jpg" alt="brotherhood">
+			    			</li>
+			    		</ul>
+			    		<div class="go-to-catalog mt-0">
+					      	<span>
+					      		<a href="#">Перейти до каталогу</a>
+					      	</span>
+					    </div>
+					</div>       		
+		    	</div>
+		    	<div class="swiper-slide">	    		
+		    		<div class="slide-item col-10 mx-auto">		
+			    		<p class="specification">Тип тканини: <span>Кордура</span></p>
+			    		<p class="slide-item-text">Тканина кордура - нейлонова водонепроникна тканина з підвищеною стійкістю до будь механічних впливів. PU просочення і особливе плетіння ниток забезпечують повну водоніпроніцаемость. Тканина стійка до перепадів температур і впливу ультрафіолету.</p>
+			    		<p class="plus"><span>Переваги:</span> вологостійкість, вогнестійкість</p>
+			    		<span class="available">Доступні кольори:</span>
+			    		<ul class="available-select d-flex flex-wrap p-0 col-9 col-sm-8 col-md-12">
+			    			<li>
+			    				<img src="img/select-1.jpg" alt="brotherhood">
+			    			</li>
+			    			<li>
+			    				<img src="img/select-2.jpg" alt="brotherhood">
+			    			</li>
+			    			<li>
+			    				<img src="img/select-3.jpg" alt="brotherhood">
+			    			</li>	
+			    			<li>
+			    				<img src="img/select-4.jpg" alt="brotherhood">
+			    			</li>
+			    			<li>
+			    				<img src="img/select-5.jpg" alt="brotherhood">
+			    			</li>
+			    			<li>
+			    				<img src="img/select-6.jpg" alt="brotherhood">
+			    			</li>
+			    		</ul>
+			    		<div class="go-to-catalog mt-0">
+					      	<span>
+					      		<a href="#">Перейти до каталогу</a>
+					      	</span>
+					    </div>
+					</div>       		
+		    	</div>
+		    	<div class="swiper-slide">
+		    		<div class="slide-item col-10 mx-auto">		
+			    		<p class="specification">Тип тканини: <span>Кордура</span></p>
+			    		<p class="slide-item-text">Тканина кордура - нейлонова водонепроникна тканина з підвищеною стійкістю до будь механічних впливів. PU просочення і особливе плетіння ниток забезпечують повну водоніпроніцаемость. Тканина стійка до перепадів температур і впливу ультрафіолету.</p>
+			    		<p class="plus"><span>Переваги:</span> вологостійкість, вогнестійкість</p>
+			    		<span class="available">Доступні кольори:</span>
+			    		<ul class="available-select d-flex flex-wrap p-0 col-9 col-sm-8 col-md-12">
+			    			<li>
+			    				<img src="img/select-1.jpg" alt="brotherhood">
+			    			</li>
+			    			<li>
+			    				<img src="img/select-2.jpg" alt="brotherhood">
+			    			</li>
+			    			<li>
+			    				<img src="img/select-3.jpg" alt="brotherhood">
+			    			</li>	
+			    			<li>
+			    				<img src="img/select-4.jpg" alt="brotherhood">
+			    			</li>
+			    			<li>
+			    				<img src="img/select-5.jpg" alt="brotherhood">
+			    			</li>
+			    			<li>
+			    				<img src="img/select-6.jpg" alt="brotherhood">
+			    			</li>
+			    		</ul>
+			    		<div class="go-to-catalog mt-0">
+					      	<span>
+					      		<a href="#">Перейти до каталогу</a>
+					      	</span>
+					    </div>
+					</div>       		
+		    	</div>		    			    				      
+		    </div>		   
+		    <div id="swiper-button-next-one" class="swiper-button-next"></div>
+		    <div id="swiper-button-prev-one" class="swiper-button-prev"></div>	    
+	   </div>
+	</section>
+	<section id="how-do-we-work">
+		<div class="d-none d-lg-block">
+			<h2>Як ми працюємо</h2>
+			<div class="container p-0">
+				<div class="line-decor">
+					<span></span>
+				</div>			
+			</div>
+			<div class="container work-item-one pt-0">
+				<div class="position-relative d-flex flex-wrap">		
+					<div class="col-xs-11 col-md-7 col-lg-6 offset-1 position-static pl-0">
+						<div class="work-photo d-flex">
+							<span class="up-line position-relative">
+								<span class="photo-edge">
+									<img src="img/work-photo-1.jpg" alt="brotherhood" class="img-fluid">
+								</span>
+							</span>						
+							<div class="center-line d-flex align-items-start align-items-lg-end justify-content-between">
+								<span class="number col-1">1</span>
+								<p class="specification d-none d-md-block col-md-4 col-lg-5">Cпочатку <span>Ідея</span></p>							
+							</div>
+						</div>
+					</div>
+					<div class="work-text align-self-end align-self-lg-start col-12 col-md-7 col-lg-5 ml-auto">
+						<p class="specification d-md-none pl-0">Cпочатку <span>Ідея</span></p>
+						<ul class="check-list">
+							<li>
+								<input id="check-work-1_5-one" type="checkbox" checked>
+								<label for="check-work-1_5-one">Усі моделі розробляються українськими  військовими, тому моделі досконалі та зручні</label>
+							</li>
+							<li>
+								<input id="check-work-1_5-two" type="checkbox" checked>
+								<label for="check-work-1_5-two">Кожен елемент моделі знаходиться на своєму функціональному місці, для нього підібраний найкращий крій та матеріали, використовується найдосконаліша фурнітура</label>
+							</li>
+							<li>
+								<input id="check-work-1_5-three" type="checkbox" checked>
+								<label for="check-work-1_5-three">Ідея постійно вдосконалюється, враховуються всі помилки, завдяки налагодженому діалогу з реальними користувачами форми</label>
+							</li>   	 	   	  	 	 	  	 	
+						</ul>			
+					</div>					
+				</div>		
+			</div>
+			<div class="wrap-color-work-item">
+				<div class="container work-item-two">
+					<div class="position-relative d-flex flex-row-reverse flex-wrap">
+						<div class="col-1"></div>		
+						<div class="col-xs-11 col-md-7 col-lg-6  position-static pr-0">
+							<div class="work-photo d-flex">
+								<span class="up-line position-relative">
+									<span class="photo-edge">
+										<img src="img/work-photo-2.jpg" alt="brotherhood" class="img-fluid">
+									</span>
+								</span>						
+								<div class="center-line d-flex flex-row-reverse align-items-start align-items-lg-end justify-content-between">
+									<span class="number col-1">2</span>
+									<p class="specification d-none d-md-block col-md-4 col-lg-5">Потім <span>створення речі</span></p>							
+								</div>
+							</div>
+						</div>
+						<div class="work-text align-self-end align-self-lg-start col-12 col-md-7 col-lg-5 mr-auto">
+							<p class="specification d-md-none pl-0">Потім <span>створення речі</span></p>
+							<ul class="check-list">
+								<li>
+									<input id="check-work-2_5-one" type="checkbox" checked>
+									<label class="mt-0" for="check-work-2_5-one">Виробництво налагоджене на власних виробничих потужностях, а отже якість виробу контролюється нами особисто</label>
+								</li>
+								<li>
+									<input id="check-work-2_5-two" type="checkbox" checked>
+									<label class="my-0" for="check-work-2_5-two">Для зменшення помилок через людський фактор, всі процеси максимально автоматизовані</label>
+								</li>
+								<li>
+									<input id="check-work-2_5-three" type="checkbox" checked>
+									<label class="mb-0" for="check-work-2_5-three">Кожен вироблений зразок гарантованно проходить контроль якості. Помилки виключені</label>
+								</li>   	 	   	  	 	 	  	 	
+							</ul>			
+						</div>					
+					</div>		
+				</div>
+			</div>
+			<div class="container work-item-three">
+				<div class="position-relative d-flex flex-wrap">		
+					<div class="col-xs-11 col-md-7 col-lg-6 offset-1 position-static pl-0">
+						<div class="work-photo d-flex">
+							<span class="up-line position-relative">
+								<span class="photo-edge">
+									<img src="img/work-photo-3.jpg" alt="brotherhood" class="img-fluid">
+								</span>
+							</span>						
+							<div class="center-line d-flex align-items-start align-items-lg-end justify-content-between">
+								<span class="number col-1 pl-0">3</span>
+								<p class="specification d-none d-md-block col-md-4 col-lg-5">І нарешті <span>Тестування</span></p>							
+							</div>
+						</div>
+					</div>
+					<div class="work-text align-self-end align-self-lg-start col-12 col-md-7 col-lg-5 ml-auto">
+						<p class="specification d-md-none pl-0">І нарешті <span>Тестування</span></p>
+						<ul class="check-list">
+							<li>
+								<input id="check-work-3_5-one" type="checkbox" checked>
+								<label for="check-work-3_5-one">Одяг тестується як на полігонах, так і у реальних умовах АТО</label>
+							</li>
+							<li>
+								<input id="check-work-3_5-two" type="checkbox" checked>
+								<label for="check-work-3_5-two">Постійно збирається статистика відгуків та побажань</label>
+							</li>
+							<li>
+								<input id="check-work-3_5-three" type="checkbox" checked>
+								<label for="check-work-3_5-three">Всі доцільні відгуки користувачів нашої продукції завжди трансформуються у нові ідеї</label>
+							</li>   	 	   	  	 	 	  	 	
+						</ul>									
+					</div>		
+				</div>						
+	        </div>  			
+		</div>				
+		<div id="swiper-container-two" class="swiper-container d-lg-none">
+			<h2>Як ми працюємо</h2>
+			<div class="container p-0">
+				<div class="line-decor">
+					<span></span>
+				</div>			
+			</div>
+    		<div class="swiper-wrapper">
+    			<div class="swiper-slide">
+    				<div class="container work-item-one">
+						<div class="position-relative d-flex flex-wrap">		
+							<div class="col-xs-11 col-md-7 col-lg-6 offset-1 position-static pl-0">
+								<div class="work-photo d-flex">
+									<span class="up-line position-relative">
+										<span class="photo-edge">
+											<img src="img/work-photo-1.jpg" alt="brotherhood" class="img-fluid">
+										</span>
+									</span>						
+									<div class="center-line d-flex align-items-start align-items-lg-end justify-content-between">
+										<span class="number col-1">1</span>
+										<p class="specification d-none d-md-block col-md-4 col-lg-5">Cпочатку <span>Ідея</span></p>							
+									</div>
+								</div>
+							</div>
+							<div class="work-text align-self-end align-self-lg-start col-12 col-md-7 col-lg-5 ml-auto">
+								<p class="specification d-md-none pl-0">Cпочатку <span>Ідея</span></p>
+								<ul class="check-list">
+									<li>
+										<input id="check-work-1-one" type="checkbox" checked>
+										<label for="check-work-1-one">Усі моделі розробляються українськими  військовими, тому моделі досконалі та зручні</label>
+									</li>
+									<li>
+										<input id="check-work-1-two" type="checkbox" checked>
+										<label for="check-work-1-two">Кожен елемент моделі знаходиться на своєму функціональному місці, для нього підібраний найкращий крій та матеріали, використовується найдосконаліша фурнітура</label>
+									</li>
+									<li>
+										<input id="check-work-1-three" type="checkbox" checked>
+										<label for="check-work-1-three">Ідея постійно вдосконалюється, враховуються всі помилки, завдяки налагодженому діалогу з реальними користувачами форми</label>
+									</li>   	 	   	  	 	 	  	 	
+								</ul>			
+							</div>					
+						</div>		
+					</div>
+    			</div>
+      			<div class="swiper-slide">
+      				<div class="wrap-color-work-item">
+						<div class="container work-item-two">
+							<div class="position-relative d-flex flex-row-reverse flex-wrap">
+								<div class="col-2 col-lg-1"></div>		
+								<div class="col-10 col-md-7 col-lg-6  position-static pr-0">
+									<div class="work-photo d-flex">
+										<span class="up-line position-relative">
+											<span class="photo-edge">
+												<img src="img/work-photo-2.jpg" alt="brotherhood" class="img-fluid">
+											</span>
+										</span>						
+										<div class="center-line d-flex flex-row-reverse align-items-start align-items-lg-end justify-content-between">
+											<span class="number col-2 col-lg-1">2</span>
+											<p class="specification d-none d-md-block col-md-4 col-lg-5">Потім <span>створення речі</span></p>							
+										</div>
+									</div>
+								</div>
+								<div class="work-text align-self-end align-self-lg-start col-12 col-md-7 col-lg-5 mr-auto">
+									<p class="specification d-md-none pl-0">Потім <span>створення речі</span></p>
+									<ul class="check-list">
+										<li>
+											<input id="check-work-2-one" type="checkbox" checked>
+											<label class="mt-0" for="check-work-2-one">Виробництво налагоджене на власних виробничих потужностях, а отже якість виробу контролюється нами особисто</label>
+										</li>
+										<li>
+											<input id="check-work-2-two" type="checkbox" checked>
+											<label class="my-0" for="check-work-2-two">Для зменшення помилок через людський фактор, всі процеси максимально автоматизовані</label>
+										</li>
+										<li>
+											<input id="check-work-2-three" type="checkbox" checked>
+											<label class="mb-0" for="check-work-2-three">Кожен вироблений зразок гарантованно проходить контроль якості. Помилки виключені</label>
+										</li>   	 	   	  	 	 	  	 	
+									</ul>			
+								</div>					
+							</div>		
+						</div>
+					</div>
+      			</div>
+      			<div class="swiper-slide">
+      				<div class="container work-item-three">
+						<div class="position-relative d-flex flex-wrap">		
+							<div class="col-xs-11 col-md-7 col-lg-6 offset-1 position-static pl-0">
+								<div class="work-photo d-flex">
+									<span class="up-line position-relative">
+										<span class="photo-edge">
+											<img src="img/work-photo-3.jpg" alt="brotherhood" class="img-fluid">
+										</span>
+									</span>						
+									<div class="center-line d-flex align-items-start align-items-lg-end justify-content-between">
+										<span class="number col-1 pl-0">3</span>
+										<p class="specification d-none d-md-block col-md-4 col-lg-5">І нарешті <span>Тестування</span></p>							
+									</div>
+								</div>
+							</div>
+							<div class="work-text align-self-end align-self-lg-start col-12 col-md-7 col-lg-5 ml-auto">
+								<p class="specification d-md-none pl-0">І нарешті <span>Тестування</span></p>
+								<ul class="check-list">
+									<li>
+										<input id="check-work-3-one" type="checkbox" checked>
+										<label for="check-work-3-one">Одяг тестується як на полігонах, так і у реальних умовах АТО</label>
+									</li>
+									<li>
+										<input id="check-work-3-two" type="checkbox" checked>
+										<label for="check-work-3-two">Постійно збирається статистика відгуків та побажань</label>
+									</li>
+									<li>
+										<input id="check-work-3-three" type="checkbox" checked>
+										<label for="check-work-3-three">Всі доцільні відгуки користувачів нашої продукції завжди трансформуються у нові ідеї</label>
+									</li>   	 	   	  	 	 	  	 	
+								</ul>			
+							</div>					
+						</div>		
+					</div>
+      			</div>      
+    		</div>    		
+    		<div id="swiper-pagination-two" class="swiper-pagination"></div>
+  		</div>
+	</section>
+	<section id="dealers">
+		<h2>Наші дилери</h2>
+		<div class="container p-0">
+			<div class="line-decor">
+				<span></span>
+			</div>			
+		</div>
+		<div id="map"></div>		
+	</section>
+	<footer id="contacts">
+		<div class="container d-flex  flex-wrap p-0">
+			<div class="logo order-1 col-12 col-md-6 col-lg-6 col-xl-4">
+				<img class="img-fluid" src="img/logo.png" alt="brotherhood">
+			</div>
+			<div class="address order-3 order-md-2 d-flex justify-content-end justify-content-xl-start col-12 col-md-6 col-lg-6 col-xl-4 ml-auto">
+				<ul class="p-0">
+					<li class="d-flex align-items-center justify-content-start">
+						<span class="icon-mail"></span><a class="mail-text" href="#">sales@brother-hood.com.ua</a>
+					</li>
+					<li>ст. м “Либідська”</li>
+					<li>м. Київ, вул. К. Малевича, 86 І</li>
+				</ul>
+			</div>
+			<div class="contacts order-2 order-md-3 col-12 col-xl-3">
+				<ul class="d-flex flex-column flex-md-row justify-content-between flex-xl-column p-0">
+					<li class="d-flex justify-content-start justify-content-xl-end align-items-center align-items-lg-end align-items-xl-center">
+						<span class="icon-tel"></span><a class="tel-text" href="#">Замовити зворотнiй дзвiнок</a>
+					</li>
+					<li>+38 (050) <span>317-64-44</span></li>
+					<li>+38 (067) <span>325-57-53</span></li>
+				</ul>
+			</div>
+		</div>	
+	</footer>	
+</body>
+</html>
