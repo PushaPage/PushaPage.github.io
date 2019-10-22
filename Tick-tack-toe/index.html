@@ -33,16 +33,7 @@
         </tr>
       </table>
       <p></p>    
-      <button id="playAgain" type="button" class="btn btn-outline-light">
-        <span>P</span>
-        <span>l</span>
-        <span>a</span>
-        <span>y</span>
-        <span>a</span>       
-        <span>g</span>
-        <span>a</span>
-        <span>in</span>        
-      </button>      
+      <button id="playAgain" type="button" class="btn btn-outline-light"><span class="d-none d-sm-inline-block">Play</span> again</button>      
     </div>  
   </div>
   <script type="text/javascript">  
@@ -137,6 +128,7 @@
           } else if (allcells[0].innerHTML != '' && allcells[1].innerHTML != '' && allcells[2].innerHTML != '' && allcells[3].innerHTML != '' && allcells[4].innerHTML != '' && allcells[5].innerHTML != '' && allcells[6].innerHTML != '' && allcells[7].innerHTML != '' && allcells[8].innerHTML != ''){
             p.innerHTML = 'No one\'s won!';          
             p.style.left = '0';
+            playAgain.style.display = 'block';
             playAgain.style.opacity = '1';
             playAgain.style.transition = 'opacity .5s ease-out .5s';              
             if(!winMatch) {
@@ -147,7 +139,8 @@
 
       function whoWon (won) {               
           p.innerHTML = won + '- won!';          
-          p.style.left = '0';         
+          p.style.left = '0';
+          playAgain.style.display = 'block';         
           playAgain.style.opacity = '1';
           playAgain.style.transition = 'opacity .5s ease-out .5s';
           TickTackToe.querySelectorAll('td').forEach( el => {

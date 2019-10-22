@@ -13,7 +13,8 @@
       padding: 40px  0;
       text-align: center;
       overflow: hidden;
-      border-radius: 30px;         
+      border-radius: 30px;
+      border: 5px solid rgba(242, 242, 247, .8);         
       box-shadow: 0 8px 8px rgba(0, 0, 0, .6), 0 0 8px rgba(0, 0, 0, .4);
       background: url('../img/Tick-tack-toe.jpg') no-repeat 50%/cover;
     }
@@ -24,11 +25,11 @@
       right: 0;
       bottom: 0;
       top: 0;
-      background: rgba(28, 28, 30, .8);
+      background: rgba(28, 28, 30, .8);     
     }
     h1{
      position: relative; 
-     letter-spacing: 2px;
+     letter-spacing: 1px;
      font-size: 53px;
      padding: 9px 0;   
      background: linear-gradient(to left,transparent 20%, rgb(242, 242, 247), transparent 80%);
@@ -37,7 +38,7 @@
       position: relative; 
       padding: 0 39% 0 0; 
       background: linear-gradient(to right, rgb(242, 242, 247) 30%, transparent 80%);
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       font-size: 53px;
       left: -100%;
       transition: left .8s ease;            
@@ -163,11 +164,12 @@
       transform-origin: center;
       transform: rotate(5deg);
     } 
-    #playAgain{      
+    #playAgain{
+      display: none;      
       position: absolute;
       font-size: 40px;      
       padding: 5px 45px 5px 0;
-      letter-spacing: -3px;
+      letter-spacing: .5px;
       font-weight: 500;
       top: 50%;
       right: 0;
@@ -177,11 +179,8 @@
       opacity: 0;
       transform: translate(0,-50%);      
       overflow: hidden;
-    }
-    
-    #playAgain span:nth-child(5){
-      padding-left: 6px; 
-    }
+    }    
+ 
     #playAgain:after{
       content: "?";
       position: absolute;
@@ -190,10 +189,7 @@
       opacity: 1;
       background: none;
       transition: top linear .3s, opacity ease .2s;
-    }
-    #playAgain span:nth-child(8){
-      letter-spacing: 1px;
-    } 
+    }    
     #playAgain:before{
       content: "!";
       position: absolute;
@@ -230,10 +226,10 @@
       }
      .container #playAgain:after{
         top: 50%;
-        right: 20px;
+        right: 25px;
      }        
      .container #playAgain:before{
-        right: 23px;
+        right: 29px;
      }
      .container #playAgain:hover:before,#playAgain:active:before,#playAgain:focus:before{
       top: 46%;      
@@ -255,14 +251,7 @@
       font-size: 45px;
       text-align: left;
       padding: 9px 0 9px 25px;                  
-    }    
-    #container #playAgain:after{
-        top: 50%;
-        right: 17px;
-    }
-    .container #playAgain:before{
-        right: 19px;
-     } 
+    } 
     .container #container {
       height: 575px;
     }
@@ -271,90 +260,46 @@
         width: 84px;
         height: 84px;
         font-size: 45px;
-     } 
-     #TickTackToe tr:nth-child(2) td:nth-child(2){
-      width: 96px;            
+    } 
+    #TickTackToe tr:nth-child(2) td:nth-child(2){
+        width: 96px;            
     }    
     }
 
-    @media (max-width: 515px){
-    #container #playAgain{
-      width: 60px;
-      padding: 0px;
-      top: 44%;
-      right: 4%;
-    }
-    #container #playAgain span{     
-      display: block;
-      font-size: 30px;         
-    }
-    #container #playAgain span:nth-child(1){     
-      padding: 0 0 0px 0px;
-      line-height: 43px;
-      height: 36px; 
-    }
-    #container #playAgain span:nth-child(2){     
-      padding: 0 0 0px 24px;
-      line-height: 21px;
-      height: 19px;  
-    }
-    #container #playAgain span:nth-child(3){     
-      padding: 0 11px 0px 0;
-      height: 20px;
-      line-height: 16px; 
-    }
-    #container #playAgain span:nth-child(4){     
-      padding: 2px 0px 0 5px;
-      line-height: 20px;
-      letter-spacing: 19px;
-      height: 14px;
-    }
-    #container #playAgain span:nth-child(5){     
-      padding: 2px 0px 0 36px;
-      line-height: 26px;
-      letter-spacing: 19px;
-      height: 14px;
-    }
-    #container #playAgain span:nth-child(6){     
-      padding: 5px 10px 0 0px;
-      line-height: 33px;
-    }
-    #container #playAgain span:nth-child(7){
-      text-align: left;
-      padding: 0 0px 0 4px;
-      height: 26px;
-      line-height: 21px;    
-    }
-    #container #playAgain span:nth-child(8){     
-      line-height: 20px;     
-      letter-spacing: 7px;
-      text-align: left;
-    }
-    #container #playAgain:after{     
-      right: 6px;
-      top: auto;
-      bottom: -8%;  
-    }
-    #container #playAgain:hover:after,#playAgain:active:after,#playAgain:focus:after{
-      top: auto;
-      bottom: -30%;
-      opacity: 0;
-    }
-    #container #playAgain:hover:before,#playAgain:active:before,#playAgain:focus:before{
-      top: auto;
-      bottom: -8%;
+    @media (max-width: 575px){
 
+      #container #playAgain{
+      width: 130px;
+      padding-right: 25px;     
     }
-    #container #playAgain:before{
-      right: 15px;
-      top: auto;
-      bottom: -100%;       
-    }   
+      #container #playAgain:after{     
+        top: 7%;
+        right: 10px; 
     }
+      #container #playAgain:before{     
+        top: -5%;
+        right: 14px; 
+    }
+    }
+  
 
-    @media (max-width: 425px){
-    body .container #TickTackToe{      
+    @media (max-width: 480px){
+    
+    body .container #container {
+      height: 545px;
+    }
+    body .container #TickTackToe {
+      margin: 33px auto 0 40px;
+    }
+    body .container #TickTackToe td{      
       margin: 40px auto 0 30px;
-      transform: scale(.9);      
+      width: 70px;
+      height: 70px;
+      font-size: 38px;     
     }
+    body .container #TickTackToe tr:nth-child(2) td:nth-child(2){
+        width: 80px;            
+    } 
     }
+
+   
