@@ -181,23 +181,13 @@
             'audio/levelUp.mp3', 
             'audio/gameOver.mp3',
             'audio/gameWin.mp3',            
-            ],
-        rowOne = null,
-        rowTwo = null,
-        rowThree = null,
-        rowFour = null,
-        rowFive = null,
-        rowOneBugs = null, 
-        rowTwoBugs = null, 
-        rowThreeBugs = null, 
-        rowFourBugs = null, 
-        rowFiveBugs = null, 
+            ],         
         clipBullets = []; 
 
       
-  function createBugs() {
+    function createBugs() {
 
-        for(let i = 1; i<=5; i++){               
+       for(let i = 1; i<=5; i++){               
            el = document.createElement('div');
            el.setAttribute('id', 'row' + i);        
            el.style.position = 'absolute';    
@@ -239,156 +229,137 @@
 
         android.style.color = 'rgb(48, 209, 88)';
 
-        rowOne = row1;
-        rowTwo = row2;
-        rowThree = row3;
-        rowFour = row4;
-        rowFive = row5;
+        let  rowOneBugs = row1.querySelectorAll('i'),
+             rowTwoBugs = row2.querySelectorAll('i'),
+             rowThreeBugs = row3.querySelectorAll('i'),
+             rowFourBugs = row4.querySelectorAll('i'),
+             rowFiveBugs = row5.querySelectorAll('i');
 
-        rowOneBugs = row1.querySelectorAll('i');
-        rowTwoBugs = row2.querySelectorAll('i');
-        rowThreeBugs = row3.querySelectorAll('i');
-        rowFourBugs = row4.querySelectorAll('i');
-        rowFiveBugs = row5.querySelectorAll('i');
-     
+
+        if(!levelOneFlag){   
+            rowOneBugs[4].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowOneBugs[5].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowTwoBugs[1].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowTwoBugs[8].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowThreeBugs[4].classList = 'fad fa-bug bugOrdinary bugRowDown';
+            rowThreeBugs[5].classList = 'fad fa-bug bugOrdinary bugRowDown';
+            rowFourBugs[2].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowFourBugs[3].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowFourBugs[4].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowFourBugs[5].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowFourBugs[6].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowFourBugs[7].classList = 'fas fa-spider bugOrdinary bugArmored';    
+        };
+        if(!levelTwoFlag){
+            rowThreeBugs.forEach((el)=>{
+               el.classList = 'fas fa-spider bugOrdinary bugArmored';
+            });
+            rowFourBugs.forEach((el)=>{
+               el.classList = 'fas fa-spider bugOrdinary bugArmored';
+            });
+            rowTwoBugs[1].classList = 'far fa-bug bugOrdinary bugManyFaces';
+            rowTwoBugs[4].classList = 'fad fa-spider bugOrdinary bugRowDown2';
+            rowTwoBugs[5].classList = 'fad fa-spider bugOrdinary bugRowDown2';
+            rowTwoBugs[8].classList = 'far fa-bug bugOrdinary bugManyFaces';
+            rowFiveBugs[2].classList = 'fad fa-bug bugOrdinary bugRowDown';
+            rowFiveBugs[4].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowFiveBugs[5].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowFiveBugs[6].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowFiveBugs[9].classList = 'fad fa-bug bugOrdinary bugRowDown'; 
+        };
+        if(!levelThreeFlag){        
+            rowOneBugs[0].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowOneBugs[1].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowOneBugs[8].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowOneBugs[9].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowTwoBugs[0].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
+            rowTwoBugs[9].classList = 'fad fa-spider bugOrdinary bugRowDown2';
+            rowTwoBugs[2].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowTwoBugs[3].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowTwoBugs[6].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowTwoBugs[7].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowThreeBugs[4].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowThreeBugs[5].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowFourBugs[9].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
+            rowFourBugs[0].classList = 'fad fa-spider bugOrdinary bugRowDown2';
+            rowFourBugs[1].classList = 'far fa-bug bugOrdinary bugManyFaces';
+            rowFourBugs[8].classList = 'far fa-bug bugOrdinary bugManyFaces';
+            rowFourBugs[2].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowFourBugs[3].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowFourBugs[4].classList = 'far fa-bug bugOrdinary bugManyFaces';
+            rowFourBugs[5].classList = 'far fa-bug bugOrdinary bugManyFaces';
+            rowFourBugs[6].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowFourBugs[7].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowFiveBugs[8].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowFiveBugs[9].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowFiveBugs[0].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowFiveBugs[1].classList = 'fas fa-spider bugOrdinary bugArmored';
+            rowFiveBugs[3].classList = 'fad fa-bug bugOrdinary bugRowDown';
+            rowFiveBugs[4].classList = 'fad fa-bug bugOrdinary bugRowDown';
+            rowFiveBugs[5].classList = 'fad fa-bug bugOrdinary bugRowDown';
+            rowFiveBugs[6].classList = 'fad fa-bug bugOrdinary bugRowDown';     
+        };
+        if(!levelFourFlag){
+            rowOneBugs[0].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
+            rowOneBugs[9].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
+            rowTwoBugs.forEach((el)=>{
+               el.classList = 'fas fa-spider bugOrdinary bugArmored';
+            });
+            rowThreeBugs.forEach((el)=>{
+               el.classList = 'fal fa-bug bugOrdinary bugArmoredManyFaces';
+            });
+            rowFourBugs.forEach((el)=>{
+               el.classList = 'fas fa-spider bugOrdinary bugArmored';
+            });
+            rowFiveBugs[0].classList = 'fad fa-spider bugOrdinary bugRowDown2';
+            rowFiveBugs[1].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
+            rowFiveBugs[2].classList = 'fad fa-spider bugOrdinary bugRowDown2';
+            rowFiveBugs[3].classList = 'far fa-bug bugOrdinary bugManyFaces';
+            rowFiveBugs[4].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
+            rowFiveBugs[5].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
+            rowFiveBugs[6].classList = 'far fa-bug bugOrdinary bugManyFaces';
+            rowFiveBugs[7].classList = 'fad fa-spider bugOrdinary bugRowDown2';
+            rowFiveBugs[8].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
+            rowFiveBugs[9].classList = 'fad fa-spider bugOrdinary bugRowDown2'; 
+        } 
+        if(!levelFiveFlag){
+            rowTwoBugs.forEach((el)=>{
+               el.classList = 'far fa-bug bugOrdinary bugManyFaces';
+            });
+            rowThreeBugs.forEach((el)=>{
+               el.classList = 'far fa-bug bugOrdinary bugManyFaces';
+            });
+            rowThreeBugs[2].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp'; 
+            rowThreeBugs[7].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
+            rowFourBugs.forEach((el)=>{
+               el.classList = 'far fa-bug bugOrdinary bugManyFaces';
+            });
+            rowFourBugs[1].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2'; 
+            rowFourBugs[8].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
+            rowFiveBugs.forEach((el)=>{
+               el.classList = 'fal fa-bug bugOrdinary bugArmoredManyFaces';
+            });
+            rowFiveBugs[0].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp'; 
+            rowFiveBugs[9].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2'; 
+        };      
                              
-  }; 
-  
-  function LevelOne () {
-
-        rowOneBugs[4].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowOneBugs[5].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowTwoBugs[1].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowTwoBugs[8].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowThreeBugs[4].classList = 'fad fa-bug bugOrdinary bugRowDown';
-        rowThreeBugs[5].classList = 'fad fa-bug bugOrdinary bugRowDown';
-        rowFourBugs[2].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowFourBugs[3].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowFourBugs[4].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowFourBugs[5].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowFourBugs[6].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowFourBugs[7].classList = 'fas fa-spider bugOrdinary bugArmored';  
-
-  };
-
-  function LevelTwo () {
-
-        rowThreeBugs.forEach((el)=>{
-            el.classList = 'fas fa-spider bugOrdinary bugArmored';
-        });
-        rowFourBugs.forEach((el)=>{
-            el.classList = 'fas fa-spider bugOrdinary bugArmored';
-        });
-        rowTwoBugs[1].classList = 'far fa-bug bugOrdinary bugManyFaces';
-        rowTwoBugs[4].classList = 'fad fa-spider bugOrdinary bugRowDown2';
-        rowTwoBugs[5].classList = 'fad fa-spider bugOrdinary bugRowDown2';
-        rowTwoBugs[8].classList = 'far fa-bug bugOrdinary bugManyFaces';
-        rowFiveBugs[2].classList = 'fad fa-bug bugOrdinary bugRowDown';
-        rowFiveBugs[4].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowFiveBugs[5].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowFiveBugs[6].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowFiveBugs[9].classList = 'fad fa-bug bugOrdinary bugRowDown'; 
+      }; 
     
-  };
-
-  function LevelThree () {
-
-        rowOneBugs[0].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowOneBugs[1].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowOneBugs[8].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowOneBugs[9].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowTwoBugs[0].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
-        rowTwoBugs[9].classList = 'fad fa-spider bugOrdinary bugRowDown2';
-        rowTwoBugs[2].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowTwoBugs[3].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowTwoBugs[6].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowTwoBugs[7].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowThreeBugs[4].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowThreeBugs[5].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowFourBugs[9].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
-        rowFourBugs[0].classList = 'fad fa-spider bugOrdinary bugRowDown2';
-        rowFourBugs[1].classList = 'far fa-bug bugOrdinary bugManyFaces';
-        rowFourBugs[8].classList = 'far fa-bug bugOrdinary bugManyFaces';
-        rowFourBugs[2].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowFourBugs[3].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowFourBugs[4].classList = 'far fa-bug bugOrdinary bugManyFaces';
-        rowFourBugs[5].classList = 'far fa-bug bugOrdinary bugManyFaces';
-        rowFourBugs[6].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowFourBugs[7].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowFiveBugs[8].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowFiveBugs[9].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowFiveBugs[0].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowFiveBugs[1].classList = 'fas fa-spider bugOrdinary bugArmored';
-        rowFiveBugs[3].classList = 'fad fa-bug bugOrdinary bugRowDown';
-        rowFiveBugs[4].classList = 'fad fa-bug bugOrdinary bugRowDown';
-        rowFiveBugs[5].classList = 'fad fa-bug bugOrdinary bugRowDown';
-        rowFiveBugs[6].classList = 'fad fa-bug bugOrdinary bugRowDown'; 
-    
-  };
-
-  function LevelFour () {
-
-        rowOneBugs[0].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
-        rowOneBugs[9].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
-        rowTwoBugs.forEach((el)=>{
-           el.classList = 'fas fa-spider bugOrdinary bugArmored';
-        });
-        rowThreeBugs.forEach((el)=>{
-           el.classList = 'fal fa-bug bugOrdinary bugArmoredManyFaces';
-        });
-        rowFourBugs.forEach((el)=>{
-           el.classList = 'fas fa-spider bugOrdinary bugArmored';
-        });
-        rowFiveBugs[0].classList = 'fad fa-spider bugOrdinary bugRowDown2';
-        rowFiveBugs[1].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
-        rowFiveBugs[2].classList = 'fad fa-spider bugOrdinary bugRowDown2';
-        rowFiveBugs[3].classList = 'far fa-bug bugOrdinary bugManyFaces';
-        rowFiveBugs[4].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
-        rowFiveBugs[5].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
-        rowFiveBugs[6].classList = 'far fa-bug bugOrdinary bugManyFaces';
-        rowFiveBugs[7].classList = 'fad fa-spider bugOrdinary bugRowDown2';
-        rowFiveBugs[8].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
-        rowFiveBugs[9].classList = 'fad fa-spider bugOrdinary bugRowDown2';
-        
-  };
-
-  function LevelFive () {
-
-        rowTwoBugs.forEach((el)=>{
-            el.classList = 'far fa-bug bugOrdinary bugManyFaces';
-        });
-        rowThreeBugs.forEach((el)=>{
-            el.classList = 'far fa-bug bugOrdinary bugManyFaces';
-        });
-        rowThreeBugs[2].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp'; 
-        rowThreeBugs[7].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
-        rowFourBugs.forEach((el)=>{
-            el.classList = 'far fa-bug bugOrdinary bugManyFaces';
-        });
-        rowFourBugs[1].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2'; 
-        rowFourBugs[8].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
-        rowFiveBugs.forEach((el)=>{
-            el.classList = 'fal fa-bug bugOrdinary bugArmoredManyFaces';
-        });
-        rowFiveBugs[0].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp'; 
-        rowFiveBugs[9].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2'; 
-    
-  };    
     
   
-  function fadeInFadeOut (fadeIn,fadeOut){
+   function fadeInFadeOut (fadeIn,fadeOut){
         fadeIn.classList.add('fade-in');
         fadeIn.classList.remove('fade-out');
         fadeOut.classList.add('fade-out');
         fadeOut.classList.remove('fade-in');
-  };
+    };
 
-  function buttonActive (on,off){
+   function buttonActive (on,off){
         on.classList.add('button-active');
         on.classList.remove('button-no-active');
         off.classList.add('button-no-active');
         off.classList.remove('button-active');
-  }; 
+    }; 
 
   function playSoundShot () {
     if(!goPlay){ 
@@ -399,7 +370,7 @@
      };          
    };
 
-  function playSoundGame (effect) {
+   function playSoundGame (effect) {
     if(!goPlay){ 
       if(!sound){ 
         soundBug.src = effect;        
@@ -445,13 +416,10 @@
 
         case 'play':
               fadeInFadeOut (playingField,menuGame);
-              playingField.style.backgroundImage = 'url("img/bg-Field.jpg")';
-              setTimeout( () =>{
-                goPlay = false;
-              }, 300);              
+              playingField.style.backgroundImage = 'url("img/bg-Field.jpg")';                             
+              goPlay = false;
               levelOneFlag = false;
-              createBugs();
-              LevelOne ();                
+              createBugs();                
               GameStart();   
             break;
         case 'option':
@@ -488,43 +456,31 @@
         case 'levelTwo':
               fadeInFadeOut (playingField,levelTwo);
               playingField.style.backgroundImage = 'url("img/bg-Field2.jpg")';               
-              setTimeout( () =>{
-                goPlay = false;
-              }, 300);               
+              goPlay = false;             
               levelTwoFlag = false;
               createBugs();
-              LevelTwo ();
               GameStart();
             break;
         case 'levelThree':
               fadeInFadeOut (playingField,levelThree);            
-              setTimeout( () =>{
-                goPlay = false;
-              }, 300);  
+              goPlay = false;
               levelThreeFlag = false;
               createBugs();
-              LevelThree ()
               GameStart();
             break;
         case 'levelFour':
               fadeInFadeOut (playingField,levelFour);                        
-              setTimeout( () =>{
-                goPlay = false;
-              }, 300);  
+              goPlay = false;
               levelFourFlag = false;
               createBugs();
-              LevelFour ();
               GameStart();
             break;
         case 'levelFive':
               fadeInFadeOut (playingField,levelFive);
               playingField.style.backgroundImage = 'url("img/bg-Field3.jpg")';           
-              setTimeout( () =>{
-                goPlay = false;
-              }, 300);  
+              goPlay = false;
               levelFiveFlag = false;
               createBugs();
-              LevelFive ();
               GameStart();
             break; 
         case 'winRestartGame':
@@ -777,7 +733,22 @@ function GameStart(){
         top: y + (el.offsetHeight / 2), // y + половина высоты
         left: x + (el.offsetWidth / 2)  // x + половина ширины
         };
-      };
+      }
+
+
+   
+      var rowOne = document.getElementById('row1'),
+          rowTwo = document.getElementById('row2'),
+          rowThree = document.getElementById('row3'),
+          rowFour = document.getElementById('row4'),
+          rowFive = document.getElementById('row5');         
+
+      var rowOneBugs = rowOne.querySelectorAll('i'),
+          rowTwoBugs = rowTwo.querySelectorAll('i'),
+          rowThreeBugs = rowThree.querySelectorAll('i'),
+          rowFourBugs = rowFour.querySelectorAll('i'),
+          rowFiveBugs = rowFive.querySelectorAll('i');
+
      
    
       var step = 10;
@@ -897,18 +868,18 @@ function GameStart(){
        if(o.newPos < 0){
           o.bullet.remove();            
           clipBullets.shift(o);
-       };
+       }
 
        if(o.bullet.getBoundingClientRect().top < activeScreen.getBoundingClientRect().top - 5){
           o.bullet.remove();
-       };
 
+       }       
+         
        if(o.bullet.getBoundingClientRect().top < rowFive.getBoundingClientRect().bottom){
           playingField.querySelectorAll('i').forEach( el => {          
               collision(el,o.bullet);     
           });          
-       };     
-        
+       };
         
       });
         playingField.querySelectorAll('i').forEach( (el,i) => {            
