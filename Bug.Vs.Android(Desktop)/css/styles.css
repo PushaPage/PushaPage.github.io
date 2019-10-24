@@ -632,7 +632,7 @@
       height: 55px;    
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);     
     }
-    .bugDead{
+    #bugDead{
       position: relative;
       display: block;
       font-size: 45px;
@@ -642,8 +642,7 @@
       transform-origin: center; 
       height: 45px;
       color: rgba(48, 209, 88, .8);      
-      text-shadow: 0 4px 4px rgba(99, 99, 102, .7), 0 0 4px rgba(99, 99, 102, .5);
-      animation: bugDead 3.5s linear infinite;
+      text-shadow: 0 4px 4px rgba(99, 99, 102, .7), 0 0 4px rgba(99, 99, 102, .5);      
     }
     @keyframes bugDead{
       from{

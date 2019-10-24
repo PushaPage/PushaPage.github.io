@@ -22,7 +22,7 @@
           <span id="countlevels"></span>
         </span>
         <span id="boxDeadBugs">
-          <span class="fas fa-bug bugDead"></span>
+          <span id="bugDead" class="fas fa-bug"></span>
           <span id="countDeadBugs"></span>
         </span>
         <button type="button" class="fad fa-play button-play-in button-active" data-game="playInGame"></button>
@@ -148,6 +148,7 @@
         creepBugTwo = document.getElementById('creepBug2'),
         creepBugThree = document.getElementById('creepBug3'),
         creepBugFour = document.getElementById('creepBug4'),
+        bugDead = document.getElementById('bugDead'),
         gameWin = document.getElementById('gameWin'),
         buttonPlayIn = document.querySelector('.button-play-in'),
         buttonPause = document.querySelector('.button-pause'),
@@ -228,6 +229,7 @@
         };
 
         android.style.color = 'rgb(48, 209, 88)';
+        bugDead.style.animation = 'bugDead 3.5s linear infinite';
 
         let  rowOneBugs = row1.querySelectorAll('i'),
              rowTwoBugs = row2.querySelectorAll('i'),
@@ -587,6 +589,14 @@
    };
  
 function GameStart(){
+
+
+      function Extermination () {
+          playingField.querySelectorAll('div').forEach( (el) => {
+              el.remove(); 
+          });
+          bugDead.style.animation = '';
+      };
        
       function RandomBugName (bug){
         let selectClass = [
@@ -614,7 +624,7 @@ function GameStart(){
      };
 
         // подсчет длинны гипотенузы по теореме Пифагора
-      function _distance(a, b) {
+      function Distance(a, b) {
         return Math.sqrt(
           Math.pow(Math.abs(a.left - b.left), 2) + 
           Math.pow(Math.abs(a.top  - b.top ), 2)
@@ -626,13 +636,13 @@ function GameStart(){
           el.getBoundingClientRect();
           bul.getBoundingClientRect(); 
 
-      var radius1 = (el.offsetHeight / 2);
-      var radius2 = (bul.offsetHeight / 2);
+      let radius1 = (el.offsetHeight / 2);
+      let radius2 = (bul.offsetHeight / 2);
       
       // растояние между центрами обьектов
-      var distance = _distance(
-        _center(el), 
-        _center(bul)
+      let distance = Distance(
+         center(el), 
+         center(bul)
       );
        
        if (distance < (radius1 + radius2)) {
@@ -721,13 +731,13 @@ function GameStart(){
       };  
 
       // функция которая вычисляет координаты центра блока
-      function _center (el){
-      var rect = el.getBoundingClientRect();
+      function center (el){
+      let object = el.getBoundingClientRect();
       
       // координаты относительно документа
       // (pageYOffset и pageXOffset это размер прокрутки, если она есть)
-      var y = (rect.top + pageYOffset);
-      var x = (rect.left + pageXOffset);
+      let y = (object.top + pageYOffset);
+      let x = (object.left + pageXOffset);
 
       return {
         top: y + (el.offsetHeight / 2), // y + половина высоты
@@ -868,12 +878,11 @@ function GameStart(){
        if(o.newPos < 0){
           o.bullet.remove();            
           clipBullets.shift(o);
-       }
+       };
 
        if(o.bullet.getBoundingClientRect().top < activeScreen.getBoundingClientRect().top - 5){
           o.bullet.remove();
-
-       }       
+       };       
          
        if(o.bullet.getBoundingClientRect().top < rowFive.getBoundingClientRect().bottom){
           playingField.querySelectorAll('i').forEach( el => {          
@@ -888,17 +897,11 @@ function GameStart(){
                 android.style.color = 'rgb(28, 28, 30)';
                 playSoundGame (audioEffects[4]);   
                 goPlay = true;                            
-              playingField.querySelectorAll('div').forEach( (el) => {
-                  el.remove(); 
-                });
-              playingField.querySelectorAll('.bugOrdinary').forEach( (el) => { 
-                  el.remove();
-              });
-              fadeInFadeOut (GameOver,playingField);
-              CreepBug ();
-              creepBugs = setInterval(CreepBug, 14700);
-                                        
-            }   
+                Extermination ();
+                fadeInFadeOut (GameOver,playingField);
+                CreepBug ();
+                creepBugs = setInterval(CreepBug, 14700);                                        
+            };   
         });
 
           countlevels.innerHTML = counterLevel;
@@ -908,47 +911,37 @@ function GameStart(){
                counterLevel++
               if(counterLevel == 2){
                 playSoundGame (audioEffects[3]);              
-                playingField.querySelectorAll('div').forEach( (el) => {
-                  el.remove(); 
-                });
-                 fadeInFadeOut(levelTwo,playingField);                 
-                 goPlay = true;
-                 levelOneFlag = true;             
+                Extermination ();
+                fadeInFadeOut(levelTwo,playingField);                 
+                goPlay = true;
+                levelOneFlag = true;             
               };
               if(counterLevel == 3){
                 playSoundGame (audioEffects[3]);   
-                playingField.querySelectorAll('div').forEach( (el) => {
-                  el.remove(); 
-                });
-                 fadeInFadeOut(levelThree,playingField);                 
-                 goPlay = true;
-                 levelTwoFlag = true;                                                
+                Extermination ();
+                fadeInFadeOut(levelThree,playingField);                 
+                goPlay = true;
+                levelTwoFlag = true;                                                
               };
               if(counterLevel == 4){
                 playSoundGame (audioEffects[3]);   
-                playingField.querySelectorAll('div').forEach( (el) => {
-                  el.remove(); 
-                });
-                 fadeInFadeOut(levelFour,playingField);                 
-                 goPlay = true;               
-                 levelThreeFlag = true;                                                  
+                Extermination ();
+                fadeInFadeOut(levelFour,playingField);                 
+                goPlay = true;               
+                levelThreeFlag = true;                                                  
               };
               if(counterLevel == 5){
                 playSoundGame (audioEffects[3]);   
-                playingField.querySelectorAll('div').forEach( (el) => {
-                  el.remove(); 
-                });
-                 fadeInFadeOut(levelFive,playingField);                 
-                 goPlay = true;                
-                 levelFourFlag = true;                                                   
+                Extermination ();
+                fadeInFadeOut(levelFive,playingField);                 
+                goPlay = true;                
+                levelFourFlag = true;                                                   
               };
               if(counterLevel == 6){
                 playSoundGame (audioEffects[5]);   
-                playingField.querySelectorAll('div').forEach( (el) => {
-                  el.remove(); 
-                });
-                 fadeInFadeOut(gameWin,playingField);                 
-                 goPlay = true;              
+                Extermination ();
+                fadeInFadeOut(gameWin,playingField);                 
+                goPlay = true;              
               };          
             };
       
