@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/icon.png" type="image/png">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SpongeBobCarousel</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- FontAwesome Icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <style>
+      body{
+        background: url('img/bg-body.png') no-repeat 50%/cover;
+      }    
+      #slider{        
+        width: 350px;
+        height: 350px;
+        margin: 0 auto;
+        border: 2px solid rgb(28, 28, 30);
+        border-radius: 4px;
+        position: relative;             
+        box-sizing: content-box;ss
+      }
+      .title{
+        text-align: center;
+      }
+      .wrap-slider{
+        background: #fff;
+        width: 350px;
+        height: 350px;
+        display: flex;        
+        position: relative;
+        overflow: hidden;       
+        transition: all ease 1s;
+      }
+      #arrowLeft, #arrowRight{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        line-height: 20px;
+        padding: 0 4px 0 0;
+        left: 0;
+        top: 50%;
+        color: rgba(28, 28, 30, .8);
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        border: 1.5px solid rgb(28, 28, 30);
+        width: 40px;
+        height: 40px;
+        border-radius: 24px;
+        background: rgb(255, 214, 10);
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+      }
+      #arrowLeft:hover, #arrowRight:hover{
+        color: rgba(28, 28, 30, 1);
+      }
+      #arrowLeft:active, #arrowRight:active{
+        width: 39px;
+        height: 39px;
+        font-size: 21px;
+      }
+      #arrowRight{
+        left: auto;
+        right: 0;
+        padding: 0 0 0 4px;
+        transform: translate(50%, -50%);
+      }
+      [class^=slide-item]{
+       position: absolute;      
+       left: 100%;
+       transition: left ease .8s;
+      }     
+      .slide-item-active{
+        left: 0;         
+      }
+      .slide-item-next{
+          left: -100%;        
+      }
+      .slide-item-previous{
+           left: 100%;
+      }
+      .wrapper{
+        margin-top: 50px;
+        padding: 30px 0;       
+        background: url('img/bg-carousel.jpg') no-repeat 50%/cover;
+        position: relative;   
+        box-shadow: 2px 0px 2px 1px, -2px 0px 2px 1px;
+      }
+      .fa-angle-double-left{
+        font-size: 70px;
+        line-height: 50px;
+        color: rgb(28, 28, 30);
+        position: absolute;
+        top: 50%;
+        left: 15%;
+        transform: translateY(-65%);
+      }
+      .fa-angle-double-right{
+        font-size: 70px;
+        line-height: 50px;
+        color: rgb(28, 28, 30);
+        position: absolute;
+        top: 50%;
+        right: 15%;
+        transform: translateY(-65%);
+      }
+      @media (max-width: 991px){
+        .fa-angle-double-left,.fa-angle-double-right{
+          font-size: 50px;
+          line-height: 50px;
+          transform: translateY(-50%);
+        }
+        .fa-angle-double-left{
+          left: 8%;
+        }
+        .fa-angle-double-right{
+          right: 8%;
+        }
+      }
+      @media (max-width: 767px){
+        .fa-angle-double-left,.fa-angle-double-right{
+          font-size: 35px;
+          line-height: 35px;          
+        }
+        .fa-angle-double-left{
+          left: 5%;
+        }
+        .fa-angle-double-right{
+          right: 5%;
+        }
+      }   
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">
+      <img src="img/title.png" class="img-fluid" alt="spongeBob">
+    </div>
+    <div class="wrapper">
+      <i class="fas fa-angle-double-left d-none d-sm-block"></i>      
+      <div id="slider">
+        <div class="wrap-slider">
+          <div class="slide-item"><img src="img/img-1.jpg" alt="spongeBob"></div>       
+          <div class="slide-item"><img src="img/img-2.jpg" alt="spongeBob"></div>
+          <div class="slide-item"><img src="img/img-3.jpg" alt="spongeBob"></div>
+          <div class="slide-item"><img src="img/img-4.jpg" alt="spongeBob"></div>          
+          <div class="slide-item"><img src="img/img-5.jpg" alt="spongeBob"></div>          
+          <div class="slide-item"><img src="img/img-6.jpg" alt="spongeBob"></div>
+          <div class="slide-item"><img src="img/img-7.jpg" alt="spongeBob"></div>        
+        </div>
+        <div id="arrowLeft" class="fas fa-chevron-left"></div>
+        <div id="arrowRight" class="fas fa-chevron-right"></div>
+      </div>
+      <i class="fas fa-angle-double-right d-none d-sm-block"></i>      
+    </div>
+  </div>
+<script>
+  ;(function () {
+
+    var wrapSlider = document.querySelector('.wrap-slider'),
+        slides = document.querySelectorAll('.slide-item'),
+        arrowLeft = document.getElementById('arrowLeft'),
+        arrowRight = document.getElementById('arrowRight'),
+        angleLeft = document.querySelector('.fa-angle-double-left'),
+        angleRight = document.querySelector('.fa-angle-double-right'),     
+        quantity = null,
+        iteratorLeft = 2,
+        iteratorRight = 2;
+   
+     
+    for (var i = 0; i<slides.length; i++) {
+         quantity = i;     
+    };
+    function initialOrder () {
+        slides[0].classList.add('slide-item-active');       
+        slides[1].classList.add('slide-item-previous');      
+        slides[slides.length -1].classList.add('slide-item-next');           
+    };
+    initialOrder ();
+
+          
+          arrowLeft.addEventListener('click', clickLeft);
+
+          function clickLeft () {                  
+
+            wrapSlider.querySelectorAll('.slide-item-previous').forEach( el => {
+              el.classList.remove('slide-item-previous');   
+                         
+            });
+
+            wrapSlider.querySelectorAll('.slide-item-active').forEach( el => {
+              el.classList.remove('slide-item-active');          
+              el.classList.add('slide-item-previous');
+              el.style.transition = '';              
+            });
+
+            wrapSlider.querySelectorAll('.slide-item-next').forEach( el => {
+              el.classList.remove('slide-item-next');          
+              el.classList.add('slide-item-active');
+              el.style.transition = '';             
+            });            
+            
+            if(iteratorLeft > (quantity + 1)){
+              iteratorLeft = 1;
+            };                  
+          
+            if(iteratorLeft == (quantity - 2)){
+              iteratorRight = (quantity + 1);
+            };          
+
+            slides[slides.length - iteratorLeft].classList.remove('slide-item-previous'); 
+            slides[slides.length - iteratorLeft].classList.add('slide-item-next');
+            slides[slides.length - iteratorLeft].style.transition = 'none'; 
+
+            iteratorRight --;        
+            iteratorLeft ++;       
+        
+        };       
+        
+        arrowRight.addEventListener('click', clickRight);
+        
+
+        function clickRight () {          
+
+            wrapSlider.querySelectorAll('.slide-item-next').forEach( el => {
+              el.classList.remove('slide-item-next');
+              el.style.transition = 'none';   
+                         
+            });
+
+            wrapSlider.querySelectorAll('.slide-item-active').forEach( el => {
+              el.classList.remove('slide-item-active');          
+              el.classList.add('slide-item-next');
+              el.style.transition = '';
+            });
+              wrapSlider.querySelectorAll('.slide-item-previous').forEach( el => {
+              el.classList.remove('slide-item-previous');          
+              el.classList.add('slide-item-active');
+              el.style.transition = '';
+            });
+
+            if(iteratorRight > quantity){
+                iteratorRight = 0;
+            };  
+           
+
+            if(iteratorRight == (quantity - 2)){
+              iteratorLeft = (quantity + 2);
+            };
+
+            slides[iteratorRight].classList.remove('slide-item-next'); 
+            slides[iteratorRight].classList.add('slide-item-previous');
+            slides[iteratorRight].style.transition = 'none';
+             
+            iteratorRight ++;
+            iteratorLeft --;         
+        
+        };
+
+        arrowLeft.addEventListener('mouseover', () => {
+            angleLeft.style.color = 'rgb(255, 214, 10)';
+            angleLeft.style.textShadow = '0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2)'; 
+        });
+
+        arrowLeft.addEventListener('mouseout', () => {
+            angleLeft.style.color = 'rgb(28, 28, 30)';
+            angleLeft.style.textShadow = 'none';
+        });
+
+        arrowRight.addEventListener('mouseover', () => {
+            angleRight.style.color = 'rgb(255, 214, 10)';
+            angleRight.style.textShadow = '0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2)';
+        });
+
+        arrowRight.addEventListener('mouseout', () => {
+            angleRight.style.color = 'rgb(28, 28, 30)';
+            angleRight.style.textShadow = 'none'; 
+        });        
+          
+  }());
+ 
+</script>
+</body>
+
+</html>
