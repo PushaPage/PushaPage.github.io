@@ -8,7 +8,7 @@
    <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">   
-  <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet"> -->
   <link rel="stylesheet" href="css/styles.css"> 
 </head>
 <body>
@@ -39,11 +39,13 @@
   <script type="text/javascript">  
     ;(function(){
       var allcells = document.querySelectorAll('#TickTackToe td'),
-          p = document.querySelector('p'),          
+          playAgain = document.getElementById('playAgain'),
+          TickTackToe = document.getElementById('TickTackToe'),         
+          report  = document.querySelector('p'),          
           stroke = 0,
           x = 'x',
           o = 0,
-          winMatch;     
+          winMatch;             
 
       TickTackToe.onclick = function (event) {       
         if(event.target.tagName == 'TD'){
@@ -125,42 +127,46 @@
          if(allcells[2].innerHTML == '0' && allcells[4].innerHTML == '0' && allcells[6].innerHTML == '0'){
             TickTackToe.classList.add('crossedAngleRight');          
             whoWon (o);            
-          } else if (allcells[0].innerHTML != '' && allcells[1].innerHTML != '' && allcells[2].innerHTML != '' && allcells[3].innerHTML != '' && allcells[4].innerHTML != '' && allcells[5].innerHTML != '' && allcells[6].innerHTML != '' && allcells[7].innerHTML != '' && allcells[8].innerHTML != ''){
-            p.innerHTML = 'No one\'s won!';          
-            p.style.left = '0';
-            playAgain.style.display = 'block';
-            playAgain.style.opacity = '1';
-            playAgain.style.transition = 'opacity .5s ease-out .5s';              
+          } else if (allcells[0].innerHTML != '' && allcells[1].innerHTML != '' && allcells[2].innerHTML != '' && allcells[3].innerHTML != '' && allcells[4].innerHTML != '' && allcells[5].innerHTML != '' && allcells[6].innerHTML != '' && allcells[7].innerHTML != '' && allcells[8].innerHTML != ''){ 
+
             if(!winMatch) {
-              notMatch();  
-            }            
-          }
+              notMatch();               
+            };            
+          };
         };
 
       function whoWon (won) {               
-          p.innerHTML = won + '- won!';          
-          p.style.left = '0';
-          playAgain.style.display = 'block';         
-          playAgain.style.opacity = '1';
-          playAgain.style.transition = 'opacity .5s ease-out .5s';
+          report.innerHTML = won + '- won!';          
+          report.style.left = '0';
+          playAgain.style.display = 'block';
+          setTimeout( () =>{
+            playAgain.style.opacity = '1';
+          }, 50);        
           TickTackToe.querySelectorAll('td').forEach( el => {
           el.style.pointerEvents = 'none';                                  
         });
           winMatch = true;  
-      }
+      };
 
-      function notMatch() {                 
-      }     
+      function notMatch() {
+          report.innerHTML = 'No one\'s won!';
+          report.style.left = '0';          
+          playAgain.style.display = 'block';
+          setTimeout( () =>{
+            playAgain.style.opacity = '1';
+          }, 50);         
+      };     
 
-      playAgain.onclick = function () {         
+      playAgain.onclick = function () {
+          winMatch = false;         
           TickTackToe.querySelectorAll('td').forEach( el => {
             el.innerHTML = '';
             el.style.pointerEvents = 'auto';                                   
           });
           TickTackToe.classList = ''; 
-          p.style.left = '';
+          report.style.left = '';
           playAgain.style.opacity = '0';
-          playAgain.style.transition = 'none';                 
+          playAgain.style.display = 'none';                        
       };    
     }());
   </script>
