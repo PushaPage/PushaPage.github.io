@@ -47,7 +47,7 @@
           o = 0,
           winMatch;             
 
-      TickTackToe.onclick = function (event) {       
+      TickTackToe.addEventListener('click', function (event){     
         if(event.target.tagName == 'TD'){
           if(event.target.innerHTML == ''){
              if(stroke % 2 == 0){
@@ -59,7 +59,7 @@
             winner();            
           };        
         };
-      };
+      });
 
       function winner (){               
       //winner tik-tak
@@ -157,7 +157,7 @@
           }, 50);         
       };     
 
-      playAgain.onclick = function () {
+      playAgain.addEventListener('click', function (){
           winMatch = false;         
           TickTackToe.querySelectorAll('td').forEach( el => {
             el.innerHTML = '';
@@ -167,7 +167,7 @@
           report.style.left = '';
           playAgain.style.opacity = '0';
           playAgain.style.display = 'none';                        
-      };    
+      });    
     }());
   </script>
 </body>
