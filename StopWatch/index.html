@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>StopWatch</title>
+  <link rel="shortcut icon" href="icon.png" type="image/png">  
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Righteous|Titillium+Web&display=swap" rel="stylesheet">
+  <style type="text/css">
+    body{
+      text-align: center;
+      font-family: 'Titillium Web', sans-serif;           
+    }
+    #counter{      
+      font-size: 20px;
+      padding: 40px 0 10px;
+      font-weight: 700;
+    }
+    #blockMin,#blockSec,#blockMs{
+      background: #fff3d4;
+      width: 32px;
+      display: inline-block;
+      text-align: center;
+      font-size: 25px;      
+      font-weight: 400;
+      margin: 0 5px;
+      border: 1px solid rgba(199, 199, 204, .9);
+    }
+    #blockMs{
+      width: 30px;
+      font-size: 22px;
+      line-height: 38px;
+    }
+
+    button{
+      font-family: 'Righteous', cursive;
+      border-radius: 10px;
+      color: white;
+      padding: 5px 10px;
+      font-size: 18px;
+      outline: none;
+    }
+    .btn-start{
+      background: rgb(48, 209, 88);
+    }
+    .btn-start:hover,.btn-start:focus{
+      background: rgb(52, 199, 89);
+    }
+    .btn-stop{
+      background: rgb(255, 69, 58);
+    }
+    .btn-stop:hover,.btn-stop:focus{
+      background: rgb(255, 59, 48);
+    }
+
+    .btn-discharge,.btn-lap{
+      background: rgb(199, 199, 204);
+    }
+    .btn-discharge:hover,.btn-discharge:focus,.btn-lap:hover,.btn-lap:focus{
+      background: rgb(174, 174, 178);
+    }
+    .lap-text{
+      display: inline-block;
+      font-family: 'Righteous', cursive;     
+      color: white;      
+      width: auto;      
+      font-size: 25px;
+      line-height: 40px;     
+      padding: 0 6px;
+      background: rgb(199, 199, 204);
+    }
+  
+  </style>
+</head>
+<body>
+
+  
+  <div id="counter"><span id="blockMin">00</span>:<span id="blockSec">00</span>,<span id="blockMs">0</span></div>
+  
+  <div>
+    <button type="button" class="btn-start" data-stopwatch="start">Start</button>
+    <button type="button" class="btn-stop" data-stopwatch="stop">Stop</button>
+    <button type="button" class="btn-lap" data-stopwatch="lap">lap</button>
+    <button type="button" class="btn-discharge" data-stopwatch="reset">Reset</button>    
+  </div>
+  <div id="lap"></div>
+  <script type="text/javascript">
+  ;(function (){
+      var counter = document.querySelector('#counter'),
+          blockMin = document.querySelector('#blockMin'),
+          blockSec = document.querySelector('#blockSec'),
+          blockMs = document.querySelector('#blockMs'),        
+          lapTime = document.getElementById('lap'),
+          counterBlock = document.querySelector('#counter'),
+          timeRunMs = null,
+          timeRunSec = null,
+          timeRunMin = null;          
+     
+      var stopwatch = {
+          min: 0,
+          sec: 0,  
+          ms: 0,
+          lap: 0,
+          lockStart: 0,
+          lockTime: true
+      };
+
+     document.addEventListener('click', function (event){
+
+      let target = event.target.dataset.stopwatch;
+        if(!target) return; 
+
+      switch (target) {
+
+          case 'start':
+
+            stopwatch.lockTime = false;
+
+            stopwatch.lockStart++; 
+
+            if(stopwatch.lockStart>1)return;
+
+            timeRun = setTimeout (function tick () {         
+            
+            blockMs.innerHTML = stopwatch.ms;
+
+            if(blockMs.innerHTML >= 9){
+              stopwatch.ms = 0;
+              stopwatch.sec ++;
+            };
+            if(blockSec.innerHTML >= 59){
+              stopwatch.sec = 0;
+              stopwatch.min ++;
+            };
+            if(stopwatch.sec < 10){
+              blockSec.innerHTML = '0' + stopwatch.sec;
+            }else{
+              blockSec.innerHTML = stopwatch.sec;
+            };
+            if(stopwatch.min < 10){
+              blockMin.innerHTML = '0' + stopwatch.min;
+            }else{
+              blockMin.innerHTML = stopwatch.min;
+            };
+            stopwatch.ms ++;
+
+            timeRun = setTimeout(tick, 110)        
+                 
+            }, 110);
+             
+          break;
+
+          case 'stop':
+            clearTimeout(timeRun);
+            stopwatch.lockTime = true;
+            stopwatch.lockStart = 0;         
+          break;
+
+          case 'reset':
+            stopwatch.lockTime = true;
+            stopwatch.lockStart = 0;  
+            clearTimeout(timeRun);
+            stopwatch.ms = 0;
+            stopwatch.sec = 0;
+            stopwatch.min = 0;
+            stopwatch.lap = 0;
+            blockMin.innerHTML = '00';
+            blockSec.innerHTML = '00';
+            blockMs.innerHTML = '0';
+            lapTime.innerHTML = '';          
+          break;
+
+          case 'lap':
+            lapResult ();          
+          break;
+      }
+      });      
+
+      function lapResult (){
+        if(!stopwatch.lockTime){              
+            stopwatch.lap++;              
+            let lapBlock = document.createElement('p');              
+            lapBlock.innerHTML = `<span class="lap-text">#${stopwatch.lap}</span>${counter.innerHTML}`;
+            lapTime.appendChild(lapBlock);
+            stopwatch.ms = 0;
+            stopwatch.sec = 0;
+            stopwatch.min = 0;      
+        }else{
+          alert('Stopwatch not running!');
+        };
+      };
+    }())  
+  </script>
+  
+
+</body>
+</html>
