@@ -6,7 +6,11 @@
 			    commentMonth = document.getElementById('comment_month'),
 			    commentYear = document.getElementById('comment_year'),			
 			    commentTextarea = document.getElementById('comment_textarea'),			
-			    commentSwiper = document.getElementById('comments_user');			
+			    commentSwiper = document.getElementById('comments_user'),
+			    rerun = true;
+			    
+
+			    // console.log(commentText);			
 
 			var session = JSON.parse(sessionStorage.getItem('comment')) || []; 		 	   
 
@@ -16,6 +20,11 @@
 				    <span class="signature">${template.username}</span>
 				    <span class="date_when">${template.day}.${template.month}.${template.year}</span>
 				    `;
+				if(!rerun){   
+				let commentText = document.querySelector('#comments_user>p');
+					animateText(commentText);
+				};    
+
 			}; 	
 			
     		addComment(session);
@@ -34,10 +43,47 @@
 				 		year: commentYear.value,
 				 	};			 	
 				 	sessionStorage.setItem('comment', JSON.stringify(template));
-				 	addComment (template);
+				 	rerun = false;				 	
+				 	addComment (template);				 	
 					commentSend.dataset.dismiss = 'modal';	
           		};				
 			});
+
+			function animate({timing, draw, duration}) {
+
+		        let start = performance.now();
+
+		        requestAnimationFrame(function animate(time) {    
+		          let timeFraction = (time - start) / duration;
+		          if (timeFraction > 1) timeFraction = 1;
+
+		          
+		          let progress = timing(timeFraction);
+
+		          draw(progress); 
+
+		          if (timeFraction < 1) {
+		            requestAnimationFrame(animate);
+		          }
+		      });
+    		};
+
+    		function animateText(textArea) {
+		        let text = textArea.innerHTML;
+		        let to = text.length,
+		          from = 0;
+
+		        animate({
+		          duration: 3000,
+		          timing:  function(timeFraction) {
+		            return timeFraction;
+		          },
+		          draw: function(progress) {
+		            let result = (to - from) * progress + from;
+		            textArea.innerHTML = text.substr(0, Math.ceil(result))
+		          }
+		        });
+		     };
 
 	    var swiper_1 = new Swiper('.swiper_1', {
 	      slidesPerView: 1,
