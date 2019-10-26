@@ -249,12 +249,12 @@ header {
 .backet-text {
   margin-left: 20px; }
 
-.backet-text > li {
+.backet-text > span {
   text-align: left;
   color: #2ecc71;
   font-size: 16px; }
 
-.backet-text > li > span {
+.backet-text > span > span {
   color: #34495e; }
 
 .navbar {
