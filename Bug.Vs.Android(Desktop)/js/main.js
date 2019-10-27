@@ -27,20 +27,37 @@ window.addEventListener('load', function() {
 
 
     
-    var stepAndroid = 10,        
-        goPlay = true,
-        sound = false,
-        counterLevel = 1,
-        levelOneFlag = true,
-        levelTwoFlag = true,
-        levelThreeFlag = true,
-        levelFourFlag = true,
-        levelFiveFlag = true,       
-        victoryResults = null,
-        creepBugs = null,
-        soundShot = new Audio(),
-        soundBug = new Audio(),
-        bugsOffsetOne = {},
+    var soundShot = new Audio(),
+        soundBug = new Audio(), 
+        control = {
+          stepAndroid: 10,
+          shot: soundShot.currentTime > 0 && !soundShot.paused && !soundShot.ended 
+          && soundShot.readyState > 2,
+          effect: soundBug.currentTime > 0 && !soundBug.paused && !soundBug.ended 
+          && soundBug.readyState > 2,
+          goPlay: true,
+          sound: false,
+          counterLevel: 1,
+          levelOneFlag: true,
+          levelTwoFlag: true,
+          levelThreeFlag: true,
+          levelFourFlag: true,
+          levelFiveFlag: true,       
+          victoryResults: null,
+          creepBugs: null          
+        },       
+        bugsOffsetOne = {
+          x0: 0,
+          x1: 0,
+          x2: 0,
+          x3: 0,
+          x4: 0,
+          x5: 0,
+          x6: 0,
+          x7: 0,
+          x8: 0,
+          x9: 0
+        },
         bugsOffsetTwo = {},
         bugsOffsetThree = {},
         bugsOffsetFour = {},
@@ -53,159 +70,134 @@ window.addEventListener('load', function() {
             'audio/gameOver.mp3',
             'audio/gameWin.mp3',            
             ],         
-        clipBullets = [];
-        for(let a = 2; a <= 9; a++){
-          console.log(a)
-        }
-
-            
+        clipBullets = [];      
+    
       
-    function createBugs() {
+    function createBugs(sum) {
 
-       for(let i = 1; i<=5; i++){               
+        let iterator = {
+
+              a: 1,
+              b: 0,
+              c: 0,
+              d: 0,              
+              sum: sum
+
+            };
+
+       while (iterator.a <= 5) {               
            let el = document.createElement('div');
-               el.setAttribute('id', 'row' + i);               
-               el.style.top = 20 + (50 * (i - 1)) + 'px';
+               el.setAttribute('id', 'row' + iterator.a);               
+               el.style.top = 20 + (50 * (iterator.a - 1)) + 'px';
                el.style.pointerEvents = 'none';               
-               playingField.appendChild(el);                                                     
+               playingField.appendChild(el);
+
+            iterator.a++;                                                        
         };                                
 
-        for(let i = 0; i<=9; i++){
+        while (iterator.b <= 9) { 
            let el = document.createElement('i');              
                el.classList = 'fas fa-bug bugOrdinary';                          
-               el.style.left = 240 + (50 * i) + 'px';                                                  
+               el.style.left = 240 + (50 * iterator.b) + 'px';                                                  
                row1.appendChild(el);
                row2.appendChild(el.cloneNode(true));
                row3.appendChild(el.cloneNode(true));
                row4.appendChild(el.cloneNode(true));
                row5.appendChild(el.cloneNode(true));
-               bugsOffsetOne['x'+i] = el.offsetLeft;                       
-        }; 
+               bugsOffsetOne['x' + iterator.b] = el.offsetLeft;
 
+            iterator.b++;                          
+        };
 
-          bugsOffsetTwo = Object.setPrototypeOf({}, bugsOffsetOne);
-          bugsOffsetThree = Object.setPrototypeOf({}, bugsOffsetOne);
-          bugsOffsetFour = Object.setPrototypeOf({}, bugsOffsetOne);
-          bugsOffsetFive = Object.setPrototypeOf({}, bugsOffsetOne);         
+        bugsOffsetTwo = Object.setPrototypeOf({}, bugsOffsetOne);
+        bugsOffsetThree = Object.setPrototypeOf({}, bugsOffsetOne);
+        bugsOffsetFour = Object.setPrototypeOf({}, bugsOffsetOne);
+        bugsOffsetFive = Object.setPrototypeOf({}, bugsOffsetOne);         
 
         android.style.color = 'rgb(48, 209, 88)';
         bugDead.style.animation = 'bugDead 3.5s linear infinite';
 
-           let rowOneBugs = row1.querySelectorAll('i');
-               rowTwoBugs = row2.querySelectorAll('i');
-               rowThreeBugs = row3.querySelectorAll('i');
-               rowFourBugs = row4.querySelectorAll('i');
-               rowFiveBugs = row5.querySelectorAll('i');
+      
 
+        while (iterator.c <= 1) {
 
-        if(!levelOneFlag){   
-            rowOneBugs[4].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowOneBugs[5].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowTwoBugs[1].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowTwoBugs[8].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowThreeBugs[4].classList = 'fad fa-bug bugOrdinary bugRowDown';
-            rowThreeBugs[5].classList = 'fad fa-bug bugOrdinary bugRowDown';
-            rowFourBugs[2].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowFourBugs[3].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowFourBugs[4].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowFourBugs[5].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowFourBugs[6].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowFourBugs[7].classList = 'fas fa-spider bugOrdinary bugArmored';    
+            if(!control.levelOneFlag){ 
+              row1.childNodes[4 + iterator.c].classList = 'fas fa-spider bugOrdinary bugArmored';
+              row2.childNodes[1 + (7 * iterator.c)].classList = 'fas fa-spider bugOrdinary bugArmored';
+              row3.childNodes[4 + iterator.c].classList = 'fad fa-bug bugOrdinary bugRowDown';
+            };
+            if(!control.levelTwoFlag){ 
+              row2.childNodes[1 + (7 * iterator.c)].classList = 'far fa-bug bugOrdinary bugManyFaces';
+              row2.childNodes[4 + iterator.c].classList = 'fad fa-spider bugOrdinary bugRowDown2';
+              row5.childNodes[1 + (7 * iterator.c)].classList = 'fad fa-bug bugOrdinary bugRowDown';
+              row5.childNodes[4 + iterator.c].classList = 'fas fa-spider bugOrdinary bugArmored';
+              row5.childNodes[5 + iterator.c].classList = 'fas fa-spider bugOrdinary bugArmored';
+            };
+            if(!control.levelThreeFlag){
+              row1.childNodes[iterator.c].classList = 'fas fa-spider bugOrdinary bugArmored';
+              row1.childNodes[8 + iterator.c].classList = 'fas fa-spider bugOrdinary bugArmored';
+              row2.childNodes[0 + (9 * iterator.c)].classList = 'fad fa-spider bugOrdinary bugRowDown2';
+              row2.childNodes[iterator.c * 0].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
+              row2.childNodes[2 + (1 * iterator.c)].classList = 'fas fa-spider bugOrdinary bugArmored';
+              row2.childNodes[6 + (1 * iterator.c)].classList = 'fas fa-spider bugOrdinary bugArmored';
+              row3.childNodes[4 + (1 * iterator.c)].classList = 'fas fa-spider bugOrdinary bugArmored';
+              row4.childNodes[0 + (9 * iterator.c)].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
+              row4.childNodes[iterator.c * 0].classList = 'fad fa-spider bugOrdinary bugRowDown2';
+              row4.childNodes[1 + (7 * iterator.c)].classList = 'far fa-bug bugOrdinary bugManyFaces';
+              row4.childNodes[2 + iterator.c].classList = 'fas fa-spider bugOrdinary bugArmored';
+              row4.childNodes[4 + iterator.c].classList = 'far fa-bug bugOrdinary bugManyFaces';
+              row4.childNodes[6 + iterator.c].classList = 'fas fa-spider bugOrdinary bugArmored';
+              row5.childNodes[iterator.c].classList = 'fas fa-spider bugOrdinary bugArmored';
+              row5.childNodes[8 + iterator.c].classList = 'fas fa-spider bugOrdinary bugArmored';
+            };
+            if(!control.levelFourFlag){
+              row1.childNodes[0 + (9 * iterator.c)].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
+              row1.childNodes[iterator.c * 0].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
+              row5.childNodes[0 + (2 * iterator.c)].classList = 'fad fa-spider bugOrdinary bugRowDown2';
+              row5.childNodes[1 + (7 * iterator.c)].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
+              row5.childNodes[4 + iterator.c].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
+              row5.childNodes[3 + (3 * iterator.c)].classList = 'far fa-bug bugOrdinary bugManyFaces';
+              row5.childNodes[7 + (2 * iterator.c)].classList = 'fad fa-spider bugOrdinary bugRowDown2';
+            };            
+            iterator.c++ 
         };
-        if(!levelTwoFlag){
-            rowThreeBugs.forEach((el)=>{
-               el.classList = 'fas fa-spider bugOrdinary bugArmored';
-            });
-            rowFourBugs.forEach((el)=>{
-               el.classList = 'fas fa-spider bugOrdinary bugArmored';
-            });
-            rowTwoBugs[1].classList = 'far fa-bug bugOrdinary bugManyFaces';
-            rowTwoBugs[4].classList = 'fad fa-spider bugOrdinary bugRowDown2';
-            rowTwoBugs[5].classList = 'fad fa-spider bugOrdinary bugRowDown2';
-            rowTwoBugs[8].classList = 'far fa-bug bugOrdinary bugManyFaces';
-            rowFiveBugs[2].classList = 'fad fa-bug bugOrdinary bugRowDown';
-            rowFiveBugs[4].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowFiveBugs[5].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowFiveBugs[6].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowFiveBugs[9].classList = 'fad fa-bug bugOrdinary bugRowDown'; 
-        };
-        if(!levelThreeFlag){        
-            rowOneBugs[0].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowOneBugs[1].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowOneBugs[8].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowOneBugs[9].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowTwoBugs[0].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
-            rowTwoBugs[9].classList = 'fad fa-spider bugOrdinary bugRowDown2';
-            rowTwoBugs[2].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowTwoBugs[3].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowTwoBugs[6].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowTwoBugs[7].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowThreeBugs[4].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowThreeBugs[5].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowFourBugs[9].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
-            rowFourBugs[0].classList = 'fad fa-spider bugOrdinary bugRowDown2';
-            rowFourBugs[1].classList = 'far fa-bug bugOrdinary bugManyFaces';
-            rowFourBugs[8].classList = 'far fa-bug bugOrdinary bugManyFaces';
-            rowFourBugs[2].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowFourBugs[3].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowFourBugs[4].classList = 'far fa-bug bugOrdinary bugManyFaces';
-            rowFourBugs[5].classList = 'far fa-bug bugOrdinary bugManyFaces';
-            rowFourBugs[6].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowFourBugs[7].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowFiveBugs[8].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowFiveBugs[9].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowFiveBugs[0].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowFiveBugs[1].classList = 'fas fa-spider bugOrdinary bugArmored';
-            rowFiveBugs[3].classList = 'fad fa-bug bugOrdinary bugRowDown';
-            rowFiveBugs[4].classList = 'fad fa-bug bugOrdinary bugRowDown';
-            rowFiveBugs[5].classList = 'fad fa-bug bugOrdinary bugRowDown';
-            rowFiveBugs[6].classList = 'fad fa-bug bugOrdinary bugRowDown';     
-        };
-        if(!levelFourFlag){
-            rowOneBugs[0].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
-            rowOneBugs[9].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
-            rowTwoBugs.forEach((el)=>{
-               el.classList = 'fas fa-spider bugOrdinary bugArmored';
-            });
-            rowThreeBugs.forEach((el)=>{
-               el.classList = 'fal fa-bug bugOrdinary bugArmoredManyFaces';
-            });
-            rowFourBugs.forEach((el)=>{
-               el.classList = 'fas fa-spider bugOrdinary bugArmored';
-            });
-            rowFiveBugs[0].classList = 'fad fa-spider bugOrdinary bugRowDown2';
-            rowFiveBugs[1].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
-            rowFiveBugs[2].classList = 'fad fa-spider bugOrdinary bugRowDown2';
-            rowFiveBugs[3].classList = 'far fa-bug bugOrdinary bugManyFaces';
-            rowFiveBugs[4].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
-            rowFiveBugs[5].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
-            rowFiveBugs[6].classList = 'far fa-bug bugOrdinary bugManyFaces';
-            rowFiveBugs[7].classList = 'fad fa-spider bugOrdinary bugRowDown2';
-            rowFiveBugs[8].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
-            rowFiveBugs[9].classList = 'fad fa-spider bugOrdinary bugRowDown2'; 
-        } 
-        if(!levelFiveFlag){
-            rowTwoBugs.forEach((el)=>{
-               el.classList = 'far fa-bug bugOrdinary bugManyFaces';
-            });
-            rowThreeBugs.forEach((el)=>{
-               el.classList = 'far fa-bug bugOrdinary bugManyFaces';
-            });
-            rowThreeBugs[2].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp'; 
-            rowThreeBugs[7].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
-            rowFourBugs.forEach((el)=>{
-               el.classList = 'far fa-bug bugOrdinary bugManyFaces';
-            });
-            rowFourBugs[1].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2'; 
-            rowFourBugs[8].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
-            rowFiveBugs.forEach((el)=>{
-               el.classList = 'fal fa-bug bugOrdinary bugArmoredManyFaces';
-            });
-            rowFiveBugs[0].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp'; 
-            rowFiveBugs[9].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2'; 
+
+        while (iterator.d <= iterator.sum) {
+            
+            if(!control.levelOneFlag){   
+              row4.childNodes[2 + iterator.d].classList = 'fas fa-spider bugOrdinary bugArmored';
+            };
+            if(!control.levelTwoFlag){
+              row3.childNodes[iterator.d].classList = 'fas fa-spider bugOrdinary bugArmored';   
+              row4.childNodes[iterator.d].classList = 'fas fa-spider bugOrdinary bugArmored';
+            };
+            if(!control.levelThreeFlag){ 
+              row5.childNodes[3 + iterator.c].classList = 'fad fa-bug bugOrdinary bugRowDown';
+            };
+            if(!control.levelFourFlag){ 
+              row2.childNodes[iterator.d].classList = 'fas fa-spider bugOrdinary bugArmored';
+              row3.childNodes[iterator.d].classList = 'fal fa-bug bugOrdinary bugArmoredManyFaces';
+              row4.childNodes[iterator.d].classList = 'fas fa-spider bugOrdinary bugArmored';
+            };
+            if(!control.levelFiveFlag){
+              row2.childNodes[iterator.d].classList = 'far fa-bug bugOrdinary bugManyFaces';
+              row3.childNodes[iterator.d].classList = 'far fa-bug bugOrdinary bugManyFaces';
+              row4.childNodes[iterator.d].classList = 'far fa-bug bugOrdinary bugManyFaces';
+              row5.childNodes[iterator.d].classList = 'fal fa-bug bugOrdinary bugArmoredManyFaces';
+            };  
+            iterator.d++ 
+        };       
+    
+        if(!control.levelFiveFlag){           
+             row3.childNodes[2].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp'; 
+             row3.childNodes[7].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';          
+             row4.childNodes[1].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2'; 
+             row4.childNodes[8].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';          
+             row5.childNodes[0].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp'; 
+             row5.childNodes[9].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2'; 
         };      
                              
-      };  
+      };     
     
   
    function fadeInFadeOut (fadeIn,fadeOut){
@@ -223,19 +215,23 @@ window.addEventListener('load', function() {
     }; 
 
   function playSoundShot () {
-    if(!goPlay){ 
-      if(!sound){ 
+    if(!control.goPlay){ 
+      if(!control.sound){ 
         soundShot.src = 'audio/shot.mp3';        
-        soundShot.play();
+        if (!control.shot){
+            soundShot.play();
+        };
        };  
      };          
    };
 
    function playSoundGame (effect) {
-    if(!goPlay){ 
-      if(!sound){ 
+    if(!control.goPlay){ 
+      if(!control.sound){ 
         soundBug.src = effect;        
-        soundBug.play();
+         if (!control.effect){
+            soundBug.play();
+        };
       };
      };   
    };
@@ -245,10 +241,10 @@ window.addEventListener('load', function() {
     }else{
        buttonSound.classList = 'fas fa-volume-up sound-on';       
     }
-    if(!sound){                 
-        sound = true;           
+    if(!control.sound){                 
+        control.sound = true;           
        }else{
-        sound = false;             
+        control.sound = false;             
             }; 
   };
 
@@ -278,9 +274,9 @@ window.addEventListener('load', function() {
         case 'play':
               fadeInFadeOut (playingField,menuGame);
               playingField.style.backgroundImage = 'url("img/bg-Field.jpg")';                             
-              goPlay = false;
-              levelOneFlag = false;
-              createBugs();                
+              control.goPlay = false;
+              control.levelOneFlag = false;
+              createBugs(5);                
               GameStart();   
             break;
         case 'option':
@@ -304,11 +300,11 @@ window.addEventListener('load', function() {
               fadeInFadeOut (menuGame,bugSpecification);            
             break;               
         case 'playInGame':                                         
-              goPlay = false;
+              control.goPlay = false;
               buttonActive (buttonPlayIn,buttonPause);              
           break;
         case 'pause':             
-              goPlay = true;
+              control.goPlay = true;
               buttonActive (buttonPause,buttonPlayIn);          
             break;
         case 'sound':             
@@ -317,49 +313,49 @@ window.addEventListener('load', function() {
         case 'levelTwo':
               fadeInFadeOut (playingField,levelTwo);
               playingField.style.backgroundImage = 'url("img/bg-Field2.jpg")';               
-              goPlay = false;             
-              levelTwoFlag = false;
-              createBugs();
+              control.goPlay = false;             
+              control.levelTwoFlag = false;
+              createBugs(9); 
               GameStart();
             break;
         case 'levelThree':
               fadeInFadeOut (playingField,levelThree);            
-              goPlay = false;
-              levelThreeFlag = false;
-              createBugs();
+              control.goPlay = false;
+              control.levelThreeFlag = false;
+              createBugs(3);
               GameStart();
             break;
         case 'levelFour':
               fadeInFadeOut (playingField,levelFour);                        
-              goPlay = false;
-              levelFourFlag = false;
-              createBugs();
+              control.goPlay = false;
+              control.levelFourFlag = false;
+              createBugs(9);
               GameStart();
             break;
         case 'levelFive':
               fadeInFadeOut (playingField,levelFive);
               playingField.style.backgroundImage = 'url("img/bg-Field3.jpg")';           
-              goPlay = false;
-              levelFiveFlag = false;
-              createBugs();
+              control.goPlay = false;
+              control.levelFiveFlag = false;
+              createBugs(9);
               GameStart();
             break; 
         case 'winRestartGame':
-              counterLevel = 1;  
-              levelOneFlag = true;
-              levelTwoFlag = true;
-              levelThreeFlag = true;
-              levelFourFlag = true;
-              levelFiveFlag = true;              
+              control.counterLevel = 1;  
+              control.levelOneFlag = true;
+              control.levelTwoFlag = true;
+              control.levelThreeFlag = true;
+              control.levelFourFlag = true;
+              control.levelFiveFlag = true;              
               fadeInFadeOut (menuGame,gameWin);                          
             break;                       
         case 'restartGame':
-              counterLevel = 1; 
-              levelOneFlag = true;
-              levelTwoFlag = true;
-              levelThreeFlag = true;
-              levelFourFlag =  true;
-              levelFiveFlag = true; 
+              control.counterLevel = 1; 
+              control.levelOneFlag = true;
+              control.levelTwoFlag = true;
+              control.levelThreeFlag = true;
+              control.levelFourFlag =  true;
+              control.levelFiveFlag = true; 
               clearInterval(creepBugs);               
               fadeInFadeOut (menuGame,GameOver);                
            break;
@@ -375,28 +371,28 @@ window.addEventListener('load', function() {
      
     document.addEventListener('keydown', function(event){ 
              
-        if(!goPlay){ 
+        if(!control.goPlay){ 
 
           let offsetAndroid = android.offsetLeft;
 
           if (event.key == 'ArrowLeft' || event.code =='KeyA'){
                 event.preventDefault(); 
-                android.style.left = (offsetAndroid - stepAndroid) + 'px';
+                android.style.left = (offsetAndroid - control.stepAndroid) + 'px';
                 arrowRight.style.color = '';
                 arrowLeft.style.color = 'rgb(48, 209, 88)';
           }
           else if (event.key == 'ArrowRight' || event.code =='KeyD'){
                 event.preventDefault(); 
-                android.style.left =  (offsetAndroid + stepAndroid) + 'px';
+                android.style.left =  (offsetAndroid + control.stepAndroid) + 'px';
                 arrowLeft.style.color = '';
                 arrowRight.style.color = 'rgb(48, 209, 88)';
           }
           if(android.offsetLeft < 30){
-                android.style.left =  (offsetAndroid + stepAndroid) - 10 + 'px';
+                android.style.left =  (offsetAndroid + control.stepAndroid) - 10 + 'px';
                 arrowLeft.style.color = 'rgb(255, 69, 58)';
           }
           if (playingField.offsetWidth < (android.offsetLeft + android.offsetWidth - 60)) {
-                android.style.left = (offsetAndroid - stepAndroid) + 10 + 'px';
+                android.style.left = (offsetAndroid - control.stepAndroid) + 10 + 'px';
                 arrowRight.style.color = 'rgb(255, 69, 58)';
           }        
         };  
@@ -420,11 +416,11 @@ window.addEventListener('load', function() {
         } 
         if(event.code == 'Space'){
            event.preventDefault();
-           if(!goPlay){                 
-            goPlay = true;
+           if(!control.goPlay){                 
+            control.goPlay = true;
             buttonActive (buttonPause,buttonPlayIn);
            }else{
-            goPlay = false;
+            control.goPlay = false;
             buttonActive (buttonPlayIn,buttonPause);  
            } 
         } 
@@ -435,7 +431,7 @@ window.addEventListener('load', function() {
     }); 
 
     function createBullet () {
-      if(!goPlay){ 
+      if(!control.goPlay){ 
         let bullet = document.createElement('div');      
             bullet.classList = 'bullet fad fa-meteor';          
             bullet.style.left = (android.offsetLeft  - 5) + 'px';
@@ -601,29 +597,37 @@ function GameStart(){
         top: y + (el.offsetHeight / 2), // y + половина высоты
         left: x + (el.offsetWidth / 2)  // x + половина ширины
         };
-      }
-
-      var rowOneBugs = row1.querySelectorAll('i');
-          rowTwoBugs = row2.querySelectorAll('i');
-          rowThreeBugs = row3.querySelectorAll('i');
-          rowFourBugs = row4.querySelectorAll('i');
-          rowFiveBugs = row5.querySelectorAll('i');
-     
+      };    
    
      
-      
-      var   speed = {
+      var row = {
+
+            one: document.getElementById('row1'),
+            two: document.getElementById('row2'),
+            three: document.getElementById('row3'),
+            four: document.getElementById('row4'),
+            five: document.getElementById('row5')           
+
+          },
+          bugRow ={
+            one: row.one.querySelectorAll('i'),
+            two: row.two.querySelectorAll('i'),
+            three: row.three.querySelectorAll('i'),
+            four: row.four.querySelectorAll('i'),
+            five: row.five.querySelectorAll('i')
+          },
+          speed = {
 
             offsetOne: 2,
             offsetTwo: 2,
             offsetThree: 2,
             offsetFour: 2,
             offsetFive: 2,
-            offsetYrowOne: row1.offsetTop,
-            offsetYrowTwo: row2.offsetTop,
-            offsetYrowThree: row3.offsetTop,
-            offsetYrowFour: row4.offsetTop,
-            offsetYrowFive: row5.offsetTop,
+            offsetYrowOne: row.one.offsetTop,
+            offsetYrowTwo: row.two.offsetTop,
+            offsetYrowThree: row.three.offsetTop,
+            offsetYrowFour: row.four.offsetTop,
+            offsetYrowFive: row.five.offsetTop,
             direction1: 1,
             direction2: 1,
             direction3: 1,
@@ -632,27 +636,27 @@ function GameStart(){
             directionRow: 1 
         }; 
 
-      if(!levelTwoFlag){ 
+      if(!control.levelTwoFlag){ 
           speed.offsetOne = 2;        
           speed.offsetTwo = 2.4;
           speed.offsetThree = 2.3;
           speed.offsetFour = 2.8;
       }
-      if(!levelThreeFlag){ 
+      if(!control.levelThreeFlag){ 
           speed.offsetOne = 3.1;        
           speed.offsetTwo = 3.2;
           speed.offsetThree = 3.3;
           speed.offsetFour = 3.4;
           speed.offsetFive = 3.5;
       }
-      if(!levelFourFlag){
+      if(!control.levelFourFlag){
           speed.offsetOne = 4.1;        
           speed.offsetTwo = 4;
           speed.offsetThree = 3;
           speed.offsetFour = 4;
           speed.offsetFive = 4;
       }
-      if(!levelFiveFlag){
+      if(!control.levelFiveFlag){
           speed.offsetOne = 5;        
           speed.offsetTwo = 5;
           speed.offsetThree = 5;
@@ -664,7 +668,7 @@ function GameStart(){
 
   var update = (step) => {      
       
-      if(!goPlay){ 
+      if(!control.goPlay){ 
 
         clipBullets.forEach((o)=>{
           o.bullet.style.bottom = (o.pos - (o.newPos -= 15)) + 'px';                 
@@ -678,7 +682,7 @@ function GameStart(){
           o.bullet.remove();
        };    
          
-       if(o.bullet.getBoundingClientRect().top < row5.getBoundingClientRect().bottom){
+       if(o.bullet.getBoundingClientRect().top < row.five.getBoundingClientRect().bottom){
           playingField.querySelectorAll('.bugOrdinary').forEach( el => {          
               collision(el,o.bullet);     
           });          
@@ -686,11 +690,11 @@ function GameStart(){
         
       });
         playingField.querySelectorAll('i').forEach( (el,i) => {            
-          victoryResults = i;                   
+          control.victoryResults = i;                   
             if(el.getBoundingClientRect().top >= (android.getBoundingClientRect().bottom - 70)){
                 android.style.color = 'rgb(28, 28, 30)';
                 playSoundGame (audioEffects[4]);   
-                goPlay = true;                            
+                control.goPlay = true;                            
                 Extermination ();
                 fadeInFadeOut (GameOver,playingField);
                 CreepBug ();
@@ -698,44 +702,44 @@ function GameStart(){
             };   
         });
 
-          countlevels.innerHTML = counterLevel;
-          countDeadBugs.innerHTML = victoryResults;
+          countlevels.innerHTML = control.counterLevel;
+          countDeadBugs.innerHTML = control.victoryResults;
         
-          if(victoryResults == 0){             
-               counterLevel++
-              if(counterLevel == 2){
-                playSoundGame (audioEffects[3]);              
-                Extermination ();
+          if(control.victoryResults == 0){             
+               control.counterLevel++
+              if(control.counterLevel == 2){
+                playSoundGame (audioEffects[3]);               
                 fadeInFadeOut(levelTwo,playingField);                 
-                goPlay = true;
-                levelOneFlag = true;             
+                control.goPlay = true;
+                control.levelOneFlag = true;
+                Extermination ();             
               };
-              if(counterLevel == 3){
-                playSoundGame (audioEffects[3]);   
-                Extermination ();
+              if(control.counterLevel == 3){
+                playSoundGame (audioEffects[3]);               
                 fadeInFadeOut(levelThree,playingField);                 
-                goPlay = true;
-                levelTwoFlag = true;                                                
+                control.goPlay = true;
+                control.levelTwoFlag = true;
+                Extermination ();                                                
               };
-              if(counterLevel == 4){
-                playSoundGame (audioEffects[3]);   
-                Extermination ();
+              if(control.counterLevel == 4){
+                playSoundGame (audioEffects[3]);
                 fadeInFadeOut(levelFour,playingField);                 
-                goPlay = true;               
-                levelThreeFlag = true;                                                  
+                control.goPlay = true;               
+                control.levelThreeFlag = true;
+                Extermination ();                                                  
               };
-              if(counterLevel == 5){
-                playSoundGame (audioEffects[3]);   
-                Extermination ();
+              if(control.counterLevel == 5){
+                playSoundGame (audioEffects[3]);
                 fadeInFadeOut(levelFive,playingField);                 
-                goPlay = true;                
-                levelFourFlag = true;                                                   
+                control.goPlay = true;                
+                control.levelFourFlag = true;
+                Extermination ();                                                   
               };
-              if(counterLevel == 6){
-                playSoundGame (audioEffects[5]);   
-                Extermination ();
+              if(control.counterLevel == 6){
+                playSoundGame (audioEffects[5]);
                 fadeInFadeOut(gameWin,playingField);                 
-                goPlay = true;              
+                control.goPlay = true;
+                Extermination ();              
               };          
             }; 
     
@@ -747,11 +751,11 @@ function GameStart(){
       speed.offsetYrowFive += .1 * speed.directionRow;
     
       if(speed.offsetYrowOne < 15){
-        speed.directionRow = 1.5;        
+         speed.directionRow = 1.5;        
       }
 
     //rowOneBugs
-        rowOneBugs.forEach( (el,i) =>{
+        bugRow.one.forEach( (el,i) =>{
 
           bugsOffsetOne['x' + i] += speed.offsetOne * speed.direction1;
 
@@ -764,7 +768,7 @@ function GameStart(){
           
         });
    
-        rowTwoBugs.forEach( (el,i) => {
+        bugRow.two.forEach( (el,i) => {
 
           bugsOffsetTwo['x' + i] -= speed.offsetTwo * speed.direction2;
 
@@ -776,7 +780,7 @@ function GameStart(){
             }        
         });
       //rowThreeBugs
-        rowThreeBugs.forEach( (el,i) => {
+        bugRow.three.forEach( (el,i) => {
 
           bugsOffsetThree['x' + i] += speed.offsetThree * speed.direction3;
 
@@ -788,7 +792,7 @@ function GameStart(){
             }         
         });
       //rowFourBugs
-        rowFourBugs.forEach( (el,i) => {
+        bugRow.four.forEach( (el,i) => {
 
           bugsOffsetFour['x' + i] -= speed.offsetFour * speed.direction4;
 
@@ -800,11 +804,11 @@ function GameStart(){
             }        
         });
       //rowFiveBugs
-        rowFiveBugs.forEach( (el,i) => {
+        bugRow.five.forEach( (el,i) => {
 
           bugsOffsetFive['x' + i] -= speed.offsetFive * speed.direction5;
 
-            if (playingField.offsetWidth <= (bugsOffsetFive['x' + i] + el.offsetWidth)) {
+            if (playingField.offsetWidth <= (el.offsetLeft + el.offsetWidth)) {
                 speed.direction5 = 1;                
             } 
             if(el.offsetLeft <-1){             
@@ -816,31 +820,31 @@ function GameStart(){
      
     var render = () => {
 
-      rowOneBugs.forEach( (el,i) =>{
+      bugRow.one.forEach( (el,i) =>{
           el.style.left = bugsOffsetOne['x' + i] + 'px';
       });
 
-      rowTwoBugs.forEach( (el,i) =>{
+      bugRow.two.forEach( (el,i) =>{
           el.style.left = bugsOffsetTwo['x' + i] + 'px';
       });
 
-      rowThreeBugs.forEach( (el,i) =>{
+      bugRow.three.forEach( (el,i) =>{
           el.style.left = bugsOffsetThree['x' + i] + 'px';
       });
       
-      rowFourBugs.forEach( (el,i) =>{
+      bugRow.four.forEach( (el,i) =>{
           el.style.left = bugsOffsetFour['x' + i] + 'px';
       });
 
-      rowFiveBugs.forEach( (el,i) =>{
+      bugRow.five.forEach( (el,i) =>{
           el.style.left = bugsOffsetFive['x' + i] + 'px';
       }); 
 
-      row1.style.top = speed.offsetYrowOne + 'px';
-      row2.style.top = speed.offsetYrowTwo + 'px';
-      row3.style.top = speed.offsetYrowThree + 'px';
-      row4.style.top = speed.offsetYrowFour + 'px';
-      row5.style.top = speed.offsetYrowFive + 'px';              
+      row.one.style.top = speed.offsetYrowOne + 'px';
+      row.two.style.top = speed.offsetYrowTwo + 'px';
+      row.three.style.top = speed.offsetYrowThree + 'px';
+      row.four.style.top = speed.offsetYrowFour + 'px';
+      row.five.style.top = speed.offsetYrowFive + 'px';              
        
     };
 
