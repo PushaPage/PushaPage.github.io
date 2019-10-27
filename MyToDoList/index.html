@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MyToDoList</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- FontAwesome Icons-->
+   <link rel="stylesheet" href="fontawesome/all.min.css">
+   <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Cuprum&display=swap" rel="stylesheet">   
+    <style>
+    .wrapper{
+      background: #ecf0f1;
+      padding: 30px;
+      box-shadow: 2px 0px 2px 1px, -2px 0px 2px 1px;
+    }
+    h1{
+      font-family: 'Anton', sans-serif;
+      color: rgba(28, 28, 30, .9);
+      margin-bottom: 20px;
+    }
+    #button-add{
+     font-family: 'Staatliches', cursive;    
+     font-size: 22px;    
+     margin-bottom: 30px; 
+    }
+    #button-all-del{
+      font-family: 'Staatliches', cursive;
+      font-size: 22px;  
+    }
+    #input{
+      margin-bottom: 20px;
+      height: 45px;
+      font-size: 20px; 
+    }
+    #container{
+      border: 2px solid rgb(28, 28, 30);
+      height: 500px;
+      background: #fff;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      padding: 5px;
+      overflow: auto;
+    }
+    .remove{
+      background: none;
+      color: rgb(48, 209, 88);
+      border: none;
+      outline: none;
+      font-size: 22px;
+      margin-left: auto; 
+    }
+    .remove:hover{
+      color: rgb(255, 69, 58);
+    }
+    .list{
+      background: rgb(229, 229, 234);
+      color: rgb(28, 28, 30);
+      padding: 8px 20px;
+      font-size: 18px;
+      margin-bottom: 5px
+    }
+    .list-num{
+      font-size: 18px;       
+      position: relative;
+      padding-right: 10px;
+      margin-right: 8px;
+      font-family: 'Anton', sans-serif;
+    }
+    .list-num:before{
+      content: "";
+      position: absolute;
+      width: 1px;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: rgb(28, 28, 30);
+    }
+    .list-text{
+      font-family: 'Cuprum', sans-serif;
+      font-size: 20px;
+    }     
+    </style>
+</head>
+<body>
+    <div class="container wrapper">
+      <h1>To do list</h1>    
+      <form action="javascript:void(0)" id="toDoList">
+        <input type="text" placeholder="..." class="form-control" id="input">
+        <button type="button" class="btn btn-primary btn-lg btn-block" id="button-add" data-click="add" >Add list</button>
+      </form>
+      <div id="container"></div>
+      <button type="button" id="button-all-del" class="btn btn-danger btn-lg d-flex ml-auto" data-click="allDelete">All Delete</button>
+    </div>
+
+<script>
+  ;(function () {      
+
+      let input = _('#input')[0],
+          container = _('#container')[0],
+          numList = 1;  
+
+  let tasks = JSON.parse(localStorage.getItem('todo')) || [], lastId = tasks.length;
+
+    function addItem(task) {                            
+          container.insertAdjacentHTML('afterBegin', [
+            `<p class="list d-flex" data-id="${task.id}">
+              <span class="list-num">${task.num}</span>
+              <span class="list-text">${task.text}</span>              
+              <button type="button" class="remove fal fa-trash-alt" title="Remove?" data-click="remove"></button>
+            </p>`
+          ].join('') );
+      };  
+
+    tasks.forEach( (task) =>{
+    addItem(task);
+  }); 
+
+  document.addEventListener('click', function (event){
+    let dataClick = event.target.dataset.click;
+      if(!dataClick) return;
+      if(dataClick == 'add'){  
+      if(input.value != ''){
+
+    let task = {
+
+        num: numList++,
+        id: lastId++,
+        text: input.value,
+        created: new Date(),
+    };
+
+    tasks.push(task);
+    localStorage.setItem('todo', JSON.stringify(tasks));
+
+    addItem(task);    
+    input.value = '';
+    };
+  };    
+ 
+   if(dataClick == 'allDelete'){
+      localStorage.clear();
+        let listsDel = _('.list');
+       for (let i = 0; i < listsDel.length; i++) {
+          listsDel[i].remove();
+       };  
+    };
+    
+  }); 
+
+  container.addEventListener('click', function(e){
+    let el = e.target;
+
+    if (el.matches('[data-click="remove"]')) {
+      let parent = el.closest('[data-id]');
+
+      for (let i in tasks) {
+        if (tasks[i].id == parent.dataset.id) {
+          tasks.splice(i, 1);
+          localStorage.setItem('todo', JSON.stringify(tasks));
+          break;
+        }
+      }
+      parent.remove();
+    }
+  });
+
+         
+  function _(selector) {
+    return document.querySelectorAll(selector);
+  } 
+
+  
+
+  }());
+</script>
+</body>
+
+</html>
