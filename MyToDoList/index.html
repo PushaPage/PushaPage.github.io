@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="icon.png" type="image/png">
     <title>MyToDoList</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -102,10 +103,13 @@
   ;(function () {      
 
       let input = _('#input')[0],
-          container = _('#container')[0],
-          numList = 1;  
+          container = _('#container')[0];
+         
 
-  let tasks = JSON.parse(localStorage.getItem('todo')) || [], lastId = tasks.length;
+  let tasks = JSON.parse(localStorage.getItem('todo')) || [], 
+      lastId = tasks.length,
+      numList = tasks.length == 0 ? 1 : tasks.length + 1;
+      console.log(tasks.length)     
 
     function addItem(task) {                            
           container.insertAdjacentHTML('afterBegin', [
@@ -143,12 +147,13 @@
     };
   };    
  
-   if(dataClick == 'allDelete'){
-      localStorage.clear();
-        let listsDel = _('.list');
+   if(dataClick == 'allDelete'){      
+      window.localStorage.clear();
+       let listsDel = _('.list');
        for (let i = 0; i < listsDel.length; i++) {
           listsDel[i].remove();
-       };  
+       };
+
     };
     
   }); 
