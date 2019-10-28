@@ -17,7 +17,7 @@
       padding: 40px 0 10px;
       font-weight: 700;
     }
-    #blockMin,#blockSec,#blockMs{
+    .block-min,.block-sec,.block-ms{
       background: #fff3d4;
       width: 32px;
       display: inline-block;
@@ -27,7 +27,7 @@
       margin: 0 5px;
       border: 1px solid rgba(199, 199, 204, .9);
     }
-    #blockMs{
+    .block-ms{
       width: 30px;
       font-size: 22px;
       line-height: 38px;
@@ -60,12 +60,18 @@
     .btn-discharge:hover,.btn-discharge:focus,.btn-lap:hover,.btn-lap:focus{
       background: rgb(174, 174, 178);
     }
+    .lap-time{
+      font-size: 20px;      
+      font-weight: 700;
+    }
     .lap-text{
       display: inline-block;
       font-family: 'Righteous', cursive;     
       color: white;      
       width: auto;      
       font-size: 25px;
+      font-weight: 400;
+      width: 40px;
       line-height: 40px;     
       padding: 0 6px;
       background: rgb(199, 199, 204);
@@ -76,7 +82,7 @@
 <body>
 
   
-  <div id="counter"><span id="blockMin">00</span>:<span id="blockSec">00</span>,<span id="blockMs">0</span></div>
+  <div id="counter"><span class="block-min">00</span>:<span class="block-sec">00</span>,<span class="block-ms">0</span></div>
   
   <div>
     <button type="button" class="btn-start" data-stopwatch="start">Start</button>
@@ -88,9 +94,9 @@
   <script type="text/javascript">
   ;(function (){
       var counter = document.querySelector('#counter'),
-          blockMin = document.querySelector('#blockMin'),
-          blockSec = document.querySelector('#blockSec'),
-          blockMs = document.querySelector('#blockMs'),        
+          blockMin = document.querySelector('.block-min'),
+          blockSec = document.querySelector('.block-sec'),
+          blockMs = document.querySelector('.block-ms'),        
           lapTime = document.getElementById('lap'),
           counterBlock = document.querySelector('#counter'),
           timeRunMs = null,
@@ -98,13 +104,27 @@
           timeRunMin = null;          
      
       var stopwatch = {
+
           min: 0,
           sec: 0,  
           ms: 0,
-          lap: 0,
+          lap: 0,        
           lockStart: 0,
           lockTime: true
-      };
+
+        },
+          countresult = {
+            min: 0,
+            sec: 0,  
+            ms: 0
+          },
+          resultwatch = {
+
+            min: 0,
+            sec: 0,  
+            ms: 0
+        };
+
 
      document.addEventListener('click', function (event){
 
@@ -124,26 +144,37 @@
             timeRun = setTimeout (function tick () {         
             
             blockMs.innerHTML = stopwatch.ms;
+            resultwatch.ms = countresult.ms;
 
             if(blockMs.innerHTML >= 9){
               stopwatch.ms = 0;
+              countresult.ms = 0;
               stopwatch.sec ++;
+              countresult.sec ++;
             };
             if(blockSec.innerHTML >= 59){
               stopwatch.sec = 0;
+              countresult.sec = 0;
               stopwatch.min ++;
+              countresult.min ++;
             };
             if(stopwatch.sec < 10){
               blockSec.innerHTML = '0' + stopwatch.sec;
+              resultwatch.sec = '0' + countresult.sec;
             }else{
               blockSec.innerHTML = stopwatch.sec;
+              resultwatch.sec = countresult.sec;
             };
             if(stopwatch.min < 10){
               blockMin.innerHTML = '0' + stopwatch.min;
+              resultwatch.min = '0' + countresult.min;
             }else{
               blockMin.innerHTML = stopwatch.min;
+              resultwatch.min = countresult.min;
             };
             stopwatch.ms ++;
+            countresult.ms ++;
+            console.log(resultwatch)
 
             timeRun = setTimeout(tick, 110)        
                  
@@ -179,13 +210,20 @@
 
       function lapResult (){
         if(!stopwatch.lockTime){              
-            stopwatch.lap++;              
-            let lapBlock = document.createElement('p');              
-            lapBlock.innerHTML = `<span class="lap-text">#${stopwatch.lap}</span>${counter.innerHTML}`;
-            lapTime.appendChild(lapBlock);
-            stopwatch.ms = 0;
-            stopwatch.sec = 0;
-            stopwatch.min = 0;      
+            stopwatch.lap++;   
+
+            lapTime.insertAdjacentHTML('afterBegin', [
+              `<p class="lap-time">
+                <span class="lap-text">#${stopwatch.lap}</span>
+                <span class="block-min">${resultwatch.min}</span>:         
+                <span class="block-sec">${resultwatch.sec}</span>,
+                <span class="block-ms">${resultwatch.ms}</span>  
+              </p>`
+            ].join('') );
+
+            countresult.min = 0;
+            countresult.sec = 0;
+            countresult.ms = 0;
         }else{
           alert('Stopwatch not running!');
         };
