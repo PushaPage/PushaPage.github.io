@@ -159,18 +159,14 @@
               countresult.min ++;
             };
             if(stopwatch.sec < 10){
-              blockSec.innerHTML = '0' + stopwatch.sec;
-              resultwatch.sec = '0' + countresult.sec;
+              blockSec.innerHTML = '0' + stopwatch.sec;              
             }else{
-              blockSec.innerHTML = stopwatch.sec;
-              resultwatch.sec = countresult.sec;
+              blockSec.innerHTML = stopwatch.sec;             
             };
             if(stopwatch.min < 10){
-              blockMin.innerHTML = '0' + stopwatch.min;
-              resultwatch.min = '0' + countresult.min;
+              blockMin.innerHTML = '0' + stopwatch.min;              
             }else{
-              blockMin.innerHTML = stopwatch.min;
-              resultwatch.min = countresult.min;
+              blockMin.innerHTML = stopwatch.min;              
             };
             stopwatch.ms ++;
             countresult.ms ++;
@@ -210,7 +206,17 @@
 
       function lapResult (){
         if(!stopwatch.lockTime){              
-            stopwatch.lap++;   
+            stopwatch.lap++;
+            if(countresult.sec < 10){              
+              resultwatch.sec = '0' + countresult.sec;
+            }else{             
+              resultwatch.sec = countresult.sec;
+            };
+            if(countresult.min < 10){            
+              resultwatch.min = '0' + countresult.min;
+            }else{             
+              resultwatch.min = countresult.min;
+            };
 
             lapTime.insertAdjacentHTML('afterBegin', [
               `<p class="lap-time">
