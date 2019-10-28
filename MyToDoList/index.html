@@ -148,12 +148,12 @@
   };    
  
    if(dataClick == 'allDelete'){      
-      window.localStorage.clear();
+       localStorage.clear();
        let listsDel = _('.list');
        for (let i = 0; i < listsDel.length; i++) {
           listsDel[i].remove();
        };
-
+       window.location.reload();
     };
     
   }); 
