@@ -112,7 +112,7 @@
       console.log(tasks.length)     
 
     function addItem(task) {                            
-          container.insertAdjacentHTML('afterBegin', [
+          container.insertAdjacentHTML('beforeEnd', [
             `<p class="list d-flex" data-id="${task.id}">
               <span class="list-num">${task.num}</span>
               <span class="list-text">${task.text}</span>              
