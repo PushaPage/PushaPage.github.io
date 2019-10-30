@@ -25,16 +25,16 @@
       color: rgba(28, 28, 30, .9);
       margin-bottom: 20px;
     }
-    #button-add{
+    .button-add{
      font-family: 'Staatliches', cursive;    
      font-size: 22px;    
      margin-bottom: 30px; 
     }
-    #button-all-del{
+    #btnAllDel{
       font-family: 'Staatliches', cursive;
       font-size: 22px;  
     }
-    #input{
+    .input{
       margin-bottom: 20px;
       height: 45px;
       font-size: 20px; 
@@ -92,17 +92,18 @@
     <div class="container wrapper">
       <h1>To do list</h1>    
       <form action="javascript:void(0)" id="toDoList">
-        <input type="text" placeholder="..." class="form-control" id="input" autocomplete="off">
-        <button type="button" class="btn btn-primary btn-lg btn-block" id="button-add" data-click="add" >Add list</button>
+        <input type="text" name="asktask" placeholder="..." class="form-control input" autocomplete="off">
+        <button type="submit" class="btn btn-primary btn-lg btn-block button-add">Add list</button>
       </form>
       <div id="container"></div>
-      <button type="button" id="button-all-del" class="btn btn-danger btn-lg d-flex ml-auto" data-click="allDelete">All Delete</button>
+      <button type="button" id="btnAllDel" class="btn btn-danger btn-lg d-flex ml-auto">All Delete</button>
     </div>
 
 <script>
   ;(function () {      
 
-      let input = _('#input')[0],
+      let toDoList = _('#toDoList')[0],
+          allDel = _('#btnAllDel')[0],
           container = _('#container')[0];
          
 
@@ -131,7 +132,7 @@
 
         num: numList++,
         id: lastId++,
-        text: input.value,
+        text: toDoList.asktask.value,
         created: new Date(),
     };
 
@@ -139,40 +140,28 @@
     localStorage.setItem('todo', JSON.stringify(tasks));
 
     addItem(task);    
-    input.value = '';
-
   };  
 
-  document.addEventListener('click', function (event){
-    let dataClick = event.target.dataset.click;
-      if(!dataClick) return;
+  toDoList.addEventListener('submit', function (event){
+    
+      event.preventDefault();      
 
-        if(dataClick == 'add'){  
+      if(toDoList.asktask.value != ''){     
         
-          if(input.value != ''){
-            createTask ();    
-          };
-        };
- 
-        if(dataClick == 'allDelete'){      
-            localStorage.clear();
-            let listsDel = _('.list');
-
-             for (let i = 0; i < listsDel.length; i++) {
-                listsDel[i].remove();
-             };
-             window.location.reload();
-          };    
+            createTask ();
+            toDoList.reset();    
+        };     
   });
 
-  document.addEventListener('keyup', function(event){ 
+  allDel.addEventListener('click', () =>{ 
 
-    if (event.key == 'Enter'){
+      localStorage.clear();
+        let listsDel = _('.list');
 
-      if(input.value != ''){
-          createTask ();    
-      };
-    };
+        for (let i = 0; i < listsDel.length; i++) {
+              listsDel[i].remove();
+        };
+          window.location.reload();       
   }); 
 
   container.addEventListener('click', function(e){
