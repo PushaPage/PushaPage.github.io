@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="icon.png" type="image/png">
+    <title>MyToDoList</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- FontAwesome Icons-->
+   <link rel="stylesheet" href="fontawesome/all.min.css">
+   <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Cuprum&display=swap" rel="stylesheet">   
+    <style>
+    .wrapper{
+      background: #ecf0f1;
+      padding: 30px;
+      box-shadow: 2px 0px 2px 1px, -2px 0px 2px 1px;
+    }
+    h1{
+      font-family: 'Anton', sans-serif;
+      color: rgba(28, 28, 30, .9);
+      margin-bottom: 20px;
+    }
+    #button-add{
+     font-family: 'Staatliches', cursive;    
+     font-size: 22px;    
+     margin-bottom: 30px; 
+    }
+    #btnAllDel{
+      font-family: 'Staatliches', cursive;
+      font-size: 22px;  
+    }
+    .input{
+      margin-bottom: 20px;
+      height: 45px;
+      font-size: 20px; 
+    }
+    #container{
+      border: 2px solid rgb(28, 28, 30);
+      height: 500px;
+      background: #fff;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      padding: 5px;
+      overflow: auto;
+    }
+    .remove{
+      background: none;
+      color: rgb(48, 209, 88);
+      border: none;
+      outline: none;
+      font-size: 22px;
+      margin-left: auto; 
+    }
+    .remove:hover,.remove:active,.remove:focus{
+      color: rgb(255, 69, 58);
+      outline: none;
+      border: none;
+    }
+    .list{
+      background: rgb(229, 229, 234);
+      color: rgb(28, 28, 30);
+      padding: 8px 20px;
+      font-size: 18px;
+      margin-bottom: 5px
+    }
+    .list-num{
+      font-size: 18px;       
+      position: relative;
+      padding-right: 10px;
+      margin-right: 8px;
+      font-family: 'Anton', sans-serif;
+    }
+    .list-num:before{
+      content: "";
+      position: absolute;
+      width: 1px;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: rgb(28, 28, 30);
+    }
+    .list-text{
+      font-family: 'Cuprum', sans-serif;
+      font-size: 20px;
+    }     
+    </style>
+</head>
+<body>
+    <div class="container wrapper">
+      <h1>To do list</h1>    
+      <form action="javascript:void(0)" id="toDoList">
+        <input type="text" name="asktask" placeholder="..." class="form-control input" autocomplete="off">
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="button-add">Add list</button>
+      </form>
+      <div id="container"></div>
+      <button type="button" id="btnAllDel" class="btn btn-danger btn-lg d-flex ml-auto" data-action="allDelete">All Delete</button>
+    </div>
+
+<script>
+  ;(function () {      
+
+      let toDoList = _('#toDoList')[0],         
+          allDel = _('#btnAllDel')[0],
+          container = _('#container')[0];
+       
+      const baseUrl = "http://localhost:3000";
+
+      let currentItem = null;
+
+       showItems();   
+
+ 
+
+  toDoList.addEventListener('submit', function (event){
+    
+      event.preventDefault();
+
+      if(toDoList.asktask.value != ''){
+
+         if (currentItem) {
+
+            currentItem.text = toDoList.asktask.value;         
+
+            updateItem(currentItem).then(() => {
+              currentItem = null; 
+              toDoList.reset(); 
+              showItems(); 
+            });
+
+          }else{
+           
+            createItem({
+              text: toDoList.asktask.value,           
+            }).then(() => {
+              showItems();
+            });
+            toDoList.reset();
+          }
+      }    
+  });
+  
+      container.addEventListener('click', (event) => {
+        var el = event.target; 
+
+        
+        if (el.matches('[data-id]')) {
+          let id = el.dataset.id;
+         
+          if (el.matches('[data-action="delete"]')) {
+              deleteItem(id).then(() => {
+              showItems();
+            });
+          };      
+        };
+      });
+
+      allDel.addEventListener('click', () => {
+       
+        let delLists = _('.remove');       
+          
+            delLists.forEach( (el) =>{
+              let id = el.dataset.id;
+              deleteItem(id).then(() => {
+              showItems();
+            });
+           });       
+      });
+  
+
+  function showItem(task) {
+      container.insertAdjacentHTML('beforeEnd', 
+            `<p class="list d-flex">
+              <span class="list-num">${task.id}</span>
+              <span class="list-text">${task.text}</span>              
+              <button type="button" class="remove fal fa-trash-alt" title="Remove?" data-id="${task.id}" data-action="delete"></button>
+            </p>`
+          );
+    };
+
+     function showItems() {
+        return findItems().then((data) => {
+          container.innerHTML = "";
+          data.forEach(o => showItem(o));
+        });
+      }
+
+      // ищем все посты
+      function findItems() {
+        return fetch(baseUrl + "/posts")
+          .then(response => response.json());
+      };
+      // ищем только один пост
+      function findItem(id) {
+        return fetch(baseUrl + "/posts/" + id)
+          .then(response => response.json());
+      };
+      // удаляем пост
+      function deleteItem(id) {
+        return fetch(baseUrl + "/posts/" + id, {
+          method: "DELETE"
+        });
+      };
+      // создаем новый пост
+      function createItem(data) {
+        return fetch(baseUrl + "/posts", {
+          method: "POST",
+          headers: new Headers({
+            "Content-Type": "application/json"
+          }),
+          body: JSON.stringify(data)
+        });
+      }
+      // обновляем пост
+      function updateItem(data) {
+        return fetch(baseUrl + "/posts/" + data.id, {
+          method: "PUT",
+          headers: new Headers({
+            "Content-Type": "application/json"
+          }),
+          body: JSON.stringify(data)
+        });
+      }
+
+         
+  function _(selector) {
+    return document.querySelectorAll(selector);
+  } 
+
+  
+
+  }());
+</script>
+</body>
+
+</html>
