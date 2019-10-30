@@ -80,9 +80,7 @@ window.addEventListener('load', function() {
               a: 1,
               b: 0,
               c: 0,
-              d: 0,              
-              sum: sum
-
+              d: 0 
             };
 
        while (iterator.a <= 5) {               
@@ -114,10 +112,7 @@ window.addEventListener('load', function() {
         bugsOffsetFour = Object.setPrototypeOf({}, bugsOffsetOne);
         bugsOffsetFive = Object.setPrototypeOf({}, bugsOffsetOne);         
 
-        android.style.color = 'rgb(48, 209, 88)';
-        bugDead.style.animation = 'bugDead 3.5s linear infinite';
-
-      
+        android.style.color = 'rgb(48, 209, 88)';      
 
         while (iterator.c <= 1) {
 
@@ -135,14 +130,10 @@ window.addEventListener('load', function() {
             };
             if(!control.levelThreeFlag){
               row1.childNodes[iterator.c].classList = 'fas fa-spider bugOrdinary bugArmored';
-              row1.childNodes[8 + iterator.c].classList = 'fas fa-spider bugOrdinary bugArmored';
-              row2.childNodes[0 + (9 * iterator.c)].classList = 'fad fa-spider bugOrdinary bugRowDown2';
-              row2.childNodes[iterator.c * 0].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
+              row1.childNodes[8 + iterator.c].classList = 'fas fa-spider bugOrdinary bugArmored';              
               row2.childNodes[2 + (1 * iterator.c)].classList = 'fas fa-spider bugOrdinary bugArmored';
               row2.childNodes[6 + (1 * iterator.c)].classList = 'fas fa-spider bugOrdinary bugArmored';
-              row3.childNodes[4 + (1 * iterator.c)].classList = 'fas fa-spider bugOrdinary bugArmored';
-              row4.childNodes[0 + (9 * iterator.c)].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
-              row4.childNodes[iterator.c * 0].classList = 'fad fa-spider bugOrdinary bugRowDown2';
+              row3.childNodes[4 + (1 * iterator.c)].classList = 'fas fa-spider bugOrdinary bugArmored';              
               row4.childNodes[1 + (7 * iterator.c)].classList = 'far fa-bug bugOrdinary bugManyFaces';
               row4.childNodes[2 + iterator.c].classList = 'fas fa-spider bugOrdinary bugArmored';
               row4.childNodes[4 + iterator.c].classList = 'far fa-bug bugOrdinary bugManyFaces';
@@ -150,9 +141,7 @@ window.addEventListener('load', function() {
               row5.childNodes[iterator.c].classList = 'fas fa-spider bugOrdinary bugArmored';
               row5.childNodes[8 + iterator.c].classList = 'fas fa-spider bugOrdinary bugArmored';
             };
-            if(!control.levelFourFlag){
-              row1.childNodes[0 + (9 * iterator.c)].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
-              row1.childNodes[iterator.c * 0].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
+            if(!control.levelFourFlag){             
               row5.childNodes[0 + (2 * iterator.c)].classList = 'fad fa-spider bugOrdinary bugRowDown2';
               row5.childNodes[1 + (7 * iterator.c)].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
               row5.childNodes[4 + iterator.c].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
@@ -162,7 +151,7 @@ window.addEventListener('load', function() {
             iterator.c++ 
         };
 
-        while (iterator.d <= iterator.sum) {
+        while (iterator.d <= sum) {
             
             if(!control.levelOneFlag){   
               row4.childNodes[2 + iterator.d].classList = 'fas fa-spider bugOrdinary bugArmored';
@@ -186,7 +175,19 @@ window.addEventListener('load', function() {
               row5.childNodes[iterator.d].classList = 'fal fa-bug bugOrdinary bugArmoredManyFaces';
             };  
             iterator.d++ 
-        };       
+        }; 
+
+        if(!control.levelThreeFlag){
+            row2.childNodes[9].classList = 'fad fa-spider bugOrdinary bugRowDown2';
+            row2.childNodes[0].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
+            row4.childNodes[9].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
+            row4.childNodes[0].classList = 'fad fa-spider bugOrdinary bugRowDown2';
+        };
+
+        if(!control.levelFourFlag){
+            row1.childNodes[9].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2';
+            row1.childNodes[0].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';
+        };   
     
         if(!control.levelFiveFlag){           
              row3.childNodes[2].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp'; 
@@ -195,7 +196,7 @@ window.addEventListener('load', function() {
              row4.childNodes[8].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp';          
              row5.childNodes[0].classList = 'fal fa-spider-black-widow bugOrdinary bugRowUp'; 
              row5.childNodes[9].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2'; 
-        };      
+        };          
                              
       };     
     
@@ -273,8 +274,7 @@ window.addEventListener('load', function() {
 
         case 'play':
               fadeInFadeOut (playingField,menuGame);
-              playingField.style.backgroundImage = 'url("img/bg-Field.jpg")';                             
-              control.goPlay = false;
+              playingField.style.backgroundImage = 'url("img/bg-Field.jpg")';       
               control.levelOneFlag = false;
               createBugs(5);                
               GameStart();   
@@ -312,22 +312,19 @@ window.addEventListener('load', function() {
             break;       
         case 'levelTwo':
               fadeInFadeOut (playingField,levelTwo);
-              playingField.style.backgroundImage = 'url("img/bg-Field2.jpg")';               
-              control.goPlay = false;             
+              playingField.style.backgroundImage = 'url("img/bg-Field2.jpg")';                            
               control.levelTwoFlag = false;
               createBugs(9); 
               GameStart();
             break;
         case 'levelThree':
               fadeInFadeOut (playingField,levelThree);            
-              control.goPlay = false;
               control.levelThreeFlag = false;
               createBugs(3);
               GameStart();
             break;
         case 'levelFour':
               fadeInFadeOut (playingField,levelFour);                        
-              control.goPlay = false;
               control.levelFourFlag = false;
               createBugs(9);
               GameStart();
@@ -335,7 +332,6 @@ window.addEventListener('load', function() {
         case 'levelFive':
               fadeInFadeOut (playingField,levelFive);
               playingField.style.backgroundImage = 'url("img/bg-Field3.jpg")';           
-              control.goPlay = false;
               control.levelFiveFlag = false;
               createBugs(9);
               GameStart();
@@ -442,6 +438,12 @@ window.addEventListener('load', function() {
  
 function GameStart(){
 
+      setTimeout(() =>{
+        control.goPlay = false;
+        bugDead.style.animation = 'bugDead 3.5s linear infinite';
+      }, 300);
+
+      
 
       function Extermination () {
           playingField.querySelectorAll('div').forEach( (el) => {
