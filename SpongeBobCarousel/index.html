@@ -178,16 +178,21 @@
          quantity = i;     
     };
     function initialOrder () {
-        slides[0].classList.add('slide-item-active');       
-        slides[1].classList.add('slide-item-previous');      
-        slides[slides.length -1].classList.add('slide-item-next');           
+        slides[0].classList.add('slide-item-active');
+        slides[0].style.transition = 'none';       
+        slides[1].classList.add('slide-item-previous');
+        slides[1].style.transition = 'none';       
+        slides[slides.length -1].classList.add('slide-item-next');
+        slides[slides.length -1].style.transition = 'none';            
     };
     initialOrder ();
 
           
-          arrowLeft.addEventListener('click', clickLeft);
+          arrowLeft.onclick = clickLeft;
 
-          function clickLeft () {                  
+          function clickLeft () {
+
+            arrowLeft.onclick = null;                    
 
             wrapSlider.querySelectorAll('.slide-item-previous').forEach( el => {
               el.classList.remove('slide-item-previous');   
@@ -219,14 +224,20 @@
             slides[slides.length - iteratorLeft].style.transition = 'none'; 
 
             iteratorRight --;        
-            iteratorLeft ++;       
+            iteratorLeft ++;
+
+            setTimeout( () => {
+              arrowLeft.onclick = clickLeft;                
+            }, 800);        
         
         };       
         
-        arrowRight.addEventListener('click', clickRight);
+        arrowRight.onclick = clickRight;
         
 
-        function clickRight () {          
+        function clickRight () {
+
+            arrowRight.onclick = null;          
 
             wrapSlider.querySelectorAll('.slide-item-next').forEach( el => {
               el.classList.remove('slide-item-next');
@@ -259,7 +270,11 @@
             slides[iteratorRight].style.transition = 'none';
              
             iteratorRight ++;
-            iteratorLeft --;         
+            iteratorLeft --;
+
+            setTimeout( () => {
+              arrowRight.onclick = clickRight;                
+            }, 800);         
         
         };
 
