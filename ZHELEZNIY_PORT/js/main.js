@@ -1,21 +1,31 @@
 	//Modal Comment
-		window.addEventListener('load', function() { 			
-			var commentSend = document.getElementById('comment_send'),
-			    commentUserName = document.getElementById('comment_user_name'),
-			    commentDay = document.getElementById('comment_day'),
-			    commentMonth = document.getElementById('comment_month'),
-			    commentYear = document.getElementById('comment_year'),			
-			    commentTextarea = document.getElementById('comment_textarea'),			
-			    commentSwiper = document.getElementById('comments_user'),
+		window.addEventListener('load', function() {
+
+			let sectionComments = document.getElementById('comments'),
+				commentSend = document.getElementById('comment_send'),
+			    formComment = document.getElementById('comment_form'),			  		
+			    commentSwiper = document.getElementById('comments_user'),			  
+			    date = new Date(),
+			    report = true,
 			    rerun = true;
-			    
 
-			    // console.log(commentText);			
+			window.addEventListener('scroll', () =>{
+				if(sectionComments.getBoundingClientRect().top < 200){					
+					
+					if(report == true){
+						alert("Оставьте отзыв, и он появиться на странице!");
+					};
+					report = false;					
+				};
+			});    
+			  		
 
-			var session = JSON.parse(sessionStorage.getItem('comment')) || []; 		 	   
+			let session = JSON.parse(sessionStorage.getItem('comment')) || []; 		 	   
 
 			function addComment (template) {
-				if(template.username == undefined || template.textarea == undefined) return;				
+				if(template.username == undefined || template.textarea == undefined) return;
+				if (template.month < 10) template.month = '0' + template.month;
+				if (template.day < 10) template.day = '0' + template.day;					
 				commentSwiper.innerHTML = `<p>${template.textarea}</p>
 				    <span class="signature">${template.username}</span>
 				    <span class="date_when">${template.day}.${template.month}.${template.year}</span>
@@ -29,22 +39,50 @@
 			
     		addComment(session);
 
-		    commentSend.addEventListener('click', function (event) {			 	
-			 	if(commentUserName.value == ''){			 		
-			 		commentUserName.placeholder = 'Это поле не должно быть пустым!';
-			 		commentTextarea.placeholder = 'Если вы оставете свой отзыв, то он сразу появиться на странице!';
+		    commentSend.addEventListener('click', (event) => {
+
+			    formComment.comment_user_name.onfocus = (() =>{
+
+			    	formComment.comment_user_name.classList.remove('invalid_form');
+			    	formComment.comment_textarea.classList.remove('invalid_form');
+			    	formComment.comment_user_name.placeholder = 'Имя, фамилия*';
+			    	formComment.comment_textarea.placeholder = 'Ваше сообщение...';		    	
+			    });
+
+			    formComment.comment_textarea.onfocus = (() =>{
+
+			    	formComment.comment_user_name.classList.remove('invalid_form');
+			    	formComment.comment_textarea.classList.remove('invalid_form');
+			    	formComment.comment_user_name.placeholder = 'Имя, фамилия*';
+			    	formComment.comment_textarea.placeholder = 'Ваше сообщение...';		    	
+			    });			    	
+
+			 	if(formComment.comment_user_name.value == ''){
+
+			 		formComment.comment_user_name.classList.add('invalid_form');		 		
+			 		formComment.comment_user_name.placeholder = 'Это поле не должно быть пустым!';
+			 		commentSend.dataset.dismiss = '';			 		
 			 		event.preventDefault(commentSend);
-			 	}else{		 		
+			 	};
+			 	if(formComment.comment_textarea.value == ''){
+
+			 		formComment.comment_textarea.classList.add('invalid_form');
+			 		formComment.comment_textarea.placeholder = 'Это поле не должно быть пустым!';
+			 		commentSend.dataset.dismiss = '';
+			 		event.preventDefault(commentSend);
+			 	}else{
+
 				 	let template = {
-				 		username: commentUserName.value,
-				 		textarea: commentTextarea.value,
-				 		day: commentDay.value,
-				 		month: commentMonth.value,
-				 		year: commentYear.value,
+				 		username: formComment.comment_user_name.value,
+				 		textarea: formComment.comment_textarea.value,
+				 		day: date.getDate(),
+				 		month: date.getMonth(),
+				 		year: date.getFullYear().toString().substr(-2)
 				 	};			 	
 				 	sessionStorage.setItem('comment', JSON.stringify(template));
 				 	rerun = false;				 	
-				 	addComment (template);				 	
+				 	addComment (template);
+				 	formComment.reset(); 				 	
 					commentSend.dataset.dismiss = 'modal';	
           		};				
 			});
@@ -56,7 +94,6 @@
 		        requestAnimationFrame(function animate(time) {    
 		          let timeFraction = (time - start) / duration;
 		          if (timeFraction > 1) timeFraction = 1;
-
 		          
 		          let progress = timing(timeFraction);
 
