@@ -104,102 +104,104 @@
     </div>
 
 <script>
-  ;(function () {      
+  window.addEventListener('load', function() {
+    ;(function () {      
 
-      let toDoList = _('#toDoList')[0],
-          allDel = _('#btnAllDel')[0],
-          container = _('#container')[0];         
-         
+        let toDoList = _('#toDoList')[0],
+            allDel = _('#btnAllDel')[0],
+            container = _('#container')[0];         
+           
 
-      let tasks = JSON.parse(localStorage.getItem('todo')) || [], 
-          lastId = tasks.length; 
+        let tasks = JSON.parse(localStorage.getItem('todo')) || [], 
+            lastId = tasks.length; 
 
-      function addItem(task) {                            
-          container.insertAdjacentHTML('beforeEnd', [
-            `<p class="list d-flex" data-id="${task.id}">
-              <span class="list-num">${task.id + 1}</span>
-              <span class="list-text">${task.text}</span>              
-              <button type="button" class="remove fal fa-trash-alt" title="Remove?" data-click="remove"></button>
-            </p>`
-          ].join('') );
+        function addItem(task) {                            
+            container.insertAdjacentHTML('beforeEnd', [
+              `<p class="list d-flex" data-id="${task.id}">
+                <span class="list-num">${task.id + 1}</span>
+                <span class="list-text">${task.text}</span>              
+                <button type="button" class="remove fal fa-trash-alt" title="Remove?" data-click="remove"></button>
+              </p>`
+            ].join('') );
+        };  
+
+        tasks.forEach( (task) =>{
+        addItem(task);
+      });
+
+      function createTask () {        
+
+        let task = {
+           
+            id: lastId++,
+            text: toDoList.asktask.value,
+            created: new Date()
+        };
+
+        tasks.push(task);
+        localStorage.setItem('todo', JSON.stringify(tasks));
+
+        addItem(task);    
       };  
 
-      tasks.forEach( (task) =>{
-      addItem(task);
-    });
 
-    function createTask () {        
+      toDoList.asktask.onfocus = (()=>{        
+        toDoList.asktask.classList.remove('invalid-task');
+      });     
 
-      let task = {
-         
-          id: lastId++,
-          text: toDoList.asktask.value,
-          created: new Date()
-      };
+      toDoList.addEventListener('submit', function (event){
+      
+        event.preventDefault();
 
-      tasks.push(task);
-      localStorage.setItem('todo', JSON.stringify(tasks));
+        if(toDoList.asktask.value == ''){ 
 
-      addItem(task);    
-    };  
+          toDoList.asktask.classList.add('invalid-task');              
+          
+        }else{           
 
+              createTask ();
+              toDoList.reset(); 
+        };     
+      });
 
-    toDoList.asktask.onfocus = (()=>{        
-      toDoList.asktask.classList.remove('invalid-task');
-    });     
+      allDel.addEventListener('click', () =>{ 
 
-    toDoList.addEventListener('submit', function (event){
-    
-      event.preventDefault();
+        localStorage.clear();
+          
+          let listsDel = _('.list');
 
-      if(toDoList.asktask.value == ''){ 
-
-        toDoList.asktask.classList.add('invalid-task');              
-        
-      }else{           
-
-            createTask ();
-            toDoList.reset(); 
-      };     
-    });
-
-    allDel.addEventListener('click', () =>{ 
-
-      localStorage.clear();
-        
-        let listsDel = _('.list');
-
-        for (let i = 0; i < listsDel.length; i++) {
-              listsDel[i].remove();
-        };
-          window.location.reload();       
-    }); 
-
-    container.addEventListener('click', function(e){
-
-      let el = e.target;
-
-      if (el.matches('[data-click="remove"]')) {
-        let parent = el.closest('[data-id]');
-
-        for (let i in tasks) {
-          if (tasks[i].id == parent.dataset.id) {
-            tasks.splice(i, 1);
-            localStorage.setItem('todo', JSON.stringify(tasks));
-            break;
+          for (let i = 0; i < listsDel.length; i++) {
+                listsDel[i].remove();
           };
-        };
+            window.location.reload();       
+      }); 
 
-        parent.remove();
-      }
-    });
+      container.addEventListener('click', function(e){
 
-         
-    function _(selector) {
-      return document.querySelectorAll(selector);
-    };  
+        let el = e.target;
 
-  }());
+        if (el.matches('[data-click="remove"]')) {
+          let parent = el.closest('[data-id]');
+
+          for (let i in tasks) {
+            if (tasks[i].id == parent.dataset.id) {
+              tasks.splice(i, 1);
+              localStorage.setItem('todo', JSON.stringify(tasks));
+              break;
+            };
+          };
+
+          parent.remove();
+        }
+      });
+
+           
+      function _(selector) {
+        return document.querySelectorAll(selector);
+      };  
+
+    }());
+  });  
 </script>
 </body>
 

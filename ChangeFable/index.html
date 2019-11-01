@@ -90,74 +90,68 @@
  
    
   <script>
-      
+  window.addEventListener('load', function() {    
   ;(function (){
-      var fable = document.getElementById('fable'),
-          story = fable.textContent,
-          output = document.getElementById('output');
-
-        
-
-      output.onclick = function(){ 
-
-        let name = document.getElementById('name').value;      
-        if (name == ''){
-          alert('Введите имя!');
-        }else{        
-        let rename = story.replace(/Рома./g, '<span>' + name + '</span>'),
-            newStory = rename;
-
-        fable.innerHTML = newStory;
-     
-        animateText(fable)
-       
-        }    
-      };
-
-      function animate({timing, draw, duration}) {
-
-        let start = performance.now();
-
-        requestAnimationFrame(function animate(time) {    
-          let timeFraction = (time - start) / duration;
-          if (timeFraction > 1) timeFraction = 1;
+        let fable = document.getElementById('fable'),
+            story = fable.textContent,
+            output = document.getElementById('output');
 
           
-          let progress = timing(timeFraction);
 
-          draw(progress); 
+        output.onclick = function(){ 
 
-          if (timeFraction < 1) {
-            requestAnimationFrame(animate);
-          }
-      });
-    }
+          let name = document.getElementById('name').value;      
+          if (name == ''){
+            alert('Введите имя!');
+          }else{        
+          let rename = story.replace(/Рома./g, '<span>' + name + '</span>'),
+              newStory = rename;
 
-    function animateText(textArea) {
-        let text = textArea.innerHTML;
-        let to = text.length,
-          from = 0;
+          fable.innerHTML = newStory;
+       
+          animateText(fable)
+         
+          }    
+        };
 
-        animate({
-          duration: 10000,
-          timing:  function(timeFraction) {
-            return timeFraction;
-          },
-          draw: function(progress) {
-            let result = (to - from) * progress + from;
-            textArea.innerHTML = text.substr(0, Math.ceil(result))
-          }
+        function animate({timing, draw, duration}) {
+
+          let start = performance.now();
+
+          requestAnimationFrame(function animate(time) {    
+            let timeFraction = (time - start) / duration;
+            if (timeFraction > 1) timeFraction = 1;
+
+            
+            let progress = timing(timeFraction);
+
+            draw(progress); 
+
+            if (timeFraction < 1) {
+              requestAnimationFrame(animate);
+            }
         });
       }
- 
-  }());
- 
-  
-    
 
+      function animateText(textArea) {
+          let text = textArea.innerHTML;
+          let to = text.length,
+            from = 0;
+
+          animate({
+            duration: 10000,
+            timing:  function(timeFraction) {
+              return timeFraction;
+            },
+            draw: function(progress) {
+              let result = (to - from) * progress + from;
+              textArea.innerHTML = text.substr(0, Math.ceil(result))
+            }
+          });
+        };
    
+    }());
+  });  
   </script>
-
 </body>
-
 </html>

@@ -92,6 +92,7 @@
   </div>
   <div id="lap"></div>
   <script type="text/javascript">
+  window.addEventListener('load', function() {
   ;(function (){
       var counter = document.querySelector('#counter'),
           blockMin = document.querySelector('.block-min'),
@@ -234,7 +235,8 @@
           alert('Stopwatch not running!');
         };
       };
-    }())  
+    }());
+  });    
   </script>
   
 
