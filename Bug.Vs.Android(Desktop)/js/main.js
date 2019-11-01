@@ -441,7 +441,7 @@ function GameStart(){
       setTimeout(() =>{
         control.goPlay = false;
         bugDead.style.animation = 'bugDead 3.5s linear infinite';
-      }, 300);
+      }, 200);
 
       
 
