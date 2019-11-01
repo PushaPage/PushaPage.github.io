@@ -61,14 +61,20 @@ window.addEventListener('load', function() {
         bugsOffsetTwo = {},
         bugsOffsetThree = {},
         bugsOffsetFour = {},
-        bugsOffsetFive = {},       
+        bugsOffsetFive = {},
+        bgLevels = [
+             'url("img/bg-Field.jpg")',
+             'url("img/bg-Field2.jpg")',
+             'url("img/bg-Field3.jpg")'  
+        ],              
         audioEffects = [
             'audio/bugOrdinary.mp3',
             'audio/bugArmoded.mp3',
             'audio/bugManyFaces.mp3', 
             'audio/levelUp.mp3', 
             'audio/gameOver.mp3',
-            'audio/gameWin.mp3',            
+            'audio/gameWin.mp3',
+            'audio/shot.mp3'            
             ],         
         clipBullets = [];      
     
@@ -218,7 +224,7 @@ window.addEventListener('load', function() {
   function playSoundShot () {
     if(!control.goPlay){ 
       if(!control.sound){ 
-        soundShot.src = 'audio/shot.mp3';        
+        soundShot.src = audioEffects[6];        
         if (!control.shot){
             soundShot.play();
         };
@@ -274,7 +280,7 @@ window.addEventListener('load', function() {
 
         case 'play':
               fadeInFadeOut (playingField,menuGame);
-              playingField.style.backgroundImage = 'url("img/bg-Field.jpg")';       
+              playingField.style.backgroundImage = bgLevels[0];       
               control.levelOneFlag = false;
               createBugs(5);                
               GameStart();   
@@ -312,7 +318,7 @@ window.addEventListener('load', function() {
             break;       
         case 'levelTwo':
               fadeInFadeOut (playingField,levelTwo);
-              playingField.style.backgroundImage = 'url("img/bg-Field2.jpg")';                            
+              playingField.style.backgroundImage = bgLevels[1];                            
               control.levelTwoFlag = false;
               createBugs(9); 
               GameStart();
@@ -331,7 +337,7 @@ window.addEventListener('load', function() {
             break;
         case 'levelFive':
               fadeInFadeOut (playingField,levelFive);
-              playingField.style.backgroundImage = 'url("img/bg-Field3.jpg")';           
+              playingField.style.backgroundImage = bgLevels[2];           
               control.levelFiveFlag = false;
               createBugs(9);
               GameStart();
@@ -441,7 +447,7 @@ function GameStart(){
       setTimeout(() =>{
         control.goPlay = false;
         bugDead.style.animation = 'bugDead 3.5s linear infinite';
-      }, 200);
+      }, 300);
 
       
 
