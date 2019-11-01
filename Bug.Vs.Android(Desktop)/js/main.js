@@ -584,7 +584,7 @@ function GameStart(){
                 break;
           };
       }else{
-        return;
+        return false;
       }
 
       };  
