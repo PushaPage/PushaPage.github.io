@@ -161,145 +161,146 @@
     </div>
   </div>
 <script>
-  ;(function () {
+  window.addEventListener('load', function() {
+    ;(function () {
 
-    var wrapSlider = document.querySelector('.wrap-slider'),
-        slides = document.querySelectorAll('.slide-item'),
-        arrowLeft = document.getElementById('arrowLeft'),
-        arrowRight = document.getElementById('arrowRight'),
-        angleLeft = document.querySelector('.fa-angle-double-left'),
-        angleRight = document.querySelector('.fa-angle-double-right'),     
-        quantity = null,
-        iteratorLeft = 2,
-        iteratorRight = 2;
-   
+      var wrapSlider = document.querySelector('.wrap-slider'),
+          slides = document.querySelectorAll('.slide-item'),
+          arrowLeft = document.getElementById('arrowLeft'),
+          arrowRight = document.getElementById('arrowRight'),
+          angleLeft = document.querySelector('.fa-angle-double-left'),
+          angleRight = document.querySelector('.fa-angle-double-right'),     
+          quantity = null,
+          iteratorLeft = 2,
+          iteratorRight = 2;
      
-    for (var i = 0; i<slides.length; i++) {
-         quantity = i;     
-    };
-    function initialOrder () {
-        slides[0].classList.add('slide-item-active');
-        slides[0].style.transition = 'none';       
-        slides[1].classList.add('slide-item-previous');
-        slides[1].style.transition = 'none';       
-        slides[slides.length -1].classList.add('slide-item-next');
-        slides[slides.length -1].style.transition = 'none';            
-    };
-    initialOrder ();
+       
+      for (var i = 0; i<slides.length; i++) {
+           quantity = i;     
+      };
+      function initialOrder () {
+          slides[0].classList.add('slide-item-active');
+          slides[0].style.transition = 'none';       
+          slides[1].classList.add('slide-item-previous');
+          slides[1].style.transition = 'none';       
+          slides[slides.length -1].classList.add('slide-item-next');
+          slides[slides.length -1].style.transition = 'none';            
+      };
+      initialOrder ();
 
-          
-          arrowLeft.onclick = clickLeft;
-
-          function clickLeft () {
-
-            arrowLeft.onclick = null;                    
-
-            wrapSlider.querySelectorAll('.slide-item-previous').forEach( el => {
-              el.classList.remove('slide-item-previous');   
-                         
-            });
-
-            wrapSlider.querySelectorAll('.slide-item-active').forEach( el => {
-              el.classList.remove('slide-item-active');          
-              el.classList.add('slide-item-previous');
-              el.style.transition = '';              
-            });
-
-            wrapSlider.querySelectorAll('.slide-item-next').forEach( el => {
-              el.classList.remove('slide-item-next');          
-              el.classList.add('slide-item-active');
-              el.style.transition = '';             
-            });            
             
-            if(iteratorLeft > (quantity + 1)){
-              iteratorLeft = 1;
-            };                  
-          
-            if(iteratorLeft == (quantity - 2)){
-              iteratorRight = (quantity + 1);
-            };          
+            arrowLeft.onclick = clickLeft;
 
-            slides[slides.length - iteratorLeft].classList.remove('slide-item-previous'); 
-            slides[slides.length - iteratorLeft].classList.add('slide-item-next');
-            slides[slides.length - iteratorLeft].style.transition = 'none'; 
+            function clickLeft () {
 
-            iteratorRight --;        
-            iteratorLeft ++;
+              arrowLeft.onclick = null;                    
 
-            setTimeout( () => {
-              arrowLeft.onclick = clickLeft;                
-            }, 800);        
-        
-        };       
-        
-        arrowRight.onclick = clickRight;
-        
-
-        function clickRight () {
-
-            arrowRight.onclick = null;          
-
-            wrapSlider.querySelectorAll('.slide-item-next').forEach( el => {
-              el.classList.remove('slide-item-next');
-              el.style.transition = 'none';   
-                         
-            });
-
-            wrapSlider.querySelectorAll('.slide-item-active').forEach( el => {
-              el.classList.remove('slide-item-active');          
-              el.classList.add('slide-item-next');
-              el.style.transition = '';
-            });
               wrapSlider.querySelectorAll('.slide-item-previous').forEach( el => {
-              el.classList.remove('slide-item-previous');          
-              el.classList.add('slide-item-active');
-              el.style.transition = '';
-            });
+                el.classList.remove('slide-item-previous');   
+                           
+              });
 
-            if(iteratorRight > quantity){
-                iteratorRight = 0;
-            };  
-           
+              wrapSlider.querySelectorAll('.slide-item-active').forEach( el => {
+                el.classList.remove('slide-item-active');          
+                el.classList.add('slide-item-previous');
+                el.style.transition = '';              
+              });
 
-            if(iteratorRight == (quantity - 2)){
-              iteratorLeft = (quantity + 2);
-            };
+              wrapSlider.querySelectorAll('.slide-item-next').forEach( el => {
+                el.classList.remove('slide-item-next');          
+                el.classList.add('slide-item-active');
+                el.style.transition = '';             
+              });            
+              
+              if(iteratorLeft > (quantity + 1)){
+                iteratorLeft = 1;
+              };                  
+            
+              if(iteratorLeft == (quantity - 2)){
+                iteratorRight = (quantity + 1);
+              };          
 
-            slides[iteratorRight].classList.remove('slide-item-next'); 
-            slides[iteratorRight].classList.add('slide-item-previous');
-            slides[iteratorRight].style.transition = 'none';
-             
-            iteratorRight ++;
-            iteratorLeft --;
+              slides[slides.length - iteratorLeft].classList.remove('slide-item-previous'); 
+              slides[slides.length - iteratorLeft].classList.add('slide-item-next');
+              slides[slides.length - iteratorLeft].style.transition = 'none'; 
 
-            setTimeout( () => {
-              arrowRight.onclick = clickRight;                
-            }, 800);         
-        
-        };
+              iteratorRight --;        
+              iteratorLeft ++;
 
-        arrowLeft.addEventListener('mouseover', () => {
-            angleLeft.style.color = 'rgb(255, 214, 10)';
-            angleLeft.style.textShadow = '0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2)'; 
-        });
-
-        arrowLeft.addEventListener('mouseout', () => {
-            angleLeft.style.color = 'rgb(28, 28, 30)';
-            angleLeft.style.textShadow = 'none';
-        });
-
-        arrowRight.addEventListener('mouseover', () => {
-            angleRight.style.color = 'rgb(255, 214, 10)';
-            angleRight.style.textShadow = '0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2)';
-        });
-
-        arrowRight.addEventListener('mouseout', () => {
-            angleRight.style.color = 'rgb(28, 28, 30)';
-            angleRight.style.textShadow = 'none'; 
-        });        
+              setTimeout( () => {
+                arrowLeft.onclick = clickLeft;                
+              }, 800);        
           
-  }());
- 
+          };       
+          
+          arrowRight.onclick = clickRight;
+          
+
+          function clickRight () {
+
+              arrowRight.onclick = null;          
+
+              wrapSlider.querySelectorAll('.slide-item-next').forEach( el => {
+                el.classList.remove('slide-item-next');
+                el.style.transition = 'none';   
+                           
+              });
+
+              wrapSlider.querySelectorAll('.slide-item-active').forEach( el => {
+                el.classList.remove('slide-item-active');          
+                el.classList.add('slide-item-next');
+                el.style.transition = '';
+              });
+                wrapSlider.querySelectorAll('.slide-item-previous').forEach( el => {
+                el.classList.remove('slide-item-previous');          
+                el.classList.add('slide-item-active');
+                el.style.transition = '';
+              });
+
+              if(iteratorRight > quantity){
+                  iteratorRight = 0;
+              };  
+             
+
+              if(iteratorRight == (quantity - 2)){
+                iteratorLeft = (quantity + 2);
+              };
+
+              slides[iteratorRight].classList.remove('slide-item-next'); 
+              slides[iteratorRight].classList.add('slide-item-previous');
+              slides[iteratorRight].style.transition = 'none';
+               
+              iteratorRight ++;
+              iteratorLeft --;
+
+              setTimeout( () => {
+                arrowRight.onclick = clickRight;                
+              }, 800);         
+          
+          };
+
+          arrowLeft.addEventListener('mouseover', () => {
+              angleLeft.style.color = 'rgb(255, 214, 10)';
+              angleLeft.style.textShadow = '0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2)'; 
+          });
+
+          arrowLeft.addEventListener('mouseout', () => {
+              angleLeft.style.color = 'rgb(28, 28, 30)';
+              angleLeft.style.textShadow = 'none';
+          });
+
+          arrowRight.addEventListener('mouseover', () => {
+              angleRight.style.color = 'rgb(255, 214, 10)';
+              angleRight.style.textShadow = '0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2)';
+          });
+
+          arrowRight.addEventListener('mouseout', () => {
+              angleRight.style.color = 'rgb(28, 28, 30)';
+              angleRight.style.textShadow = 'none'; 
+          });        
+            
+    }());
+  }); 
 </script>
 </body>
 
