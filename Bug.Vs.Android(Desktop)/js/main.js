@@ -118,7 +118,8 @@ window.addEventListener('load', function() {
         bugsOffsetFour = Object.setPrototypeOf({}, bugsOffsetOne);
         bugsOffsetFive = Object.setPrototypeOf({}, bugsOffsetOne);         
 
-        android.style.color = 'rgb(48, 209, 88)';      
+        android.style.color = 'rgb(48, 209, 88)';
+        bugDead.style.animation = 'bugDead 3.5s linear infinite';      
 
         while (iterator.c <= 1) {
 
@@ -444,12 +445,8 @@ window.addEventListener('load', function() {
  
 function GameStart(){
 
-      setTimeout(() =>{
-        control.goPlay = false;
-        bugDead.style.animation = 'bugDead 3.5s linear infinite';
-      }, 300);
-
-      
+     
+        control.goPlay = false;      
 
       function Extermination () {
           playingField.querySelectorAll('div').forEach( (el) => {
