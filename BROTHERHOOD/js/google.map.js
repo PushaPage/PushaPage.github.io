@@ -260,150 +260,154 @@
 	  		};
 	  		// Киев
 	  		var myMap = new google.maps.Map(element, options);
-	  		var marker = new google.maps.Marker({
+	  		var marker1 = new google.maps.Marker({
 	  			position: {lat:  50.7392, lng: 30.502},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Черкасы	  		
-	  		var marker = new google.maps.Marker({
+	  		var marker2 = new google.maps.Marker({
 	  			position: {lat:  49.6892, lng: 32.062},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Чегнигов
-	  		var marker = new google.maps.Marker({
+	  		var marker3 = new google.maps.Marker({
 	  			position: {lat:  51.7192, lng: 31.282},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Житомир
-	  		var marker = new google.maps.Marker({
+	  		var marker4 = new google.maps.Marker({
 	  			position: {lat:  50.4682, lng: 28.650},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Сумы
-	  		var marker = new google.maps.Marker({
+	  		var marker5 = new google.maps.Marker({
 	  			position: {lat:  51.1200, lng: 34.772},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Харьков
-	  		var marker = new google.maps.Marker({
+	  		var marker6 = new google.maps.Marker({
 	  			position: {lat:  50.2550, lng: 36.2200},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Полтава
-	  		var marker = new google.maps.Marker({
+	  		var marker7 = new google.maps.Marker({
 	  			position: {lat:  49.8550, lng: 34.5500},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Кременчуг
-	  		var marker = new google.maps.Marker({
+	  		var marker8 = new google.maps.Marker({
 	  			position: {lat:  49.3050, lng: 33.4300},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Кировоград
-	  		var marker = new google.maps.Marker({
+	  		var marker9 = new google.maps.Marker({
 	  			position: {lat:  48.7350, lng: 32.2662},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Кривой Рог
-	  		var marker = new google.maps.Marker({
+	  		var marker10 = new google.maps.Marker({
 	  			position: {lat:  48.0580, lng: 33.3900},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Днепропетровск
-	  		var marker = new google.maps.Marker({
+	  		var marker11 = new google.maps.Marker({
 	  			position: {lat:  48.7150, lng: 35.0500},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Запорожье
-	  		var marker = new google.maps.Marker({
+	  		var marker12 = new google.maps.Marker({
 	  			position: {lat:  48.1350, lng: 35.1300},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Донецк
-	  		var marker = new google.maps.Marker({
+	  		var marker13 = new google.maps.Marker({
 	  			position: {lat:  48.2850, lng: 37.7900},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Луганск
-	  		var marker = new google.maps.Marker({
+	  		var marker14 = new google.maps.Marker({
 	  			position: {lat:  48.8350, lng: 39.3000},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Мариуполь
-	  		var marker = new google.maps.Marker({
+	  		var marker15 = new google.maps.Marker({
 	  			position: {lat:  47.3900, lng: 37.5400},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Николаев
-	  		var marker = new google.maps.Marker({
+	  		var marker16 = new google.maps.Marker({
 	  			position: {lat:  47.2500, lng: 32.0100},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Херсон
-	  		var marker = new google.maps.Marker({
+	  		var marker17 = new google.maps.Marker({
 	  			position: {lat:  46.8600, lng: 32.6550},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Одесса
-	  		var marker = new google.maps.Marker({
+	  		var marker18 = new google.maps.Marker({
 	  			position: {lat:  46.7500, lng: 30.7100},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Винница
-	  		var marker = new google.maps.Marker({
+	  		var marker19 = new google.maps.Marker({
 	  			position: {lat:  49.4282, lng: 28.5050},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Черновцы
-	  		var marker = new google.maps.Marker({
+	  		var marker20 = new google.maps.Marker({
 	  			position: {lat:  48.5282, lng: 25.9200},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  		// Львов
-	  		var marker = new google.maps.Marker({
+	  		var marker21 = new google.maps.Marker({
 	  			position: {lat:  50.1060, lng: 24.0160},
 	  			map: myMap,
 	  			icon: markerImage,
 	  			animation: google.maps.Animation.DROP
 	  		});
 	  	};
+
+
+
+	
