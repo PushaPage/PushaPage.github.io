@@ -73,8 +73,7 @@ window.addEventListener('load', function() {
             'audio/bugManyFaces.mp3', 
             'audio/levelUp.mp3', 
             'audio/gameOver.mp3',
-            'audio/gameWin.mp3',
-            'audio/shot.mp3'            
+            'audio/gameWin.mp3'                       
             ],         
         clipBullets = [];      
     
@@ -225,7 +224,7 @@ window.addEventListener('load', function() {
   function playSoundShot () {
     if(!control.goPlay){ 
       if(!control.sound){ 
-        soundShot.src = audioEffects[6];        
+        soundShot.src = 'audio/shot.mp3';        
         if (!control.shot){
             soundShot.play();
         };
@@ -512,76 +511,76 @@ function GameStart(){
                    playSoundGame (audioEffects[1]);          
                    el.classList.remove('bugArmored');
                    bul.remove();
-                break; 
+                return false;
              case 'fas fa-spider bugOrdinary bugArmored':
                    playSoundGame (audioEffects[1]);         
                    el.classList.remove('bugArmored');                   
                    bul.remove();
-                break;           
+                return false;           
              case 'fal fa-spider bugOrdinary bugArmored':
                    playSoundGame (audioEffects[1]);          
                    el.classList.remove('bugArmored');
                    bul.remove();                  
-                break;
+                return false;
              case 'fad fa-bug bugOrdinary bugRowDown bugRowDownArmored':
                    playSoundGame (audioEffects[1]);          
                    el.classList.remove('bugRowDownArmored');
                    bul.remove();                  
-                break;    
+                return false;    
              case 'fad fa-spider bugOrdinary bugRowDown2 bugRowDownArmored':
                    playSoundGame (audioEffects[1]);          
                    el.classList.remove('bugRowDownArmored');
                    bul.remove();                  
-                break;
+                return false;
              case 'fal fa-spider-black-widow bugOrdinary bugRowUp bugRowUpArmored':
                    playSoundGame (audioEffects[1]);          
                    el.classList.remove('bugRowUpArmored');
                    bul.remove();                  
-                break;     
+                return false;     
              case 'fas fa-spider-black-widow bugOrdinary bugRowUp2 bugRowUpArmored':
                    playSoundGame (audioEffects[1]);          
                    el.classList.remove('bugRowUpArmored');
                    bul.remove();                  
-                break;         
+                return false;         
              case 'far fa-bug bugOrdinary bugManyFaces':
                    playSoundGame (audioEffects[2]);   
                    RandomBugName (el);
                    bul.remove();              
-                break;
+                return false;
              case 'fal fa-bug bugOrdinary bugArmoredManyFaces':
                    playSoundGame (audioEffects[2]); 
                    RandomArmoredBugName (el);
                    bul.remove();                             
-                break;
+                return false;
              case 'fad fa-bug bugOrdinary bugRowDown':
                    speed.directionRow = speed.directionRow + 1;
                    playSoundGame (audioEffects[0]);              
                    el.remove();
                    bul.remove();                             
-                break;
+                return false;
               case 'fad fa-spider bugOrdinary bugRowDown2':
                    speed.directionRow = speed.directionRow + 2;
                    playSoundGame (audioEffects[0]);              
                    el.remove();
                    bul.remove();
-                break; 
+                return false; 
               case 'fal fa-spider-black-widow bugOrdinary bugRowUp':
                    speed.directionRow = speed.directionRow - 1;
                    playSoundGame (audioEffects[0]);              
                    el.remove();
                    bul.remove();
-                break;  
+                return false;  
               case 'fas fa-spider-black-widow bugOrdinary bugRowUp2':
                    speed.directionRow = speed.directionRow - 2;
                    playSoundGame (audioEffects[0]);              
                    el.remove();
                    bul.remove();
-                break;        
+                return false;        
                 default:
                   playSoundGame (audioEffects[0]);
                   el.remove();
                   bul.remove();                  
-                break;
+                return false;
           };
       }else{
         return false;
@@ -881,6 +880,6 @@ function GameStart(){
       requestAnimationFrame(frame); 
     };
   
-      
+
     }());
   });
