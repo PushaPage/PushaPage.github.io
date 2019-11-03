@@ -311,9 +311,15 @@
 				      let setDate = this.date
 				        .replace('d', day)
 				        .replace('m', month)
-				        .replace('y', year);  
-				        
-				      if(!flagTime){
+				        .replace('y', year);
+
+				      if (secs == 30) {
+				      	 flagTime = false;
+				      };
+				      if (secs == 35) {
+				      	 flagTime = true;
+				      };  
+				      if (!flagTime) {
 			 			clock.innerHTML = '<i class="fal fa-calendar-alt icon-date"></i>' + setDate;
 			 		  }else{
 			 			clock.innerHTML = '<i class="fal fa-clock icon-watch"></i>' + setTime;
@@ -334,9 +340,10 @@
 			  	  clock_date.start();
 
 			 clock.addEventListener('click', () => {
-			 	if(!flagTime){
+
+			 	if (!flagTime) {
 			 		flagTime = true;
-			 	}else{
+			 	} else {
 			 		flagTime = false;
 			 	};
 			 });	  
