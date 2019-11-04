@@ -27,14 +27,8 @@ window.addEventListener('load', function() {
 
 
     
-    var soundShot = new Audio(),
-        soundBug = new Audio(), 
-        control = {
-          stepAndroid: 10,
-          shot: soundShot.currentTime > 0 && !soundShot.paused && !soundShot.ended 
-          && soundShot.readyState > 2,
-          effect: soundBug.currentTime > 0 && !soundBug.paused && !soundBug.ended 
-          && soundBug.readyState > 2,
+    var control = {
+          stepAndroid: 10,        
           goPlay: true,
           sound: false,
           counterLevel: 1,
@@ -58,6 +52,8 @@ window.addEventListener('load', function() {
           x8: 0,
           x9: 0
         },
+        soundShot = new Audio(),
+        soundBug = new Audio(), 
         bugsOffsetTwo = {},
         bugsOffsetThree = {},
         bugsOffsetFour = {},
@@ -224,9 +220,12 @@ window.addEventListener('load', function() {
   function playSoundShot () {
     if(!control.goPlay){ 
       if(!control.sound){ 
-        soundShot.src = 'audio/shot.mp3';        
-        if (!control.shot){
-            soundShot.play();
+        soundShot.src = 'audio/shot.mp3';      
+      
+        let playPromise = soundShot.play();
+        
+        if (playPromise !== null){
+          playPromise.catch(() => { soundShot.play(); })
         };
        };  
      };          
@@ -235,10 +234,13 @@ window.addEventListener('load', function() {
    function playSoundGame (effect) {
     if(!control.goPlay){ 
       if(!control.sound){ 
-        soundBug.src = effect;        
-         if (!control.effect){
-            soundBug.play();
-        };
+        soundBug.src = effect;    
+       
+        let playPromise = soundBug.play();                
+    
+        if (playPromise !== null){
+          playPromise.catch(() => { soundBug.play(); })
+        }
       };
      };   
    };
