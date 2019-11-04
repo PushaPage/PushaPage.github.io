@@ -244,6 +244,7 @@ window.addEventListener('load', function() {
       };
      };   
    };
+
   function soundOnOff(){
     if(buttonSound.classList == 'fas fa-volume-up sound-on'){
        buttonSound.classList = 'fas fa-volume-slash sound-off';      
@@ -252,9 +253,9 @@ window.addEventListener('load', function() {
     }
     if(!control.sound){                 
         control.sound = true;           
-       }else{
+      }else{
         control.sound = false;             
-            }; 
+      }; 
   };
 
   function CreepBug (){ 
@@ -368,12 +369,12 @@ window.addEventListener('load', function() {
       };
     });
 
-    activeScreen.addEventListener('click', function (event){
+    activeScreen.addEventListener('click', () => {
         createBullet ();
         playSoundShot ();       
     });  
      
-    document.addEventListener('keydown', function(event){ 
+    document.addEventListener('keydown', event =>{ 
              
         if(!control.goPlay){ 
 
@@ -402,7 +403,7 @@ window.addEventListener('load', function() {
         };  
     });
 
-    document.addEventListener('keyup', function(event){   
+    document.addEventListener('keyup', event =>{   
 
 
         if (event.key == 'ArrowLeft'|| event.code =='KeyA'){
