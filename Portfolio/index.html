@@ -262,14 +262,15 @@
 	<script>
 		window.addEventListener('load', function() {			
 			;(function (){
-				let hambrgrMenu = document.querySelector('.menu'),
+
+				var hambrgrMenu = document.querySelector('.menu'),
 					hambrgrIcon = document.querySelector('.hamberger-icon'),
 					clock = document.querySelector('#clock'),
 					flagTime = true;
 
 				hambrgrMenu.addEventListener('click', () => {
 
-					this.classList.toggle('small-cross');
+					hambrgrMenu.classList.toggle('small-cross');
 					hambrgrIcon.classList.toggle('open');
 
 				});
