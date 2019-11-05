@@ -1,10 +1,19 @@
-
+	@font-face {
+    font-family: "Century Gothic";
+    src: url('../fonts/CenturyGothic/CenturyGothic.eot');
+    src: url('../fonts/CenturyGothic/CenturyGothic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/CenturyGothic/CenturyGothic.woff2') format('woff2'),
+        url('../fonts/CenturyGothic/CenturyGothic.woff') format('woff'),
+        url('../fonts/CenturyGothic/CenturyGothic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+	}
 	html{		
 		scroll-behavior: smooth;		
 	}
 	body{					
 		background: #fff;
-		font-family: "Century Gothic";
+		font-family: "Century Gothic", sans-serif;
 		font-weight: 400;
 		color: #000;		
 	}
