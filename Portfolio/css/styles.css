@@ -245,6 +245,7 @@
 	}
 	.modal-dialog{
 		max-width: 48%;
+		cursor: default;
 	}
 	.modal-content{		
 		background: rgba(0,0,0, .7);
@@ -304,13 +305,13 @@
 	.modal-item-list{
 		font-size: 15px;
 		margin-right: 5px;
-		color: rgba(255,255,255, .8);
+		color: rgba(255,255,255, .7);
 	}
-	.modal-item-mail{
+	.modal-item-link{
 		font-size: 16px;
 		color: rgba(255,255,255, .9);
 	}
-	.modal-item-mail:hover, .modal-item-mail:active{
+	.modal-item-link:hover, .modal-item-link:active{
 		color: rgba(255,255,255, 1);
 		text-shadow: 0 4px 4px rgba(255,255,255, .7), 0 0 4px rgba(255,255,255, .4);
 		text-decoration: none;
