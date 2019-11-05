@@ -33,8 +33,8 @@
 			        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Контакты<i class="fal fa-id-card icon-font"></i></a>
 			        		<div class="dropdown-menu" aria-labelledby="navbarDropdown1">
 			          			<a class="dropdown-item" href="tg://resolve?domain=@pusha_salenko" target="_top">Telegram<i class="fab fa-telegram-plane icon-font"></i></a>
-			          			<span class="dropdown-item tel">0730955652<i class="far fa-phone-volume icon-font"></i></span>
-			          			<span class="dropdown-item tel">0508548645<i class="far fa-phone-volume icon-font"></i></span>
+			          			<span class="dropdown-item tel">(073)0955652<i class="far fa-phone-volume icon-font"></i></span>
+			          			<span class="dropdown-item tel">(050)8548645<i class="far fa-phone-volume icon-font"></i></span>
 			          			<a class="dropdown-item" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&source=mailto&to=pusha.salenko@gmail.com" target="_blank">pusha.salenko@gmail.com<i class="fal fa-envelope icon-font"></i></a>
 			          			<a class="dropdown-item" href="https://github.com/PushaPage/pushapage.github.io" target="_blank">GitHub<i class="fab fa-github icon-font"></i></a>
 			        		</div>
@@ -54,6 +54,7 @@
 				<h2>Привет<i class="fas fa-hand-peace big-icon-font"></i></h2>
 				<p>Mеня зовут Саленко Павел и я Front-end разработчик,
 				у меня большой интерес к IT сфере, мне нравиться создавать сайты, и я люблю то, что делаю.</p>
+				<button type="button" class="btn btn-resume" data-toggle="modal" data-target="#exampleModalLong">Moё резюме<i class="fal fa-file-user icon-resume"></i></button>
 			</div>
 		</div>
 	</section>
@@ -252,18 +253,67 @@
 		<div class="container p-0">
 			<div class="contact d-flex flex-column flex-md-row flex-wrap col-12 col-lg-10 col-xl-8 justify-content-md-between ml-auto">
 				<a class="contact-item" href="tg://resolve?domain=@pusha_salenko" target="_top">Telegram<i class="fab fa-telegram-plane icon-font"></i></a>
-			    <span class="contact-item-tel">0730955652<i class="far fa-phone-volume icon-font"></i></span>
-			    <span class="contact-item-tel d-block d-md-none d-lg-block">0508548645<i class="far fa-phone-volume icon-font"></i></span>
+			    <span class="contact-item-tel">(073)0955652<i class="far fa-phone-volume icon-font"></i></span>
+			    <span class="contact-item-tel d-block d-md-none d-lg-block">(050)8548645<i class="far fa-phone-volume icon-font"></i></span>
 			    <a class="contact-item" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&source=mailto&to=pusha.salenko@gmail.com" target="_blank">pusha.salenko@gmail.com<i class="fal fa-envelope icon-font"></i></a>
 			    <a class="contact-item" href="https://github.com/PushaPage/pushapage.github.io" target="_blank">GitHub<i class="fab fa-github icon-font"></i></a>
 			</div>
 		</div>
 	</footer>
+	<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    	<div class="modal-dialog" role="document">
+	      	<div class="modal-content">
+	        	<div class="modal-header">
+	          	<h5 class="modal-title ml-auto" id="exampleModalLongTitle">Саленко Павел<i class="fas fa-user md-icon-font"></i></h5>
+	          	<button type="button" class="close" data-dismiss="modal" aria-label="Close">            
+	            	<i aria-hidden="true" class="fal fa-times icon-close"></i>
+	          	</button>
+	        	</div>
+	        	<div class="modal-body">
+	        		<ul class="modal-about-me col-11 col-sm-8 col-lg-7 text-right my-0 ml-auto">
+	        			<li><span class="modal-item-list">Дата рождения:</span>26 апреля 1990г</li>
+	        			<li><span class="modal-item-list">Город проживания:</span>Харьков</li>
+	        			<li><span class="modal-item-list">Телефон:</span>(073) 095-56-52</li>
+	        			<li><span class="modal-item-list">E-mail:</span><a class="modal-item-mail" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&source=mailto&to=pusha.salenko@gmail.com" target="_blank">pusha.salenko@gmail.com</a></li>
+	        		</ul>
+	        		<div class="modal-section">
+	        			<h5 class="modal-title">Цель<i class="far fa-bullseye-arrow md-icon-font"></i></h5>
+	        			<ul class="modal-about-me col-11">
+		        			<li><i class="fad fa-circle sm-icon-font"></i>трудоустройство на вакансию Front-end/JavaScript разработчика</li>
+		        			<li><i class="fad fa-circle sm-icon-font"></i>желаемый уровень зарплаты от 450$</li>        			
+	        			</ul>
+	        			<h5 class="modal-title">Образование<i class="fas fa-user-graduate md-icon-font"></i></h5>
+	        			<ul class="modal-about-me col-11">
+		        			<li>Высшее</li>
+		        			<li><i class="fad fa-circle sm-icon-font"></i>2019<i class="fal fa-long-arrow-alt-right icon-arrow"></i>Ukrainian IT School
+		        				<span class="new-line"><span class="modal-item-list">Курс:</span>«Программирование Front-end ( май − июль )», «JavaScript ( август − ноябрь)»</span>
+		        			</li>
+		        			<li><i class="fad fa-circle sm-icon-font"></i>2009 − 2014<i class="fal fa-long-arrow-alt-right icon-arrow"></i>Харьковский государственный университет питания и торговли
+		        				<span class="new-line"><span class="modal-item-list">Факультет:</span>«Пищевые технологии и инженерия»</span>
+		        				<span class="new-line"><span class="modal-item-list">Специальность:</span>«Технология хлеба, кондитерских и макаронных изделий»</span>
+		        				<span class="new-line"><span class="modal-item-list">Диплом:</span>«Бакалавр»</span>
+		        				<span class="new-line"><span class="modal-item-list">Форма обучения:</span>«Заочная»</span>
+		        			</li>          			
+	        			</ul>
+	        			<h5 class="modal-title">Знание языков<i class="fad fa-book md-icon-font"></i></h5>
+	        			<ul class="modal-about-me col-11">
+		        			<li><i class="fad fa-circle sm-icon-font"></i>Английский − средний ( чтение официальных документов, простейших инструкций, понимание сути телерепортажей, которые сопровождаются изображением )</li>		        		        			
+	        			</ul>
+	        			<h5 class="modal-title">Опыт работы<i class="fas fa-user-hard-hat md-icon-font"></i></h5>
+	        			<ul class="modal-about-me col-11">
+		        			<li><i class="fad fa-circle sm-icon-font"></i>2008 − 2019<i class="fal fa-long-arrow-alt-right icon-arrow"></i>ТОВ «Катюша 91»
+		        				<span class="new-line"><span class="modal-item-list">Должность:</span>«Кондитер»</span>
+		        			</li>		        		        			
+	        			</ul>
+        			</div>      
+       	 		</div>       	
+   	 		</div>
+  		</div>
 	<script>
 		window.addEventListener('load', function() {			
 			;(function (){
 
-				var hambrgrMenu = document.querySelector('.menu'),
+				let hambrgrMenu = document.querySelector('.menu'),
 					hambrgrIcon = document.querySelector('.hamberger-icon'),
 					clock = document.querySelector('#clock'),
 					flagTime = true;
@@ -288,7 +338,7 @@
 
 				      let year = date.getFullYear().toString().substr(-2);
 
-				      let month = date.getMonth();
+				      let month = date.getMonth() + 1;
 				      if (month < 10) month = '0' + month;
 
 				      let day = date.getDate();
