@@ -199,26 +199,137 @@
 	.block-top{		
 		background: url(../img/bg-about.jpg) no-repeat 50%/cover;
     	transform: translate(4%, -92%) rotate(48deg);
+    	transition: transform 1s ease;
 	}	
 	.block-left{
 		height: 121%;    	
     	background: url(../img/bg-about.jpg) no-repeat 50%/cover;
     	transform: translate(-38.5%, -12%) rotate(48deg);
-    	transition: all 1s ease;
+    	transition: transform 1s ease;
 	}	
 	.block-bottom{		
 		background: url(../img/bg-about.jpg) no-repeat 50%/cover;
     	transform: translate(33.2%, 110%) rotate(48deg);
+    	transition: transform 1s ease;
 	}
 	.block-right{
 		width: 110%;
     	height: 110%;
     	background: url(../img/bg-about.jpg) no-repeat 50%/cover;    	
     	transform: translate(65%, 24%) rotate(48deg);
+    	transition: transform 1s ease;
 	}
-	
-				
+	#about-me .btn-resume{
+		margin: 0 0 10px 0;
+		padding: 0;
+		outline: none;
+		border: none;
+		box-shadow: none;
+		background: none;
+		color: rgba(255,255,255, .9);
+		font-size: 19px;
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600; 
+	}
+	#about-me .btn-resume:hover, #about-me .btn-resume:active, #about-me .btn-resume:focus{
+		outline: none;
+		border: none;
+		box-shadow: none;
+		background: none;
+		color: rgba(255,255,255, 1);
+		text-shadow: 0 5px 5px rgba(255,255,255, .7), 0 0 5px rgba(255,255,255, .4);
+	}
+	.icon-resume{
+		font-size: 24px;
+		margin: 0 6px; 		
+	}
+	.modal-dialog{
+		max-width: 48%;
+	}
+	.modal-content{		
+		background: rgba(0,0,0, .7);
+  		outline: 5px solid rgba(255,255,255, .6);
+	}
+    .close{		
+		outline: none;
+		border: none;
+		box-shadow: none;
+		background: none;
+		opacity: .6;
+	}
+	.close:hover, .close:active, .close:focus{
+		outline: none;
+		border: none;
+		box-shadow: none;
+		background: none;
+		opacity: 1;
+		text-shadow: 0 5px 5px rgba(255,255,255, .7), 0 0 5px rgba(255,255,255, .4);
+	}
+	.modal-header{
+		border: none;
+	}
+	.modal-title{
+		margin: 20px 0;
+		color: rgba(255,255,255, 1);
+		font-size: 22px;
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;		
+	}
+	.modal-body{
+		margin-bottom: 20px;
+	}
+	.modal-body .icon-arrow{
+		margin-left: 5px; 
+	}
+	.md-icon-font{
+		color: rgba(255,255,255, 1);
+		font-size: 24px;
+		margin: 0 6px;
+	}	
+	.icon-close{
+		color: rgba(255,255,255, 1);
+		font-size: 20px;
+	}
+	.modal-about-me{		
+		margin: 15px 0;
+		padding: 15px 20px;		 
+		background: rgba(0,0,0, .7);
+		font-size: 16px;
+		color: rgba(255,255,255, 1);
+		outline: 1px solid rgba(255,255,255, 1);		
+	}
+	.modal-about-me>li{
+		margin: 4px 0;
+	}
+	.modal-item-list{
+		font-size: 15px;
+		margin-right: 5px;
+		color: rgba(255,255,255, .8);
+	}
+	.modal-item-mail{
+		font-size: 16px;
+		color: rgba(255,255,255, .9);
+	}
+	.modal-item-mail:hover, .modal-item-mail:active{
+		color: rgba(255,255,255, 1);
+		text-shadow: 0 4px 4px rgba(255,255,255, .7), 0 0 4px rgba(255,255,255, .4);
+		text-decoration: none;
+	}
+	.modal-section{
+		margin-left: 10%;
+	}
+	.sm-icon-font{
+		font-size: 8px;
+		margin: 0 10px 0 8px;
+	}
+	.new-line{
+		display: block;
+		margin: 2px 0 0 25px;
+	}	
 	@media (max-width: 1199px){
+		.modal .modal-dialog{
+			max-width: 60%;
+		}
 		.block-left{
 			transform: translate(-38%, 4%) rotate(48deg);
 		}
@@ -233,6 +344,9 @@
 		}
 	}
 	@media (max-width: 991px){
+		#exampleModalLong .modal-dialog{
+			max-width: 70%;
+		}
 		.block-left{
 			transform: translate(-63%, 4%) rotate(48deg);
 		}
@@ -247,6 +361,9 @@
 		}
 	}
 	@media (max-width: 767px){
+		body #exampleModalLong .modal-dialog{
+			max-width: 85%;
+		}
 		.block-left{
 			transform: translate(-77%, 4%) rotate(48deg);
 		}
