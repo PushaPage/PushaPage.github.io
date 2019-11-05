@@ -1,15 +1,14 @@
    
-    @font-face {
-    font-family: 'Righteous';
-    src: url('../fonts/righteous-regular-webfont.eot');
-    src: url('../fonts/righteous-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/righteous-regular-webfont.woff2') format('woff2'),
-         url('../fonts/righteous-regular-webfont.woff') format('woff'),
-         url('../fonts/righteous-regular-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-   }
-
+    @font-face{
+      font-family: 'Righteous';
+      src: url('../Righteous/fonts/righteous-regular-webfont.eot');
+      src: url('../Righteous/fonts/righteous-regular-webfont.eot?#iefix') format('embedded-opentype'),
+           url('../Righteous/fonts/righteous-regular-webfont.woff2') format('woff2'),
+           url('../Righteous/fonts/righteous-regular-webfont.woff') format('woff'),
+           url('../Righteous/fonts/righteous-regular-webfont.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
     body{         
       background: url('../img/bg-body.jpg') no-repeat 50%/cover;
       background-attachment: fixed;
