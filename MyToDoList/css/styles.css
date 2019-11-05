@@ -1,0 +1,113 @@
+        @font-face {
+        font-family: 'Staatliches';
+        src: url('../fonts/Staatliches/Staatliches-Regular.eot');
+        src: url('../fonts/Staatliches/Staatliches-Regular.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/Staatliches/Staatliches-Regular.woff2') format('woff2'),
+            url('../fonts/Staatliches/Staatliches-Regular.woff') format('woff'),
+            url('../fonts/Staatliches/Staatliches-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Anton';
+        src: url('../fonts/Anton/Anton-Regular.eot');
+        src: url('../fonts/Anton/Anton-Regular.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/Anton/Anton-Regular.woff2') format('woff2'),
+            url('../fonts/Anton/Anton-Regular.woff') format('woff'),
+            url('../fonts/Anton/Anton-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Cuprum';
+        src: url('../fonts/Cuprum/Cuprum-Regular.eot');
+        src: url('../fonts/Cuprum/Cuprum-Regular.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/Cuprum/Cuprum-Regular.woff2') format('woff2'),
+            url('../fonts/Cuprum/Cuprum-Regular.woff') format('woff'),
+            url('../fonts/Cuprum/Cuprum-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    .wrapper{
+      background: #ecf0f1;
+      padding: 30px;
+      box-shadow: 2px 0px 2px 1px, -2px 0px 2px 1px;
+    }
+    h1{
+      font-family: 'Anton', sans-serif;
+      color: rgba(28, 28, 30, .9);
+      margin-bottom: 20px;
+    }   
+    .button-add{
+     font-family: 'Staatliches', cursive;    
+     font-size: 22px;    
+     margin-bottom: 30px; 
+    }
+    #btnAllDel{
+      font-family: 'Staatliches', cursive;
+      font-size: 22px;  
+    }
+    .input{
+      margin-bottom: 20px;
+      height: 45px;
+      font-size: 20px; 
+    }
+    #container{
+      border: 2px solid rgb(28, 28, 30);
+      height: 500px;
+      background: #fff;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      padding: 5px;
+      overflow: auto;
+    }
+    .remove{
+      background: none;
+      color: rgb(48, 209, 88);
+      border: none;
+      outline: none;
+      font-size: 22px;
+      box-sizing: content-box;
+      margin-left: auto; 
+    }
+    .remove:hover, .remove:active, .remove:focus{
+      outline: none;      
+      color: rgb(255, 69, 58);
+    }
+    .list{
+      background: rgba(229, 229, 234,.9);
+      color: rgb(28, 28, 30);
+      padding: 8px 20px;
+      font-size: 18px;
+      border-radius: 2px;
+      margin-bottom: 5px
+    }
+    .list:focus{
+      outline: none;
+      border: .5px solid rgb(229, 229, 234);
+      box-shadow: inset 0 1px 1px rgba(28, 28, 30, .075), 0 0 8px rgba(229, 229, 234, .6);
+    }
+    .list-num{
+      font-size: 18px;       
+      position: relative;
+      padding-right: 10px;
+      margin-right: 8px;
+      font-family: 'Anton', sans-serif;
+    }
+    .list-num:before{
+      content: "";
+      position: absolute;
+      width: 1px;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: rgb(28, 28, 30);
+    }
+    .list-text{
+      font-family: 'Cuprum', sans-serif;
+      font-size: 20px;
+    }
+    .invalid-task{
+      border: 1px solid rgb(255, 59, 48);
+      box-shadow: inset 0 1px 1px rgba(28, 28, 30, .075), 0 0 8px rgba(255, 59, 48, .6);
+    }     
