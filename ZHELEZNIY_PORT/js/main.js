@@ -76,7 +76,7 @@
 				 		username: formComment.comment_user_name.value,
 				 		textarea: formComment.comment_textarea.value,
 				 		day: date.getDate(),
-				 		month: date.getMonth(),
+				 		month: date.getMonth() + 1,
 				 		year: date.getFullYear().toString().substr(-2)
 				 	};			 	
 				 	sessionStorage.setItem('comment', JSON.stringify(template));
