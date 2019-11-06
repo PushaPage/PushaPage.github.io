@@ -69,7 +69,8 @@ window.addEventListener('load', function() {
             'audio/bugManyFaces.mp3', 
             'audio/levelUp.mp3', 
             'audio/gameOver.mp3',
-            'audio/gameWin.mp3'                       
+            'audio/gameWin.mp3',
+            'audio/shot.mp3'                       
             ],         
         clipBullets = [];      
     
@@ -220,7 +221,7 @@ window.addEventListener('load', function() {
   function playSoundShot () {
     if(!control.goPlay){ 
       if(!control.sound){ 
-        soundShot.src = 'audio/shot.mp3';      
+        soundShot.src = audioEffects[6];      
       
         let playPromise = soundShot.play();
         
