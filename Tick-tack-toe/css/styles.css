@@ -15,17 +15,39 @@
     .container{
       padding: 0 105px;
     }
+    .wrapper{
+      position: relative;     
+      box-shadow: 0 8px 8px rgba(0, 0, 0, .6), 0 0 8px rgba(0, 0, 0, .4);
+      margin: 40px auto;
+    }
+    .wrapper:before{
+      content: "";
+      position: absolute;
+      z-index: 5;
+      width: 1.2%;
+      left: 0;      
+      bottom: 30%;
+      top: -10%;
+      background: linear-gradient(to top,transparent, rgba(209, 209, 214, 1)10%, rgba(209, 209, 214, .7)86%, transparent);
+    }
+    .wrapper:after{
+      content: "";
+      position: absolute;
+      z-index: 5;
+      width: 1.2%;
+      right: 0;      
+      bottom: -9%;
+      top: 26%;
+      background: linear-gradient(to top,transparent, rgba(209, 209, 214, .7)10%, rgba(209, 209, 214, 1)86%, transparent);
+    }
     #container{
-      font-family: 'Mansalva', cursive;
-      margin: 40px auto;      
+      font-family: 'Mansalva', cursive;            
       height: 650px;
       position: relative;
       background: #fff;
       padding: 40px  0;
       text-align: center;
-      overflow: hidden;
-      border-radius: 30px;            
-      box-shadow: 0 8px 8px rgba(0, 0, 0, .6), 0 0 8px rgba(0, 0, 0, .4);
+      overflow: hidden;        
       background: url('../img/Tick-tack-toe.jpg') no-repeat 50%/cover;
     }
     #container:before{
@@ -40,11 +62,11 @@
     #container:after{
       content: "";
       position: absolute;
-      height: 1%;
+      height: 1.5%;
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(to left,transparent 10%, rgb(242, 242, 247), transparent 90%);
+      background: linear-gradient(to left,transparent,rgba(209, 209, 214, .7)30%, rgba(209, 209, 214, .9)50%, transparent); 
     }
     h1{
      position: relative; 
@@ -66,7 +88,6 @@
       text-transform: uppercase;
       padding-right: 10px;
     }
-
     #TickTackToe{      
       margin: 40px auto;
       position: relative;
@@ -80,7 +101,16 @@
       height: 2%;
       left: 1%;
       right: 1%;      
-      background: linear-gradient(to left,transparent, rgb(242, 242, 247)10%, rgb(242, 242, 247)90%, transparent);      
+      background: linear-gradient(to left,transparent, rgb(242, 242, 247)10%, rgb(242, 242, 247)90%, transparent);
+      animation: crossX .3s linear;      
+    }   
+    @keyframes crossX{
+      from{
+        right: 100%;        
+      }
+      to{
+        right: 1%;      
+      }
     }
     .crossedX1:before{            
       top: 16%;
@@ -95,7 +125,16 @@
       width: 2%;
       top: 1%;
       bottom: 1%;      
-      background: linear-gradient(to top,transparent, rgb(242, 242, 247)10%, rgb(242, 242, 247)90%, transparent);      
+      background: linear-gradient(to top,transparent, rgb(242, 242, 247)10%, rgb(242, 242, 247)90%, transparent);
+      animation: crossY .3s linear;       
+    }
+    @keyframes crossY{
+      from{
+        bottom: 100%;        
+      }
+      to{
+        bottom: 1%;      
+      }
     }
     .crossedY1:before{
       left: 15%;
@@ -107,22 +146,40 @@
       left: 82.6%;
     }
     .crossedAngleLeft:before{
-      width: 1.5%;
+      width: 2%;
       left: 13.1%;
       top: 16%;
       bottom: -42%;
       transform-origin: top;
       transform: rotate(-47deg) translateY(-40px);   
-      background: linear-gradient(to top,transparent, rgb(242, 242, 247)10%, rgb(242, 242, 247)90%, transparent); 
+      background: linear-gradient(to top,transparent, rgb(242, 242, 247)10%, rgb(242, 242, 247)90%, transparent);
+      animation: crossAngleLeft .3s linear;  
+    }
+    @keyframes crossAngleLeft{
+      from{
+        bottom: 100%;        
+      }
+      to{
+        bottom: -42%;     
+      }
     }
     .crossedAngleRight:before{
-      width: 1.5%;
+      width: 2%;
       left: 75%;
       top: 25.4%;
       bottom: -59.5%;
       transform-origin: top;
       transform: rotate(47deg) translateY(-90px);
-      background: linear-gradient(to top,transparent, rgb(242, 242, 247)10%, rgb(242, 242, 247)90%, transparent); 
+      background: linear-gradient(to top,transparent, rgb(242, 242, 247)10%, rgb(242, 242, 247)90%, transparent);
+      animation: crossAngleRight .3s linear;  
+    }
+    @keyframes crossAngleRight{
+      from{
+        bottom: 100%;        
+      }
+      to{
+        bottom: -59.5%;    
+      }
     }   
     td{      
       padding: 5px;
