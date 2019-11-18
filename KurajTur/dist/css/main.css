@@ -1,7 +1,7 @@
 @import "https://fonts.googleapis.com/css?family=Fira+Sans:400,600&display=swap";
 
 @font-face {
-    font-family: "Arial";
+    font-family: "Arial MT";
     src: url('../fonts/ArialMT/ArialMT.woff2') format('woff2'),
         url('../fonts/ArialMT/ArialMT.woff') format('woff'),
         url('../fonts/ArialMT/ArialMT.ttf') format('truetype');
@@ -24,7 +24,7 @@ html {
   scroll-behavior: smooth; }
 
 body {
-  font-family: "Arial", sans-serif;
+  font-family: "Arial", "Arial MT" sans-serif;
   font-weight: 400; }
   @media (max-width: 991px) {
     body .container {
