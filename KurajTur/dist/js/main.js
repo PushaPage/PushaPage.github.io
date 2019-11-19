@@ -184,7 +184,7 @@ window.addEventListener('load', function() {
                         advantagesScroll.resetValues();                      
                     };
 
-                    alert('345');
+                    alert('555');
               
 
             //form-offer
