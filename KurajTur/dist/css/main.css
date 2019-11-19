@@ -24,7 +24,7 @@ html {
   scroll-behavior: smooth; }
 
 body {
-  font-family: "Arial", "Arial MT" sans-serif;
+  font-family: "Arial", sans-serif;
   font-weight: 400; }
   @media (max-width: 991px) {
     body .container {
@@ -37,7 +37,11 @@ header {
   background: url("../img/banner-1.jpg") no-repeat 50%/cover; }
   @media (max-width: 991px) {
     header .contacts li {
-      margin-left: 0; } }
+      margin-left: 0; }
+    header .get-offer-item:before {  
+      right: 0; }  
+    header .get-offer-item:after {  
+      right: 0; } }
   @media (max-width: 357px) {
     header .contacts {
       font-size: 12px; } }
