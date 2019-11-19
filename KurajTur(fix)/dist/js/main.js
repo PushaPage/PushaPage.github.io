@@ -186,8 +186,7 @@ window.addEventListener('load', function() {
               
 
             //form-offer
-                let userList = [],                                                          
-                    id = userList.length,                   
+                let userList = [],
                     selectvalue = document.querySelector('.duplicate-select');                                                 
                      
                     
@@ -259,25 +258,27 @@ window.addEventListener('load', function() {
 
 	                	};                	
 
-
-	                	let user = {
-
+	                	let id = userList.length,
+	                	    user = {
+	                		
 	                		number: id++,
 	                		name: form.userName.value,
 	                		email: form.userEmail.value,
 	                		tel: form.userTel.value,
 	                		select: selectvalue.innerHTML
 
-	                	};                	
+	                	};
+
+	                	                 	
 
 	                	if(user.name == '' || user.email == '' || user.tel == '' || selectvalue.innerHTML == 'Страна тура'){
 
 	                		return false;
 
-	                	}else{
+	                	}else{	                	
 
 	                		alert(`
-	                			   user: ${id}
+	                			   user: ${user.number}		                			   
 	                			   name: ${user.name}
 	                			   email: ${user.email}
 	                			   tel: ${user.tel}
