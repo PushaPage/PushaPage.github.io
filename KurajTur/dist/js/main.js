@@ -171,7 +171,7 @@ window.addEventListener('load', function() {
 			    });				
 
 			//slim-scroll
-				if(!navigator.userAgent.match('Macintosh')){
+				
                     let element = document.querySelectorAll('.slimScroll');
                                    
                     let advantagesScroll = new slimScroll(element[0], {
@@ -183,10 +183,9 @@ window.addEventListener('load', function() {
 					window.onresize = function(){                    	
                         advantagesScroll.resetValues();                      
                     };
-                }
-                else{
-                    document.write("For Mac users, this custom slimscroll styles will not be applied");
-                };
+
+                    alert('345');
+              
 
             //form-offer
                 let userList = [],                                                          
