@@ -182,9 +182,7 @@ window.addEventListener('load', function() {
 					
 					window.onresize = function(){                    	
                         advantagesScroll.resetValues();                      
-                    };
-
-                    alert('555');
+                    };                   
               
 
             //form-offer
