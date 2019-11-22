@@ -1,4 +1,3 @@
-
 /*main*/
 a, a:hover, a:active, a:focus {
   text-decoration: none;
@@ -583,7 +582,7 @@ h3 {
     #getOffer .form-offer input {
       margin-right: 0;
       width: 80%; }
-    #getOffer .form-offer .default-select {
+    #getOffer .form-offer .select2-container {
       margin: 15px auto 0 10%; }
     #getOffer .btn-get-offer {
       margin: 50px 0 20px; } }
