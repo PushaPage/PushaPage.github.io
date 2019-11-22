@@ -28,18 +28,11 @@ html {
 body {
   font-family: "Arial", sans-serif;
   font-weight: 400;
-  height: 100%; }
+  height: 100%;
+  position: relative; }
   @media (max-width: 991px) {
     body .container {
       padding: 0 5px; } }
-
-.wrapper-main {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%; }
-
-.content-main {
-  flex: 1 0 auto; }
 
 /*header*/
 header {
@@ -602,7 +595,7 @@ h3 {
   display: flex;
   align-items: center; }
 
-.form-offer input, .default-select {
+.form-offer input {
   background: none;
   height: 26px;
   border: none;
@@ -637,15 +630,19 @@ h3 {
   width: 151px;
   padding-left: 7px; }
 
-.default-select {
-  position: relative;
-  width: 180px; }
-
-.select-selected {
+.form-offer .select2-selection {
+  width: 180px;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  font-family: "Arial", sans-serif;
+  color: #e5e5e5;
+  font-size: 18px;
+  line-height: 25px;
   position: relative; }
-  .select-selected:focus {
-    color: #e5e5e5; }
-  .select-selected:before {
+  .form-offer .select2-selection:before {
     content: "";
     position: absolute;
     width: 16px;
@@ -654,37 +651,38 @@ h3 {
     top: 8px;
     background: url(../img/css-sprites.png) -5px 13px; }
 
-.default-select {
-  color: #e5e5e5;
-  position: relative; }
-  .default-select select {
-    display: none;
-    -webkit-appearance: none;
-      -webkit-appearance--moz-appearance: none;
-      -webkit-appearance-appearance: none; }
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #e5e5e5; }
 
-.select-items {
-  position: absolute;
+.select2-container .select2-selection--single .select2-selection__rendered {
+  padding-left: 11px;
+  padding-right: 27px;
+  line-height: 30px; }
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
   background: #f8f7f7;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  cursor: pointer;
-  padding: 10px 0px 6px 0; }
-  .select-items div {
-    color: #000;
-    font-size: 16px;
-    line-height: 27px;
-    cursor: pointer;
-    padding-left: 18px; }
-    .select-items div:hover {
-      color: #fbd341; }
-    .select-items div:active {
-      color: #fbd341; }
+  color: #000;
+  font-size: 16px;
+  line-height: 30px; }
+  .select2-container--default .select2-results__option--highlighted[aria-selected]:hover {
+    color: #fbd341;
+    background: #f8f7f7;
+    line-height: 30px; }
+  .select2-container--default .select2-results__option--highlighted[aria-selected]:active {
+    color: #fbd341;
+    background: #f8f7f7;
+    line-height: 30px; }
 
-.select-hide {
-  display: none; }
+.select2-results__option {
+  font-size: 16px;
+  line-height: 27px;
+  padding: 0 0 0 16px; }
+
+.select2-dropdown {
+  background: #f8f7f7;
+  border: none;
+  padding: 6px 0 5px 0;
+  border-radius: 0; }
 
 .form-offer .btn-get-offer {
   margin: 6px 0 0 50px; }
@@ -726,7 +724,10 @@ h3 {
 
 footer {
   background: #22334d;
-  flex: 0 0 auto;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
   padding: 32px 0 18px 0; }
   @media (max-width: 991px) {
     footer .site-creators {
@@ -912,7 +913,7 @@ h5 {
   .modal-content .form-offer input {
     margin-right: 0;
     width: 80%; }
-  .modal-content .form-offer .default-select {
+  .modal-content .form-offer .select2-container {
     margin: 15px auto 0 10%; }
   .modal-content .btn-get-offer {
     margin: 50px 0 20px; }

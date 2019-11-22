@@ -1,4 +1,22 @@
-window.addEventListener('load', function() {			
+window.addEventListener('load', function() {
+
+			//select-custom (select2)
+
+			    $('.__select2').select2({
+
+			        placeholder: 'Страна тура',
+			        allowClear: false,
+			        tags: false,
+			        dropdownPosition: 'below',
+			        maximumSelectionLength: 5,
+			        minimumResultsForSearch: Infinity,
+			        width: '180px',
+			        height: '26px'
+
+			    }); 
+
+			  $('b[role="presentation"]').hide();
+		
 			;{
 				let hambrgrMenu = document.querySelector('.menu'),
 					hambrgrIcon = document.querySelector('.hamberger-icon');										
@@ -171,17 +189,11 @@ window.addEventListener('load', function() {
               
 
             //form-offer
-                let userList = [];  
+                let userList = [];               
         		
 				document.querySelectorAll('.form-offer').forEach( function (form) {
 
-                	form.querySelector('.select-selected').onclick = function (event){	                		
-
-	                		if(event.target.textContent == 'Страна тура') return;
-	                		
-	                		form.userSelect.onchange(); 
-	                	};
-
+                	
 	                form.addEventListener('submit', function (event) {
 	                	
 
@@ -202,9 +214,16 @@ window.addEventListener('load', function() {
 	                		form.userTel.style.animation = '';	
 	                	});
 
+	                	form.userSelect.onfocus = (()=>{
+	                		
+	                		alert()
+
+	                	});	
+
 	                	form.userSelect.onchange = (()=>{
 	                		
-	                		form.querySelector('.default-select').style.animation = '';
+	                		form.querySelector('.select2-selection').style.animation = '';
+
 	                	});	                
 
 	                	if(form.userName.value == ''){
@@ -221,10 +240,11 @@ window.addEventListener('load', function() {
                            form.userTel.style.animation = 'blink 1.1s ease infinite';                          	
 
 	                	}; 
+	                	
 
-	                	if(form.userSelect.value == ''){
-	                		
-	                		form.querySelector('.default-select').style.animation = 'blink 1.1s ease infinite';                                                    	
+	                	if(form.userSelect.value == ''){	                		
+	                	
+	                		form.querySelector('.select2-selection').style.animation = 'blink 1.1s ease infinite';        		                                               	
 
 	                	}; 
 

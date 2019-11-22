@@ -38,10 +38,19 @@ html
 body	
 	font-family: $font-basic
 	font-weight: 400
+	height: 100%
 	position: relative
 	@media (max-width: 991px)
 		.container
 			padding: 0 5px
+
+// .wrapper-main
+// 	display: flex
+// 	flex-direction: column
+// 	min-height: 100%
+
+// .content-main
+// 	flex: 1 0 auto
 
 /*header*/
 header		
@@ -612,7 +621,7 @@ h3
 	display: flex
 	align-items: center
 
-.form-offer input, .default-select
+.form-offer input
 	background: none
 	height: 26px
 	border: none	
@@ -645,16 +654,20 @@ h3
 .form-offer .offer-input-tel
 	margin-right: 45px
 	width: 151px
-	padding-left: 7px				
+	padding-left: 7px
 
-.default-select
-	position: relative
+.form-offer .select2-selection
 	width: 180px
-
-.select-selected
+	padding: 0
+	background: none
+	border-radius: 0
+	border: none
+	border-bottom: 1px solid rgba($white, .4)
+	font-family: $font-basic
+	color: $grey-4
+	font-size: $size-18
+	line-height: $line-25
 	position: relative
-	&:focus
-	    color: rgba($grey-4, 1)			
 	&:before
 		content: ""
 		position: absolute
@@ -664,39 +677,38 @@ h3
 		top: 8px
 		background:	url(../img/css-sprites.png) -5px 13px
 
-.default-select
-	color: $grey-4
-	position: relative	    	
-	select
-		display: none
-		-webkit-appearance: none
-  		-moz-appearance: none
-  		appearance: none
+.select2-container--default .select2-selection--single .select2-selection__rendered
+	color: $grey-4			
 
+.select2-container .select2-selection--single .select2-selection__rendered
+	padding-left: 11px
+	padding-right: 27px
+	line-height: $line-30
 
-.select-items 
-    position: absolute
-    background: $white-2
-    top: 100%
-    left: 0
-    right: 0
-    z-index: 10
-    cursor: pointer
-    padding: 10px 0px 6px 0
-    div
-    	color: $black
-    	font-size: $size-16
-    	line-height: $line-27
-    	cursor: pointer
-    	padding-left: 18px    	
-    	&:hover
-    		color: $yellow
-    	&:active
-    		color: $yellow
+.select2-container--default .select2-results__option--highlighted[aria-selected]
+	background: $white-2
+	color: $black
+	font-size: $size-16
+	line-height: $line-30
+	&:hover
+		color: $yellow
+		background: $white-2
+		line-height: $line-30
+	&:active
+		color: $yellow
+		background: $white-2
+		line-height: $line-30
 
-.select-hide 
-    display: none
-	
+.select2-results__option
+	font-size: $size-16
+	line-height: $line-27
+	padding: 0 0 0 16px
+
+.select2-dropdown
+	background: $white-2
+	border: none
+	padding: 6px 0 5px 0
+	border-radius: 0	
 
 .form-offer .btn-get-offer
 	margin: 6px 0 0 50px		
@@ -748,7 +760,7 @@ footer
 	position: absolute
 	top: 100%
 	left: 0
-	right: 0
+	right: 0	
 	padding: 32px 0 18px 0
 	@media (max-width: 991px)
 		.site-creators
@@ -935,7 +947,7 @@ h5
 	.form-offer input
 		margin-right: 0
 		width: 80%
-	.form-offer .default-select		    
+	.form-offer .select2-container		    
 		margin: 15px auto 0 10% 	
 	.btn-get-offer		
 		margin: 50px 0 20px
