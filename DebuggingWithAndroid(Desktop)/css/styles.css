@@ -543,12 +543,12 @@
       transform: scale(-1);        
       width: 35px;
       height: 35px;
-      color: rgb(48, 209, 88); 
-      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+      color: rgb(48, 209, 88);    
+      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);      
     }
   /*Bugs Option*/
     .bugArmored{
-      color: rgb(255, 59, 48);
+      color: rgb(255, 59, 48);      
     }
     .bugManyFaces{
       color: rgb(99, 99, 102);
@@ -575,8 +575,31 @@
       text-shadow: 0 4px 4px rgba(255, 255, 255, .7), 0 0 4px rgba(255, 255, 255, .5);
     }
     .bugRowUpArmored{
-      color: rgb(255, 59, 48);
+      color: rgb(255, 59, 48);      
     }
+
+    @keyframes ascension-bug{
+      0%{
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2), 0 11px 1px rgba(255, 59, 48, .3);            
+      }
+      50% {
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2), 0 22px 1px rgba(255, 59, 48, .8);
+      }
+      100% {
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2), 0 33px 1px rgba(255, 59, 48, 0);
+      }
+    } 
+    @keyframes ascension-android{
+      0%{
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2), 0 -23px 1px rgba(48, 209, 88, .3);            
+      }
+      50% {
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2), 0 -46px 1px rgba(48, 209, 88, .8);
+      }
+      100% {
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2), 0 -69px 1px rgba(48, 209, 88, 0);
+      }
+    }    
     [id^=row]{
       position: absolute;
       left:0;
@@ -606,7 +629,7 @@
       bottom: -10px;
       font-size: 80px;
       z-index: 5;
-      transform: translateX(-50%);
+      transform: translateX(-50%);      
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
     }
     [id^=arrow] {

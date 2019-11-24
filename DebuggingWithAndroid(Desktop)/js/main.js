@@ -2,7 +2,7 @@ window.addEventListener('load', function() {
    ;(function (){
   
 
-    var playingField = document.getElementById('playingField'),
+    let playingField = document.getElementById('playingField'),
         activeScreen = document.getElementById('activeScreen'),            
         menuGame = document.getElementById('menuGame'),
         optionPage = document.getElementById('optionPage'),
@@ -27,7 +27,7 @@ window.addEventListener('load', function() {
 
 
     
-    var control = {
+    let control = {
           stepAndroid: 10,        
           goPlay: true,
           sound: false,
@@ -201,7 +201,9 @@ window.addEventListener('load', function() {
              row5.childNodes[9].classList = 'fas fa-spider-black-widow bugOrdinary bugRowUp2'; 
         };          
                              
-      };     
+      };
+
+     
     
   
    function fadeInFadeOut (fadeIn,fadeOut){
@@ -506,42 +508,51 @@ function GameStart(){
       );
        
        if (distance < (radius1 + radius2)) {
-        
-          
+
+       
+
           let classCheck = el.className; 
   
           switch (classCheck) {
             case 'fas fa-bug bugOrdinary bugArmored':
-                   playSoundGame (audioEffects[1]);          
-                   el.classList.remove('bugArmored');
+                   el.style.animation = 'ascension-bug .8s linear';                    
+                   playSoundGame (audioEffects[1]);                                           
+                   el.classList.remove('bugArmored');                   
                    bul.remove();
                 return false;
              case 'fas fa-spider bugOrdinary bugArmored':
+                   el.style.animation = 'ascension-bug .8s linear';  
                    playSoundGame (audioEffects[1]);         
-                   el.classList.remove('bugArmored');                   
+                   el.classList.remove('bugArmored');
+                   // el.style.fontSize = '10px';                                      
                    bul.remove();
                 return false;           
              case 'fal fa-spider bugOrdinary bugArmored':
+                   el.style.animation = 'ascension-bug .8s linear'; 
                    playSoundGame (audioEffects[1]);          
                    el.classList.remove('bugArmored');
                    bul.remove();                  
                 return false;
              case 'fad fa-bug bugOrdinary bugRowDown bugRowDownArmored':
+                   el.style.animation = 'ascension-bug .8s linear'; 
                    playSoundGame (audioEffects[1]);          
                    el.classList.remove('bugRowDownArmored');
                    bul.remove();                  
                 return false;    
              case 'fad fa-spider bugOrdinary bugRowDown2 bugRowDownArmored':
+                   el.style.animation = 'ascension-bug .8s linear'; 
                    playSoundGame (audioEffects[1]);          
                    el.classList.remove('bugRowDownArmored');
                    bul.remove();                  
                 return false;
              case 'fal fa-spider-black-widow bugOrdinary bugRowUp bugRowUpArmored':
+                   el.style.animation = 'ascension-bug .8s linear'; 
                    playSoundGame (audioEffects[1]);          
                    el.classList.remove('bugRowUpArmored');
                    bul.remove();                  
                 return false;     
              case 'fas fa-spider-black-widow bugOrdinary bugRowUp2 bugRowUpArmored':
+                   el.style.animation = 'ascension-bug .8s linear'; 
                    playSoundGame (audioEffects[1]);          
                    el.classList.remove('bugRowUpArmored');
                    bul.remove();                  
@@ -608,7 +619,7 @@ function GameStart(){
       };    
    
      
-      var row = {
+      let row = {
 
             one: document.getElementById('row1'),
             two: document.getElementById('row2'),
@@ -674,7 +685,7 @@ function GameStart(){
     
       
 
-  var update = (step) => {      
+  let update = (step) => {      
       
       if(!control.goPlay){ 
 
@@ -699,7 +710,8 @@ function GameStart(){
       });
         playingField.querySelectorAll('i').forEach( (el,i) => {            
           control.victoryResults = i;                   
-            if(el.getBoundingClientRect().top >= (android.getBoundingClientRect().bottom - 70)){
+            if(el.getBoundingClientRect().top >= (android.getBoundingClientRect().bottom - 70)){               
+                android.style.animation = 'ascension-android 1s linear';
                 android.style.color = 'rgb(28, 28, 30)';
                 playSoundGame (audioEffects[4]);   
                 control.goPlay = true;                            
@@ -826,7 +838,7 @@ function GameStart(){
       };   
     };
      
-    var render = () => {
+    let render = () => {
 
       bugRow.one.forEach( (el,i) =>{
           el.style.left = bugsOffsetOne['x' + i] + 'px';
@@ -863,12 +875,12 @@ function GameStart(){
     };
 
     // game loop
-    var last = performance.now(),
+    let last = performance.now(),
         step = 1 / 60, // обновление должно вызываться 60 раз в секунду
         dt = 0,
         now;
 
-    var frame = () => {
+    let frame = () => {
       now = performance.now();
       dt += (now - last) / 1000;
       while(dt > step) {
