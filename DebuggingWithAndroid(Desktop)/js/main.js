@@ -202,9 +202,7 @@ window.addEventListener('load', function() {
         };          
                              
       };
-
-     
-    
+          
   
    function fadeInFadeOut (fadeIn,fadeOut){
         fadeIn.classList.add('fade-in');
@@ -461,6 +459,11 @@ function GameStart(){
       };
        
       function RandomBugName (bug){
+
+        let inBug = document.createElement('span');
+            inBug.classList = 'far fa-bug ascensionBugMany';
+            bug.appendChild(inBug);
+
         let selectClass = [
           'fas fa-bug bugOrdinary',
           'fas fa-spider bugOrdinary bugArmored',       
@@ -473,6 +476,11 @@ function GameStart(){
      };
 
       function RandomArmoredBugName (bug){
+
+        let inBug = document.createElement('span');
+            inBug.classList = 'fal fa-bug ascensionBugManyArm';
+            bug.appendChild(inBug);
+
         let selectClass = [
           'fas fa-bug bugOrdinary bugArmored',
           'fas fa-spider bugOrdinary bugArmored',       

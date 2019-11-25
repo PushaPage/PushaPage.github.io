@@ -537,6 +537,7 @@
       bottom: 0;
       right: 0;
     }
+    /*Bugs Option*/
     .bugOrdinary{    
       position: absolute;
       font-size: 35px;
@@ -545,14 +546,25 @@
       height: 35px;
       color: rgb(48, 209, 88);    
       text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);      
-    }
-  /*Bugs Option*/
+    }  
     .bugArmored{
       color: rgb(255, 59, 48);      
     }
     .bugManyFaces{
-      color: rgb(99, 99, 102);
-    }
+      color: rgb(99, 99, 102);      
+    }  
+    .ascensionBugMany{      
+      position: absolute;
+      width: 35px;
+      height: 35px;
+      font-size: 35px;
+      left: 0;
+      top: 0;
+      z-index: 5;
+      color: rgba(99, 99, 102, 0);
+      text-shadow: none;    
+      animation: ascension-bug-many .8s linear;
+    }    
     .bugArmoredManyFaces{
       color: rgba(255, 59, 48, .9);
       text-shadow: 0 5px 5px rgba(28, 28, 30, .8), 0 0 5px rgba(28, 28, 30, .6);
@@ -565,7 +577,19 @@
     }
     .bugRowDownArmored{
       color: rgb(255, 59, 48);
-    }   
+    }
+    .ascensionBugManyArm{      
+      position: absolute;
+      width: 35px;
+      height: 35px;
+      font-size: 35px;
+      left: 0;
+      top: 0;
+      z-index: 5;
+      color: rgba(99, 99, 102, 0);
+      text-shadow: none;    
+      animation: ascension-bug-many-arm .8s linear;
+    }    
     .bugRowUp{      
       color: rgb(52, 199, 89);
       text-shadow: 0 4px 4px rgba(255, 255, 255, .7), 0 0 4px rgba(255, 255, 255, .5);
@@ -577,7 +601,28 @@
     .bugRowUpArmored{
       color: rgb(255, 59, 48);      
     }
-
+    @keyframes ascension-bug-many{
+      0%{
+        text-shadow: 6px 0px 1px rgba(48, 209, 88, .2), -6px 0px 1px rgba(48, 209, 88, .2);            
+      }
+      50% {
+        text-shadow: 12px 0px 1px rgba(48, 209, 88, .7), -12px 0px 1px rgba(48, 209, 88, .7);
+      }
+      100% {
+        text-shadow: 18px 0px 1px rgba(48, 209, 88, 0), -18px 0px 1px rgba(48, 209, 88, 0);
+      }
+    }
+    @keyframes ascension-bug-many-arm{
+      0%{
+        text-shadow: 6px 0px 1px rgba(255, 59, 48, .2), -6px 0px 1px rgba(255, 59, 48, .2);            
+      }
+      50% {
+        text-shadow: 12px 0px 1px rgba(255, 59, 48, .7), -12px 0px 1px rgba(255, 59, 48, .7);
+      }
+      100% {
+        text-shadow: 18px 0px 1px rgba(255, 59, 48, 0), -18px 0px 1px rgba(255, 59, 48, 0);
+      }
+    }
     @keyframes ascension-bug{
       0%{
         text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2), 0 11px 1px rgba(255, 59, 48, .3);            
