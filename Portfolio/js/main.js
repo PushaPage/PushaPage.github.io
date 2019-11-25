@@ -4,7 +4,11 @@
 
 				let hambrgrMenu = document.querySelector('.menu'),
 					hambrgrIcon = document.querySelector('.hamberger-icon'),
-					onUp = document.querySelector('.on-up'),					
+					onUp = document.querySelector('.on-up'),
+					onPrtfl = document.querySelector('.link-prtfl'),
+					onSkills = document.querySelector('.link-skills'),
+					portflio = document.querySelector('#portfolio'),
+					skills = document.querySelector('#skills'),  					
 					clock = document.querySelector('#clock'),					
 					flagTime = true;					
 
@@ -14,8 +18,30 @@
 					hambrgrIcon.classList.toggle('open');
 
 				});
+				
+				onSkills.addEventListener('click', function (event){
 
-				onUp.onclick = function(event){
+				    window.scrollTo({
+
+				      top: skills.getBoundingClientRect().top,
+				      left: 0,
+				      behavior: 'smooth'
+
+				    });
+				});
+
+				onPrtfl.addEventListener('click', function (event){
+
+				    window.scrollTo({
+
+				      top: portflio.getBoundingClientRect().top,
+				      left: 0,
+				      behavior: 'smooth'
+
+				    });
+				});
+
+				onUp.addEventListener('click', function (event){
 
 				    window.scrollTo({
 
@@ -24,7 +50,9 @@
 				      behavior: 'smooth'
 
 				    });
-				};
+				});
+
+				
 	
 			//Clock
 				class Clock_Date {
