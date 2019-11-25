@@ -496,6 +496,10 @@
 		#about-me .about-me-box{
 			outline: none;
   			border: 2px solid rgba(0,0,0, .7);		
+		}
+		#exampleModalLong .modal-content{
+			outline: none;
+  			border: 2px solid rgba(255,255,255, .7);
 		}		
 	}
 	@media (max-width: 575px){
@@ -703,12 +707,127 @@
 		border: 1px solid rgba(255,255,255, .7);
 		background: rgba(0,0,0, .7);
 	}
+	.prt-number{
+		position: absolute;
+		right: 5%;
+		top: 50%;
+		transform-origin: top center;
+		transform: rotate(-40deg) translateY(-50%);
+		width: 32px;
+		height: 32px;
+		z-index: 5;
+		border-left: 2px solid transparent;
+		border-top: 2px solid rgba(255,255,255, .7);
+		border-right: 2px solid transparent;
+		border-bottom: 2px solid rgba(255,255,255, .7);
+		border-radius: 50%;
+	}
+	.prt-number>span{
+		font-size: 22px;
+		line-height: 28px;
+		text-align: center;
+		display: block;		
+		color: rgba(255,255,255, .7);		
+		transform-origin: center;	
+		transform: rotate(40deg);
+		transition: all .8s ease;
+	}
+	.prt-number:before{
+		content: "";
+		position: absolute;
+		top: -2px;
+		bottom: -2px;
+		right: -2px;
+		left: -2px;		
+		border-left: 2px solid transparent;
+		border-top: 2px solid rgba(255,255,255, .2);
+		border-right: 2px solid transparent;
+		border-bottom: 2px solid rgba(255,255,255, .2);
+		transform-origin: center;
+		transform: rotate(0deg);
+		border-radius: 50%;
+		transition: transform 1s ease;
+
+	}
 	.prtfl-head-item>h3{
 		color: #000;
 		font-size: 18px;
-		margin: 0;
-		padding-left: 22%;
+		margin: 0 0 0 22%;
+		position: relative;		
 		transform: translateX(20%) skewX(45deg);
+	}
+	.portfolio-section:hover .prtfl-respns:after{
+		content: "Responsive";
+		position: absolute;
+		font-weight: 700;
+		left: 0;
+		color: #000;
+		font-size: 18px;
+		animation: responsive 1.3s linear;
+	}
+	@keyframes responsive{
+	  	0%{
+	  		content: "R";	  		 		
+	    }
+	    10%{
+	    	content: "Re";	  		 		
+	    }
+	    20%{
+	    	content: "Res";	  		 		
+	    }
+	    30%{
+	    	content: "Resp";	  		 		
+	    }
+	    40%{
+	    	content: "Respo";	  		 		
+	    }
+	    50%{
+	    	content: "Respon";	  		 		
+	    }
+	    60%{
+	    	content: "Respons";	  		 		
+	    }
+	    70%{
+	    	content: "Responsi";	  		 		
+	    }
+	    80%{
+	    	content: "Responsiv";	  		 		
+	    }
+	    90%{
+	    	content: "Responsive";	  		 		
+	    }
+	  	100%{
+	  		content: "Responsive";	    	
+		}
+	}
+	.portfolio-section:hover .prtfl-stat:after{
+		content: "Static";
+		position: absolute;
+		font-weight: 700;
+		left: 0;
+		color: #000;
+		font-size: 18px;
+		animation: static 1s linear;
+	}
+	@keyframes static{
+	  	0%{
+	  		content: "S";	  		 		
+	    }
+	    20%{
+	    	content: "St";	  		 		
+	    }
+	    40%{
+	    	content: "Sta";	  		 		
+	    }
+	    60%{
+	    	content: "Stat";	  		 		
+	    }
+	    80%{
+	    	content: "Stati";	  		 		
+	    }
+	    100%{
+	    	content: "Static";	  		 		
+	    }	  
 	}
 	.prtfl-footer{			
 		height: 42px;
@@ -742,7 +861,7 @@
 		height: 100%;		
 		background: rgba(0,0,0, .7);
 		border: 1.5px solid rgba(255,255,255, .8);		
-		transition: all ease 1s;
+		transition: all ease 1.4s;
 	}		
 	.portfolio-section .portfolio-prompt{
 		left: -100%;		
@@ -751,6 +870,13 @@
 	} 
 	.portfolio-section:hover .portfolio-prompt{		
 		left: 0;
+	}
+	.portfolio-section:hover .prt-number:before{		
+		transform: rotate(-91deg);
+	}
+	.portfolio-section:hover .prt-number>span{
+		color: rgba(255,255,255, .9);
+		font-weight: 500;
 	}	
 	.portfolio-text{
 		width: 90%;
