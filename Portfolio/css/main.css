@@ -740,9 +740,9 @@
 		right: -2px;
 		left: -2px;		
 		border-left: 2px solid transparent;
-		border-top: 2px solid rgba(255,255,255, .2);
+		border-top: 2px solid rgba(255,255,255, .3);
 		border-right: 2px solid transparent;
-		border-bottom: 2px solid rgba(255,255,255, .2);
+		border-bottom: 2px solid rgba(255,255,255, .3);
 		transform-origin: center;
 		transform: rotate(0deg);
 		border-radius: 50%;
