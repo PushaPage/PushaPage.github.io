@@ -1,4 +1,4 @@
-        @font-face {
+    @font-face {
         font-family: 'Staatliches';
         src: url('../fonts/Staatliches/Staatliches-Regular.eot');
         src: url('../fonts/Staatliches/Staatliches-Regular.eot?#iefix') format('embedded-opentype'),
@@ -61,24 +61,50 @@
       padding: 5px;
       overflow: auto;
     }
-    .remove{
-      background: none;
-      color: rgb(48, 209, 88);
+    .box-btns{
+      margin: auto 0 3px auto;
+      display: flex; 
+    }
+    .btn-remove,.btn-edit,.btn-check{
+      background: none;     
       border: none;
       outline: none;
+      padding: 0 4px;
       font-size: 22px;
-      box-sizing: content-box;
-      margin-left: auto; 
+      line-height: 22px;
+      box-sizing: content-box;       
     }
-    .remove:hover, .remove:active, .remove:focus{
+    .btn-remove{
+      color: rgb(48, 209, 88);
+      padding-top: 3px;
+    }
+    .btn-edit,.btn-check{
+      color: rgb(28, 28, 30);      
+    }
+    .btn-check{
+      display: none;
+      padding-top: 3px;    
+    }
+    .btn-remove:hover, 
+    .btn-remove:active, 
+    .btn-remove:focus{
       outline: none;      
-      color: rgb(255, 69, 58);
+      color: rgba(255, 69, 58, .8);
+    }
+    .btn-edit:hover, 
+    .btn-edit:active, 
+    .btn-edit:focus,
+    .btn-check:hover, 
+    .btn-check:active, 
+    .btn-check:focus{
+      outline: none;      
+      color: rgb(48, 209, 88);
     }
     .list{
       background: rgba(229, 229, 234,.9);
       color: rgb(28, 28, 30);
       padding: 8px 20px;
-      font-size: 18px;
+      font-size: 18px;    
       border-radius: 2px;
       margin-bottom: 5px
     }
@@ -105,9 +131,49 @@
     }
     .list-text{
       font-family: 'Cuprum', sans-serif;
-      font-size: 20px;
+      font-size: 22px;
+      width: 88%;         
+      margin: 0;
+      color: rgba(28, 28, 30, 1);
+      word-wrap: break-word; 
+    }
+    .edit-area{
+      width: 88%;
+      font-family: 'Cuprum', sans-serif;
+      font-size: 22px;
+      color: rgba(28, 28, 30, .8);          
+      height: 30px;
+      padding: 0;
+      margin: 0; 
+      resize: none;
+      border: none;
+      background: none;     
+      overflow: hidden;     
+    }
+    .edit-area:focus{
+      outline: none;
     }
     .invalid-task{
       border: 1px solid rgb(255, 59, 48);
       box-shadow: inset 0 1px 1px rgba(28, 28, 30, .075), 0 0 8px rgba(255, 59, 48, .6);
+    }
+    @media (max-width: 991px) {
+      .list-text,.edit-area{ 
+        width: 83%;
+       } 
+    }
+    @media (max-width: 767px) {
+      .list-text,.edit-area{ 
+        width: 74%;
+       } 
+    }
+    @media (max-width: 455px) {
+      .list-text,.edit-area{ 
+        width: 65%;
+       } 
+    }
+    @media (max-width: 380px) {
+      .list-text,.edit-area{ 
+        width: 55%;
+       } 
     }     
