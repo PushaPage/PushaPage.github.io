@@ -196,6 +196,9 @@
 		color: rgba(255,255,255, 1);
 		text-shadow: 0 5px 5px rgba(255,255,255, .7), 0 0 5px rgba(255,255,255, .4);
 	}
+	.email-link:hover>.icon-font::before{
+		content: "\f2b6";
+	}
 	.dropdown-menu{
 		background: rgba(0,0,0, .7);
 		outline: 2px solid rgba(255,255,255, .7);
@@ -627,6 +630,14 @@
 	[class^=button-portfolio-next]:hover,
 	[class^=button-portfolio-prev]:hover{
 		animation: none;
+	}
+	[class^=button-portfolio-next]:hover::before,
+	[class^=button-portfolio-prev]:hover::before{	
+		content: "";
+	}
+	[class^=button-portfolio-next]:hover::after,
+	[class^=button-portfolio-prev]:hover::after{	
+		opacity: .9;
 	}
 	[class^=button-portfolio-next]:active,
 	[class^=button-portfolio-prev]:active{

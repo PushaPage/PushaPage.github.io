@@ -466,7 +466,7 @@ function GameStart(){
 
         let selectClass = [
           'fas fa-bug bugOrdinary',
-          'fas fa-spider bugOrdinary bugArmored',       
+          'fas fa-spider bugOrdinary',       
           'fad fa-bug bugOrdinary bugRowDown',
           'fad fa-spider bugOrdinary bugRowDown2',       
           'fal fa-spider-black-widow bugOrdinary bugRowUp',
