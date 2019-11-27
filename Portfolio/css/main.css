@@ -196,6 +196,9 @@
 		color: rgba(255,255,255, 1);
 		text-shadow: 0 5px 5px rgba(255,255,255, .7), 0 0 5px rgba(255,255,255, .4);
 	}
+	.email-link:hover>.icon-font{
+		transform: translateY(-3.1px);
+	}
 	.email-link:hover>.icon-font::before{
 		content: "\f2b6";
 	}
