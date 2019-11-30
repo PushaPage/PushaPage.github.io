@@ -9,18 +9,22 @@
         let tasks = JSON.parse(localStorage.getItem('todo')) || [], 
             lastId = tasks.length; 
 
-        function addItem(task) {                            
+            
+        function addItem(task) {
+
             container.insertAdjacentHTML('beforeEnd', [
               `<div class="list d-flex" data-id="${task.id}" tabindex="1">
-                <span class="list-num">${task.id + 1}</span>
+                <span class="list-num"></span>
                 <p class="list-text">${task.text}</p>
                 <div class="box-btns">
-                  <button type="button" class="btn-check fas fa-check" title="Ready" data-click="check" tabindex="2"></button>
+                  <button type="button" class="btn-check fas fa-check" title="Edited" data-click="check" tabindex="2"></button>
                   <button type="button" class="btn-edit fas fa-edit" title="Edit" data-click="edit" tabindex="2"></button>            
                   <button type="button" class="btn-remove fal fa-trash-alt" title="Remove" data-click="remove" tabindex="2"></button>
                 </div>  
               </div>`
             ].join('') );
+
+            numeration ();
         };  
 
       tasks.forEach( (task,i) =>{
@@ -28,6 +32,15 @@
         addItem(task);
 
       });
+
+      function numeration () {
+
+            container.querySelectorAll('.list-num').forEach( (el,i)=>{
+
+              el.innerHTML = (i + 1);
+
+            });
+      };
 
       function createTask () {        
 
@@ -105,8 +118,9 @@
                   if(this.scrollTop > 0){
 
                     this.style.height = this.scrollHeight + 'px';
+                    
                   };
-              });              
+              });                          
             };
           });            
         };
@@ -166,6 +180,7 @@
           };
 
           parent.remove();
+          numeration ();
         }
       });   
 

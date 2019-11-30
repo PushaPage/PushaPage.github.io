@@ -36,7 +36,25 @@
     h1{
       font-family: 'Anton', sans-serif;
       color: rgba(28, 28, 30, .9);
-      margin-bottom: 20px;
+      margin-bottom: 15px;      
+    }
+    .info-to-do{
+      display: flex;
+      justify-content: flex-end;
+      list-style: none;
+      margin: 0;
+      cursor: default;
+      padding: 0 15px 12px 0;
+    }
+    .info-to-do>li{     
+      color: rgba(28, 28, 30, .9);
+      padding-left: 20px;
+      font-size: 22px;  
+    }
+    .info-to-do span{
+      font-family: 'Staatliches', cursive;
+      margin-left: 5px;
+      font-size: 18px;  
     }   
     .button-add{
      font-family: 'Staatliches', cursive;    
@@ -69,13 +87,13 @@
       background: none;     
       border: none;
       outline: none;
+      color: rgb(28, 28, 30); 
       padding: 0 4px;
       font-size: 22px;
       line-height: 22px;
       box-sizing: content-box;       
     }
-    .btn-remove{
-      color: rgb(48, 209, 88);
+    .btn-remove{      
       padding-top: 3px;
     }
     .btn-edit,.btn-check{
@@ -84,13 +102,12 @@
     .btn-check{
       display: none;
       padding-top: 3px;    
-    }
-    .btn-remove:hover, 
-    .btn-remove:active, 
-    .btn-remove:focus{
+    }     
+    .btn-remove:active{   
       outline: none;      
       color: rgba(255, 69, 58, .8);
     }
+    .btn-remove:hover,
     .btn-edit:hover, 
     .btn-edit:active, 
     .btn-edit:focus,
@@ -135,7 +152,7 @@
       width: 88%;         
       margin: 0;
       color: rgba(28, 28, 30, 1);
-      word-wrap: break-word;      
+      word-wrap: break-word; 
     }
     .edit-area{
       width: 88%;

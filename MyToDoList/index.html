@@ -16,7 +16,12 @@
 </head>
   <body>
       <div class="container wrapper">
-        <h1>To do list (localStorage)</h1>    
+        <h1>To do list (localStorage)</h1>
+        <ul class="info-to-do">
+          <li><i class="fas fa-edit"></i><span>edit</span></li>
+          <li><i class="fas fa-check"></i><span>edited</span></li>            
+          <li><i class="fal fa-trash-alt"></i><span>remove</span></li>
+        </ul>    
         <form action="javascript:void(0)" id="toDoList">
           <input type="text" name="asktask" placeholder="..." class="form-control input" autocomplete="off">
           <button type="submit" class="btn btn-primary btn-lg btn-block button-add">Add list</button>
