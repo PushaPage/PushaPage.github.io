@@ -603,37 +603,11 @@
 		margin: 0;
 		transform: translateY(-50%);
 		color: rgba(255,255,255, 1);		
-	}
-	[class^=button-portfolio-next]{
-		animation: arrow-next 1.8s linear infinite;
-		text-shadow: -9px 0px 1px rgba(255,255,255, 0);
-	}
+	}	
 	[class^=button-portfolio-prev]{
 		left: auto;
-		right: 1.5%;
-		animation: arrow-prev 1.8s linear infinite;
-		text-shadow: 9px 0px 1px rgba(255,255,255, 0);
-	}
-	@keyframes arrow-next{
-	  	0%{
-	  		text-shadow: -9px 0px 1px rgba(255,255,255, .3); 		
-	    }
-	  	100% {
-	    	text-shadow: -100px 0px 1px rgba(255,255,255, .6);
-		}
+		right: 1.5%;		
 	}	
-	@keyframes arrow-prev{
-	  	0%{
-	  		text-shadow: 9px 0px 1px rgba(255,255,255, .3); 		
-	    }
-	  	100% {
-	    	text-shadow: 100px 0px 1px rgba(255,255,255, .6);
-		}
-	}
-	[class^=button-portfolio-next]:hover,
-	[class^=button-portfolio-prev]:hover{
-		animation: none;
-	}
 	[class^=button-portfolio-next]:hover::before,
 	[class^=button-portfolio-prev]:hover::before{	
 		content: "";
@@ -1037,31 +1011,6 @@
 		text-shadow: none;
 		font-size: 39px;
 	}	
-	.on-up:after{
-		content: "\f106";
-		position: absolute;
-		z-index: -5;
-		left: 0;
-		top: 0;
-		font-size: 38px;
-		color: rgba(255,255,255, 0);
-		animation: on-up 1.2s linear infinite;
-	}
-	.on-up:hover::after{
-		animation: none;
-	}	
-	@keyframes on-up{
-	  	0%{
-	  		text-shadow: 0 -8px 1px rgba(255,255,255, .2); 		
-	    }
-	    50%{
-
-	    	text-shadow: 0 -16px 1px rgba(255,255,255, .7);
-	    }
-	  	100% {
-	    	text-shadow: 0 -24px 1px rgba(255,255,255, 0);
-		}
-	}
 /*footer*/
 	footer{
 		background: rgba(0,0,0, .7);
