@@ -4,168 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>StopWatch</title>
-  <link rel="shortcut icon" href="icon.png" type="image/png">  
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="shortcut icon" href="icon.png" type="image/png">
+  <script defer src="js/main.js"></script>
+  <link rel="stylesheet" href="css/bootstrap-grid.css">
+  <link rel="stylesheet" href="fontawesome/all.min.css">  
+  <link rel="preload" as="style" href="css/main.css" onload="this.rel='stylesheet'">
 </head>
-<body>  
-  <div id="counter">
-    <span class="block-min">00</span>:<span class="block-sec">00</span>,<span class="block-ms">0</span>
-  </div>  
-  <div>
-    <button type="button" class="btn-start" data-stopwatch="start">Start</button>
-    <button type="button" class="btn-stop" data-stopwatch="stop">Stop</button>
-    <button type="button" class="btn-lap" data-stopwatch="lap">lap</button>
-    <button type="button" class="btn-discharge" data-stopwatch="reset">Reset</button>    
-  </div>
-  <div id="lap"></div>
-  <script type="text/javascript">
-  window.addEventListener('load', function() {
-  ;(function (){
-      var counter = document.querySelector('#counter'),
-          blockMin = document.querySelector('.block-min'),
-          blockSec = document.querySelector('.block-sec'),
-          blockMs = document.querySelector('.block-ms'),        
-          lapTime = document.getElementById('lap'),
-          counterBlock = document.querySelector('#counter'),
-          timeRunMs = null,
-          timeRunSec = null,
-          timeRunMin = null;          
-     
-      var stopwatch = {
-
-          min: 0,
-          sec: 0,  
-          ms: 0,
-          lap: 0,        
-          lockStart: 0,
-          lockTime: true
-
-        },
-          countresult = {
-            min: 0,
-            sec: 0,  
-            ms: 0
-          },
-          resultwatch = {
-
-            min: 0,
-            sec: 0,  
-            ms: 0
-        };
-
-
-     document.addEventListener('click', function (event){
-
-      let target = event.target.dataset.stopwatch;
-        if(!target) return; 
-
-      switch (target) {
-
-          case 'start':
-
-            stopwatch.lockTime = false;
-
-            stopwatch.lockStart++; 
-
-            if(stopwatch.lockStart>1)return;
-
-            timeRun = setTimeout (function tick () {         
-            
-            blockMs.innerHTML = stopwatch.ms;
-            resultwatch.ms = countresult.ms;
-
-            if(blockMs.innerHTML >= 9){
-              stopwatch.ms = 0;
-              countresult.ms = 0;
-              stopwatch.sec ++;
-              countresult.sec ++;
-            };
-            if(blockSec.innerHTML >= 59){
-              stopwatch.sec = 0;
-              countresult.sec = 0;
-              stopwatch.min ++;
-              countresult.min ++;
-            };
-            if(stopwatch.sec < 10){
-              blockSec.innerHTML = '0' + stopwatch.sec;              
-            }else{
-              blockSec.innerHTML = stopwatch.sec;             
-            };
-            if(stopwatch.min < 10){
-              blockMin.innerHTML = '0' + stopwatch.min;              
-            }else{
-              blockMin.innerHTML = stopwatch.min;              
-            };
-            stopwatch.ms ++;
-            countresult.ms ++;
-            console.log(resultwatch)
-
-            timeRun = setTimeout(tick, 110)        
-                 
-            }, 110);
-             
-          break;
-
-          case 'stop':
-            clearTimeout(timeRun);
-            stopwatch.lockTime = true;
-            stopwatch.lockStart = 0;         
-          break;
-
-          case 'reset':
-            stopwatch.lockTime = true;
-            stopwatch.lockStart = 0;  
-            clearTimeout(timeRun);
-            stopwatch.ms = 0;
-            stopwatch.sec = 0;
-            stopwatch.min = 0;
-            stopwatch.lap = 0;
-            blockMin.innerHTML = '00';
-            blockSec.innerHTML = '00';
-            blockMs.innerHTML = '0';
-            lapTime.innerHTML = '';          
-          break;
-
-          case 'lap':
-            lapResult ();          
-          break;
-      }
-      });      
-
-      function lapResult (){
-        if(!stopwatch.lockTime){              
-            stopwatch.lap++;
-            if(countresult.sec < 10){              
-              resultwatch.sec = '0' + countresult.sec;
-            }else{             
-              resultwatch.sec = countresult.sec;
-            };
-            if(countresult.min < 10){            
-              resultwatch.min = '0' + countresult.min;
-            }else{             
-              resultwatch.min = countresult.min;
-            };
-
-            lapTime.insertAdjacentHTML('afterBegin', [
-              `<p class="lap-time">
-                <span class="lap-text">#${stopwatch.lap}</span>
-                <span class="block-min">${resultwatch.min}</span>:         
-                <span class="block-sec">${resultwatch.sec}</span>,
-                <span class="block-ms">${resultwatch.ms}</span>  
-              </p>`
-            ].join('') );
-
-            countresult.min = 0;
-            countresult.sec = 0;
-            countresult.ms = 0;
-        }else{
-          alert('Stopwatch not running!');
-        };
-      };
-    }());
-  });    
-  </script>
-  
-
-</body>
+  <body>
+    <div class="wrapper container">
+      <div class="logo">
+        <i class="far fa-stopwatch icon-logo"></i><span class="alert">Stopwatch does not work!</span></div>     
+      <div id="output">
+        <span class="digital">00</span>:<span class="digital">00</span>,<span class="digital">0</span>
+      </div>
+      <div class="btns-box">
+        <button type="button" class="btn-start" data-action="start">Start</button>
+        <button type="button" class="btn-stop" data-action="stop">Stop</button>
+        <button type="button" class="btn-lap" data-action="lap">lap</button>
+        <button type="button" class="btn-discharge" data-action="reset">Reset</button>   
+      </div>
+      <div class="laps-box"></div>
+    </div> 
+  </body>
 </html>
