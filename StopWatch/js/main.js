@@ -54,6 +54,14 @@
             clearTimeout(this.timer);                  
         };
 
+        reset() {
+
+          this.stop();
+          this.min = '00';
+          this.sec = '00';
+          this.ms = 0;          
+        };
+
       }; 
 
       class StopWatch extends Watch {
@@ -68,11 +76,8 @@
 
         reset() {
 
-          super.stop();
-          this.min = '00';
-          this.sec = '00';
-          this.ms = 0;
-           output.innerHTML = `<span class="digital">${this.min}</span>:<span class="digital">${this.sec}</span>,<span class="digital">${this.ms}</span>`;
+          super.reset();          
+          output.innerHTML = `<span class="digital">${this.min}</span>:<span class="digital">${this.sec}</span>,<span class="digital">${this.ms}</span>`;
         };
 
       };
@@ -96,7 +101,7 @@
 
           this.min = '00';
           this.sec = '00';
-          this.ms = 0;s
+          this.ms = 0;
            
         };
 
@@ -147,6 +152,7 @@
 
                       stopwatch.reset();
                       laps.innerHTML = '';
+                      lapwatch.reset();
                       lapwatch.num = 0;
                       toggle = false;                   
                   break;            
