@@ -14,8 +14,7 @@
 
           this.min = '00';
           this.sec = '00';
-          this.ms = 0;
-          this.num = 0;      
+          this.ms = 0;               
          
         };
 
@@ -82,7 +81,14 @@
 
       };
 
-      class lapWatch extends Watch {      
+      class lapWatch extends Watch {
+
+        constructor () {
+
+          super();
+          this.num = 0; 
+          
+        };      
 
         lap () {
 
