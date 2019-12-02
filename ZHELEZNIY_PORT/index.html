@@ -468,9 +468,9 @@
 					<form action="#" method="POST">					       
 						<fieldset class="form-group">
 							<legend>Бронирование номера</legend> 
-							<input type="text" class="form-control" placeholder="Имя, фамилия*">
-							<input type="tel" class="form-control" placeholder="Номер телефона*">
-							<input type="email" class="form-control" placeholder="Email*">
+							<input type="text" class="form-control" pattern="^[А-Яа-яЁё|a-zA-Z\s]+$" placeholder="Имя, фамилия*">
+							<input type="tel" class="form-control" pattern="[0-9]{10}|[+][0-9]{12}" placeholder="Номер телефона*">
+							<input type="email" class="form-control" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b" placeholder="Email" placeholder="Email*">
 							<label>Планируемая дата заезда</label>
 							<div class="row row-no-gutters">
 							    <div class="col-xs-4 for_date">
@@ -596,7 +596,7 @@
 							<div class="row apartment_selection">
 								<div class="col-xs-12 col-md-12">
 									<select class="form-control date">
-										<option>Комфорт</option>
+										<option hidden disabled selected>Комфорт</option>
 										<option>Эконом</option>
 										<option>Стандарт</option>
 										<option>Стандарт улучшеный</option>
@@ -604,7 +604,7 @@
 								</div>				
 								<div class="col-xs-12">
 										<select class="form-control date">
-										<option>Количество человек</option>
+										<option hidden disabled selected>Количество человек</option>
 										<option>2-x местный</option>
 										<option>3-x местный</option>
 										<option>4-x местный</option>
