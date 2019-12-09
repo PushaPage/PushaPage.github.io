@@ -1,0 +1,181 @@
+
+  
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": 0,
+        "IMG": "./img/pop-up-map-1.jpg",
+        "TITLE": "Act Big! Ultimate Music Festival",
+        "PLACE":"Pattichion Municipal Amphitheater",
+        "ADDRESS": "Nikolaou G. Dimitriou Street, Larnaca, 6031, Cyprus"        
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.589956, 77.277540]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": 1,
+        "IMG": "./img/pop-up-map-2.jpg",
+        "TITLE": "Summer Art Club - Week 1/3",
+        "PLACE":"Fun Factory Wildeshausen",
+        "ADDRESS": "Am Umspannwerk 7, Wildeshausen, 27793, Germany"        
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.588256, 77.279700]
+      }
+    },
+     {
+      "type": "Feature",
+      "properties": {
+        "ID": 2,
+        "IMG": "./img/pop-up-map-1.jpg",
+        "TITLE": "Act Big! Ultimate Music Festival",
+        "PLACE":"Pattichion Municipal Amphitheater",
+        "ADDRESS": "Nikolaou G. Dimitriou Street, Larnaca, 6031, Cyprus"        
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.584199, 77.262130]
+      }
+    }, 
+     {
+      "type": "Feature",
+      "properties": {
+        "ID": 3,
+        "IMG": "./img/pop-up-map-1.jpg",
+        "TITLE": "Act Big! Ultimate Music Festival",
+        "PLACE":"Pattichion Municipal Amphitheater",
+        "ADDRESS": "Nikolaou G. Dimitriou Street, Larnaca, 6031, Cyprus"        
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.587090, 77.256030]
+      }
+    }, 
+     {
+      "type": "Feature",
+      "properties": {
+        "ID": 4,
+        "IMG": "./img/pop-up-map-3.jpg",
+        "TITLE": "Bocca Foodbar @ Vama Veche",
+        "PLACE":"Pattichion Municipal Amphitheater",
+        "ADDRESS": "Nikolaou G. Dimitriou Street , Larnaca, 6031, Cyprus"        
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.599013, 77.256518]
+      }
+    }, 
+     {
+      "type": "Feature",
+      "properties": {
+        "ID": 5,
+        "IMG": "./img/pop-up-map-1.jpg",
+        "TITLE": "Act Big! Ultimate Music Festival",
+        "PLACE":"Pattichion Municipal Amphitheater",
+        "ADDRESS": "Nikolaou G. Dimitriou Street, Larnaca, 6031, Cyprus"        
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.601310, 77.267594]
+      }
+    }, 
+     {
+      "type": "Feature",
+      "properties": {
+        "ID": 6,
+        "IMG": "./img/pop-up-map-3.jpg",
+        "TITLE": "Bocca Foodbar @ Vama Veche",
+        "PLACE":"Pattichion Municipal Amphitheater",
+        "ADDRESS": "Nikolaou G. Dimitriou Street , Larnaca, 6031, Cyprus"        
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.611775, 77.243997] 
+      }
+    }, 
+     {
+      "type": "Feature",
+      "properties": {
+        "ID": 7,
+        "IMG": "./img/pop-up-map-3.jpg",
+        "TITLE": "Bocca Foodbar @ Vama Veche",
+        "PLACE":"Pattichion Municipal Amphitheater",
+        "ADDRESS": "Nikolaou G. Dimitriou Street , Larnaca, 6031, Cyprus"        
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.627418, 77.263100]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": 8,
+        "IMG": "./img/pop-up-map-2.jpg",
+        "TITLE": "Summer Art Club - Week 1/3",
+        "PLACE":"Fun Factory Wildeshausen",
+        "ADDRESS": "Am Umspannwerk 7, Wildeshausen, 27793, Germany"       
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.617056, 77.286009]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": 9,
+        "IMG": "./img/pop-up-map-4.jpg",
+        "TITLE": "Band Workshop with Artists in Residence Super Tenants",
+        "PLACE":"Culture Club Revelin",
+        "ADDRESS": "Sv. Dominika 3, Dubrovnik, 20 000, Croatia"        
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.620800, 77.28289]
+      }
+    },    
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": 10,
+        "IMG": "./img/pop-up-map-2.jpg",
+        "TITLE": "Summer Art Club - Week 1/3",
+        "PLACE":"Fun Factory Wildeshausen",
+        "ADDRESS": "Am Umspannwerk 7, Wildeshausen, 27793, Germany"        
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.606191, 77.288131]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ID": 11,
+        "IMG": "./img/pop-up-map-4.jpg",
+        "TITLE": "Band Workshop with Artists in Residence Super Tenants",
+        "PLACE":"Culture Club Revelin",
+        "ADDRESS": "Sv. Dominika 3, Dubrovnik, 20 000, Croatia"        
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [28.605166, 77.298686]
+      }
+    }       
+     
+  ]
+}
+

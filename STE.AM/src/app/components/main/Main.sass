@@ -1,0 +1,366 @@
+@import "../sass-utils/mixnis"
+@import "../sass-utils/vars"
+
+#main
+	background: $light-color-4	
+	padding-bottom: 48px			
+	@media (max-width: 991px)
+		.event-wrap
+			padding-left: 12px
+			padding-right: 0
+		.event-wrap:nth-child(odd)
+			padding-left: 0
+			padding-right: 12px
+	@media (max-width: 767px)
+		.react-tabs__tab-list
+			padding-left: 7%
+			width: 100%
+		.event-wrap,.event-wrap:nth-child(odd)
+			padding-left: 0
+			padding-right: 12px
+			margin: 0 auto
+	@media (max-width: 575px)
+		.events			
+			.event-wrap
+				padding-left: 0
+				padding-right: 0	
+				max-width: 347px						 
+	@media (max-width: 540px)		
+		.search-input-location
+			margin: 9px 0 9px 8.3%		
+		.search-location
+			width: 300px
+	@media (max-width: 467px)
+		.search-input-location
+			.search-location
+				width: 200px		
+
+.tabs-list
+	background: $default-color
+	padding-top: 10px	
+
+.react-tabs__tab-list
+	display: flex
+	@media (max-width: 991px)
+		order: 2
+
+
+.react-tabs__tab
+	color: $dark-color-13
+	font-weight: 400
+	position: relative	
+	font-size: $size-16
+	font-weight: $normal
+	cursor: pointer
+	margin-left: 8px
+	padding: 9px 12px 17px 10px
+	&:before
+		content: ""
+		position: absolute
+		left: 50%
+		right: 50%
+		bottom: 0 
+		height: 4px
+		background: $danger-color
+	&:focus
+		outline: none	
+
+.react-tabs__tab.react-tabs__tab--selected
+	color: $dark-color-6
+	font-weight: $super-bold	
+	&:before
+		right: 0
+		left: 0 
+		transition: all .5s ease
+
+.search-input
+	margin-left: 57px
+	padding: 0 5px 0 0
+	input
+		width: inherit
+		height: 40px
+		border: 1px solid $dark-color-9
+		background: $light-color-1
+		border-radius: 2px
+		color: $dark-color-15
+		font-family: $font-basic
+		font-size: $size-16
+		font-weight: $normal
+		padding-left: 12px
+		&:focus
+			border: 1px solid $dark-color-9
+			outline: none
+		@media (max-width: 991px)
+			order: 0
+		@media (max-width: 767px)
+			order: 1
+	@media (max-width: 767px)
+		margin: 0 auto				
+	@media (max-width: 991px)
+		margin-left: 0			
+
+.search-input-location
+	display: flex	
+	margin-left: 5px
+	height: 40px
+	padding: 0 0 0 0
+	input
+		width: 282px		
+		height: inherit
+		border: 1px solid $dark-color-9
+		border-right: none
+		background: $light-color-1
+		font-family: $font-basic
+		font-size: $size-14
+		font-weight: $normal
+		padding-left: 12px
+		border-radius: 2px 0 0 2px/2px 0 0 2px
+		&:focus
+			border: 1px solid $dark-color-9
+			border-right: none
+			outline: none
+		@media (max-width: 1200px)
+			width: 250px
+		@media (max-width: 991px)			
+			width: 48%
+	@media (max-width: 767px)
+		margin: 9px auto		
+		.search-location
+			width: 372px		
+	
+.btn-location
+	padding: 0 19px
+	position: relative
+	background: $light-color-1
+	border: 1px solid $dark-color-9
+	border-left: none
+	font-family: $font-basic	
+	font-weight: $normal
+	border-radius: 0 2px 2px 0 /0 2px 2px 0
+	&:focus		
+		outline: none
+	&:before
+		content: ""
+		position: absolute
+		left: 0 
+		width: 1px
+		background: rgba($dark-color-9, .5)
+		top: 3px
+		bottom: 3px	
+	&:after
+		@include pseudocenter
+		transform: translate(-50%, -50%)
+		@include square(22px)
+		background: url("../../../img/css-sprites.png")	-50px -97px	 
+
+.icon-keyboard	
+	margin: 6px 0 0 8px
+	@include square(29px)
+	background: url("../../../img/css-sprites.png")	34px -5px
+
+input
+	&:focus::-webkit-input-placeholder
+		opacity: 0 
+		transition: opacity .3s ease
+	&:focus::-moz-placeholder
+		opacity: 0 
+		transition: opacity .3s ease       
+	&:focus:-moz-placeholder
+		opacity: 0 
+		transition: opacity .3s ease         
+	&:focus:-ms-input-placeholder
+		opacity: 0 
+		transition: opacity .3s ease 
+
+
+.events	
+	@media (max-width: 1200px)
+		.event-wrap		
+			padding-left: 7px
+			padding-right: 7px
+
+.event-wrap:nth-child(1),
+.event-wrap:nth-child(4),
+.event-wrap:nth-child(7),
+.event-wrap:nth-child(10)			
+	padding: 40px 29px 8px 9px
+
+.event-wrap:nth-child(2),
+.event-wrap:nth-child(5),
+.event-wrap:nth-child(8),
+.event-wrap:nth-child(11)
+	padding: 40px 17px 8px 20px
+
+.event-wrap:nth-child(3),
+.event-wrap:nth-child(6),
+.event-wrap:nth-child(9),
+.event-wrap:nth-child(12)
+	padding: 40px 3px 8px 35px		
+
+.event-box
+	background: $default-color
+	box-shadow: 0 1px 5px rgba($black-color, 0.08)
+	border-radius: 3px	
+
+.event-wrap:nth-child(odd)
+	.event-social
+		background: url("../../../img/css-sprites.png")	-66px -5px			
+
+.event-item
+	position: relative
+
+.event-info
+	position: absolute
+	display: flex
+	justify-content: space-between
+	align-items: flex-end
+	top: 47.6%
+	bottom: 0
+	left: 0
+	right: 0
+	background: linear-gradient(to top, rgba($black-color, .8) 0%, rgba(23, 23, 23, 0) 87%, rgba(23, 23, 23, 0) 100%)
+	padding-bottom: 10px
+
+.event-social
+	display: block
+	@include square(30px)
+	margin-left: 3%
+	background: url("../../../img/css-sprites.png")	-5px -63px				 
+
+.event-date
+	color: $default-color
+	font-size: $size-14
+	font-weight: $normal	
+	padding: 0 5.5% 4px 0
+	@media (max-width: 1200px)
+		padding-right: 0 
+
+.event-like-icon	
+	display: block
+	@include square(30px)
+	margin-right: 3%
+	background: url("../../../img/css-sprites.png")	-45px -60px
+
+.event-title
+	color: $dark-color-5
+	font-size: $size-24
+	font-weight: $bolder
+	letter-spacing: .2px 
+	padding: 20px 0 7px 18px
+
+.event-wrap:nth-child(2), .event-wrap:nth-child(8)
+	.event-title
+		padding-bottom:  16px
+	.event-info-text
+		padding-right: 16px
+
+.event-wrap:nth-child(3),.event-wrap:nth-child(9)
+	.event-title
+		padding-right: 12px
+		padding-bottom:  7px
+	.event-info-text
+		padding-right: 14px
+
+.event-wrap:nth-child(6), .event-wrap:nth-child(12)
+	.event-title
+		padding-right: 12px
+		padding-bottom:  7px
+	.event-info-text
+		padding-right: 14px
+
+.event-address	
+	font-weight: $normal
+	color: $dark-color-3 
+	font-size: $size-14
+	padding-left: 17px
+	span
+		font-size: $size-12
+		color: $dark-color-2
+		display: block
+		margin: 5px 0 18px
+	 		
+.event-info-text
+	color: $dark-color-3
+	font-size: $size-14
+	font-weight: $normal
+	line-height: $line-20
+	white-space: pre-line
+	padding-left: 17px
+	margin-bottom: 27px
+
+.event-visit
+	display: flex
+	height: 80px
+	position: relative
+	bottom: 0
+
+.visit-male,.visit-female	
+	display: flex
+	width: 49.5%	
+	align-items: center	
+	background: $light-color-2
+	box-shadow: 0 1px 1px rgba($black-color, 0.11)
+
+.visit-male
+	margin-right: 2px
+
+.visit-female
+	margin-left: 2px
+
+.male-icon
+	@include size(19px, 46px)
+	background: url("../../../img/css-sprites.png")	-36px -5px
+	margin-left: 27px
+
+.female-icon
+	@include size(22px, 48px)
+	background: url("../../../img/css-sprites.png")	-5px -5px
+	margin-left: 22px	
+
+.male-quantity,.female-quantity
+	color: $dark-color-5	
+	font-size: $size-32
+	font-weight: $bolder
+	line-height: $line-36
+	letter-spacing: -0.64px
+
+.male-quantity
+	margin: 0 0 0 24px
+
+.female-quantity
+	margin: 0 0 0 24px	
+
+.percent
+	font-size: $size-18
+
+.name-gender
+	display: block
+	font-family: $font-second	
+	color: $dark-color-1
+	text-transform: uppercase
+	font-size: $size-14
+	line-height: $line-15
+
+.load-more
+	text-align: center
+	padding: 22px 0 0 9px	
+
+.btn-load-more	
+	box-shadow: 0 2px 4px rgba($black-color, 0.08), inset 0 1px 0 rgba($default-color, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.22)
+	border: 1px solid $dark-color-11
+	background: $light-color-3	
+	color: $dark-color-14
+	font-size: $size-16
+	font-weight: $normal
+	line-height: $line-20
+	transition: background .5 ease
+	letter-spacing: -0.32px
+	@include size(200px, 40px)
+	&:hover
+	    background: $default-color
+	&:focus
+		outline: none
+
+		 
+
+					 	

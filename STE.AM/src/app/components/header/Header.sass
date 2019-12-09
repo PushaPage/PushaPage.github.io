@@ -1,0 +1,104 @@
+@import "../sass-utils/mixnis"
+@import "../sass-utils/vars"
+
+
+header
+	background: $dark-color-6
+	padding: 25px 0 41px 0	
+
+.navbar-brand
+	padding: 0 0 0 0
+	margin: 0 0 0 8px
+
+.navbar
+	padding: 0 0 0 0
+
+.navbar-nav
+	margin-left: auto
+	padding: 0 27px 0 0
+
+#navbarSupportedContent 
+	.nav-link
+		color: $dark-color-7
+		font-size: $size-16		
+		&:hover, &:active
+			color: $danger-color
+	.nav-link.active
+		color: $danger-color
+	@media (max-width: 991px)
+		.navbar-nav
+			padding: 10px 0
+	@media (max-width: 575px)
+		.btn-get-list
+			margin: 20px 0 0 0						
+
+.btn-login,.btn-get-list
+	font-size: $size-16
+	line-height: $line-18
+	padding: 10px 20px	
+
+.btn-login	
+	border: 1px solid $dark-color-8	
+	color: $dark-color-8
+	&:hover, &:active
+		color: $dark-color-8
+	&:focus
+		color: $dark-color-8
+		box-shadow: 0 0 0 0.2rem rgba($dark-color-8, .25)	
+
+.btn-get-list
+	background: $danger-color	
+	color: $default-color
+	margin-left: 12px	
+	&:hover, &:active
+		color: $default-color
+	&:focus
+		color: $default-color
+		box-shadow: 0 0 0 0.2rem rgba($danger-color, .25)
+
+.nav-item
+	margin: 0 0 0 4px
+
+.navbar-toggler
+	display: flex
+	flex-direction: column
+	border: none
+	outline: none
+	width: 40px
+	padding: 0
+	&:hover, &:active, &:focus
+		border: none
+		outline: none
+	.navbar-toggler-icon
+		background: $default-color
+		margin: 3.5px 0
+		height: 3px
+		width: 2em
+		position: relative
+		&:after
+			@include pseudofill ()
+			background: $danger-color
+			transition: left 1.3s ease			
+
+.navbar-toggler-icon:first-child::after	
+	transition: left .9s ease
+
+.navbar-toggler-icon:last-child::after
+	transition: left 1.6s ease
+
+.navbar-toggler.open
+	.navbar-toggler-icon:after
+		left: 100%						
+
+.head-title
+	color: $default-color	
+	font-size: $size-38
+	font-weight: $light
+	text-align: center
+	margin: 45px 0 0 0
+	span
+		font-weight: $bolder
+		font-family: $font-black
+
+		
+	

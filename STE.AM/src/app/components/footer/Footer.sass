@@ -1,0 +1,111 @@
+@import "../sass-utils/mixnis"
+@import "../sass-utils/vars"
+
+
+footer
+	background: $dark-color-6
+	padding: 22px 0 33px 0 
+
+.footer-nav
+	display: flex
+	justify-content: center	
+
+.footer-nav-item
+	padding: 10px 11px
+	position: relative
+	&:before
+		content: ""
+		position: absolute
+		@include square(2px)
+		top: 50%
+		left: 100%
+		transform: translate(-50%, -50%)
+		background: $dark-color-16
+	&:last-child
+		&:before
+			display: none
+	@media (max-width: 767px)
+		&:nth-child(n+1)
+			padding: 10px 7px
+	@media (max-width: 575px)
+		&:nth-child(n+1)
+			padding: 0 0 0 3%
+		&:before
+			display: none	 			  
+
+.footer-nav-item:first-child,
+.footer-nav-item:nth-child(5)	
+	padding-left: 14px	
+
+.footer-nav-link
+	color: $dark-color-7 
+	font-family: Lato
+	font-size: $size-13
+	font-weight: $normal
+	line-height: $line-24
+	&:hover, &:active
+		color: $default-color
+
+.footer-nav-item.active,
+.footer-nav-link.active	
+	color: $default-color
+
+.footer-line-decor
+	margin: 15px .3% 0
+	height: 1px
+	box-shadow: 0 -1px 0 rgba($black-color, 0.23)
+	background: $dark-color-12
+
+.footer-copyright
+	padding: 19px 0 0 9px
+	color: $dark-color-7 
+	font-size: $size-14
+	font-weight: $light
+	line-height: $line-24
+	span
+		color: $default-color	
+		font-weight: $bolder
+	@media (max-width: 767px)
+		padding: 10px 0 0 0
+	@media (max-width: 323px)
+		font-size: $size-13		
+
+.footer-contacts
+	padding: 22px 0 0 0
+	display: flex
+	@media (max-width: 575px)
+		padding-left: 3%			
+
+.soc-item
+	@include square(18px)
+	a
+		@include square(100%)
+		display: block
+
+.soc-facebook	
+	a
+		background: url("../../../img/css-sprites.png")	55px -62px	
+
+.soc-twitter
+	margin-left: 18px
+	a
+		background: url("../../../img/css-sprites.png")	-5px 23px	
+
+.soc-insta
+	margin-left: 15px
+	a
+		background: url("../../../img/css-sprites.png")	34px -65px	
+
+.soc-play
+	background: url("../../../img/css-sprites.png")	-23px 25px
+	margin-left: 19px
+
+.soc-circle
+	background: url("../../../img/css-sprites.png")	74px -38px
+	margin-left: 17px
+
+.soc-wi-fi
+	background: url("../../../img/css-sprites.png")	35px -41px
+	margin-left: 18px
+
+
