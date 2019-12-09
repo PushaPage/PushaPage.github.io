@@ -118,6 +118,7 @@
 	  
 			  let clock_date = new Clock_Date({time: 'h:m:s'},{date: 'd.m.y'});
 			  	  clock_date.start();
+			  	  
 
 			 clock.addEventListener('click', () => {
 
@@ -139,6 +140,7 @@
 					titlsLang = document.querySelectorAll('.title-lang'),
 					skillLang = document.querySelectorAll('.skill-lang'),
 					lookLang = document.querySelectorAll('.look-lang'),
+					codeLang = document.querySelectorAll('.code-lang'),
 					usingLang = document.querySelectorAll('.using-lang'),
 					onlyLang = document.querySelectorAll('.only-lang'),
 					titleNamedJs = document.querySelectorAll('.section-title-js-lang'),
@@ -148,11 +150,10 @@
 					objectivsLang = document.querySelectorAll('.objectivs-lang'),
 					educationLlang = document.querySelectorAll('.education-lang'),
 					knowledgeLang = document.querySelectorAll('.knowledge-lang')[0],
-					workExperienceLang = document.querySelectorAll('.work-experience-lang');
-					
+					workExperienceLang = document.querySelectorAll('.work-experience-lang');					
 
 					
-					console.log(resumeTitleLang)
+					
 				let rus = {
 
 						nav: {
@@ -177,30 +178,30 @@
 						},
 
 						skills: {
-
-							0: 'Знание',
-							1: 'Принцип и особености работаты с flexbox, float, inline-block',
-							2: 'Создание HTML-страницы сайта на основе дизайн-макетов (PerfectPixel)',
-							3: 'Адаптивная кросс-браузерная, валидная верстка',
-							4: 'Avocode, Adobe Photoshop (на уровне нарезки шаблона и оптимизации изображений)',
-							5: 'Умение работать с Bootstrap 3 и 4',
-							6: 'Создание геометрических фигур при помощи CSS',
-							7: 'Применение СSS анимаций (@keyframes), трансформация обьектов',
-							8: 'Препроцессор Sass, установка и настройка gulp-sass',
-							9: 'Умение работать с GitHub',
-							10: 'Основы JavaScript',
-							11: 'Основы работы с DOM. Взаимодействие JavaScript и CSS. Работа с формами',
-							12: 'Таймеры, интервалы. Работа со строками и массивами. Регулярные выражение',
-							13: 'События, делегирование, координаты, метрики. ООП в JavaScript',
-							14: 'Cookie, LocalStorage, sessionStorage. Работа с изображениями в JavaScript',
-							15: 'Работа с данными, отправка дынных, XMLHttpRequest, POST, GET, JSON, XML'
+							
+							0: 'Принцип и особености работаты с flexbox, float, inline-block',
+							1: 'Создание HTML-страницы сайта на основе дизайн-макетов (PerfectPixel)',
+							2: 'Адаптивная кросс-браузерная, валидная верстка',
+							3: 'Avocode, Adobe Photoshop (на уровне нарезки шаблона и оптимизации изображений)',
+							4: 'Умение работать с Bootstrap 3 и 4',
+							5: 'Создание геометрических фигур при помощи CSS',
+							6: 'Применение СSS анимаций (@keyframes), трансформация обьектов',
+							7: 'Препроцессор Sass, сборщики webpack 4, Gulp 4',
+							8: 'Умение работать с GitHub',
+							9: 'Основы JavaScript, React',
+							10: 'Основы работы с DOM. Взаимодействие JavaScript и CSS. Работа с формами',
+							11: 'Таймеры, интервалы. Работа со строками и массивами. Регулярные выражение',
+							12: 'События, делегирование, координаты, метрики. ООП в JavaScript',
+							13: 'Cookie, LocalStorage, sessionStorage. Работа с изображениями в JavaScript',
+							14: 'Работа с данными, отправка дынных, XMLHttpRequest, POST, GET, JSON, XML'
 						},
 
 						porfolio: {
 
 							0: 'Посмотреть',
-							1: 'С применением:',
-							2: 'Только:'
+							1: 'Код проэкта',
+							2: 'С применением:',
+							3: 'Только:'
 
 						},
 
@@ -290,30 +291,30 @@
 						},
 
 						skills: {
-
-							0: 'Knowledge',
-							1: 'The principles and features of flexbox, float, inline-block',
-							2: 'Creation of an HTML-page of a site based on design layouts (PerfectPixel layout)',
-							3: 'Responsive cross-browser compatibility and code validation',
-							4: 'Avocode, Adobe Photoshop (at the image slicing level)',
-							5: 'Twitter Bootstrap 3 and 4',
-							6: 'Creating geometric dhapes with CSS',
-							7: 'CSS animations and object traformations, (@keyframes)',
-							8: 'Sass preprocessor, installation and configuration of gulp-sass',
-							9: 'Ability to work with GitHub',
-							10: 'JavaScript basics',
-							11: 'Objects. Basics of DOM. JavaScript & CSS interaction. Working with forms',
-							12: 'Timers and intervals. Working with strings and arrays. Regular expressions',
-							13: 'Events, delegate, coordinates. OOP in JavaScript',
-							14: 'Cookie, LocalStorage, sessionStorage. Working with images in JavaScript',
-							15: 'Data exchange with the server via XMLHttpRequest, POST, GET, JSON, XML'
+							
+							0: 'The principles and features of flexbox, float, inline-block',
+							1: 'Creation of an HTML-page of a site based on design layouts (PerfectPixel layout)',
+							2: 'Responsive cross-browser compatibility and code validation',
+							3: 'Avocode, Adobe Photoshop (at the image slicing level)',
+							4: 'Twitter Bootstrap 3 and 4',
+							5: 'Creating geometric dhapes with CSS',
+							6: 'CSS animations and object traformations, (@keyframes)',
+							7: 'Sass preprocessor, pack manager webpack 4, Gulp 4',
+							8: 'Ability to work with GitHub',
+							9: 'JavaScript basics, React',
+							10: 'Objects. Basics of DOM. JavaScript & CSS interaction. Working with forms',
+							11: 'Timers and intervals. Working with strings and arrays. Regular expressions',
+							12: 'Events, delegate, coordinates. OOP in JavaScript',
+							13: 'Cookie, LocalStorage, sessionStorage. Working with images in JavaScript',
+							14: 'Data exchange with the server via XMLHttpRequest, POST, GET, JSON, XML'
 						},
 
 						porfolio: {
 
 							0: 'Look',
-							1: 'Using:',
-							2: 'Only:'
+							1: 'Project code',
+							2: 'Using:',
+							3: 'Only:'
 
 						},
 
@@ -433,15 +434,21 @@
 
 					});
 
-					usingLang.forEach( (el,i) => {
+					codeLang.forEach( (el,i) => {
 
 						el.innerHTML = lang.porfolio[1];
 
 					});
 
-					onlyLang.forEach( (el,i) => {
+					usingLang.forEach( (el,i) => {
 
 						el.innerHTML = lang.porfolio[2];
+
+					});
+
+					onlyLang.forEach( (el,i) => {
+
+						el.innerHTML = lang.porfolio[3];
 
 					});
 

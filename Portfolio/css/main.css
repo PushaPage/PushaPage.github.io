@@ -574,12 +574,17 @@
   	.skills-box>ul>li{
   		cursor: default;
   		position: relative;
+  		display: flex;
+  		align-items: center;
   		color: #fff;
   		font-size: 16px;
   		margin: 15px 0; 
   		padding: 8px 10px;
   		background: rgba(0,0,0, .7);
   		outline: 1.5px solid rgba(255,255,255, .7); 
+  	}
+  	.skills-box>ul>li:first-child{
+  		justify-content: center;
   	}
   	.icon-arrow{		
 		margin-right: 5px;		
@@ -802,7 +807,13 @@
 		font-size: 27px;
 		font-family: Arial, Helvetica, sans-serif;
 	}
-	.icon-bootstrap,.icon-js,.icon-gulp,.icon-sass,.icon-html,.icon-css{
+	.icon-bootstrap,
+	.icon-js,
+	.icon-gulp,
+	.icon-sass,
+	.icon-html,
+	.icon-css,
+	.icon-react{
 		font-size: 30px;
 		line-height: 30px;
 		width: 30px;
@@ -836,6 +847,9 @@
 	}
 	.icon-js{
 		color: #f7df1e;
+	}
+	.icon-react{
+		color: #61dafb;
 	}
 	.icon-gulp{
 		width: 20px;
