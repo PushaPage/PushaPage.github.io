@@ -297,7 +297,7 @@
 							2: 'Responsive cross-browser compatibility and code validation',
 							3: 'Avocode, Adobe Photoshop (at the image slicing level)',
 							4: 'Twitter Bootstrap 3 and 4',
-							5: 'Creating geometric dhapes with CSS',
+							5: 'Creating geometric shapes with CSS',
 							6: 'CSS animations and object traformations, (@keyframes)',
 							7: 'Sass preprocessor, pack manager webpack 4, Gulp 4',
 							8: 'Ability to work with GitHub',
