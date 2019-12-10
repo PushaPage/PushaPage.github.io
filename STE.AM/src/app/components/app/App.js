@@ -12,6 +12,8 @@ class App extends React.Component {
   render() {
 
     let nav = this.props.nav;
+    let hotevents = this.props.hotevents;
+    let trandingevents = this.props.trandingevents;
   	let navfooter = this.props.navfooter;
   	let footersocial = this.props.footersocial;
   	
@@ -19,8 +21,8 @@ class App extends React.Component {
       <div className="App">
         <Header nav={nav} />
         <Map />
-        <Main />
-        <Footer navfooter={navfooter} footersocial={footersocial}/>    
+        <Main hotevents={hotevents} trandingevents={trandingevents} />
+        <Footer navfooter={navfooter} footersocial={footersocial} />    
       </div>
     );
   }  
