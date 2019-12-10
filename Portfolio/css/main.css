@@ -581,7 +581,7 @@
   		cursor: default;
   		position: relative;  		
   		color: #fff;
-  		width: 66.7%;
+  		width: 70%;
   		font-size: 16px;
   		margin: 15px auto; 
   		padding: 8px 10px;
@@ -816,7 +816,7 @@
 	.portfolio-text>li:nth-child(2){
 		font-size: 27px;
 		font-family: Arial, Helvetica, sans-serif;
-	}
+	}	
 	.icon-bootstrap,
 	.icon-js,
 	.icon-gulp,
