@@ -6,7 +6,7 @@ body{
   	margin: 0; 
  }
 .wrapper{
-	padding: 100px 15px 20px;
+	padding: 100px 20px;
 	background: #dcdcdc;
 	background: linear-gradient(to right top, #dcdcdc 50%, #e8e8e8 50%);
 	height: 100%;
