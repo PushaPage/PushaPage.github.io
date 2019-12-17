@@ -1,4 +1,4 @@
-	window.addEventListener('load', function() {
+	window.addEventListener('load', () => {
 		
 		;{
 			let nav = document.querySelector('.navbar'),
