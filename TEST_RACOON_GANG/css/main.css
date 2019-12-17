@@ -8,9 +8,20 @@ body{
 .wrapper{
 	padding: 100px 15px 20px;
 	background: #dcdcdc;
-	height: 100vh;
+	background: linear-gradient(to right top, #dcdcdc 50%, #e8e8e8 50%);
+	height: 100%;
 }
-
+.logo{
+	text-align: center;
+	margin-bottom: 40px; 
+}
+.title-main{
+	text-align: center;
+	font-size: 22px;
+	font-weight: 400; 	
+	text-transform: uppercase;
+	color: #939393;
+}
 /*search*/
 #form{
 	 padding: 20px 0;
@@ -21,26 +32,36 @@ body{
 	position: relative;
 }
 .icon-search{
-	position: absolute;
-	color: #acacac;
-	font-size: 20px;
-	width: 20px;
-	height: 20px;
-	left: 5px;
-	top: 50%;
-	transform: translateY(-50%);
+	position: absolute;	
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	border: 3px solid #acacac;
+	left: 7px;
+	top: 16%;	
 }
-#search{
+.icon-search:before{
+	content: "";
+	position: absolute;	
+	top: 75%;
+	left: 100%;
+	transform-origin: center;
+	transform: rotate(-45deg);
+	height: 10px;
+	width: 3px;
+	background: #acacac;
+}
+.input-search{
 	flex: 1;
 	border-radius: 5px;
 	padding-left: 30px;
 	border: 2px solid #acacac;	
 }
-#search:focus{
+.input-search:focus{
 	box-shadow: 0 0 0 0.2rem rgba(172, 172, 172, .25);
 }
 
-#btn-search{
+.btn-search{
 	background: #8cbf55;
 	margin: 0 0 0 20px;
 	padding: 10px 15px;
@@ -49,7 +70,7 @@ body{
 	border: none;
 	text-transform: uppercase;
 }
-#btn-search:focus{
+.btn-search:focus{
 	box-shadow: 0 0 0 0.2rem rgba(140, 191, 85, .25);
 }
 
@@ -210,8 +231,7 @@ button:focus{
 		font-size: 0;
 	}
 	.title-text{
-		color: #8cbf55;
-		font-family: "Arial", sans-serif;
+		color: #8cbf55;		
 		font-weight: 400;
 		font-size: 18px;
 		padding-left: 25px;
@@ -224,7 +244,17 @@ button:focus{
 		vertical-align: top;
 	}
 	.border-text{
-		border-right: 2px solid #8cbf55;
+		position: relative;		
+	}
+	.border-text:before{
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 100%;
+		transform: translateX(-50%);
+		width: 3px;
+		background: #8cbf55;
 	}
 	.text p{
 		margin-top: 0;
@@ -243,8 +273,8 @@ button:focus{
 			width: 100%;
 			padding-bottom: 0;
 		}
-		.border-text{
-			border: 0;
+		.border-text:before{
+			display: none;
 		}
 	}
 	
