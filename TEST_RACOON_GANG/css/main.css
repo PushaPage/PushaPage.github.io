@@ -222,6 +222,12 @@ button:focus{
 		}
 	}
 
+	@media (max-width: 800px) {
+		.navbar{			
+			padding: 20px 40px;
+		}
+	}
+
 /*text*/
 	.wrap-text{
 		background: #fff;
