@@ -156,7 +156,7 @@ button:focus{
 	@media (max-width: 800px) {
 		.navbar{
 			display: inline-block;
-			padding: 20px 80px;
+			padding: 20px 40px;
 		}
 		.navbar-toggler{
 			display: block;
@@ -219,12 +219,6 @@ button:focus{
 			border-bottom: 4px solid transparent;
 			border-right: none;
 			border-left: 10px solid #acacac;			
-		}
-	}
-
-	@media (max-width: 800px) {
-		.navbar{			
-			padding: 20px 40px;
 		}
 	}
 
