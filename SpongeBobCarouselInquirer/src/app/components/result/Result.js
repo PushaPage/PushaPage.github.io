@@ -30,7 +30,7 @@ class Result extends React.Component {
       return (      
           <div className="result-container container">
             <div className="result-item">
-              <div className="table-responsive-md">
+              <div className="table-responsive-md position-relative">
                 <table className="table table-bordered">
                   <thead>
                     <tr>
@@ -83,13 +83,26 @@ class Result extends React.Component {
                         )}
                     </tr>    
                     <tr>                    
-                      <td colSpan="3">Всeго очков</td>
+                      <td colSpan="3">{result.countText}</td>
                       <td>{result.total}</td>
                     </tr>
                   </tbody>
-                </table>
-              </div>  
+                </table>               
+              </div>
+              <img 
+                className="img-result-table" 
+                src="./img/sponge-result-table.png" 
+                alt="SpongeBob"
+              />  
             </div>
+            <div className="title-item d-flex justify-content-between col-12 col-lg-10">
+             <h2 className="title-text-result">{result.resultText}</h2>
+             <img 
+                className="img-fluid img-result" 
+                src={result.resultImg} 
+                alt="SpongeBob"
+              />
+            </div>  
             <div className="btn-box-result">
               <Link to= "/" role="button" className="btn btn-danger" onClick={this.againTest}>Пройти тест заново</Link>
             </div>    

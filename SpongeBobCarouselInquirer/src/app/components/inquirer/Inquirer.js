@@ -47,8 +47,7 @@ class Inquirer extends React.Component {
 
       } else {     
       
-        this.setState({ submit: true, link: `/result` });
-        console.log('ehf')        
+        this.setState({ submit: true, link: `/result` });             
                  
       }   
 
@@ -170,7 +169,13 @@ class Inquirer extends React.Component {
 	  return ( 
 	     <div className="inquirer-container container">
           <div className="title-item">
-            <h1 className="title-text">Каждый правильный ответ - 20 очков!</h1>
+            <h2 className="title-text">Каждый правильный ответ - 20 очков!</h2>            
+          </div>
+          <div className="img-inquirer-title d-none d-md-block">
+            <img               
+              src="./img/patrick-inquirer.png" 
+              alt="SpongeBob"
+            />
           </div>       
 	  	    <form 
             onSubmit={this.state.submit === false ? this.onOpenModal : this.onHold}  
@@ -213,26 +218,33 @@ class Inquirer extends React.Component {
               </div>        		    
       		  </div>
             <div className="col-11 ask-three-curve">
-              <div className="ask-three">
+              <div className="d-flex flex-column ask-three">
                 <p>{askThree.ask}</p>
                 <span className="ask-proviso">{askThree.proviso}</span>
-                <ul className="ul-label">
-                  {askThree.ansArray.map( prop => {
-                    return (
-                      <li key={prop.key}>
-                        <input                        
-                          type="checkbox" 
-                          id={prop.id}
-                          name={prop.name} 
-                          value={prop.ans}
-                          onChange={this.handleCheckBox} 
-                          checked={this.state[prop.name]}
-                        />
-                        <label htmlFor={prop.id}>{prop.ans}</label>
-                      </li>
-                    )}  
-                  )}
-                </ul>                  
+                <div className="d-flex justify-content-between"> 
+                  <ul className="ul-label">
+                    {askThree.ansArray.map( prop => {
+                      return (
+                        <li key={prop.key}>
+                          <input                        
+                            type="checkbox" 
+                            id={prop.id}
+                            name={prop.name} 
+                            value={prop.ans}
+                            onChange={this.handleCheckBox} 
+                            checked={this.state[prop.name]}
+                          />
+                          <label htmlFor={prop.id}>{prop.ans}</label>
+                        </li>
+                      )}  
+                    )}
+                  </ul>
+                  <img
+                    className="img-inquirer img-fluid d-none d-md-block"  
+                    src="./img/sponge-inquirer.png" 
+                    alt="SpongeBob"
+                  />
+                </div>                    
               </div>                
             </div>
             <div className="col-11 col-lg-8 ask-four-curve">
@@ -286,9 +298,15 @@ class Inquirer extends React.Component {
                 role="button" 
                 className="btn btn-warning" 
                 onClick={this.state.submit === false ? this.onOpenModal : this.submit}>Проверить</Link>
-		          <button type="button" className="btn btn-danger" onClick={this.resetForm}>Очистить поля</button>	  	        
+		          <button type="button" className="btn btn-danger" onClick={this.resetForm}>Очистить поля</button>
+              <img  
+                className="img-inquirer d-none d-md-block"             
+                src="./img/gary-inquirer.png" 
+                alt="SpongeBob"
+              />	  	        
             </div>  
-	  	  </form>        
+	  	  </form>
+                
         <Modal 
             open={openModal}
             onClose={this.onCloseModal} 
@@ -296,10 +314,10 @@ class Inquirer extends React.Component {
             <h2>Каждый не отвеченный ответ считается
             неправильным. Вы уверены что хотите продолжить?
             <img 
-                className="img-modal img-fluid" 
+                className="img-modal img-fluid d-none d-sm-block" 
                 src="./img/patrick-modal.png" 
                 alt="SpongeBob"
-               />
+            />
             </h2>
             <div className="btn-box-modal">
               <Link to= "/result" role="button" className="btn btn-danger" onClick={this.submit}>Да</Link>

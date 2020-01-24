@@ -7,7 +7,7 @@ let ask_ans = {
 	ask2: 'Куда Спанч Боб ходит на работу?',
 	ask3: 'Кто живет по соседству со Спанч Бобом?',
 	ask4: 'Какими супергероями увлекаеться Спанч Боб?',
-	ask5: 'Кто самый лучший друг спанч боба?',
+	ask5: 'Кто самый лучший друг Cпанч Боба?',
 
 	ans1: 'ананас',
 	ans2: `В "Красти Краб"`,
@@ -36,13 +36,31 @@ let result_table_empty = {
 	point3: '',	   
     point4: '',
     point5: '',
-
-    totalPoint: '' 
+    
+    countText: '', 
+    totalPoint: '',
+    resultText: '',
+    resultImg: '' 
 }
 
 let	result_table = Object.assign({}, result_table_empty);
 
 if (resultTableStorage != null) result_table = resultTableStorage;
+
+let result_test = {
+
+	failed: 'Тест не пройден',
+	passed: 'Всего очков',
+	looser: 'Вы ничего не знаете про Спанч Боба!',
+	notEnough: 'О Cпанч Бобе вы знаете немного!',
+	enough: 'Вы неплохо знаете Спач Боба!',
+	winner: 'Спач Боба Вы знаете как самого себя!',
+
+	loserImg: './img/patrick-result.png',
+	notEnoughImg: './img/squidward-result.png',
+	enoughImg: './img/sandy-result.png',
+	winnerImg: './img/sponge-result.png'
+}
 
 
 let store = {
@@ -151,14 +169,13 @@ let store = {
 	    	  { key: 3, value: result_table.point5 }	
 
 		    ],
-		    total: result_table.totalPoint
+		    countText: result_table.countText,
+		    total: result_table.totalPoint,
+		    resultText: result_table.resultText,
+		    resultImg: result_table.resultImg
 
-		}],	
 
-
-
-  
-    message: ''
+		}]  
 
 }
 
@@ -226,7 +243,7 @@ export let getTest = (test) => {
 		store.result[0].tbodysect2[1].value = test.radioAsk1;
 		store.result[0].tbodysect2[2].value = 0;
 		result_table.ans2 = test.radioAsk1;
-		result_table.point2 = 20;
+		result_table.point2 = 0;
 	}
 
 	if (test.checkAsk1 == ask_ans.ans3_1 || test.checkAsk1 == ask_ans.ans3_2) {		
@@ -278,21 +295,23 @@ export let getTest = (test) => {
 		result_table.ans4 = test.selectAsk;
 		result_table.point4 = 20;
 
+	}
+
+	if (test.selectAsk != ask_ans.ans4) {		
+
+		store.result[0].tbodysect4[1].value = test.selectAsk;
+		store.result[0].tbodysect4[2].value = 0;
+		result_table.ans4 = test.selectAsk;
+		result_table.point4 = 0;		
 	} 
 
 	if (test.selectAsk === ask_ans.selectDefault) {
 		
-		store.result[0].tbodysect4[2].value = 0; 
+		store.result[0].tbodysect4[1].value = '';
+		store.result[0].tbodysect4[2].value = 0;
+		result_table.ans4 = ''; 
 		result_table.point4 = 0;
-	}
-
-	else {		
-
-		store.result[0].tbodysect4[1].value = test.selectAsk;
-		store.result[0].tbodysect4[2].value += 0;
-		result_table.ans4 = test.selectAsk;
-		result_table.point4 += 0;		
-	}
+	}	
 
 	if (test.radioAsk2 == ask_ans.ans5) {
 		
@@ -313,6 +332,51 @@ export let getTest = (test) => {
 	store.result[0].total = points;
 	result_table.totalPoint = points;
 
+	if (points == 0) {
+
+		store.result[0].countText = result_test.failed;
+		result_table.countText = result_test.failed;
+	}
+
+	else {
+
+		store.result[0].countText = result_test.passed;
+		result_table.countText = result_test.passed;
+	}
+
+	if (points <= 20) {
+
+		store.result[0].resultText = result_test.looser;
+		result_table.resultText = result_test.looser;
+		store.result[0].resultImg = result_test.loserImg;
+		result_table.resultImg = result_test.loserImg;
+	}
+
+    if (points > 20 && points <= 60) {
+
+		store.result[0].resultText = result_test.notEnough;
+		result_table.resultText = result_test.notEnough;
+		store.result[0].resultImg = result_test.notEnoughImg;
+		result_table.resultImg = result_test.notEnoughImg;
+	}
+
+	if (points > 60 && points <= 90) {
+
+		store.result[0].resultText = result_test.enough;
+		result_table.resultText = result_test.enough;
+		store.result[0].resultImg = result_test.enoughImg;
+		result_table.resultImg = result_test.enoughImg;
+
+	}
+
+	if (points == 100) {
+
+		store.result[0].resultText = result_test.winner;
+		result_table.resultText = result_test.winner;
+		store.result[0].resultImg = result_test.winnerImg;
+		result_table.resultImg = result_test.winnerImg;
+	}
+
 	sessionStorage.setItem('resultTable', JSON.stringify(result_table));
 	
 	rerenderEntireTree(store)
@@ -321,7 +385,8 @@ export let getTest = (test) => {
 export let anewTest = () => {
 
 	stateInquirer = Object.assign({}, stateInquirerEmpty);
-	result_table = Object.assign({}, result_table_empty);
+	result_table = Object.assign({}, result_table_empty);	
+	
 
 }
 

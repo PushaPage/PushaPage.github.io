@@ -5,16 +5,18 @@
 
 .result-container	
    @media (max-width: 590px)
-         .result-item,.table-bordered
+         .result-item,.table-bordered,.title-item
             transform: skew(0deg, 0deg)
+         .title-text-result
+            font-size: 25px   
    padding: 65px 0      
 
 .result-item
-   padding: 60px 20px 
+   padding: 60px 20px 0 
    text-align: center
    border: 2px solid rgba(142, 142, 147, .9)
    border-radius: 8px
-   margin: 20px auto
+   margin: 20px auto 35px
    transform: skew(2deg, 2deg)
    background: url("../../../img/bg-ask.jpg") no-repeat 50%/cover
    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22), inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1)
@@ -29,4 +31,21 @@
 
 .btn-box-result
    text-align: center
-   margin: 20px 0 40px   	
+   margin: 20px 0 40px
+
+.img-result-table
+  position: relative
+  display: block
+  margin-top: -10%
+  left: -3% 
+
+.title-text-result
+   font-weight: 600
+   margin: auto
+   letter-spacing: .5px
+   font-size: 30px
+
+.img-result
+   position: relative
+   display: block
+   margin-top: -24%   

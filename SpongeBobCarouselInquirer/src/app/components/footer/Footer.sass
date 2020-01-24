@@ -4,6 +4,9 @@
 
 footer	
 	flex: 0 0 auto
+	position: relative
 	height: 180px
 	background: url("../../../img/bg-body.jpg") no-repeat 50% 100% /cover
-	border-top: 10px solid rgba(142, 142, 147, .9)		
+	&:before
+		@include pseudofill		
+		background: linear-gradient(to bottom, rgba(142, 142, 147, .9)4px, rgba(142, 142, 147, 0)15px)		
