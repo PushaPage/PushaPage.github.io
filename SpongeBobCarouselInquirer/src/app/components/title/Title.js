@@ -19,19 +19,25 @@ class Title extends React.Component {
     	
       return (      
           <div className="title-container container">
-             <div className="text-center">
-	             <img 
+            <div className="text-center">
+	            <img 
 	             	className="img-title img-fluid" 
 	             	src="./img/title.png" 
 	             	alt="SpongeBob"
-	             />
-	         </div>
-	         <div className="title-item col-11 col-lg-10">
-	         	<h1 className="title-text">Как хорощо ты знаешь Спанч Боба?</h1>
-	         </div>
-	         <div className="text-center">	    	
-             	<Link className="btn btn-danger btn-title" to="/inquirer" role="button">Проверить!!!</Link>
-             </div>	                            
+	            />
+	          </div>
+	          <div className="title-item col-11 col-lg-10">
+	         	 <h1 className="title-text">Как хорошо ты знаешь Спанч Боба?</h1>
+	          </div>	         
+            <div className="btn-box-title">	    	
+             	<Link className="btn btn-danger btn-title m-0" to="/inquirer" role="button">Проверить!!!</Link>
+              <div className="jelly-fish-animate-near-btn">
+                <div className="jelly-fish"></div>
+              </div>
+            </div>         
+            <div className="jelly-fish-animate">
+              <div className="jelly-fish"></div>
+            </div>	                            
           </div>    
       );
   } 

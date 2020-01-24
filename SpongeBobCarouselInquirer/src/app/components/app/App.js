@@ -27,8 +27,8 @@ class App extends React.Component {
 
       return (      
           <div className="app-wrapper">
-              <div className="content">                        
-                  <Header />                                                                        
+              <div className="content">                                     
+                  <Header />                                                                                          
                   <Switch>
                     <Route exact path="/" render={ () => <Title /> } />                                      
                     <Route 
@@ -42,8 +42,8 @@ class App extends React.Component {
                                       /> } 
                     />
                     <Route exact path="/result" render={ () => <Result result={result} anewTest={anewTest} /> } />               
-                  </Switch>                  
-              </div>         
+                  </Switch>                                       
+              </div>                       
               <Footer />                              
           </div>    
       );
