@@ -207,12 +207,13 @@
 
 						porfolioJs: {
 
-							0: 'Игра',
-							1: 'Крестики-нолики',
-							2: 'Бесконечная карусель',
-							3: 'Смена имени в сказке',
-							4: 'Список дел (c редактированием)',
-							5: 'Секундомер'
+							0: 'Опросник',	
+							1: 'Игра',
+							2: 'Крестики-нолики',
+							3: 'Бесконечная карусель',
+							4: 'Смена имени в сказке',
+							5: 'Список дел (c редактированием)',
+							6: 'Секундомер'
 
 						},
 
@@ -320,12 +321,13 @@
 
 						porfolioJs: {
 
-							0: 'Game',
-							1: 'Tick-tack-toe',
-							2: 'Endless carousel',
-							3: 'Fable tale change',
-							4: 'To-do list (with editing)',
-							5: 'Stopwatch'
+							0: 'Inquirer',
+							1: 'Game',
+							2: 'Tick-tack-toe',
+							3: 'Endless carousel',
+							4: 'Fable tale change',
+							5: 'To-do list (with editing)',
+							6: 'Stopwatch'
 							
 						},
 
