@@ -17,7 +17,7 @@
             url('../fonts/Anton/Anton-Regular.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
-    }
+    }  
     @font-face {
         font-family: 'Cuprum';
         src: url('../fonts/Cuprum/Cuprum-Regular.eot');
