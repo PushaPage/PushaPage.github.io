@@ -25,12 +25,12 @@ class App extends React.Component {
         result = this.props.store.result,
         anewTest = this.props.anewTest;   
 
-      return (      
+      return (         
           <div className="app-wrapper">
               <div className="content">                                     
-                  <Header />                                                                                          
-                  <Switch>
-                    <Route exact path="/" render={ () => <Title /> } />                                      
+                  <Header />                                                                                                   
+                  <Switch>                   
+                    <Route exact path="/" render={ () => <Title /> } />                                                         
                     <Route 
                       exact
                       path="/inquirer" 
@@ -41,8 +41,8 @@ class App extends React.Component {
                                         stateInquirerEmpty={stateInquirerEmpty}
                                       /> } 
                     />
-                    <Route exact path="/result" render={ () => <Result result={result} anewTest={anewTest} /> } />               
-                  </Switch>                                       
+                    <Route exact path="/result" render={ () => <Result result={result} anewTest={anewTest} /> } />                                 
+                  </Switch>                                                         
               </div>                       
               <Footer />                              
           </div>    

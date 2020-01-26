@@ -21,7 +21,7 @@ class Title extends React.Component {
           <div className="title-container container">
             <div className="text-center">
               <picture>
-                <source srcset="./img/title-md.png" media="(max-width: 768px)" />
+                <source srcSet="./img/title-md.png" media="(max-width: 768px)" />
                 <img 
                   className="img-title img-fluid" 
                   src="./img/title.png" 
