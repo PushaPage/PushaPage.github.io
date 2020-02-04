@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter as Router } from 'react-router-dom';
-// import stoore from './components/redux/ReduxStore';
 import { questions, answers, result, getTest, stateInquirer, stateInquirerDefault, anewTest, subscribe } from './components/store/Store';
 import App from './components/app/App.js';
 import './components/sass-utils/fonts.css';
