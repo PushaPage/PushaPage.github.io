@@ -1,7 +1,7 @@
-import { rerenderEntireTree } from '../render/Render';
+let rerenderEntireTree;
 
 
-let ask_ans = {
+export let questions = {
 
 	ask1: 'Какой тропический плод исользует Спанч Боб вместо недвижимого имущества?',	
 	ask2: 'Куда Спанч Боб ходит на работу?',
@@ -9,21 +9,70 @@ let ask_ans = {
 	ask4: 'Какими супергероями увлекаеться Спанч Боб?',
 	ask5: 'Кто самый лучший друг Cпанч Боба?',
 
+	inputPlaceholder: 'Введите правильный ответ...',
+    selectDefault: 'Выберете правильный ответ...',
+    selectName: 'selectAsk',
+    patternText: `^[А-Яа-яЁё|a-zA-Z\s]+$`,
+    checkProviso: '(Правельных ответов должно быть 2)'
+
+};
+
+let correctAnswers = {
+
 	ans1: 'ананас',
 	ans2: `В "Красти Краб"`,
 	ans3_1: 'Сквидвард Квентин Тентаклс',
 	ans3_2: 'Патрик Стар',    
     ans4: 'Морской Супермен и Очкарик',
-    ans5: 'Патрик Стар',
+    ans5: 'Патрик Стар'
 
-    inputPlaceholder: 'Введите правильный ответ...',
-    selectDefault: 'Выберете правильный ответ...'   
+};
 
-}
+
+export let answers = {
+
+	answersRadioOne: [        
+
+        		{ key: 1, id: 'radioAsk1', name: 'radioAsk1', ans: 'На завод' },
+        		{ key: 2, id: 'radioAsk2', name: 'radioAsk1', ans: `В "Мусорное Ведро"` },
+        		{ key: 3, id: 'radioAsk3', name: 'radioAsk1', ans: correctAnswers.ans2 },
+        		{ key: 4, id: 'radioAsk4', name: 'radioAsk1', ans: 'Он не работает, он фрилансер' }
+        	],       
+           	  
+    answersCheckBox: [
+
+        		{ key: 1, id: 'CheckAsk1', name: 'check1', check: true, ans: 'Джамбо Креветка' },
+        		{ key: 2, id: 'CheckAsk2', name: 'check2', check: true, ans: correctAnswers.ans3_1 },
+        		{ key: 3, id: 'CheckAsk3', name: 'check3', check: true, ans: 'Миссис Пафф' },
+        		{ key: 4, id: 'CheckAsk4', name: 'check4', check: true, ans: correctAnswers.ans3_2 },
+        		{ key: 5, id: 'CheckAsk5', name: 'check5', check: true, ans: 'Бабл Бас' }
+        	],
+    
+    answersSelect: [
+
+        		{ key: 1, hidden: true, disabled: true, ans: questions.selectDefault },
+        		{ key: 2, hidden: false, disabled: false, ans: 'Аквамен и Нептун' },
+        		{ key: 3, hidden: false, disabled: false, ans: 'Мисс Невидимка и Профессор Магма' },
+        		{ key: 4, hidden: false, disabled: false, ans: 'СпанчерМен и Патрикарик' },
+        		{ key: 5, hidden: false, disabled: false, ans: 'Бэтман и Робин' },
+        		{ key: 6, hidden: false, disabled: false, ans: correctAnswers.ans4 },
+        		{ key: 7, hidden: false, disabled: false, ans: 'Пыхарь и Хроник' },
+        	],
+
+    answersRadioTwo: [
+
+        		{ key: 1, id: 'radioAsk2_1', name: 'radioAsk2', ans: 'Улитка Гэри' },
+        		{ key: 2, id: 'radioAsk2_2', name: 'radioAsk2', ans: 'Сэнди Чикс' },
+        		{ key: 3, id: 'radioAsk2_3', name: 'radioAsk2', ans: correctAnswers.ans5 },
+        		{ key: 4, id: 'radioAsk2_4', name: 'radioAsk2', ans: 'Сквидвард Квентин Тентаклс' }
+        	]        
+};
+
+
 
 let resultTableStorage = JSON.parse(sessionStorage.getItem('resultTable')) || null;
 
-let result_table_empty = {
+let resultTableDefault = {
 
 	ans1: '',
 	ans2: '',
@@ -43,9 +92,9 @@ let result_table_empty = {
     resultImg: '' 
 }
 
-let	result_table = Object.assign({}, result_table_empty);
+let	resultTable = Object.assign({}, resultTableDefault);
 
-if (resultTableStorage != null) result_table = resultTableStorage;
+if (resultTableStorage != null) resultTable = resultTableStorage;
 
 let result_test = {
 
@@ -62,128 +111,67 @@ let result_test = {
 	winnerImg: './img/sponge-result.png'
 }
 
+export let result = {
 
-let store = {
-	questions: [
+	thead: [
 
-	  	{        	
-        	ask: ask_ans.ask1, 
-        	pattern: `^[А-Яа-яЁё|a-zA-Z\s]+$`,
-        	placeholder: ask_ans.inputPlaceholder
-        },
-        {        	
-        	ask: ask_ans.ask2,        	
-        	ansArray: [
+	    	{ key: 1, value: '#' },
+	    	{ key: 2, value: 'Вопрос' },
+	    	{ key: 3, value: 'Ответ' },
+	    	{ key: 4, value: 'Очки' }
+	],
 
-        		{ key: 1, id: 'radioAsk1', name: 'radioAsk1', ans: 'На завод' },
-        		{ key: 2, id: 'radioAsk2', name: 'radioAsk1', ans: `В "Мусорное Ведро"` },
-        		{ key: 3, id: 'radioAsk3', name: 'radioAsk1', ans: ask_ans.ans2 },
-        		{ key: 4, id: 'radioAsk4', name: 'radioAsk1', ans: 'Он не работает, он фрилансер' }
-        	]
-        },
-        {        	
-        	ask: ask_ans.ask3, 
-        	proviso: '(Правельных ответов должно быть 2)',        	  
-        	ansArray: [
+	sect1: 1,
+    tbodysect1: [
 
-        		{ key: 1, id: 'CheckAsk1', name: 'check1', check: true, ans: 'Джамбо Креветка' },
-        		{ key: 2, id: 'CheckAsk2', name: 'check2', check: true, ans: ask_ans.ans3_1 },
-        		{ key: 3, id: 'CheckAsk3', name: 'check3', check: true, ans: 'Миссис Пафф' },
-        		{ key: 4, id: 'CheckAsk4', name: 'check4', check: true, ans: ask_ans.ans3_2 },
-        		{ key: 5, id: 'CheckAsk5', name: 'check5', check: true, ans: 'Бабл Бас' },
-        	]
-        },
-        {        	
-        	ask: ask_ans.ask4,         	
-        	name: 'selectAsk', 
-        	ansArray: [
-
-        		{ key: 1, hidden: true, disabled: true, ans: ask_ans.selectDefault },
-        		{ key: 2, hidden: false, disabled: false, ans: 'Аквамен и Нептун' },
-        		{ key: 3, hidden: false, disabled: false, ans: 'Мисс Невидимка и Профессор Магма' },
-        		{ key: 4, hidden: false, disabled: false, ans: 'СпанчерМен и Патрикарик' },
-        		{ key: 5, hidden: false, disabled: false, ans: 'Бэтман и Робин' },
-        		{ key: 6, hidden: false, disabled: false, ans: ask_ans.ans4 },
-        		{ key: 7, hidden: false, disabled: false, ans: 'Пыхарь и Хроник' },
-        	]
-        },
-        {        	
-        	ask: ask_ans.ask5,  
-        	ansArray: [
-
-        		{ key: 1, id: 'radioAsk2_1', name: 'radioAsk2', ans: 'Улитка Гэри' },
-        		{ key: 2, id: 'radioAsk2_2', name: 'radioAsk2', ans: 'Сэнди Чикс' },
-        		{ key: 3, id: 'radioAsk2_3', name: 'radioAsk2', ans: ask_ans.ans5 },
-        		{ key: 4, id: 'radioAsk2_4', name: 'radioAsk2', ans: 'Сквидвард Квентин Тентаклс' }
-        	]
-        }
-    ],
-    result: [{
-
-    	
-    		thead: [
-
-	    	  { key: 1, value: '#' },
-	    	  { key: 2, value: 'Вопрос' },
-	    	  { key: 3, value: 'Ответ' },
-	    	  { key: 4, value: 'Очки' }
-		    ],
-
-		    sect1: 1,
-		    tbodysect1: [
-
-		      { key: 1, value: ask_ans.ask1 },
-	    	  { key: 2, value: result_table.ans1 },
-	    	  { key: 3, value: result_table.point1 }	
+		    { key: 1, value: questions.ask1 },
+	    	{ key: 2, value: resultTable.ans1 },
+	    	{ key: 3, value: resultTable.point1 }	
 
 		    ],
-		    sect2: 2,
-		    tbodysect2: [
+	sect2: 2,
+	tbodysect2: [
 
-		      { key: 1, value: ask_ans.ask2 },
-	    	  { key: 2, value: result_table.ans2 },
-	    	  { key: 3, value: result_table.point2 }	
-
-		    ],
-		    sect3: 3,
-		    tbodysect3: [
-
-		      { key: 1, value: ask_ans.ask3 },
-	    	  { key: 2, value: result_table.ans3 },
-	    	  { key: 3, value: result_table.point3 }	
+		    { key: 1, value: questions.ask2 },
+	    	{ key: 2, value: resultTable.ans2 },
+	    	{ key: 3, value: resultTable.point2 }	
 
 		    ],
-		    sect4: 4,
-		    tbodysect4: [
+	sect3: 3,
+	tbodysect3: [
 
-		      { key: 1, value: ask_ans.ask4 },
-	    	  { key: 2, value: result_table.ans4 },
-	    	  { key: 3, value: result_table.point4 }	
-
-		    ],
-		    sect5: 5,
-		    tbodysect5: [
-
-		      { key: 1, value: ask_ans.ask5 },
-	    	  { key: 2, value: result_table.ans5 },
-	    	  { key: 3, value: result_table.point5 }	
+		    { key: 1, value: questions.ask3 },
+	    	{ key: 2, value: resultTable.ans3 },
+	    	{ key: 3, value: resultTable.point3 }	
 
 		    ],
-		    countText: result_table.countText,
-		    total: result_table.totalPoint,
-		    resultText: result_table.resultText,
-		    resultImg: result_table.resultImg
+	sect4: 4,
+	tbodysect4: [
 
+		    { key: 1, value: questions.ask4 },
+	    	{ key: 2, value: resultTable.ans4 },
+	    	{ key: 3, value: resultTable.point4 }	
 
-		}]  
+		    ],
+	sect5: 5,
+	tbodysect5: [
 
+		      { key: 1, value: questions.ask5 },
+	    	  { key: 2, value: resultTable.ans5 },
+	    	  { key: 3, value: resultTable.point5 }	
+
+		    ],
+	countText: resultTable.countText,
+	total: resultTable.totalPoint,
+	resultText: resultTable.resultText,
+	resultImg: resultTable.resultImg
 }
 
-let stateInquirerStorage = JSON.parse(sessionStorage.getItem('stateInquirer')) || null;
-	
+
+let stateInquirerStorage = JSON.parse(sessionStorage.getItem('stateInquirer')) || null;	
 
 
-export let stateInquirerEmpty = {
+export let stateInquirerDefault = {
 
 		openModal: false,
 		submit: false,
@@ -203,7 +191,7 @@ export let stateInquirerEmpty = {
 
     }
 
-export let stateInquirer = Object.assign({}, stateInquirerEmpty);		
+export let stateInquirer = Object.assign({}, stateInquirerDefault);		
 
        if (stateInquirerStorage != null) stateInquirer = stateInquirerStorage;
 
@@ -213,185 +201,189 @@ export let getTest = (test) => {
 
 	let points = 0;
 
-	if (test.inputAsk.toLowerCase() == ask_ans.ans1) {
+	if (test.inputAsk.toLowerCase() === correctAnswers.ans1) {
 		
-		store.result[0].tbodysect1[1].value = test.inputAsk;
-		store.result[0].tbodysect1[2].value = 20;
+		result.tbodysect1[1].value = test.inputAsk;
+		result.tbodysect1[2].value = 20;
 		points += 20;
-		result_table.ans1 = test.inputAsk;
-		result_table.point1 = 20;
+		resultTable.ans1 = test.inputAsk;
+		resultTable.point1 = 20;
 
 	} else {
 
-		store.result[0].tbodysect1[1].value = test.inputAsk;
-		store.result[0].tbodysect1[2].value = 0;
-		result_table.ans1 = test.inputAsk;
-		result_table.point1 = 0;
+		result.tbodysect1[1].value = test.inputAsk;
+		result.tbodysect1[2].value = 0;
+		resultTable.ans1 = test.inputAsk;
+		resultTable.point1 = 0;
 
 	}
 
-	if (test.radioAsk1 == ask_ans.ans2) {
+	if (test.radioAsk1 === correctAnswers.ans2) {
 		
-		store.result[0].tbodysect2[1].value = test.radioAsk1;
-		store.result[0].tbodysect2[2].value = 20;
+		result.tbodysect2[1].value = test.radioAsk1;
+		result.tbodysect2[2].value = 20;
 		points += 20;
-		result_table.ans2 = test.radioAsk1;
-		result_table.point2 = 20;
+		resultTable.ans2 = test.radioAsk1;
+		resultTable.point2 = 20;
 
 	} else {
 
-		store.result[0].tbodysect2[1].value = test.radioAsk1;
-		store.result[0].tbodysect2[2].value = 0;
-		result_table.ans2 = test.radioAsk1;
-		result_table.point2 = 0;
+		result.tbodysect2[1].value = test.radioAsk1;
+		result.tbodysect2[2].value = 0;
+		resultTable.ans2 = test.radioAsk1;
+		resultTable.point2 = 0;
 	}
 
-	if (test.checkAsk1 == ask_ans.ans3_1 || test.checkAsk1 == ask_ans.ans3_2) {		
+	if (test.checkAsk1 === correctAnswers.ans3_1 || test.checkAsk1 === correctAnswers.ans3_2) {		
 
-		store.result[0].tbodysect3[1].value = test.checkAsk1;
-		store.result[0].tbodysect3[2].value = 10;		
+		result.tbodysect3[1].value = test.checkAsk1;
+		result.tbodysect3[2].value = 10;		
 		points += 10;
-		result_table.ans3 = test.checkAsk1;
-		result_table.point3 = 20;
+		resultTable.ans3 = test.checkAsk1;
+		resultTable.point3 = 20;
 
 	} else {		
 
-		store.result[0].tbodysect3[1].value = test.checkAsk1;
-		store.result[0].tbodysect3[2].value = 0;
-		result_table.ans3 = test.checkAsk1;
-		result_table.point3 = 0;
+	    result.tbodysect3[1].value = test.checkAsk1;
+		result.tbodysect3[2].value = 0;
+		resultTable.ans3 = test.checkAsk1;
+		resultTable.point3 = 0;
 	}
 	
-	if (test.checkAsk2 == ask_ans.ans3_1 || test.checkAsk2 == ask_ans.ans3_2) {		
+	if (test.checkAsk2 === correctAnswers.ans3_1 || test.checkAsk2 === correctAnswers.ans3_2) {		
 
-		store.result[0].tbodysect3[1].value += ' ' + 'и' + ' ' + test.checkAsk2;
-		store.result[0].tbodysect3[2].value += 10;		
+		result.tbodysect3[1].value += ' ' + 'и' + ' ' + test.checkAsk2;
+		result.tbodysect3[2].value += 10;		
 		points += 10;
-		result_table.ans3 += ' ' + 'и' + ' ' + test.checkAsk2;
-		result_table.point3 += 10;
+		resultTable.ans3 += ' ' + 'и' + ' ' + test.checkAsk2;
+		resultTable.point3 += 10;
 
 	} else {
 		
-		if (test.checkAsk2 == '') {
+		if (test.checkAsk2 === '') {
 		
-			store.result[0].tbodysect3[1].value += '';
-			result_table.ans3 += '';
+			result.tbodysect3[1].value += '';
+			resultTable.ans3 += '';
 
 		} else {	
 
-			store.result[0].tbodysect3[1].value += ' ' + 'и' + ' ' + test.checkAsk2;
-			result_table.ans3 += ' ' + 'и' + ' ' + test.checkAsk2;			
+			result.tbodysect3[1].value += ' ' + 'и' + ' ' + test.checkAsk2;
+			resultTable.ans3 += ' ' + 'и' + ' ' + test.checkAsk2;			
 		}
 
-		store.result[0].tbodysect3[2].value += 0;
-		result_table.point3 += 0;
+		result.tbodysect3[2].value += 0;
+		resultTable.point3 += 0;
 	}
 
-	if (test.selectAsk === ask_ans.ans4) {
+	if (test.selectAsk === correctAnswers.ans4) {
 
-		store.result[0].tbodysect4[1].value = test.selectAsk;
-		store.result[0].tbodysect4[2].value = 20;
+		result.tbodysect4[1].value = test.selectAsk;
+		result.tbodysect4[2].value = 20;
 		points += 20;
-		result_table.ans4 = test.selectAsk;
-		result_table.point4 = 20;
+		resultTable.ans4 = test.selectAsk;
+		resultTable.point4 = 20;
 
 	}
 
-	if (test.selectAsk != ask_ans.ans4) {		
+	if (test.selectAsk != correctAnswers.ans4) {		
 
-		store.result[0].tbodysect4[1].value = test.selectAsk;
-		store.result[0].tbodysect4[2].value = 0;
-		result_table.ans4 = test.selectAsk;
-		result_table.point4 = 0;		
+		result.tbodysect4[1].value = test.selectAsk;
+		result.tbodysect4[2].value = 0;
+		resultTable.ans4 = test.selectAsk;
+		resultTable.point4 = 0;		
 	} 
 
-	if (test.selectAsk === ask_ans.selectDefault) {
+	if (test.selectAsk === questions.selectDefault) {
 		
-		store.result[0].tbodysect4[1].value = '';
-		store.result[0].tbodysect4[2].value = 0;
-		result_table.ans4 = ''; 
-		result_table.point4 = 0;
+		result.tbodysect4[1].value = '';
+		result.tbodysect4[2].value = 0;
+		resultTable.ans4 = ''; 
+		resultTable.point4 = 0;
 	}	
 
-	if (test.radioAsk2 == ask_ans.ans5) {
+	if (test.radioAsk2 === correctAnswers.ans5) {
 		
-		store.result[0].tbodysect5[1].value = test.radioAsk2;
-		store.result[0].tbodysect5[2].value = 20;
+		result.tbodysect5[1].value = test.radioAsk2;
+		result.tbodysect5[2].value = 20;
 		points += 20;
-		result_table.ans5 = test.radioAsk2;
-		result_table.point5 = 20;
+		resultTable.ans5 = test.radioAsk2;
+		resultTable.point5 = 20;
 
 	} else {
 
-		store.result[0].tbodysect5[1].value = test.radioAsk2;
-		store.result[0].tbodysect5[2].value = 0;
-		result_table.ans5 = test.radioAsk2;
-		result_table.point5 = 0;
+		result.tbodysect5[1].value = test.radioAsk2;
+		result.tbodysect5[2].value = 0;
+		resultTable.ans5 = test.radioAsk2;
+		resultTable.point5 = 0;
 	}
 
-	store.result[0].total = points;
-	result_table.totalPoint = points;
+	result.total = points;
+	resultTable.totalPoint = points;
 
-	if (points == 0) {
+	if (points === 0) {
 
-		store.result[0].countText = result_test.failed;
-		result_table.countText = result_test.failed;
+		result.countText = result_test.failed;
+		resultTable.countText = result_test.failed;
 	}
 
 	else {
 
-		store.result[0].countText = result_test.passed;
-		result_table.countText = result_test.passed;
+		result.countText = result_test.passed;
+		resultTable.countText = result_test.passed;
 	}
 
 	if (points <= 20) {
 
-		store.result[0].resultText = result_test.looser;
-		result_table.resultText = result_test.looser;
-		store.result[0].resultImg = result_test.loserImg;
-		result_table.resultImg = result_test.loserImg;
+		result.resultText = result_test.looser;		
+		result.resultImg = result_test.loserImg;		
+		resultTable.resultText = result_test.looser;		
+		resultTable.resultImg = result_test.loserImg;
 	}
 
     if (points > 20 && points <= 60) {
 
-		store.result[0].resultText = result_test.notEnough;
-		result_table.resultText = result_test.notEnough;
-		store.result[0].resultImg = result_test.notEnoughImg;
-		result_table.resultImg = result_test.notEnoughImg;
+		result.resultText = result_test.notEnough;		
+		result.resultImg = result_test.notEnoughImg;		
+		resultTable.resultText = result_test.notEnough;		
+		resultTable.resultImg = result_test.notEnoughImg;
 	}
 
 	if (points > 60 && points <= 90) {
 
-		store.result[0].resultText = result_test.enough;
-		result_table.resultText = result_test.enough;
-		store.result[0].resultImg = result_test.enoughImg;
-		result_table.resultImg = result_test.enoughImg;
+		result.resultText = result_test.enough;		
+		result.resultImg = result_test.enoughImg;		
+		resultTable.resultText = result_test.enough;		
+		resultTable.resultImg = result_test.enoughImg;
 
 	}
 
-	if (points == 100) {
+	if (points === 100) {
 
-		store.result[0].resultText = result_test.winner;
-		result_table.resultText = result_test.winner;
-		store.result[0].resultImg = result_test.winnerImg;
-		result_table.resultImg = result_test.winnerImg;
+		result.resultText = result_test.winner;	
+		result.resultImg = result_test.winnerImg;		
+		resultTable.resultText = result_test.winner;		
+		resultTable.resultImg = result_test.winnerImg;
 	}
 
-	sessionStorage.setItem('resultTable', JSON.stringify(result_table));
+	sessionStorage.setItem('resultTable', JSON.stringify(resultTable));
 	
-	rerenderEntireTree(store)
+	rerenderEntireTree(result)
 }
 
 export let anewTest = () => {
 
-	stateInquirer = Object.assign({}, stateInquirerEmpty);
-	result_table = Object.assign({}, result_table_empty);	
+	stateInquirer = Object.assign({}, stateInquirerDefault);
+	resultTable = Object.assign({}, resultTableDefault);	
 	
 
 }
 
+export let subscribe = (observer) => {
+
+    rerenderEntireTree = observer;
+
+} 
 
 
 
 
-export default store;

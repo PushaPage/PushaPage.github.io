@@ -25,7 +25,18 @@ class Result extends React.Component {
     
     render() {  	
       
-      let result = this.props.result[0];
+      let result = this.props.result;
+
+      let {
+
+          thead,
+          tbodysect1,
+          tbodysect2,
+          tbodysect3,
+          tbodysect4,
+          tbodysect5
+          
+      } = this.props.result;
 
       return (      
           <div className="result-container container">
@@ -34,7 +45,7 @@ class Result extends React.Component {
                 <table className="table table-bordered">
                   <thead>
                     <tr>
-                      {result.thead.map( prop => {
+                      {thead.map( prop => {
                         return (
                           <th scope="col" key={prop.key}>{prop.value}</th>
                         )}  
@@ -44,7 +55,7 @@ class Result extends React.Component {
                   <tbody>
                     <tr>
                       <th scope="row">{result.sect1}</th>
-                        {result.tbodysect1.map( prop => {
+                        {tbodysect1.map( prop => {
                           return (
                             <td key={prop.key}>{prop.value}</td>
                           )}  
@@ -52,7 +63,7 @@ class Result extends React.Component {
                     </tr>
                     <tr>
                       <th scope="row">{result.sect2}</th>
-                        {result.tbodysect2.map( prop => {
+                        {tbodysect2.map( prop => {
                           return (
                             <td key={prop.key}>{prop.value}</td>
                           )}  
@@ -60,7 +71,7 @@ class Result extends React.Component {
                     </tr>
                     <tr>
                       <th scope="row">{result.sect3}</th>
-                        {result.tbodysect3.map( prop => {
+                        {tbodysect3.map( prop => {
                           return (
                             <td key={prop.key}>{prop.value}</td>
                           )}  
@@ -68,7 +79,7 @@ class Result extends React.Component {
                     </tr>
                     <tr>
                       <th scope="row">{result.sect4}</th>
-                        {result.tbodysect4.map( prop => {
+                        {tbodysect4.map( prop => {
                           return (
                             <td key={prop.key}>{prop.value}</td>
                           )}  
@@ -76,7 +87,7 @@ class Result extends React.Component {
                     </tr>
                     <tr>
                       <th scope="row">{result.sect5}</th>
-                        {result.tbodysect5.map( prop => {
+                        {tbodysect5.map( prop => {
                           return (
                             <td key={prop.key}>{prop.value}</td>
                           )}  

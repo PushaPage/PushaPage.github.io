@@ -132,9 +132,9 @@ class Inquirer extends React.Component {
   
     sessionStorage.removeItem('stateInquirer')    
     
-    for (let key in this.props.stateInquirerEmpty) {
+    for (let key in this.props.stateInquirerDefault) {
 
-      this.setState({ [key]: this.props.stateInquirerEmpty[key] });      
+      this.setState({ [key]: this.props.stateInquirerDefault[key] });      
     }
   }
 
@@ -158,11 +158,17 @@ class Inquirer extends React.Component {
 
 	render() {
 
-    let askOne = this.props.questions[0],
-        askTwo = this.props.questions[1],
-        askThree = this.props.questions[2],
-        askFour = this.props.questions[3],
-        askFive = this.props.questions[4];
+    let questions = this.props.questions;        
+
+    let {
+
+        answersRadioOne,
+        answersCheckBox,
+        answersSelect,
+        answersRadioTwo
+
+    } = this.props.answers;  
+        
 
     let { openModal, link } = this.state;               	
 
@@ -182,7 +188,7 @@ class Inquirer extends React.Component {
             onChange={this.checkSubmit}> 
             <div className="col-11 col-lg-10 ask-one-curve">
               <div className="ask-one">
-                <p>{askOne.ask}</p>      
+                <p>{questions.ask1}</p>      
   	  	        <input 
                   className="form-control" 
                   onChange={this.handleInput} 
@@ -190,16 +196,16 @@ class Inquirer extends React.Component {
                   value={this.state.inputAsk} 
                   type="text"
                   autoComplete="off"
-                  placeholder={askOne.placeholder}
-                  pattern={askOne.pattern}
+                  placeholder={questions.inputPlaceholder}
+                  pattern={questions.pattern}
                 />
               </div>  
 	  	      </div>  
 	  	      <div className="col-11 col-lg-9 ask-two-curve">
               <div className="ask-two">
-                <p>{askTwo.ask}</p>
+                <p>{questions.ask2}</p>
                 <ul className="ul-label">
-                  {askTwo.ansArray.map( prop => {
+                  {answersRadioOne.map( prop => {
                     return (
                       <li key={prop.key}>
                 		    <input                        
@@ -219,11 +225,11 @@ class Inquirer extends React.Component {
       		  </div>
             <div className="col-11 ask-three-curve">
               <div className="d-flex flex-column ask-three">
-                <p>{askThree.ask}</p>
-                <span className="ask-proviso">{askThree.proviso}</span>
+                <p>{questions.ask3}</p>
+                <span className="ask-proviso">{questions.checkProviso}</span>
                 <div className="d-flex justify-content-between"> 
                   <ul className="ul-label">
-                    {askThree.ansArray.map( prop => {
+                    {answersCheckBox.map( prop => {
                       return (
                         <li key={prop.key}>
                           <input                        
@@ -249,14 +255,14 @@ class Inquirer extends React.Component {
             </div>
             <div className="col-11 col-lg-8 ask-four-curve">
               <div className="ask-four">
-                <p>{askFour.ask}</p>
+                <p>{questions.ask4}</p>
                   <select 
                     className="form-control"
-                    name={askFour.name} 
+                    name={questions.selectName} 
                     value={this.state.selectAsk}
                     onChange={this.handleSelect} 
                   >
-                  {askFour.ansArray.map( prop => {
+                  {answersSelect.map( prop => {
                     return (
                       <option
                         key={prop.key}
@@ -272,9 +278,9 @@ class Inquirer extends React.Component {
             </div>
             <div className="col-11 ask-five-curve">
               <div className="ask-five">
-                <p>{askFive.ask}</p>
+                <p>{questions.ask5}</p>
                 <ul className="ul-label">
-                  {askFive.ansArray.map( prop => {
+                  {answersRadioTwo.map( prop => {
                     return (
                       <li key={prop.key}>
                         <input                        

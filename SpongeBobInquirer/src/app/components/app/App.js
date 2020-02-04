@@ -13,17 +13,20 @@ class App extends React.Component {
 
     constructor(props) {
       super(props);
+      console.log(props)
 
     }  
     
     render() {
   	
-    let questions = this.props.store.questions,
+    let questions = this.props.questions,
+        answers = this.props.answers,
+        result = this.props.result, 
         stateInquirer = this.props.stateInquirer,
         getTest = this.props.getTest,
-        stateInquirerEmpty = this.props.stateInquirerEmpty,
-        result = this.props.store.result,
-        anewTest = this.props.anewTest;   
+        stateInquirerDefault = this.props.stateInquirerDefault,        
+        anewTest = this.props.anewTest;
+          
 
       return (         
           <div className="app-wrapper">
@@ -34,15 +37,17 @@ class App extends React.Component {
                     <Route 
                       exact
                       path="/inquirer" 
-                      render={ () =>  <Inquirer 
-                                        questions={questions}                             
+                      render={ () =>  <Inquirer                                        
+                                        questions={questions}
+                                        answers={answers}
+                                        result={result}                              
                                         getTest={getTest}
                                         stateInquirer={stateInquirer}
-                                        stateInquirerEmpty={stateInquirerEmpty}
+                                        stateInquirerDefault={stateInquirerDefault}
                                       /> } 
                     />
                     <Route exact path="/result" render={ () => <Result result={result} anewTest={anewTest} /> } />                                 
-                  </Switch>                                                         
+                  </Switch>                                                                          
               </div>                       
               <Footer />                              
           </div>    

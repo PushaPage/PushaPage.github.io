@@ -1,11 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import store from './components/store/Store';
-import { rerenderEntireTree } from './components/render/Render';
+import { HashRouter as Router } from 'react-router-dom';
+// import stoore from './components/redux/ReduxStore';
+import { questions, answers, result, getTest, stateInquirer, stateInquirerDefault, anewTest, subscribe } from './components/store/Store';
+import App from './components/app/App.js';
 import './components/sass-utils/fonts.css';
 
 		
-rerenderEntireTree(store)
 
 
 
+
+let rerenderEntireTree = (result) => {		
+
+ReactDOM.render(
+
+	<Router>		
+		<App
+			questions={questions}
+			answers={answers}
+			result={result} 			
+			stateInquirer={stateInquirer}
+			stateInquirerDefault={stateInquirerDefault}
+			getTest={getTest}
+			anewTest={anewTest}
+		/>		
+	</Router>,
+
+	document.getElementById('root')
+	);
+
+}
+
+rerenderEntireTree(result)
+
+subscribe(rerenderEntireTree)
