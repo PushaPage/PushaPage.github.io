@@ -92,9 +92,8 @@ let resultTableDefault = {
     resultImg: '' 
 }
 
-let	resultTable = Object.assign({}, resultTableDefault);
+let	resultTable = (resultTableStorage != null) ? resultTable = { ...resultTableStorage } : { ...resultTableDefault };
 
-if (resultTableStorage != null) resultTable = resultTableStorage;
 
 let result_test = {
 
@@ -191,9 +190,8 @@ export let stateInquirerDefault = {
 
     }
 
-export let stateInquirer = Object.assign({}, stateInquirerDefault);		
+export let stateInquirer = (stateInquirerStorage !== null) ? stateInquirer = {...stateInquirerStorage} : {...stateInquirerDefault};
 
-       if (stateInquirerStorage != null) stateInquirer = stateInquirerStorage;
 
 
 
@@ -370,13 +368,6 @@ export let getTest = (test) => {
 	rerenderEntireTree(result)
 }
 
-export let anewTest = () => {
-
-	stateInquirer = Object.assign({}, stateInquirerDefault);
-	resultTable = Object.assign({}, resultTableDefault);	
-	
-
-}
 
 export let subscribe = (observer) => {
 

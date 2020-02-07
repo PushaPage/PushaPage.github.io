@@ -12,8 +12,7 @@ import Footer from '../footer/Footer';
 class App extends React.Component {
 
     constructor(props) {
-      super(props);
-      console.log(props)
+      super(props);      
 
     }  
     
@@ -23,7 +22,7 @@ class App extends React.Component {
         answers = this.props.answers,
         result = this.props.result, 
         stateInquirer = this.props.stateInquirer,
-        getTest = this.props.getTest,
+        getTest = this.props.getTest,      
         stateInquirerDefault = this.props.stateInquirerDefault,        
         anewTest = this.props.anewTest;
           
@@ -41,12 +40,12 @@ class App extends React.Component {
                                         questions={questions}
                                         answers={answers}
                                         result={result}                              
-                                        getTest={getTest}
+                                        getTest={getTest}                                        
                                         stateInquirer={stateInquirer}
                                         stateInquirerDefault={stateInquirerDefault}
                                       /> } 
                     />
-                    <Route exact path="/result" render={ () => <Result result={result} anewTest={anewTest} /> } />                                 
+                    <Route exact path="/result" render={ () => <Result result={result} /> } />                                 
                   </Switch>                                                                          
               </div>                       
               <Footer />                              

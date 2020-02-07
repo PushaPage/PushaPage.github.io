@@ -13,10 +13,10 @@ class Title extends React.Component {
     constructor(props) {
       super(props);
 
-    }  
+    }     
     
     render() {
-    	
+
       return (      
           <div className="title-container container">
             <div className="text-center">

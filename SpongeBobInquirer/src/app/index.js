@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter as Router } from 'react-router-dom';
-import { questions, answers, result, getTest, stateInquirer, stateInquirerDefault, anewTest, subscribe } from './components/store/Store';
+import { questions, answers, result, getTest, stateInquirer, stateInquirerDefault, subscribe } from './components/store/Store';
 import App from './components/app/App.js';
 import './components/sass-utils/fonts.css';
 
@@ -21,8 +21,7 @@ ReactDOM.render(
 			result={result} 			
 			stateInquirer={stateInquirer}
 			stateInquirerDefault={stateInquirerDefault}
-			getTest={getTest}
-			anewTest={anewTest}
+			getTest={getTest}						
 		/>		
 	</Router>,
 

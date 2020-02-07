@@ -7,21 +7,9 @@ import './Inquirer.sass';
 class Inquirer extends React.Component {
 
   	constructor(props) {
-  		super(props);
+  		super(props);               		
       
-      this.handleInput = this.handleInput.bind(this)
-      this.handleRadio = this.handleRadio.bind(this)
-      this.handleCheckBox = this.handleCheckBox.bind(this)
-      this.handleSelect = this.handleSelect.bind(this)
-      this.resetForm = this.resetForm.bind(this)
-      this.onOpenModal = this.onOpenModal.bind(this) 
-      this.onCloseModal = this.onCloseModal.bind(this)
-      this.checkSubmit = this.checkSubmit.bind(this)
-      this.submit = this.submit.bind(this)
-      this.onHold = this.onHold.bind(this)     		
-        
-  		this.state = this.props.stateInquirer;  	
-
+  		this.state = { ...this.props.stateInquirer };       
 	}
 
   checkSubmit = () => {   
@@ -130,10 +118,11 @@ class Inquirer extends React.Component {
 
   resetForm = () => {    
   
-    sessionStorage.removeItem('stateInquirer')    
-    
+    sessionStorage.removeItem('stateInquirer')
+  
     for (let key in this.props.stateInquirerDefault) {
 
+      this.props.stateInquirer[key] = this.props.stateInquirerDefault[key];  
       this.setState({ [key]: this.props.stateInquirerDefault[key] });      
     }
   }
@@ -142,7 +131,7 @@ class Inquirer extends React.Component {
 
       this.props.getTest(this.state)
       this.resetForm()
-      this.onCloseModal()           
+      this.onCloseModal()                               
   }    
 
   onOpenModal = event => {

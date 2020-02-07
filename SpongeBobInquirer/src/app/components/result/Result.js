@@ -11,16 +11,15 @@ import './Result.sass';
 class Result extends React.Component {
 
     constructor(props) {
-      super(props)      
-     
-      this.againTest = this.againTest.bind(this) 
+      super(props)    
+      
 
     }
 
-    againTest = () => {
+    againTest = () => {     
 
       sessionStorage.removeItem('resultTable')
-      this.props.anewTest()
+      
     }  
     
     render() {  	
