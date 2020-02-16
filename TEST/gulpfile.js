@@ -8,15 +8,26 @@ const gulp = require('gulp'),
       cleanCSS = require('gulp-clean-css'),
       rename = require('gulp-rename'),
       uncss = require('gulp-uncss'),
+      htmlbeautify = require('gulp-html-beautify'),
       browserSync = require('browser-sync').create();
 
-gulp.task('sass', function(){
+gulp.task('sass', function() {
 	return gulp.src('./app/sass/*.scss')
 	.pipe(sourcemaps.init())
 	.pipe(sass().on('error', sass.logError))
 	.pipe(sourcemaps.write('./'))	
 	.pipe(gulp.dest('./app/css'))
 })
+
+gulp.task('htmlbeautify', function() {  
+  let options = [
+    {indentSize: 2}
+  ]
+  gulp.src('./app/*.html')
+    .pipe(htmlbeautify(options))
+    .pipe(gulp.dest('./public/'))
+});
+
 
 gulp.task('uncss',function(){
 	return gulp.src('./app/css/main.css')
