@@ -1,51 +1,71 @@
 
-const gulp = require('gulp');
-const sass = require('gulp-sass');
-const sourcemaps = require('gulp-sourcemaps');
-const watch = require('gulp-watch');
-const autoprefixer = require('gulp-autoprefixer');
-const cleanCSS = require('gulp-clean-css');
-const rename = require('gulp-rename');
-const uncss = require('gulp-uncss');
-const browserSync = require("browser-sync").create();
+const gulp = require('gulp'),
+      sass = require('gulp-sass'),
+      sourcemaps = require('gulp-sourcemaps'),
+      watch = require('gulp-watch'),
+      autoprefixer = require('gulp-autoprefixer'),
+      uglify = require('gulp-uglify-es').default,
+      cleanCSS = require('gulp-clean-css'),
+      rename = require('gulp-rename'),
+      uncss = require('gulp-uncss'),
+      htmlbeautify = require('gulp-html-beautify'),
+      browserSync = require('browser-sync').create();
 
-gulp.task('sass', function(){
-	return gulp.src('./app/sass/*.sass')
+gulp.task('sass', function() {
+	return gulp.src('./app/sass/*.scss')
 	.pipe(sourcemaps.init())
 	.pipe(sass().on('error', sass.logError))
 	.pipe(sourcemaps.write('./'))	
 	.pipe(gulp.dest('./app/css'))
 })
 
-// gulp.task('uncss',function(){
-// 	return gulp.src('./app/css/main.css')
-// 	.pipe(uncss({
-//             html: ['./app/index.html']
-//         }))	
-// 	.pipe(gulp.dest('./app/css'))
-
-// })
-
-gulp.task('auto', function(){
-	return gulp.src('./app/css/main.css')
-	 .pipe(autoprefixer({
-	 		overrideBrowserslist:  ['last 25 versions', '> 1%',
-    'IE 10'],
-            cascade: false
-        }))
-        .pipe(gulp.dest('./app/autoprefixer/'))
+gulp.task('htmlbeautify', function() {  
+  let options = [
+    {indentSize: 2}
+  ]
+  gulp.src('./app/*.html')
+    .pipe(htmlbeautify(options))
+    .pipe(gulp.dest('./public/'))
 });
 
-gulp.task('mincss', function(){
+
+gulp.task('uncss',function(){
+	return gulp.src('./app/css/main.css')
+	.pipe(uncss({
+            html: ['./app/index.html']
+        }))	
+	.pipe(gulp.dest('./app/css'))
+
+})
+
+gulp.task('auto', function() {
+	return gulp.src('./app/css/main.css')
+   .pipe(sourcemaps.init())
+	 .pipe(autoprefixer({
+	 		overrideBrowserslist:  ['IE 11', 'Safari 10', 'Firefox 57', 'Opera 50', 'Chrome 64', 'Edge 16'],
+            cascade: false
+        }))
+	 	.pipe(sourcemaps.write('./')) 
+    .pipe(gulp.dest('./app/autoprefixer/'))
+});
+
+gulp.task('mincss', function() {
 	return gulp.src('./app/css/main.css')	
-	.pipe(sourcemaps.init())
-    .pipe(cleanCSS())
-    .pipe(sourcemaps.write())
-    .pipe(rename('main.min.css'))        
+	  .pipe(sourcemaps.init())
+    .pipe(cleanCSS())    
+    .pipe(rename('main.min.css'))
+    .pipe(sourcemaps.write('./'))         
   	.pipe(gulp.dest('./app/css/'))
 });
 
-
+gulp.task('minify', function () {
+    return gulp.src('./app/js/main.js')
+    	  .pipe(sourcemaps.init())        
+        .pipe(rename('main.min.js'))
+        .pipe(uglify())
+        .pipe(sourcemaps.write('./')) 
+        .pipe(gulp.dest('./app/js/'))
+});
 
 
 
@@ -57,7 +77,7 @@ gulp.task('serve', function(){
 })
 
 gulp.task('watch', function(){
-	gulp.watch('./app/sass/*.sass', gulp.series('sass', 'auto'))
+	gulp.watch('./app/sass/*.scss', gulp.series('sass', 'auto'))
 })
 
 gulp.task('dev', gulp.series('sass',  gulp.parallel('watch', 'serve')));
