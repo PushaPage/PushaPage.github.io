@@ -1,0 +1,210 @@
+@import "../sass-utils/mixnis"
+@import "../sass-utils/vars"
+
+
+
+
+	
+.inquirer-container
+	padding-top: 40px
+	position: relative
+	z-index: 10			
+	p	
+		margin-bottom: 20px
+		font-size: 25px
+		display: inline-block
+		text-shadow: 0px -1px 1px #feff37, 0px 1px 1px #feff37
+	@media (max-width: 767px)
+		.title-text
+			font-size: 33px	
+	@media (max-width: 550px)
+		.styles_modal__gNwvD
+			transform: skew(0deg, 0deg)	
+		.ask-one-curve
+			transform: skew(2deg, 2deg)
+			.ask-one
+				transform: skew(-2deg, -2deg)
+	@media (max-width: 400px)				
+		p
+			font-size: 18px
+		.ask-proviso,label,.form-control
+			font-size: 16px
+		.ul-label
+			margin-left: 0		
+
+.img-inquirer-title
+	margin-top: -138px
+	margin-bottom: -80px 
+	position: relative
+	z-index: 10
+	@media (max-width: 1200px)
+		margin-left: -27px
+	@media (max-width: 991px)
+		margin-left: 0	
+
+.ul-label
+	margin-left: 18px
+
+.ask-proviso
+	font-size: 20px
+	margin-bottom: 15px	
+
+[class$=curve],
+.styles_modal__gNwvD   
+   padding: 40px
+   border: 2px solid rgba(142, 142, 147, .9)
+   border-radius: 8px    
+   margin: 20px auto
+   background: url("../../../img/bg-ask.jpg") no-repeat 50%/cover
+   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22), inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1)
+
+.ask-one-curve	
+	transform: skew(22deg, 2deg)	
+
+.ask-one
+	transform: skew(-22deg, -2deg)
+	
+.ask-two-curve	
+	transform: skew(2deg, 2deg)	
+
+label,.form-control
+	font-size: 18px
+	letter-spacing: .5px
+
+label
+	text-shadow: 0px -1px 1px #feff37, 0px 1px 1px #feff37
+
+input
+	&:focus::-webkit-input-placeholder
+		opacity: 0 
+		transition: opacity .3s ease
+	&:focus::-moz-placeholder
+		opacity: 0 
+		transition: opacity .3s ease       
+	&:focus:-moz-placeholder
+		opacity: 0 
+		transition: opacity .3s ease         
+	&:focus:-ms-input-placeholder
+		opacity: 0 
+		transition: opacity .3s ease		
+
+input[type="radio"],
+input[type="checkbox"]
+	display: none
+	&:checked+label:before
+		background: linear-gradient(to bottom, #145b32 0%, #fa9baf 100%)
+		box-shadow: inset 0px 1px 2px white, 0px 1px 3px rgba(0, 0, 0, 0.5)
+
+input[type="radio"]+label,
+input[type="checkbox"]+label
+	padding: 5px 5px 5px 30px
+	position: relative
+	margin-bottom: 0
+	cursor: pointer
+	&:before
+		content: ""
+		position: absolute
+		top: 50%
+		border-radius: 50%
+		transform: translateY(-50%)
+		left: 0
+		width: 18px
+		height: 18px
+		border: 2px solid #fff
+		box-shadow: inset 0px 11px 10px white, 0px 1px 3px rgba(0, 0, 0, 0.6)
+		background: grey
+
+input[type="checkbox"]+label	
+	&:before
+		border-radius: 0		
+
+.ask-three-curve,
+.ask-four-curve
+	transform: skew(-1deg, 2deg)
+	
+
+.ask-three,
+.ask-four
+	transform: skew(-1deg, 0deg)	
+	padding: 0px 1px 2px 5px
+
+.btn-box-inquirer
+	position: relative
+	text-align: center
+	margin: 20px 0 40px
+	.img-inquirer
+		position: absolute
+		bottom: 0
+		right: 0
+		margin: 0
+		@media (max-width: 991px)
+			bottom: 63%	
+
+.btn
+   padding:	10px 20px
+   margin: 20px 15px
+   letter-spacing: .5px
+   font-size: 25px
+   border-radius: 40px
+   box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22), inset 2px 2px 5px rgba(154,147,140,.5), 1px 1px 5px #fff
+   &:focus
+   	  box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22), inset 2px 2px 5px rgba(154,147,140,.5), 1px 1px 5px #fff
+   
+
+
+.btn-warn 
+	background: #feff37
+	transform: skewX(-7deg)
+	border: 1px solid #ffc107
+	&:hover
+		background: rgba(254, 255, 55, .9)		
+	&:active
+	  	background: rgba(254, 255, 55, .9)
+	  	transform: skewX(-7deg) scale(.99)
+	  	box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22), inset 2px 2px 5px rgba(154,147,140,.5), 1px 1px 5px #fff
+
+.btn-warn-modal:hover
+	box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, .5) 	  	
+
+.btn-dang
+	background: #dc3545
+	transform: skewX(5deg)
+	color: #fff
+	border: 1px solid #b21f2d
+	&:hover
+		background: rgba(220, 53, 69, .9)
+		color: #fff
+	&:active
+	  	background: rgba(220, 53, 69, .9)
+	  	transform: skewX(5deg) scale(.99)
+	  	color: #fff
+	  	box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22), inset 2px 2px 5px rgba(154,147,140,.5), 1px 1px 5px #fff
+
+.btn-dang-modal:hover
+	box-shadow: 0 0 0 0.2rem rgba(178, 31, 45, .5)
+
+.styles_overlay__CLSq-
+	background: rgba(0, 188, 212, .7)
+
+.styles_modal__gNwvD	
+	transform: skew(2deg, 2deg)
+	@media (max-width: 550px)		
+		transform: skew(0deg, 0deg)
+		h2
+			font-size: 24px
+
+.img-inquirer
+	margin-right: 16%
+	transform: translateY(-16%) 
+	@media (max-width: 991px)
+		transform: translateY(0)
+		margin-right: 0
+
+
+.img-modal
+	float: right
+
+.btn-box-modal
+	display: flex	
+	margin-top: 40px
+	 
