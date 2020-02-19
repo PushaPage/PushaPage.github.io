@@ -28,25 +28,31 @@ class App extends React.Component {
           
 
       return (         
-          <div className="app-wrapper">
-              <div className="content">                                     
-                  <Header />                                                                                                   
-                  <Switch>                   
-                    <Route exact path="/" render={ () => <Title /> } />                                                         
-                    <Route 
-                      exact
-                      path="/inquirer" 
-                      render={ () =>  <Inquirer                                        
-                                        questions={questions}
-                                        answers={answers}
-                                        result={result}                              
-                                        getTest={getTest}                                        
-                                        stateInquirer={stateInquirer}
-                                        stateInquirerDefault={stateInquirerDefault}
-                                      /> } 
+          <div className="app-wrapper">             
+              <div className="content">
+                <div className="bubbles">
+                  <img                
+                    src="./img/underwater-bubbles.png" 
+                    alt="Bubbles"
+                  />
+                </div>                                                   
+                <Header />                                                                                                   
+                <Switch>                   
+                  <Route exact path="/" render={ () => <Title /> } />                                                         
+                  <Route 
+                    exact
+                    path="/inquirer" 
+                    render={ () =>  <Inquirer                                        
+                                      questions={questions}
+                                      answers={answers}
+                                      result={result}                              
+                                      getTest={getTest}                                        
+                                      stateInquirer={stateInquirer}
+                                      stateInquirerDefault={stateInquirerDefault}
+                                    /> } 
                     />
-                    <Route exact path="/result" render={ () => <Result result={result} /> } />                                 
-                  </Switch>                                                                          
+                  <Route exact path="/result" render={ () => <Result result={result} /> } />                                 
+                </Switch>                                                                          
               </div>                       
               <Footer />                              
           </div>    

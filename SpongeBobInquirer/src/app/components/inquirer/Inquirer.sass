@@ -6,12 +6,17 @@
 
 	
 .inquirer-container
-	padding-top: 40px		
+	padding-top: 40px
+	position: relative
+	z-index: 10			
 	p	
 		margin-bottom: 20px
 		font-size: 25px
 		display: inline-block
-		background: #feff37
+		text-shadow: 0px -1px 1px #feff37, 0px 1px 1px #feff37
+	@media (max-width: 767px)
+		.title-text
+			font-size: 33px	
 	@media (max-width: 550px)
 		.styles_modal__gNwvD
 			transform: skew(0deg, 0deg)	
@@ -67,7 +72,7 @@ label,.form-control
 	letter-spacing: .5px
 
 label
-	background: #feff37
+	text-shadow: 0px -1px 1px #feff37, 0px 1px 1px #feff37
 
 input
 	&:focus::-webkit-input-placeholder
@@ -136,10 +141,47 @@ input[type="checkbox"]+label
 			bottom: 63%	
 
 .btn
-   padding:	8px 18px 8px 12px
+   padding:	10px 20px
    margin: 20px 15px
    letter-spacing: .5px
    font-size: 25px
+   border-radius: 40px
+   box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22), inset 2px 2px 5px rgba(154,147,140,.5), 1px 1px 5px #fff
+   &:focus
+   	  box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22), inset 2px 2px 5px rgba(154,147,140,.5), 1px 1px 5px #fff
+   
+
+
+.btn-warn 
+	background: #feff37
+	transform: skewX(-7deg)
+	border: 1px solid #ffc107
+	&:hover
+		background: rgba(254, 255, 55, .9)		
+	&:active
+	  	background: rgba(254, 255, 55, .9)
+	  	transform: skewX(-7deg) scale(.99)
+	  	box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22), inset 2px 2px 5px rgba(154,147,140,.5), 1px 1px 5px #fff
+
+.btn-warn-modal:hover
+	box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, .5) 	  	
+
+.btn-dang
+	background: #dc3545
+	transform: skewX(5deg)
+	color: #fff
+	border: 1px solid #b21f2d
+	&:hover
+		background: rgba(220, 53, 69, .9)
+		color: #fff
+	&:active
+	  	background: rgba(220, 53, 69, .9)
+	  	transform: skewX(5deg) scale(.99)
+	  	color: #fff
+	  	box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22), inset 2px 2px 5px rgba(154,147,140,.5), 1px 1px 5px #fff
+
+.btn-dang-modal:hover
+	box-shadow: 0 0 0 0.2rem rgba(178, 31, 45, .5)
 
 .styles_overlay__CLSq-
 	background: rgba(0, 188, 212, .7)

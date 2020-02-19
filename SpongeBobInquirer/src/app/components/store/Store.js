@@ -88,14 +88,17 @@ let resultTableDefault = {
     
     countText: '', 
     totalPoint: '',
+    tableImg: '',
+    tableClassImg: '',
     resultText: '',
-    resultImg: '' 
+    resultImg: ''
+
 }
 
 let	resultTable = (resultTableStorage != null) ? resultTable = { ...resultTableStorage } : { ...resultTableDefault };
 
 
-let result_test = {
+let resultTest = {
 
 	failed: 'Тест не пройден',
 	passed: 'Всего очков',
@@ -104,6 +107,12 @@ let result_test = {
 	enough: 'Вы неплохо знаете Спач Боба!',
 	winner: 'Спач Боба Вы знаете как самого себя!',
 
+	loserImgTable: './img/sponge-result-table-lose.gif',
+	enoughImgTable: './img/sponge-result-table.png',
+	loserClassImgTable: 'img-result-table-lose',
+	classImgTable: 'img-result-table',
+
+	failedImg: './img/patrick-result-failed.png',
 	loserImg: './img/patrick-result.png',
 	notEnoughImg: './img/squidward-result.png',
 	enoughImg: './img/sandy-result.png',
@@ -162,6 +171,8 @@ export let result = {
 		    ],
 	countText: resultTable.countText,
 	total: resultTable.totalPoint,
+	tableImg: resultTable.tableImg,
+	tableClassImg: resultTable.tableClassImg,
 	resultText: resultTable.resultText,
 	resultImg: resultTable.resultImg
 }
@@ -320,47 +331,60 @@ export let getTest = (test) => {
 
 	if (points === 0) {
 
-		result.countText = result_test.failed;
-		resultTable.countText = result_test.failed;
+		result.countText = resultTest.failed;
+		resultTable.countText = resultTest.failed;
+		result.tableImg = resultTest.loserImgTable;
+		resultTable.tableImg = resultTest.loserImgTable;
+		result.tableClassImg = resultTest.loserClassImgTable;
+		resultTable.tableClassImg = resultTest.loserClassImgTable;
+		result.resultImg = resultTest.failedImg;
+		resultTable.resultImg = resultTest.failedImg;
+		result.resultText = resultTest.looser;
+		resultTable.resultText = resultTest.looser;
 	}
 
 	else {
 
-		result.countText = result_test.passed;
-		resultTable.countText = result_test.passed;
+		result.countText = resultTest.passed;
+		resultTable.countText = resultTest.passed;
+		result.tableImg = resultTest.enoughImgTable;
+		resultTable.tableImg = resultTest.enoughImgTable;
+		result.tableClassImg = resultTest.classImgTable;
+		resultTable.tableClassImg = resultTest.classImgTable;
+
 	}
 
-	if (points <= 20) {
+	if (points <= 20 && points !== 0) {
 
-		result.resultText = result_test.looser;		
-		result.resultImg = result_test.loserImg;		
-		resultTable.resultText = result_test.looser;		
-		resultTable.resultImg = result_test.loserImg;
+		result.resultText = resultTest.looser;		
+		result.resultImg = resultTest.loserImg;		
+		resultTable.resultText = resultTest.looser;		
+		resultTable.resultImg = resultTest.loserImg;		
 	}
 
     if (points > 20 && points <= 60) {
 
-		result.resultText = result_test.notEnough;		
-		result.resultImg = result_test.notEnoughImg;		
-		resultTable.resultText = result_test.notEnough;		
-		resultTable.resultImg = result_test.notEnoughImg;
+		result.resultText = resultTest.notEnough;		
+		result.resultImg = resultTest.notEnoughImg;		
+		resultTable.resultText = resultTest.notEnough;		
+		resultTable.resultImg = resultTest.notEnoughImg;
 	}
 
 	if (points > 60 && points <= 90) {
 
-		result.resultText = result_test.enough;		
-		result.resultImg = result_test.enoughImg;		
-		resultTable.resultText = result_test.enough;		
-		resultTable.resultImg = result_test.enoughImg;
+		result.resultText = resultTest.enough;		
+		result.resultImg = resultTest.enoughImg;		
+		resultTable.resultText = resultTest.enough;		
+		resultTable.resultImg = resultTest.enoughImg;
 
 	}
 
 	if (points === 100) {
 
-		result.resultText = result_test.winner;	
-		result.resultImg = result_test.winnerImg;		
-		resultTable.resultText = result_test.winner;		
-		resultTable.resultImg = result_test.winnerImg;
+		result.resultText = resultTest.winner;	
+		result.resultImg = resultTest.winnerImg;		
+		resultTable.resultText = resultTest.winner;		
+		resultTable.resultImg = resultTest.winnerImg;
 	}
 
 	sessionStorage.setItem('resultTable', JSON.stringify(resultTable));

@@ -4,12 +4,17 @@
 
 
 .result-container	
-   @media (max-width: 590px)
+   @media (max-width: 768px)
          .result-item,.table-bordered,.title-item
             transform: skew(0deg, 0deg)
          .title-text-result
-            font-size: 25px   
-   padding: 65px 0      
+            font-size: 25px
+         .img-result-table-lose  
+            margin-top: -34%
+            left: -9%      
+   padding: 65px 0
+   position: relative
+   z-index: 10      
 
 .result-item
    padding: 60px 20px 0 
@@ -30,14 +35,24 @@
 	background: #fff
 
 .btn-box-result
-   text-align: center
-   margin: 20px 0 40px
+  text-align: center
+  margin: 20px 0 40px
 
-.img-result-table
+.img-result-table,
+.img-result-table-lose
   position: relative
   display: block
+
+.img-result-table  
   margin-top: -10%
-  left: -3% 
+  left: -3%
+
+.img-result-table-lose  
+  margin-top: -17%
+  
+
+
+  position: relative    
 
 .title-text-result
    font-weight: 600

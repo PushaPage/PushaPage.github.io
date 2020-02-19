@@ -172,7 +172,7 @@ class Inquirer extends React.Component {
               alt="SpongeBob"
             />
           </div>       
-	  	    <form 
+	  	    <form           
             onSubmit={this.state.submit === false ? this.onOpenModal : this.onHold}  
             onChange={this.checkSubmit}> 
             <div className="col-11 col-lg-10 ask-one-curve">
@@ -291,9 +291,9 @@ class Inquirer extends React.Component {
               <Link 
                 to={link} 
                 role="button" 
-                className="btn btn-warning" 
+                className="btn btn-warn" 
                 onClick={this.state.submit === false ? this.onOpenModal : this.submit}>Проверить</Link>
-		          <button type="button" className="btn btn-danger" onClick={this.resetForm}>Очистить поля</button>
+		          <button type="button" className="btn btn-dang" onClick={this.resetForm}>Очистить поля</button>
               <img  
                 className="img-inquirer d-none d-md-block"             
                 src="./img/gary-inquirer.png" 
@@ -306,7 +306,7 @@ class Inquirer extends React.Component {
             open={openModal}
             onClose={this.onCloseModal} 
             center>
-            <h2>Каждый не отвеченный ответ считается
+            <h2>Каждый неотвеченный вопрос считается 
             неправильным. Вы уверены что хотите продолжить?
             <img 
                 className="img-modal img-fluid d-none d-sm-block" 
@@ -315,8 +315,8 @@ class Inquirer extends React.Component {
             />
             </h2>
             <div className="btn-box-modal">
-              <Link to= "/result" role="button" className="btn btn-danger" onClick={this.submit}>Да</Link>
-              <button type="button" className="btn btn-warning" onClick={this.onCloseModal}>Нет</button>
+              <Link to= "/result" role="button" className="btn btn-dang btn-dang-modal" onClick={this.submit}>Да</Link>
+              <button type="button" className="btn btn-warn btn-warn-modal" onClick={this.onCloseModal}>Нет</button>
             </div>  
         </Modal>  
 	  	</div>

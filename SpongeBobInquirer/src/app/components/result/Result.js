@@ -13,7 +13,7 @@ class Result extends React.Component {
     constructor(props) {
       super(props)    
       
-
+      console.log(this.props)
     }
 
     againTest = () => {     
@@ -100,8 +100,8 @@ class Result extends React.Component {
                 </table>               
               </div>
               <img 
-                className="img-result-table" 
-                src="./img/sponge-result-table.png" 
+                className={result.tableClassImg} 
+                src={result.tableImg}  
                 alt="SpongeBob"
               />  
             </div>
@@ -114,7 +114,7 @@ class Result extends React.Component {
               />
             </div>  
             <div className="btn-box-result">
-              <Link to= "/" role="button" className="btn btn-danger" onClick={this.againTest}>Пройти тест заново</Link>
+              <Link to= "/" role="button" className="btn btn-dang" onClick={this.againTest}>Пройти тест заново</Link>
             </div>    
           </div>    
       );
