@@ -1,0 +1,254 @@
+// @import "./utils/_mixnis";
+@import "./utils/_vars";
+@import "./utils/_fonts";
+
+body {
+  line-height: 1;
+  font-family: $font-basic;
+  font-weight: 400;  
+}
+
+ol, ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+a {	
+	text-decoration: none;
+	cursor: pointer;	
+	&:hover, &:active{
+		text-decoration: none;
+	}
+}
+
+button {
+	cursor: pointer;
+	&:focus {
+	outline: none;  
+	}
+}
+
+@media(max-width: 575px) {
+    .container {
+      padding: 0 5px;
+    }
+}
+
+.wrapper {
+    background: 
+    linear-gradient(225deg, transparent 24.5%, #449CB4 24.6%, transparent 24.8%) 37px -37px, 
+    linear-gradient(135deg, transparent 24.5%, #449CB4 24.6%, transparent 24.8%) 37px 111px, 
+    linear-gradient(135deg, transparent 24.5%, #449CB4 24.6%, transparent 24.8%) 37px 37px, 
+    linear-gradient(225deg, transparent 24.5%, #449CB4 24.6%, transparent 24.8%) 37px 37px, 
+    linear-gradient(135deg, transparent 24.5%, #449CB4 24.6%, transparent 24.8%) 74px 0px, 
+    linear-gradient(225deg, transparent 24.5%, #449CB4 24.6%, transparent 24.8%) 74px 0px, 
+    linear-gradient(135deg, transparent 24.5%, #449CB4 24.6%, transparent 24.8%) 74px 74px, 
+    linear-gradient(225deg, transparent 24.5%, #449CB4 24.6%, transparent 24.8%) 74px 74px;
+    background-size: 148px 148px;
+    background-color: #E8F4F2;
+    overflow: hidden; 
+}
+
+.event-container {
+    position: relative;    
+    min-height: 100vh;
+    padding-bottom: 100px;       
+}
+
+.event-content {
+    position: relative;
+    z-index: 5;    
+    padding-top: 45px;
+}
+
+.img-ink {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.event-title {    
+    font-size: $size-42;
+    padding: 0 2%;
+    font-weight: $semibold;
+    margin-bottom: 40px;
+    font-family: $font-second;
+    @media (max-width: 520px) {
+      font-size: $size-30;
+    }
+}
+
+.notebook-bg {
+    position: absolute;
+    left: 0;
+    top: 3%;
+    right: 0;
+    bottom: -10%;     
+    background-color: #f9f9f9;
+    background-image:linear-gradient(#4C596C, transparent 1px);
+    background-size: 1.5em 1.5em;  
+    box-shadow: 1px 1px 2px rgba(0,0,0,.2), -4px 2px 2px rgba(0,0,0,.2);
+}
+.notebook-bg:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 4px;
+    border-left: 4px double #F54318;
+    position: relative;
+    left: 40px;
+}
+
+#EventForm {
+  padding: 0 1%;
+}
+
+label {
+  font-family: $font-third;
+  color: rgba($black, .7);
+  font-size: $size-20;
+  padding-left: 3%;
+}
+
+input, select {
+  font-size: $size-18;
+  box-shadow: 0 0 4px rgba($black, .2);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.text-value {
+  padding: 0;
+  background: 0;
+  border: none;
+  color: $blue;
+  &:hover {
+    color: $black;
+  }
+}
+
+.is-invalid {
+  box-shadow: 0 0 0 0.2rem rgba(220,53,69,.25);
+}
+
+.btn-event {
+  display: block;
+  margin: 15px 15px 10px auto; 
+}
+
+#EventContainer {
+  position: relative;
+  padding-top: 30px;
+}
+
+.event-block {
+  position: relative;
+  margin-bottom: 20px;  
+  border-bottom: 4px double black;
+}
+
+.event-title-main {
+    font-family: $font-third;
+    font-size: 20px;
+    padding-right: 22px;
+    color: $blue;
+    text-align: center;
+}
+
+.event-title-sign {
+    font-family: $font-second;
+    font-size: 25px;
+    display: block;
+    color: $black;
+    text-align: center;
+}
+
+.event-item {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 75px;
+   border-right: 1px solid $black;
+   margin: 15px 0;      
+}
+
+.event-item:last-child {
+  border-right: none;
+}
+
+.event-number {
+  margin: auto 0;
+  font-family: $font-third;
+  font-size: 20px;  
+  @media(max-width: 575px) {
+    font-size: 18px;
+  }
+  
+}
+
+.event-number_red {
+    color: $red;
+}
+
+.event-time-name {   
+    padding: 10px 0;
+    font-family: $font-third;
+    font-size: 18px;
+    color: $blue;   
+    @media(max-width: 575px) {
+      font-size: 16px;
+    }
+} 
+
+.event-time-name_black {
+    color: $black;
+} 
+
+.event-title_red {
+    text-align: center;
+    color: $red;
+    margin-bottom: 20px;
+    padding: 0; 
+}
+
+.event-icon {
+    font-size: $size-40;
+    line-height: $size-40;
+    color: rgba($black, .7);
+    margin-left: 10px;    
+}
+
+.btn-event-remove {
+    position: absolute;
+    font-size: $size-18;
+    color: $red;
+    top: 0;
+    right: 0;
+    text-align: center;
+    background: none;
+    border: none;
+    text-shadow: 0 0 4px rgba($black, .2);   
+    &:hover {
+      color: $black;
+      text-shadow: none; 
+    }
+    &:active {
+      transform: scale(.97);
+    }
+}
+  
+
+
+
+
+

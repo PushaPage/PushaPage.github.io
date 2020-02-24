@@ -77,16 +77,15 @@
         };     
       });
 
-      allDel.addEventListener('click', () =>{ 
-
-        localStorage.clear();
+      allDel.addEventListener('click', () =>{       
           
           let listsDel = _('.list');
 
           for (let i = 0; i < listsDel.length; i++) {
                 listsDel[i].remove();
           };
-            window.location.reload();       
+           
+            localStorage.setItem('todo', JSON.stringify([]));       
       }); 
 
       container.addEventListener('click', function(e){

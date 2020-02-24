@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EventTimer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="img/icon.png" type="image/png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container event-container">
+            <div class="notebook-bg"></div>
+            <div class="event-content">
+                <h1 class="event-title">Узнайте сколько времени осталось до интересующей вас даты!</h1>
+                <form action="javascript:void(0)" id="EventForm">
+                    <div class="form-group">
+                        <label for="eventName">Введите название события:</label>
+                        <input type="text" class="form-control" id="eventName" placeholder="...">
+                        <small class="form-text text-muted">Например: <button class="text-value" type="button" data-action="in-input">Мой день рождение</button>,
+                            <button class="text-value" type="button" data-action="in-input">Hовый год</button>, <button class="text-value" type="button" data-action="in-input">8 марта</button>
+                        </small>
+                    </div>
+                    <div class="d-flex flex-wrap justify-content-between">
+                        <div class="form-group col-10 col-sm-5 col-md-4">
+                            <label for="eventYear">Выберете год:</label>
+                            <select id="eventYear" class="form-control">
+                                <option value="" hidden disabled selected>...</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-10 col-sm-6 col-md-4">
+                            <label for="eventMonth">Выберете месяц:</label>
+                            <select id="eventMonth" class="form-control" disabled>
+                                <option value="" hidden disabled selected>...</option>
+                                <option value="January">Январь</option>
+                                <option value="February">Февраль</option>
+                                <option value="March">Март</option>
+                                <option value="April">Апрель</option>
+                                <option value="May">Май</option>
+                                <option value="June">Июнь</option>
+                                <option value="July">Июль</option>
+                                <option value="August">Август</option>
+                                <option value="September">Сентябрь</option>
+                                <option value="October">Октябрь</option>
+                                <option value="November">Ноябрь</option>
+                                <option value="December">Декабрь</option>
+                            </select>
+                        </div>
+                        <div class="form-group  col-10 col-sm-6 col-md-4">
+                            <label for="eventDate">Выберете число:</label>
+                            <select id="eventDate" class="form-control" disabled>
+                                <option value="" hidden disabled selected>...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-event btn-primary btn-lg">Узнать</button>
+                </form>
+            </div>
+            <div id="EventContainer"></div>
+            <img src="./img/ink-icon.png" class="img-fluid img-ink" alt="ink"></img>
+        </div>
+    </div>
+    <script defer src="js/timerdate.js"></script>
+    <script defer src="js/main.js"></script>
+</body>
+
+</html>
