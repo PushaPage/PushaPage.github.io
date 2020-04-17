@@ -281,7 +281,7 @@ header {
   @media (max-width: 767.98px) {
     .promo-block .promo-picture {
       order: 1;
-      width: 40%;
+      width: 35%;
       padding-top: 30px; }
     .promo-block .promo-block__text {
       order: 2;
@@ -293,7 +293,6 @@ header {
       width: 100%; } }
   @media (max-width: 575.98px) {
     .promo-block .promo-picture {
-      width: 35%;
       margin-left: 3px;
       margin-right: 0; }
     .promo-block .promo-img__circle-price {
@@ -369,21 +368,21 @@ header {
         width: 100%;
         height: auto;
         padding: 0;
-        font-size: 16px;
-        margin-bottom: 6px; }
-        .promo-text-list .promo-text-list__item:nth-child(2) {
-          order: 2;
-          margin-bottom: 0; }
-        .promo-text-list .promo-text-list__item:nth-child(3) {
-          order: 3;
-          margin-bottom: 0; }
+        font-size: 16px; }
         .promo-text-list .promo-text-list__item:before {
           display: none; }
+        .promo-text-list .promo-text-list__item:nth-child(2) {
+          order: 2; }
+        .promo-text-list .promo-text-list__item:nth-child(3) {
+          order: 3; }
         .promo-text-list .promo-text-list__item:last-child {
           display: none; } }
-    @media (max-width: 767.98px) and (max-width: 575.98px) {
-      .promo-text-list .promo-text-list__item {
-        font-size: 14px; } }
+  @media (max-width: 575.98px) {
+    .promo-text-list .promo-text-list__item {
+      font-size: 14px;
+      margin-bottom: 6px; }
+      .promo-text-list .promo-text-list__item:nth-child(2), .promo-text-list .promo-text-list__item:nth-child(3) {
+        margin-bottom: 0; } }
 
 .promo-text__title {
   line-height: 142.5%; }
