@@ -52,21 +52,27 @@ gulp.task('uncss',function(){
 //BABEL------>
 gulp.task('babel', function (){
     return gulp.src('./app/js/main.js')
+        .pipe(sourcemaps.init())
         .pipe(babel())
-        .pipe(gulp.dest('./dist/js'));
+        .pipe(uglify())
+        .pipe(rename('main.min.js'))
+        .pipe(sourcemaps.write('./')) 
+        .pipe(gulp.dest('./dist/app/js'));
 });
 
 
 //AUTOPREFIX------>
-gulp.task('auto', function() {
+gulp.task('autoprefix', function() {
 	return gulp.src('./app/css/main.css')
    .pipe(sourcemaps.init())
 	 .pipe(autoprefixer({
 	 		overrideBrowserslist:  ['IE 11', 'Safari 10', 'Firefox 57', 'Opera 50', 'Chrome 64', 'Edge 16'],      
             cascade: false
         }))
+    .pipe(cleanCSS())    
+    .pipe(rename('main.min.css'))
 	 	.pipe(sourcemaps.write('./')) 
-    .pipe(gulp.dest('./app/autoprefixer/'))
+    .pipe(gulp.dest('./app/css'))
 });
 
 
@@ -141,12 +147,48 @@ gulp.task('serve', function(){
 
 //WATCH----->
 gulp.task('watch', function(){
-	gulp.watch('./app/sass/*.scss', gulp.series('sass', 'auto'))
+	gulp.watch('./app/sass/*.scss', gulp.series('sass', 'auto', 'babel'))
 })
 
 
 
 //DEV---------->
 gulp.task('dev', gulp.series('sass',  gulp.parallel('watch', 'serve')));
+
+
+
+//COPY HTML-------->
+gulp.task('copy:html', function () {
+  return gulp.src('./app/index.html')
+    .pipe(gulp.dest('./dist/'));
+});
+
+//COPY CSS-------->
+gulp.task('copy:css', function () {
+  return gulp.src('./app/css/*.min.css')
+    .pipe(gulp.dest('./dist/css'));
+});
+
+//COPY CSS-------->
+gulp.task('copy:js', function () {
+  return gulp.src('./app/js/*.min.js')
+    .pipe(gulp.dest('./dist/js'));
+});
+
+//COPY IMG-------->
+gulp.task('copy:img', function () {
+  return gulp.src('./app/img/*')
+    .pipe(gulp.dest('./dist/img'));
+});
+
+//COPY FONTS-------->
+gulp.task('copy:fonts', function () {
+  return gulp.src('./app/fonts/*/*.*')
+    .pipe(gulp.dest('./dist/fonts'));
+});
+
+
+//COPY BUIlD-------->
+gulp.task('build', gulp.parallel('copy:html', 'copy:css',  'copy:js', 'copy:img', 'copy:fonts'));
 
 
