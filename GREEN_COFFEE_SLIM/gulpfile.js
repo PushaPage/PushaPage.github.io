@@ -15,6 +15,7 @@ const gulp = require('gulp'),
       replace = require('gulp-replace'),
       svgSprite = require('gulp-svg-sprite'),
       svgmin = require('gulp-svgmin'),
+      merge = require('merge-stream'),
       browserSync = require('browser-sync').create();
 
 
@@ -147,7 +148,7 @@ gulp.task('serve', function(){
 
 //WATCH----->
 gulp.task('watch', function(){
-	gulp.watch('./app/sass/*.scss', gulp.series('sass', 'auto', 'babel'))
+	gulp.watch('./app/sass/*.scss', gulp.series('sass', 'autoprefix', 'babel'))
 })
 
 
@@ -157,38 +158,19 @@ gulp.task('dev', gulp.series('sass',  gulp.parallel('watch', 'serve')));
 
 
 
-//COPY HTML-------->
-gulp.task('copy:html', function () {
-  return gulp.src('./app/index.html')
-    .pipe(gulp.dest('./dist/'));
-});
-
-//COPY CSS-------->
-gulp.task('copy:css', function () {
-  return gulp.src('./app/css/*.min.css')
-    .pipe(gulp.dest('./dist/css'));
-});
-
-//COPY CSS-------->
-gulp.task('copy:js', function () {
-  return gulp.src('./app/js/*.min.js')
-    .pipe(gulp.dest('./dist/js'));
-});
-
-//COPY IMG-------->
-gulp.task('copy:img', function () {
-  return gulp.src('./app/img/*')
-    .pipe(gulp.dest('./dist/img'));
-});
-
-//COPY FONTS-------->
-gulp.task('copy:fonts', function () {
-  return gulp.src('./app/fonts/*/*.*')
-    .pipe(gulp.dest('./dist/fonts'));
+//COPY
+gulp.task('copy-resources', function() {
+  return merge([
+      gulp.src('./app/index.html').pipe(gulp.dest('./dist/')),
+      gulp.src('./app/css/*.min.css').pipe(gulp.dest('./dist/css')),
+      gulp.src('./app/js/*.min.js').pipe(gulp.dest('./dist/js')),
+      gulp.src('./app/img/*').pipe(gulp.dest('./dist/img')),
+      gulp.src('./app/fonts/*/*.*').pipe(gulp.dest('./dist/fonts'))
+  ]);
 });
 
 
-//COPY BUIlD-------->
-gulp.task('build', gulp.parallel('copy:html', 'copy:css',  'copy:js', 'copy:img', 'copy:fonts'));
+//BUIlD-------->
+gulp.task('build', gulp.parallel('copy-resources'));
 
 
