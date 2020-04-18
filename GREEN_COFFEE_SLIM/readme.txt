@@ -8,7 +8,7 @@ gulp minify  минифицирует js
 
 gulp mincss  минифицирует css
 
-gulp autoprefix доставляет префиксы 
+gulp autoprefix доставляет префиксы и минифицирует css
 
 gulp sprite  собирает png иконки в спрайт
 
