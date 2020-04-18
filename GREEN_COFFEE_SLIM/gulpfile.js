@@ -58,7 +58,7 @@ gulp.task('babel', function (){
         .pipe(uglify())
         .pipe(rename('main.min.js'))
         .pipe(sourcemaps.write('./')) 
-        .pipe(gulp.dest('./dist/app/js'));
+        .pipe(gulp.dest('./app/js'));
 });
 
 
@@ -158,8 +158,8 @@ gulp.task('dev', gulp.series('sass',  gulp.parallel('watch', 'serve')));
 
 
 
-//COPY
-gulp.task('copy-resources', function() {
+//BUIlD-------->
+gulp.task('build', function() {
   return merge([
       gulp.src('./app/index.html').pipe(gulp.dest('./dist/')),
       gulp.src('./app/css/*.min.css').pipe(gulp.dest('./dist/css')),
@@ -171,7 +171,7 @@ gulp.task('copy-resources', function() {
 });
 
 
-//BUIlD-------->
-gulp.task('build', gulp.parallel('copy-resources'));
+
+
 
 

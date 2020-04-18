@@ -209,11 +209,12 @@
 
 							0: 'Опросник',	
 							1: 'Игра',
-							2: 'Крестики-нолики',
-							3: 'Бесконечная карусель',
-							4: 'Смена имени в сказке',
-							5: 'Список дел (c редактированием)',
-							6: 'Секундомер'
+							2: 'Таймер cобытий',
+							3: 'Крестики-нолики',
+							4: 'Бесконечная карусель',
+							5: 'Смена имени в сказке',
+							6: 'Список дел (c редактированием)',
+							7: 'Секундомер'
 
 						},
 
@@ -238,7 +239,7 @@
 						objectivs: {
 
 							0: 'трудоустройство на вакансию Front-end/JavaScript разработчика',
-							1: 'желаемый уровень зарплаты от 450$'
+							1: 'желаемый уровень зарплаты от 400$'
 						},
 
 						education: {
@@ -323,11 +324,12 @@
 
 							0: 'Inquirer',
 							1: 'Game',
-							2: 'Tick-tack-toe',
-							3: 'Endless carousel',
-							4: 'Fable tale change',
-							5: 'To-do list (with editing)',
-							6: 'Stopwatch'
+							2: 'Event timer',
+							3: 'Tick-tack-toe',
+							4: 'Endless carousel',
+							5: 'Fable tale change',
+							6: 'To-do list (with editing)',
+							7: 'Stopwatch'
 							
 						},
 
@@ -353,7 +355,7 @@
 						objectivs: {
 
 							0: 'Front-end / JavaScript developer job placement',
-							1: 'desired salary level from $450'
+							1: 'desired salary level from $400'
 						},
 
 						education: {
@@ -383,23 +385,23 @@
 					};					
 				
 
-				let language = localStorage.getItem('language'),
-					ruS = JSON.parse(localStorage.getItem('rus')),
-					enG = JSON.parse(localStorage.getItem('eng'));
+				let language = sessionStorage.getItem('language'),
+					ruS = JSON.parse(sessionStorage.getItem('rus')),
+					enG = JSON.parse(sessionStorage.getItem('eng'));
 					
 					
-					if(language == null){
+					if (language == null) {
 
-						localStorage.setItem('rus', JSON.stringify(rus));
-						localStorage.setItem('eng', JSON.stringify(eng));
+						sessionStorage.setItem('rus', JSON.stringify(rus));
+						sessionStorage.setItem('eng', JSON.stringify(eng));
 						
 					};
-					if(language == 'Russian'){
+					if (language == 'Russian') {
 						
 						translate(langRus, langEng, ruS);
 					
 					};
-					if(language == 'English'){
+					if (language == 'English') {
 						
 						translate(langEng, langRus, enG);
 
@@ -497,14 +499,14 @@
 
 				langRus.addEventListener('click', () => {
 					
-					localStorage.setItem('language', 'Russian');					
+					sessionStorage.setItem('language', 'Russian');					
 					window.location.reload();   
 				
 				});
 
 				langEng.addEventListener('click', () => {
 
-					localStorage.setItem('language', 'English');
+					sessionStorage.setItem('language', 'English');
 					window.location.reload();  
 
 
