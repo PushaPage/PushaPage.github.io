@@ -164,6 +164,7 @@ gulp.task('copy-resources', function() {
       gulp.src('./app/index.html').pipe(gulp.dest('./dist/')),
       gulp.src('./app/css/*.min.css').pipe(gulp.dest('./dist/css')),
       gulp.src('./app/js/*.min.js').pipe(gulp.dest('./dist/js')),
+      gulp.src('./app/favicon/*').pipe(gulp.dest('./dist/favicon')),
       gulp.src('./app/img/*').pipe(gulp.dest('./dist/img')),
       gulp.src('./app/fonts/*/*.*').pipe(gulp.dest('./dist/fonts'))
   ]);

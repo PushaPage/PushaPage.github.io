@@ -13,3 +13,5 @@ gulp autoprefix доставляет префиксы и минифицирует css
 gulp sprite  собирает png иконки в спрайт
 
 gulp svg-sprite собирает svg иконки в svg-спрайт
+
+gulp htmlbeautify  выравнивает html, подгоняет одинаковые отступы
