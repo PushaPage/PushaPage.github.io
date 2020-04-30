@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from 'react-responsive-modal';
-import ScrollAnimation from 'react-animate-on-scroll';
 import './Inquirer.sass';
 
 
@@ -163,12 +162,10 @@ class Inquirer extends React.Component {
     let { openModal, link } = this.state;               	
 
 	  return ( 
-	     <div className="inquirer-container container">
-          <ScrollAnimation animateIn="flipInX" animateOnce={true}>   
+	     <div className="inquirer-container container">           
             <div className="title-item">
               <h2 className="title-text">Каждый правильный ответ - 20 очков!</h2>            
-            </div>
-          </ScrollAnimation>  
+            </div>         
           <div className="img-inquirer-title d-none d-md-block">
             <img               
               src="./img/patrick-inquirer.png" 
@@ -177,8 +174,7 @@ class Inquirer extends React.Component {
           </div>       
 	  	    <form           
             onSubmit={this.state.submit === false ? this.onOpenModal : this.onHold}  
-            onChange={this.checkSubmit}>
-            <ScrollAnimation animateIn="fadeInLeft" animateOnce={true}>  
+            onChange={this.checkSubmit}>           
               <div className="col-11 col-lg-10 ask-one-curve">
                 <div className="ask-one">
                   <p>{questions.ask1}</p>      
@@ -193,10 +189,7 @@ class Inquirer extends React.Component {
                     pattern={questions.pattern}
                   />
                 </div>  
-  	  	      </div>
-            </ScrollAnimation>
-            
-            <ScrollAnimation animateIn="fadeInRight" animateOnce={true}>    
+  	  	      </div>             
   	  	      <div className="col-11 col-lg-9 ask-two-curve">               
                 <div className="ask-two">
                   <p>{questions.ask2}</p>
@@ -218,10 +211,7 @@ class Inquirer extends React.Component {
                     )}
                   </ul>                  
                 </div>        		    
-      		  </div>
-            </ScrollAnimation>
-
-            <ScrollAnimation animateIn="tada">  
+      		    </div>           
               <div className="col-11 ask-three-curve">
                 <div className="d-flex flex-column ask-three">
                   <p>{questions.ask3}</p>
@@ -251,10 +241,7 @@ class Inquirer extends React.Component {
                     />
                   </div>                    
                 </div>                
-              </div>
-            </ScrollAnimation>
-
-            <ScrollAnimation animateIn="shake" animateOnce={true}>
+              </div>             
               <div className="col-11 col-lg-8 ask-four-curve">
                 <div className="ask-four">
                   <p>{questions.ask4}</p>
@@ -277,10 +264,7 @@ class Inquirer extends React.Component {
                     )}         
                     </select>
                 </div>                
-              </div>
-            </ScrollAnimation>
-
-            <ScrollAnimation animateIn="slideInLeft" animateOnce={true}>
+              </div>           
               <div className="col-11 ask-five-curve">
                 <div className="ask-five">
                   <p>{questions.ask5}</p>
@@ -302,19 +286,14 @@ class Inquirer extends React.Component {
                     )}
                   </ul>                  
                 </div>                
-              </div>
-            </ScrollAnimation>
-            <div className="btn-box-inquirer">
-              <ScrollAnimation animateIn="bounceIn">                
+              </div>            
+            <div className="btn-box-inquirer">              
                 <Link 
                   to={link} 
                   role="button" 
                   className="btn btn-warn btn-warn-Inquirer" 
-                  onClick={this.state.submit === false ? this.onOpenModal : this.submit}>Проверить</Link>
-              </ScrollAnimation>
-              <ScrollAnimation animateIn="bounceIn">    
-		            <button type="button" className="btn btn-dang btn-dang-Inquirer" onClick={this.resetForm}>Очистить поля</button>
-              </ScrollAnimation>
+                  onClick={this.state.submit === false ? this.onOpenModal : this.submit}>Проверить</Link>                 
+		            <button type="button" className="btn btn-dang btn-dang-Inquirer" onClick={this.resetForm}>Очистить поля</button>             
               <img  
                 className="img-inquirer d-none d-md-block"             
                 src="./img/gary-inquirer.png" 

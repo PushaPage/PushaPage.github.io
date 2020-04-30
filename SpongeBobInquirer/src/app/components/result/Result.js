@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ScrollAnimation from 'react-animate-on-scroll';
 import './Result.sass';
 
 
@@ -105,8 +104,7 @@ class Result extends React.Component {
                 src={result.tableImg}  
                 alt="SpongeBob"
               />  
-            </div>
-            <ScrollAnimation animateIn="zoomInUp" animateOnce={true}> 
+            </div>         
             <div className="title-item d-flex justify-content-between col-12 col-lg-10">
              <h2 className="title-text-result">{result.resultText}</h2>           
              <img 
@@ -114,12 +112,9 @@ class Result extends React.Component {
                 src={result.resultImg} 
                 alt="SpongeBob"
               />             
-            </div>
-            </ScrollAnimation> 
-            <div className="btn-box-result">
-              <ScrollAnimation animateIn="rubberBand"> 
-                <Link to= "/" role="button" className="btn btn-dang btn-dang-result" onClick={this.againTest}>Пройти тест заново</Link>
-              </ScrollAnimation> 
+            </div>            
+            <div className="btn-box-result">             
+              <Link to= "/" role="button" className="btn btn-dang btn-dang-result" onClick={this.againTest}>Пройти тест заново</Link>              
             </div>    
           </div>    
       );

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ScrollAnimation from 'react-animate-on-scroll';
 import './Title.sass';
 
 
@@ -29,16 +28,12 @@ class Title extends React.Component {
                   alt="SpongeBob"
                 />
               </picture>	            
-	          </div>
-            <ScrollAnimation animateIn="zoomInUp" animateOnce={true}>   
+	          </div>              
   	          <div className="title-item col-11 col-lg-10">
   	         	 <h1 className="title-text">Как хорошо ты знаешь Спанч Боба?</h1>
-  	          </div>
-            </ScrollAnimation>	         
-            <div className="btn-box-title">
-              <ScrollAnimation animateIn="rubberBand">                     
-             	  <Link className="btn btn-bg btn-dang btn-title position-relative mr-0" to="/inquirer" role="button">Проверить!!!</Link>
-              </ScrollAnimation>
+  	          </div>                    
+            <div className="btn-box-title">                                
+             	<Link className="btn btn-bg btn-dang btn-title position-relative mr-0" to="/inquirer" role="button">Проверить!!!</Link>           
               <div className="jelly-fish-animate-near-btn">              
                 <div className="jelly-fish"></div>                
               </div>
