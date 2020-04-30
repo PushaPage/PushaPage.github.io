@@ -1,5 +1,6 @@
 
-	window.addEventListener('load', function() {			
+	window.addEventListener('load', function() {	
+
 			;{
 
 				let hambrgrMenu = document.querySelector('.menu'),
@@ -179,17 +180,17 @@
 
 						skills: {
 							
-							0: 'Принцип и особености работаты с flexbox, float, inline-block',
+							0: 'Принцип и особености работаты с flexbox, grid, float, inline-block',
 							1: 'Создание HTML-страницы сайта на основе дизайн-макетов (PerfectPixel)',
 							2: 'Адаптивная кросс-браузерная, валидная верстка',
-							3: 'Avocode, Adobe Photoshop (на уровне нарезки шаблона и оптимизации изображений)',
+							3: 'Avocode, Figma, Adobe Photoshop, оптимизация изображений - спрайты',
 							4: 'Умение работать с Bootstrap 3 и 4',
 							5: 'Создание геометрических фигур при помощи CSS',
 							6: 'Применение СSS анимаций (@keyframes), трансформация обьектов',
 							7: 'Препроцессор Sass, сборщики webpack 4, Gulp 4',
 							8: 'Умение работать с GitHub',
-							9: 'Основы JavaScript, React',
-							10: 'Основы работы с DOM. Взаимодействие JavaScript и CSS. Работа с формами',
+							9: 'JavaScript, React',
+							10: 'Работа с DOM. Взаимодействие JavaScript и CSS. Работа с формами',
 							11: 'Таймеры, интервалы. Работа со строками и массивами. Регулярные выражение',
 							12: 'События, делегирование, координаты, метрики. ООП в JavaScript',
 							13: 'Cookie, LocalStorage, sessionStorage. Работа с изображениями в JavaScript',
@@ -294,17 +295,17 @@
 
 						skills: {
 							
-							0: 'The principles and features of flexbox, float, inline-block',
+							0: 'The principles and features of flexbox, grid, float, inline-block',
 							1: 'Creation of an HTML-page of a site based on design layouts (PerfectPixel layout)',
 							2: 'Responsive cross-browser compatibility and code validation',
-							3: 'Avocode, Adobe Photoshop (at the image slicing level)',
+							3: 'Avocode, Figma, Adobe Photoshop, image optimization - sprite',
 							4: 'Twitter Bootstrap 3 and 4',
 							5: 'Creating geometric shapes with CSS',
 							6: 'CSS animations and object traformations, (@keyframes)',
 							7: 'Sass preprocessor, pack manager webpack 4, Gulp 4',
 							8: 'Ability to work with GitHub',
-							9: 'JavaScript basics, React',
-							10: 'Objects. Basics of DOM. JavaScript & CSS interaction. Working with forms',
+							9: 'JavaScript, React',
+							10: 'Objects. Work with DOM. JavaScript & CSS interaction. Working with forms',
 							11: 'Timers and intervals. Working with strings and arrays. Regular expressions',
 							12: 'Events, delegate, coordinates. OOP in JavaScript',
 							13: 'Cookie, LocalStorage, sessionStorage. Working with images in JavaScript',
@@ -392,8 +393,7 @@
 					
 					if (language == null) {
 
-						sessionStorage.setItem('rus', JSON.stringify(rus));
-						sessionStorage.setItem('eng', JSON.stringify(eng));
+					
 						
 					};
 					if (language == 'Russian') {
@@ -499,7 +499,8 @@
 
 				langRus.addEventListener('click', () => {
 					
-					sessionStorage.setItem('language', 'Russian');					
+					sessionStorage.setItem('language', 'Russian');
+					sessionStorage.setItem('rus', JSON.stringify(rus));					
 					window.location.reload();   
 				
 				});
@@ -507,6 +508,7 @@
 				langEng.addEventListener('click', () => {
 
 					sessionStorage.setItem('language', 'English');
+					sessionStorage.setItem('eng', JSON.stringify(eng));
 					window.location.reload();  
 
 

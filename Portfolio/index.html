@@ -1,612 +1,616 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Portfolio</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="shortcut icon" href="img/icon.png" type="image/png">	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 	
- 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
- 	<script defer src="js/swiper.min.js"></script>
- 	<script defer src="js/main.js"></script>	 	
-	<link rel="stylesheet" href="fontawesome/all.min.css">	
-	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">	  	     	
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="img/icon.png" type="image/png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">    
+    <link rel="stylesheet" href="fontawesome/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
+
 <body id="main">
-	<header>
-		<div class="container d-flex justify-content-between p-0">
-			<div id="change-lang">
-				<button id="langRus" type="button" class="btn lang-active">Рус</button>
-				<button id="langEng" type="button" class="btn">Eng</button>
-			</div>
-			<span id="clock"></span>
-		</div>
-		<nav class="navbar navbar-expand-md">
-			<div class="container p-0">  	
-			  	<button class="menu navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
-			    	<span class="hamberger-icon"></span>
-			  	</button>
-			  	<div class="collapse navbar-collapse" id="navbar1">
-			    	<ul class="navbar-nav ml-auto">
-			    		<li class="nav-item">
-			        		<a class="nav-link link-skills" href="#skills"><span class="nav-lang">Навыки</span><i class="fal fa-laptop-code icon-font"></i></a>
-			      		</li>
-			      		<li class="nav-item">
-			        		<a class="nav-link link-prtfl" href="#portfolio"><span class="nav-lang">Мои роботы</span><i class="fal fa-folders icon-font"></i></a>
-			      		</li>		  
-			      		<li class="nav-item dropdown">
-			        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="nav-lang">Контакты</span><i class="fal fa-id-card icon-font"></i></a>
-			        		<div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-			          			<a class="dropdown-item" href="tg://resolve?domain=@pusha_salenko" target="_top">Telegram<i class="fab fa-telegram-plane icon-font"></i></a>
-			          			<span class="dropdown-item tel">(073)0955652<i class="far fa-phone-volume icon-font"></i></span>
-			          			<span class="dropdown-item tel">(050)8548645<i class="far fa-phone-volume icon-font"></i></span>
-			          			<a class="dropdown-item email-link" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&source=mailto&to=pusha.salenko@gmail.com" target="_blank">pusha.salenko@gmail.com<i class="fal fa-envelope icon-font"></i></a>
-			          			<a class="dropdown-item" href="https://github.com/PushaPage/pushapage.github.io" target="_blank">GitHub<i class="fab fa-github icon-font"></i></a>
-			        		</div>
-			      		</li>
-			    	</ul>	
-				</div> 
-			</div>
-  	 	</nav>
-	</header>
-	<section id="about-me">
-		<div class="about-me-box container">							
-				<div class="block-left"></div>
-				<div class="block-top"></div>
-				<div class="block-bottom"></div>
-				<div class="block-right"></div>
-			<div class="about-me-text">
-				<h2><span class="title-lang">Привет</span><i class="fas fa-hand-peace big-icon-font"></i></h2>
-				<p class="about-me-lang">Mеня зовут Саленко Павел и я Front-end разработчик,
-				у меня большой интерес к IT сфере, мне нравиться создавать сайты, и я люблю то, что делаю.</p>
-				<button type="button" class="btn btn-resume" data-toggle="modal" data-target="#exampleModalLong"><span class="resume-title-lang">Moё резюме</span><i class="far fa-user-circle icon-resume"></i></button>				
-			</div>
-		</div>
-	</section>
-	<section id="skills">
-		<div class="skills-box container">
-			<h2><span class="title-lang">Навыки</span><i class="fad fa-laptop-code big-icon-font"></i></h2>
-			<ul>
-				<li><i class="fal fa-long-arrow-alt-right icon-arrow ml-2 mr-auto"></i><i class="fab fa-html5 icon-html"></i>,<i class="fab fa-css3-alt icon-css"></i>,<i class="fab fa-js-square icon-js"></i>,<i class="fab fa-sass icon-sass"></i>,<i class="fab fa-bootstrap icon-bootstrap"></i>,<i class="fab fa-gulp icon-gulp"></i>,<img src="img/icon-webpack.png" alt="webpack">,<i class="fab fa-react icon-react"></i><i class="fal fa-long-arrow-alt-left icon-arrow mr-2 ml-auto"></i></li>
-				<li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">Принцип и особености работаты с flexbox, float, inline-block</span></li>
-				<li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">Cоздание HTML-страницы сайта на основе дизайн-макетов (PerfectPixel)</span></li>
-				<li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">Адаптивная кросс-браузерная, валидная верстка</span></li>				
-				<li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">Avocode, Adobe Photoshop (на уровне нарезки шаблона и оптимизации изображений)</span></li>
-				<li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">Умение работать с Bootstrap 3 и 4</span></li>
-				<li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">Создание геометрических фигур при помощи CSS</span></li>
-				<li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">Применение СSS анимаций (@keyframes), трансформация обьектов</span></li>
-				<li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">Препроцессор Sass, сборщики webpack 4, Gulp 4</span></li>
-				<li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">Умение работать с GitHub</span></li>
-				<li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">Основы JavaScript, React</span></li>
-				<li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><i class="fab fa-js-square icon-js"></i><span class="skill-lang">Основы работы с DOM. Взаимодействие JavaScript и CSS. Работа с формами</span></li>
-				<li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><i class="fab fa-js-square icon-js"></i><span class="skill-lang">Таймеры, интервалы. Работа со строками и массивами. Регулярные выражение</span></li>
-				<li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><i class="fab fa-js-square icon-js"></i><span class="skill-lang">События, делегирование, координаты, метрики. ООП в JavaScript</span></li>
-				<li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><i class="fab fa-js-square icon-js"></i><span class="skill-lang">Cookie, LocalStorage, sessionStorage. Работа с изображениями в JavaScript</span></li>
-				<li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><i class="fab fa-js-square icon-js"></i><span class="skill-lang">Работа с данными, отправка дынных, XMLHttpRequest, POST, GET, JSON, XML</span></li>
-			</ul>
-		</div>	
-	</section>
-	<section id="portfolio">
-		<div class="portfolio-box container">
-			<h2><span class="title-lang">Мои работы</span><i class="fad fa-folders big-icon-font"></i></h2>	
-				<div class="portfolio-swiper-one swiper-container">
-			    	<div class="swiper-wrapper">
-			    		<div class="swiper-slide">
-				        	<div class="portfolio-section">
-								<div class="prtfl-head">
-									<span class="prt-number">
-										<span>1</span>
-									</span>
-				        			<span class="prtfl-head-item">
-				        				<h3>Responsive</h3>
-				        			</span>				        			
-				        		</div>	
-								<div class="portfolio-item">
-									<div class="portfolio-prompt">
-										<ul class="portfolio-text">
-											<li class="using-lang">С применением:</li>
-											<li><i class="fab fa-gulp icon-gulp"></i>,<i class="fab fa-sass icon-sass"></i>,<i class="fab fa-js-square icon-js"></i>
-											</li>
-											<li><a class="portfolio-link" href="https://pushapage.github.io/GREEN_COFFEE_SLIM/dist/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
-											<li><a class="portfolio-link" href="https://github.com/PushaPage/pushapage.github.io/tree/master/GREEN_COFFEE_SLIM" target="_blank"><span class="code-lang">Код проэкта</span><i class="far fa-code icon-sing-in"></i></a></li>				
-										</ul>							
-									</div>
-									<img src="img/GREEN_COFFEE_SLIM.jpg" alt="portfolio" class="img-fluid">
-								</div>
-								<div class="prtfl-footer">
-				        			<span class="prtfl-footer-item"></span>				        			
-				        		</div>						
-							</div>
-				        </div>	
-			    		<div class="swiper-slide">
-				        	<div class="portfolio-section">
-								<div class="prtfl-head">
-									<span class="prt-number">
-										<span>2</span>
-									</span>
-				        			<span class="prtfl-head-item">
-				        				<h3>Responsive</h3>
-				        			</span>				        			
-				        		</div>	
-								<div class="portfolio-item">
-									<div class="portfolio-prompt">
-										<ul class="portfolio-text">
-											<li class="using-lang">С применением:</li>
-											<li><i class="fab fa-react icon-react"></i>,<img src="img/icon-webpack.png" alt="webpack">,<i class="fab fa-sass icon-sass"></i>,<i class="fab fa-bootstrap icon-bootstrap"></i></li>
-											<li><a class="portfolio-link" href="https://pushapage.github.io/STE.AM/dist/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
-											<li><a class="portfolio-link" href="https://github.com/PushaPage/pushapage.github.io/tree/master/STE.AM" target="_blank"><span class="code-lang">Код проэкта</span><i class="far fa-code icon-sing-in"></i></a></li>				
-										</ul>							
-									</div>
-									<img src="img/STE.AM.jpg" alt="portfolio" class="img-fluid">
-								</div>
-								<div class="prtfl-footer">
-				        			<span class="prtfl-footer-item"></span>				        			
-				        		</div>						
-							</div>
-				        </div>				   
-			    		<div class="swiper-slide">
-				        	<div class="portfolio-section">
-								<div class="prtfl-head">
-									<span class="prt-number">
-										<span>3</span>
-									</span>
-				        			<span class="prtfl-head-item">
-				        				<h3>Responsive</h3>
-				        			</span>				        			
-				        		</div>	
-								<div class="portfolio-item">
-									<div class="portfolio-prompt">
-										<ul class="portfolio-text">
-											<li class="using-lang">С применением:</li>
-											<li><i class="fab fa-bootstrap icon-bootstrap"></i>,<i class="fab fa-gulp icon-gulp"></i>,<i class="fab fa-sass icon-sass"></i>,<i class="fab fa-js-square icon-js"></i></li>
-											<li><a class="portfolio-link" href="https://pushapage.github.io/KURAJ_TUR/dist/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
-											<li><a class="portfolio-link" href="https://github.com/PushaPage/pushapage.github.io/tree/master/KURAJ_TUR" target="_blank"><span class="code-lang">Код проэкта</span><i class="far fa-code icon-sing-in"></i></a></li>	
-										</ul>							
-									</div>
-									<img src="img/KURAJ_TUR.jpg" alt="portfolio" class="img-fluid">
-								</div>
-								<div class="prtfl-footer">
-				        			<span class="prtfl-footer-item"></span>				        			
-				        		</div>						
-							</div>
-				        </div>				   
-				        <div class="swiper-slide">
-				        	<div class="portfolio-section">
-				        		<div class="prtfl-head">
-				        			<span class="prt-number">
-										<span>4</span>
-									</span>
-				        			<span class="prtfl-head-item">
-				        				<h3>Responsive</h3>
-				        			</span>				        			
-				        		</div>								
-								<div class="portfolio-item">
-									<div class="portfolio-prompt">
-										<ul class="portfolio-text">
-											<li class="using-lang">С применением:</li>
-											<li><i class="fab fa-bootstrap icon-bootstrap"></i>,<i class="fab fa-js-square icon-js"></i></li>
-											<li><a class="portfolio-link" href="https://pushapage.github.io/ZHELEZNIY_PORT/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
-											<li><a class="portfolio-link" href="https://github.com/PushaPage/pushapage.github.io/tree/master/ZHELEZNIY_PORT" target="_blank"><span class="code-lang">Код проэкта</span><i class="far fa-code icon-sing-in"></i></a></li>	
-										</ul>						
-									</div>
-									<img src="img/ZHELEZNIY_PORT.jpg" alt="portfolio" class="img-fluid">
-								</div>
-								<div class="prtfl-footer">
-				        			<span class="prtfl-footer-item"></span>				        			
-				        		</div>						
-							</div>
-				        </div>
-				        <div class="swiper-slide">
-				        	<div class="portfolio-section">
-								<div class="prtfl-head">
-									<span class="prt-number">
-										<span>5</span>
-									</span>
-				        			<span class="prtfl-head-item">
-				        				<h3>Responsive</h3>
-				        			</span>				        			
-				        		</div>	
-								<div class="portfolio-item">
-									<div class="portfolio-prompt">
-										<ul class="portfolio-text">
-											<li class="using-lang">С применением:</li>
-											<li><i class="fab fa-bootstrap icon-bootstrap"></i>,<i class="fab fa-js-square icon-js"></i></li>
-											<li><a class="portfolio-link" href="https://pushapage.github.io/BROTHERHOOD/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
-											<li><a class="portfolio-link" href="https://github.com/PushaPage/pushapage.github.io/tree/master/BROTHERHOOD" target="_blank"><span class="code-lang">Код проэкта</span><i class="far fa-code icon-sing-in"></i></a></li>	
-										</ul>						
-									</div>
-									<img src="img/BROTHERHOOD.jpg" alt="portfolio" class="img-fluid">
-								</div>
-								<div class="prtfl-footer">
-				        			<span class="prtfl-footer-item"></span>				        			
-				        		</div>					
-							</div>
-				        </div>
-				        <div class="swiper-slide">
-				        	<div class="portfolio-section">
-								<div class="prtfl-head">
-									<span class="prt-number">
-										<span>6</span>
-									</span>
-				        			<span class="prtfl-head-item">
-				        				<h3>Responsive</h3>
-				        			</span>				        			
-				        		</div>	
-								<div class="portfolio-item">
-									<div class="portfolio-prompt">
-										<ul class="portfolio-text">
-											<li class="using-lang">С применением:</li>
-											<li><i class="fab fa-bootstrap icon-bootstrap"></i>,<i class="fab fa-gulp icon-gulp"></i>,<i class="fab fa-sass icon-sass"></i>,<i class="fab fa-js-square icon-js"></i></li>
-											<li><a class="portfolio-link" href="https://pushapage.github.io/MYATA/dist/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
-											<li><a class="portfolio-link" href="https://github.com/PushaPage/pushapage.github.io/tree/master/MYATA" target="_blank"><span class="code-lang">Код проэкта</span><i class="far fa-code icon-sing-in"></i></a></li>	
-										</ul>							
-									</div>
-									<img src="img/MYATA.jpg" alt="portfolio" class="img-fluid">
-								</div>
-								<div class="prtfl-footer">
-				        			<span class="prtfl-footer-item"></span>				        			
-				        		</div>						
-							</div>
-				        </div>				             
-			    	</div>		    		    	
-			    	<div class="button-portfolio-next-one swiper-button-next fad fa-arrow-alt-circle-left"></div>
-			    	<div class="button-portfolio-prev-one swiper-button-prev fad fa-arrow-alt-circle-right"></div>
-					<div class="portfolio-pagination-one swiper-pagination"></div>
-		  		</div>
-		  		<div class="portfolio-swiper-two swiper-container">
-			    	<div class="swiper-wrapper">
-			    		<div class="swiper-slide">
-				        	<div class="portfolio-section">
-								<div class="prtfl-head">
-									<span class="prt-number">
-										<span>1</span>
-									</span>
-				        			<span class="prtfl-head-item">
-				        				<h3>Static</h3>
-				        			</span>				        			
-				        		</div>	
-								<div class="portfolio-item">
-									<div class="portfolio-prompt">
-										<ul class="portfolio-text">
-											<li class="only-lang">Только:</li>
-											<li><i class="fab fa-html5 icon-html"></i>,<i class="fab fa-css3-alt icon-css"></i></li>
-											<li><a class="portfolio-link" href="https://pushapage.github.io/BREAD_BAKE/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
-											<li><a class="portfolio-link" href="https://github.com/PushaPage/pushapage.github.io/tree/master/BREAD_BAKE" target="_blank"><span class="code-lang">Код проэкта</span><i class="far fa-code icon-sing-in"></i></a></li>	
-										</ul>						
-									</div>
-									<img src="img/BREAD_BAKE.jpg" alt="portfolio" class="img-fluid">
-								</div>
-								<div class="prtfl-footer">
-				        			<span class="prtfl-footer-item"></span>				        			
-				        		</div>						
-							</div>
-				        </div>				   
-				        <div class="swiper-slide">
-				        	<div class="portfolio-section">
-				        		<div class="prtfl-head">
-				        			<span class="prt-number">
-										<span>2</span>
-									</span>
-				        			<span class="prtfl-head-item">
-				        				<h3>Static</h3>
-				        			</span>				        			
-				        		</div>								
-								<div class="portfolio-item">
-									<div class="portfolio-prompt">
-										<ul class="portfolio-text">
-											<li class="only-lang">Только:</li>
-											<li><i class="fab fa-html5 icon-html"></i>,<i class="fab fa-css3-alt icon-css"></i></li>
-											<li><a class="portfolio-link" href="https://pushapage.github.io/DANIELA_RYALE/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
-											<li><a class="portfolio-link" href="https://github.com/PushaPage/pushapage.github.io/tree/master/DANIELA_RYALE" target="_blank"><span class="code-lang">Код проэкта</span><i class="far fa-code icon-sing-in"></i></a></li>	
-										</ul>						
-									</div>
-									<img src="img/DANIELA_RYALE.jpg" alt="portfolio" class="img-fluid">
-								</div>
-								<div class="prtfl-footer">
-				        			<span class="prtfl-footer-item"></span>				        			
-				        		</div>						
-							</div>
-				        </div>
-				        <div class="swiper-slide">
-				        	<div class="portfolio-section">
-								<div class="prtfl-head">
-									<span class="prt-number">
-										<span>3</span>
-									</span>
-				        			<span class="prtfl-head-item">
-				        				<h3>Static</h3>
-				        			</span>				        			
-				        		</div>	
-								<div class="portfolio-item">
-									<div class="portfolio-prompt">
-										<ul class="portfolio-text">
-											<li class="only-lang">Только:</li>
-											<li><i class="fab fa-html5 icon-html"></i>,<i class="fab fa-css3-alt icon-css"></i></li>
-											<li><a class="portfolio-link" href="https://pushapage.github.io/STROYKA/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
-											<li><a class="portfolio-link" href="https://github.com/PushaPage/pushapage.github.io/tree/master/STROYKA" target="_blank"><span class="code-lang">Код проэкта</span><i class="far fa-code icon-sing-in"></i></a></li>	
-										</ul>							
-									</div>
-									<img src="img/STROYKA.jpg" alt="portfolio" class="img-fluid">
-								</div>
-								<div class="prtfl-footer">
-				        			<span class="prtfl-footer-item"></span>				        			
-				        		</div>					
-							</div>
-				        </div>				       
-			    	</div>		    		    	
-			    	<div class="button-portfolio-next-two swiper-button-next fad fa-arrow-alt-circle-left"></div>
-			    	<div class="button-portfolio-prev-two swiper-button-prev fad fa-arrow-alt-circle-right"></div>
-					<div class="portfolio-pagination-two swiper-pagination"></div>
-		  		</div>
-		  		<div class="portfolio-swiper-two swiper-container">
-			    	<div class="swiper-wrapper">
-			    		<div class="swiper-slide">
-				        	<div class="portfolio-section section-js">
-								<div class="prtfl-head">
-									<span class="prt-number">
-										<span>1</span>
-									</span>
-				        			<span class="prtfl-head-item">
-				        				<h3>Responsive</h3>
-				        			</span>				        			
-				        		</div>	
-								<div class="portfolio-item">
-									<div class="portfolio-prompt">
-										<ul class="portfolio-text">
-											<li><span class="section-title-js-lang">Опросник</span><i class="fal fa-question icon-font"></i></li>											
-											<li><a class="portfolio-link" href="https://pushapage.github.io/SpongeBobInquirer/dist/#/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
-										</ul>						
-									</div>
-									<img src="img/bg-react.png" alt="portfolio" class="img-fluid">
-								</div>				
-								<div class="prtfl-footer">
-				        			<span class="prtfl-footer-item"></span>				        			
-				        		</div>						
-							</div>
-				        </div>				   
-			    		<div class="swiper-slide">
-				        	<div class="portfolio-section section-js">
-								<div class="prtfl-head">
-									<span class="prt-number">
-										<span>2</span>
-									</span>
-				        			<span class="prtfl-head-item">
-				        				<h3>Static</h3>
-				        			</span>				        			
-				        		</div>	
-								<div class="portfolio-item">
-									<div class="portfolio-prompt">
-										<ul class="portfolio-text">
-											<li><span class="section-title-js-lang">Игра</span><i class="fas fa-gamepad-alt icon-font"></i></li>											
-											<li><a class="portfolio-link" href="https://pushapage.github.io/DebuggingWithAndroid(Desktop)/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
-										</ul>						
-									</div>
-									<img src="img/bg-js.jpg" alt="portfolio" class="img-fluid">
-								</div>				
-								<div class="prtfl-footer">
-				        			<span class="prtfl-footer-item"></span>				        			
-				        		</div>						
-							</div>
-				        </div>
-				        <div class="swiper-slide">
-				        	<div class="portfolio-section section-js">
-								<div class="prtfl-head">
-									<span class="prt-number">
-										<span>3</span>
-									</span>
-				        			<span class="prtfl-head-item">
-				        				<h3>Responsive</h3>
-				        			</span>				        			
-				        		</div>	
-								<div class="portfolio-item">
-									<div class="portfolio-prompt">
-										<ul class="portfolio-text">
-											<li><span class="section-title-js-lang">Таймер cобытий</span><i class="fal fa-glass-cheers icon-font"></i></li>											
-											<li><a class="portfolio-link" href="https://pushapage.github.io/EventTimer/dist/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
-										</ul>						
-									</div>
-									<img src="img/bg-js.jpg" alt="portfolio" class="img-fluid">
-								</div>				
-								<div class="prtfl-footer">
-				        			<span class="prtfl-footer-item"></span>				        			
-				        		</div>						
-							</div>
-						</div>					   
-				        <div class="swiper-slide">
-				        	<div class="portfolio-section section-js">
-				        		<div class="prtfl-head">
-				        			<span class="prt-number">
-										<span>4</span>
-									</span>
-				        			<span class="prtfl-head-item">
-				        				<h3>Responsive</h3>
-				        			</span>				        			
-				        		</div>								
-								<div class="portfolio-item">
-									<div class="portfolio-prompt">
-										<ul class="portfolio-text">
-											<li><span class="section-title-js-lang">Крестики-нолики</span><i class="fas fa-dice icon-font"></i></li>								
-											<li><a class="portfolio-link" href="https://pushapage.github.io/Tick-tack-toe/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
-										</ul>						
-									</div>
-									<img src="img/bg-js.jpg" alt="portfolio" class="img-fluid">
-								</div>				
-								<div class="prtfl-footer">
-				        			<span class="prtfl-footer-item"></span>				        			
-				        		</div>						
-							</div>
-				        </div>
-				        <div class="swiper-slide">
-				        	<div class="portfolio-section section-js">
-								<div class="prtfl-head">
-									<span class="prt-number">
-										<span>5</span>
-									</span>
-				        			<span class="prtfl-head-item">
-				        				<h3>Responsive</h3>
-				        			</span>				        			
-				        		</div>	
-								<div class="portfolio-item">
-									<div class="portfolio-prompt">
-										<ul class="portfolio-text">
-											<li><span class="section-title-js-lang">Бесконечная карусель</span><i class="fas fa-sync-alt icon-font"></i></i></li>							
-											<li><a class="portfolio-link" href="https://pushapage.github.io/SpongeBobCarousel/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
-										</ul>						
-									</div>
-									<img src="img/bg-js.jpg" alt="portfolio" class="img-fluid">
-								</div>			
-								<div class="prtfl-footer">
-				        			<span class="prtfl-footer-item"></span>				        			
-				        		</div>					
-							</div>
-				        </div>
-				        <div class="swiper-slide">
-				        	<div class="portfolio-section section-js">
-								<div class="prtfl-head">
-									<span class="prt-number">
-										<span>6</span>
-									</span>
-				        			<span class="prtfl-head-item">
-				        				<h3>Responsive</h3>
-				        			</span>				        			
-				        		</div>	
-								<div class="portfolio-item">
-									<div class="portfolio-prompt">
-										<ul class="portfolio-text">
-											<li><span class="section-title-js-lang">Смена имени в сказке</span><i class="fas fa-scroll-old icon-font"></i><i class="fas fa-feather-alt icon-font"></i></li>								
-											<li><a class="portfolio-link" href="https://pushapage.github.io/ChangeFable/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
-										</ul>						
-									</div>
-									<img src="img/bg-js.jpg" alt="portfolio" class="img-fluid">
-								</div>					
-								<div class="prtfl-footer">
-				        			<span class="prtfl-footer-item"></span>				        			
-				        		</div>					
-							</div>
-				        </div>
-				        <div class="swiper-slide">
-				        	<div class="portfolio-section section-js">
-								<div class="prtfl-head">
-									<span class="prt-number">
-										<span>7</span>
-									</span>
-				        			<span class="prtfl-head-item">
-				        				<h3>Responsive</h3>
-				        			</span>				        			
-				        		</div>	
-								<div class="portfolio-item">
-									<div class="portfolio-prompt">
-										<ul class="portfolio-text">
-											<li><span class="section-title-js-lang">Список дел (c редактированием)</span><i class="fas fa-clipboard-list-check icon-font"></i></li>							
-											<li><a class="portfolio-link" href="https://pushapage.github.io/MyToDoList/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
-										</ul>						
-									</div>
-									<img src="img/bg-js.jpg" alt="portfolio" class="img-fluid">
-								</div>					
-								<div class="prtfl-footer">
-				        			<span class="prtfl-footer-item"></span>				        			
-				        		</div>					
-							</div>
-				        </div>			
-				        <div class="swiper-slide">
-				        	<div class="portfolio-section section-js">
-								<div class="prtfl-head">
-									<span class="prt-number">
-										<span>8</span>
-									</span>
-				        			<span class="prtfl-head-item">
-				        				<h3>Responsive</h3>
-				        			</span>				        			
-				        		</div>	
-								<div class="portfolio-item">
-									<div class="portfolio-prompt">
-										<ul class="portfolio-text">
-											<li><span class="section-title-js-lang">Секундомер</span><i class="fal fa-stopwatch icon-font"></i></li>								
-											<li><a class="portfolio-link" href="https://pushapage.github.io/StopWatch/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
-										</ul>						
-									</div>
-									<img src="img/bg-js.jpg" alt="portfolio" class="img-fluid">
-								</div>		
-								<div class="prtfl-footer">
-				        			<span class="prtfl-footer-item"></span>				        			
-				        		</div>					
-							</div>
-				        </div>									       
-			    	</div>		    		    	
-			    	<div class="button-portfolio-next-two swiper-button-next fad fa-arrow-alt-circle-left"></div>
-			    	<div class="button-portfolio-prev-two swiper-button-prev fad fa-arrow-alt-circle-right"></div>
-					<div class="portfolio-pagination-two swiper-pagination"></div>
-		  		</div>		
-			<div class="d-flex justify-content-end">
-				<a href="#main" class="fas fa-caret-up on-up"></a>
-			</div>
-		</div>
-	</section>
-	<footer>
-		<div class="container p-0">
-			<div class="contact d-flex flex-column flex-md-row flex-wrap col-12 col-lg-10 col-xl-8 justify-content-md-between ml-auto">
-				<a class="contact-item" href="tg://resolve?domain=@pusha_salenko" target="_top">Telegram<i class="fab fa-telegram-plane icon-font"></i></a>
-			    <span class="contact-item-tel">(073)0955652<i class="far fa-phone-volume icon-font"></i></span>
-			    <span class="contact-item-tel d-block d-md-none d-lg-block">(050)8548645<i class="far fa-phone-volume icon-font"></i></span>
-			    <a class="contact-item email-link" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&source=mailto&to=pusha.salenko@gmail.com" target="_blank">pusha.salenko@gmail.com<i class="fal fa-envelope icon-font"></i></a>
-			    <a class="contact-item" href="https://github.com/PushaPage/pushapage.github.io" target="_blank">GitHub<i class="fab fa-github icon-font"></i></a>
-			</div>
-		</div>
-	</footer>
-	<div class="modal bd-example-modal-lg fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    	<div class="modal-dialog" role="document">
-	      	<div class="modal-content">
-	        	<div class="modal-header">
-	          	<h5 class="modal-title ml-auto" id="exampleModalLongTitle"><span class="resume-title-lang">Саленко Павел</span><i class="fas fa-user md-icon-font"></i></h5>
-	          	<button type="button" class="close" data-dismiss="modal" aria-label="Close">            
-	            	<i aria-hidden="true" class="fal fa-times-circle icon-close"></i>
-	          	</button>
-	        	</div>
-	        	<div class="modal-body">
-	        		<ul class="modal-about-me col-11 col-sm-8 col-lg-7 text-right my-0 ml-auto">
-	        			<li class="resume-me-lang"><span class="modal-item-list">Дата рождения:</span>26 апреля 1990г</li>
-	        			<li class="resume-me-lang"><span class="modal-item-list">Город проживания:</span>Харьков</li>
-	        			<li class="resume-me-lang"><span class="modal-item-list">Телефон:</span>(073) 095-56-52</li>
-	        			<li><span class="modal-item-list">E-mail:</span><a class="modal-item-link" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&source=mailto&to=pusha.salenko@gmail.com" target="_blank">pusha.salenko@gmail.com</a></li>
-	        		</ul>
-	        		<div class="modal-section">
-	        			<h5 class="modal-title"><span class="resume-title-lang">Цель</span><i class="far fa-bullseye-arrow md-icon-font"></i></h5>
-	        			<ul class="modal-about-me col-11">
-		        			<li><i class="fad fa-circle sm-icon-font"></i><span class="objectivs-lang">трудоустройство на вакансию Front-end/JavaScript разработчика</span></li>
-		        			<li><i class="fad fa-circle sm-icon-font"></i><span class="objectivs-lang">желаемый уровень зарплаты от 400$</span></li>        			
-	        			</ul>
-	        			<h5 class="modal-title"><span class="resume-title-lang">Образование</span><i class="fas fa-user-graduate md-icon-font"></i></h5>
-	        			<ul class="modal-about-me col-11">
-		        			<li class="education-lang">Высшее</li>
-		        			<li><i class="fad fa-circle sm-icon-font"></i>2019<i class="fal fa-long-arrow-alt-right icon-arrow"></i><a class="modal-item-link" href="http://uitschool.com/" target="_blank">Ukrainian IT School</a>
-		        				<span class="education-lang">
-		        					<span class="new-line">
-		        						<span class="modal-item-list">Курсы:</span>«Программирование Front-end ( май − июль )», «JavaScript ( август − ноябрь)»
-		        					</span>		        						
-		        				</span>
-		        			</li>
-		        			<li class="education-lang"><i class="fad fa-circle sm-icon-font"></i>2009 − 2014<i class="fal fa-long-arrow-alt-right icon-arrow"></i><a class="modal-item-link" href="http://www.hduht.edu.ua/index.php/ru/" target="_blank">Харьковский государственный университет питания и торговли</a>
-		        				<span class="new-line"><span class="modal-item-list">Факультет:</span>«Пищевые технологии и инженерия»</span>
-		        				<span class="new-line"><span class="modal-item-list">Специальность:</span>«Технология хлеба, кондитерских и макаронных изделий»</span>
-		        				<span class="new-line"><span class="modal-item-list">Диплом:</span>«Бакалавр»</span>
-		        				<span class="new-line"><span class="modal-item-list">Форма обучения:</span>«Заочная»</span>
-		        			</li>          			
-	        			</ul>
-	        			<h5 class="modal-title"><span class="resume-title-lang">Знание языков</span><i class="fad fa-book md-icon-font"></i></h5>
-	        			<ul class="modal-about-me col-11">
-		        			<li><i class="fad fa-circle sm-icon-font"></i><span class="knowledge-lang">Английский − средний ( чтение официальных документов, простейших инструкций, понимание сути телерепортажей, которые сопровождаются изображением )</span></li>		        		        			
-	        			</ul>
-	        			<h5 class="modal-title"><span class="resume-title-lang">Опыт работы</span><i class="fas fa-user-hard-hat md-icon-font"></i></h5>
-	        			<ul class="modal-about-me col-11">
-		        			<li><i class="fad fa-circle sm-icon-font"></i>2008 − 2019<i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="work-experience-lang">ТОВ «Катюша 91»</span>
-		        				<span class="new-line work-experience-lang"><span class="modal-item-list">Должность:</span>«Кондитер»</span>
-		        			</li>		        		        			
-	        			</ul>
-        			</div>      
-       	 		</div>       	
-   	 		</div>
-  		</div>		
-	</body>
+    <header>
+        <div class="container d-flex justify-content-between p-0">
+            <div id="change-lang">
+                <button id="langRus" type="button" class="btn lang-active">Рус</button>
+                <button id="langEng" type="button" class="btn">Eng</button>
+            </div>
+            <span id="clock"></span>
+        </div>
+        <nav class="navbar navbar-expand-md">
+            <div class="container p-0">
+                <button class="menu navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="hamberger-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar1">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link link-skills" href="#skills"><span class="nav-lang">Навыки</span><i class="fal fa-laptop-code icon-font"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link-prtfl" href="#portfolio"><span class="nav-lang">Мои роботы</span><i class="fal fa-folders icon-font"></i></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="nav-lang">Контакты</span><i class="fal fa-id-card icon-font"></i></a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                <a class="dropdown-item" href="tg://resolve?domain=@pusha_salenko" target="_top">Telegram<i class="fab fa-telegram-plane icon-font"></i></a>
+                                <span class="dropdown-item tel">(073)0955652<i class="far fa-phone-volume icon-font"></i></span>
+                                <span class="dropdown-item tel">(050)8548645<i class="far fa-phone-volume icon-font"></i></span>
+                                <a class="dropdown-item email-link" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&source=mailto&to=pusha.salenko@gmail.com" target="_blank">pusha.salenko@gmail.com<i class="fal fa-envelope icon-font"></i></a>
+                                <a class="dropdown-item" href="https://github.com/PushaPage/pushapage.github.io" target="_blank">GitHub<i class="fab fa-github icon-font"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section id="about-me">
+        <div class="about-me-box container">
+            <div class="block-left"></div>
+            <div class="block-top"></div>
+            <div class="block-bottom"></div>
+            <div class="block-right"></div>
+            <div class="about-me-text">
+                <h2><span class="title-lang">Привет</span><i class="fas fa-hand-peace big-icon-font"></i></h2>
+                <p class="about-me-lang">Mеня зовут Саленко Павел и я Front-end разработчик,
+                    у меня большой интерес к IT сфере, мне нравиться создавать сайты, и я люблю то, что делаю.</p>
+                <button type="button" class="btn btn-resume" data-toggle="modal" data-target="#exampleModalLong"><span class="resume-title-lang">Moё резюме</span><i class="far fa-user-circle icon-resume"></i></button>
+            </div>
+        </div>
+    </section>
+    <section id="skills">
+        <div class="skills-box container">
+            <h2><span class="title-lang">Навыки</span><i class="fad fa-laptop-code big-icon-font"></i></h2>
+            <ul>
+                <li><i class="fal fa-long-arrow-alt-right icon-arrow ml-2 mr-auto"></i><i class="fab fa-html5 icon-html"></i>,<i class="fab fa-css3-alt icon-css"></i>,<i class="fab fa-js-square icon-js"></i>,<i class="fab fa-sass icon-sass"></i>,<i class="fab fa-bootstrap icon-bootstrap"></i>,<i class="fab fa-gulp icon-gulp"></i>,<img src="img/icon-webpack.png" alt="webpack">,<i class="fab fa-react icon-react"></i><i class="fal fa-long-arrow-alt-left icon-arrow mr-2 ml-auto"></i></li>
+                <li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">Принцип и особености работаты с flexbox, grid, float, inline-block</span></li>
+                <li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">Cоздание HTML-страницы сайта на основе дизайн-макетов (PerfectPixel)</span></li>
+                <li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">Адаптивная кросс-браузерная, валидная верстка</span></li>
+                <li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">Avocode, Figma, Adobe Photoshop, оптимизация изображений - спрайты</span></li>
+                <li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">Умение работать с Bootstrap 3 и 4</span></li>
+                <li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">Создание геометрических фигур при помощи CSS</span></li>
+                <li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">Применение СSS анимаций (@keyframes), трансформация обьектов</span></li>
+                <li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">Препроцессор Sass, сборщики webpack 4, Gulp 4</span></li>
+                <li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">Умение работать с GitHub</span></li>
+                <li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="skill-lang">JavaScript, React</span></li>
+                <li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><i class="fab fa-js-square icon-js"></i><span class="skill-lang">Работы с DOM. Взаимодействие JavaScript и CSS. Работа с формами</span></li>
+                <li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><i class="fab fa-js-square icon-js"></i><span class="skill-lang">Таймеры, интервалы. Работа со строками и массивами. Регулярные выражение</span></li>
+                <li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><i class="fab fa-js-square icon-js"></i><span class="skill-lang">События, делегирование, координаты, метрики. ООП в JavaScript</span></li>
+                <li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><i class="fab fa-js-square icon-js"></i><span class="skill-lang">Cookie, LocalStorage, sessionStorage. Работа с изображениями в JavaScript</span></li>
+                <li><i class="fal fa-long-arrow-alt-right icon-arrow"></i><i class="fab fa-js-square icon-js"></i><span class="skill-lang">Работа с данными, отправка дынных, XMLHttpRequest, POST, GET, JSON, XML</span></li>
+            </ul>
+        </div>
+    </section>
+    <section id="portfolio">
+        <div class="portfolio-box container">
+            <h2><span class="title-lang">Мои работы</span><i class="fad fa-folders big-icon-font"></i></h2>
+            <div class="portfolio-swiper-one swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="portfolio-section">
+                            <div class="prtfl-head">
+                                <span class="prt-number">
+                                    <span>1</span>
+                                </span>
+                                <span class="prtfl-head-item">
+                                    <h3>Responsive</h3>
+                                </span>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-prompt">
+                                    <ul class="portfolio-text">
+                                        <li class="using-lang">С применением:</li>
+                                        <li><i class="fab fa-gulp icon-gulp"></i>,<i class="fab fa-sass icon-sass"></i>,<i class="fab fa-js-square icon-js"></i>
+                                        </li>
+                                        <li><a class="portfolio-link" href="https://pushapage.github.io/GREEN_COFFEE_SLIM/dist/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
+                                        <li><a class="portfolio-link" href="https://github.com/PushaPage/pushapage.github.io/tree/master/GREEN_COFFEE_SLIM" target="_blank"><span class="code-lang">Код проэкта</span><i class="far fa-code icon-sing-in"></i></a></li>
+                                    </ul>
+                                </div>
+                                <img src="img/GREEN_COFFEE_SLIM.jpg" alt="portfolio" class="img-fluid">
+                            </div>
+                            <div class="prtfl-footer">
+                                <span class="prtfl-footer-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-section">
+                            <div class="prtfl-head">
+                                <span class="prt-number">
+                                    <span>2</span>
+                                </span>
+                                <span class="prtfl-head-item">
+                                    <h3>Responsive</h3>
+                                </span>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-prompt">
+                                    <ul class="portfolio-text">
+                                        <li class="using-lang">С применением:</li>
+                                        <li><i class="fab fa-react icon-react"></i>,<img src="img/icon-webpack.png" alt="webpack">,<i class="fab fa-sass icon-sass"></i>,<i class="fab fa-bootstrap icon-bootstrap"></i></li>
+                                        <li><a class="portfolio-link" href="https://pushapage.github.io/STE.AM/dist/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
+                                        <li><a class="portfolio-link" href="https://github.com/PushaPage/pushapage.github.io/tree/master/STE.AM" target="_blank"><span class="code-lang">Код проэкта</span><i class="far fa-code icon-sing-in"></i></a></li>
+                                    </ul>
+                                </div>
+                                <img src="img/STE.AM.jpg" alt="portfolio" class="img-fluid">
+                            </div>
+                            <div class="prtfl-footer">
+                                <span class="prtfl-footer-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-section">
+                            <div class="prtfl-head">
+                                <span class="prt-number">
+                                    <span>3</span>
+                                </span>
+                                <span class="prtfl-head-item">
+                                    <h3>Responsive</h3>
+                                </span>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-prompt">
+                                    <ul class="portfolio-text">
+                                        <li class="using-lang">С применением:</li>
+                                        <li><i class="fab fa-bootstrap icon-bootstrap"></i>,<i class="fab fa-gulp icon-gulp"></i>,<i class="fab fa-sass icon-sass"></i>,<i class="fab fa-js-square icon-js"></i></li>
+                                        <li><a class="portfolio-link" href="https://pushapage.github.io/KURAJ_TUR/dist/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
+                                        <li><a class="portfolio-link" href="https://github.com/PushaPage/pushapage.github.io/tree/master/KURAJ_TUR" target="_blank"><span class="code-lang">Код проэкта</span><i class="far fa-code icon-sing-in"></i></a></li>
+                                    </ul>
+                                </div>
+                                <img src="img/KURAJ_TUR.jpg" alt="portfolio" class="img-fluid">
+                            </div>
+                            <div class="prtfl-footer">
+                                <span class="prtfl-footer-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-section">
+                            <div class="prtfl-head">
+                                <span class="prt-number">
+                                    <span>4</span>
+                                </span>
+                                <span class="prtfl-head-item">
+                                    <h3>Responsive</h3>
+                                </span>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-prompt">
+                                    <ul class="portfolio-text">
+                                        <li class="using-lang">С применением:</li>
+                                        <li><i class="fab fa-bootstrap icon-bootstrap"></i>,<i class="fab fa-js-square icon-js"></i></li>
+                                        <li><a class="portfolio-link" href="https://pushapage.github.io/ZHELEZNIY_PORT/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
+                                        <li><a class="portfolio-link" href="https://github.com/PushaPage/pushapage.github.io/tree/master/ZHELEZNIY_PORT" target="_blank"><span class="code-lang">Код проэкта</span><i class="far fa-code icon-sing-in"></i></a></li>
+                                    </ul>
+                                </div>
+                                <img src="img/ZHELEZNIY_PORT.jpg" alt="portfolio" class="img-fluid">
+                            </div>
+                            <div class="prtfl-footer">
+                                <span class="prtfl-footer-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-section">
+                            <div class="prtfl-head">
+                                <span class="prt-number">
+                                    <span>5</span>
+                                </span>
+                                <span class="prtfl-head-item">
+                                    <h3>Responsive</h3>
+                                </span>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-prompt">
+                                    <ul class="portfolio-text">
+                                        <li class="using-lang">С применением:</li>
+                                        <li><i class="fab fa-bootstrap icon-bootstrap"></i>,<i class="fab fa-js-square icon-js"></i></li>
+                                        <li><a class="portfolio-link" href="https://pushapage.github.io/BROTHERHOOD/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
+                                        <li><a class="portfolio-link" href="https://github.com/PushaPage/pushapage.github.io/tree/master/BROTHERHOOD" target="_blank"><span class="code-lang">Код проэкта</span><i class="far fa-code icon-sing-in"></i></a></li>
+                                    </ul>
+                                </div>
+                                <img src="img/BROTHERHOOD.jpg" alt="portfolio" class="img-fluid">
+                            </div>
+                            <div class="prtfl-footer">
+                                <span class="prtfl-footer-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-section">
+                            <div class="prtfl-head">
+                                <span class="prt-number">
+                                    <span>6</span>
+                                </span>
+                                <span class="prtfl-head-item">
+                                    <h3>Responsive</h3>
+                                </span>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-prompt">
+                                    <ul class="portfolio-text">
+                                        <li class="using-lang">С применением:</li>
+                                        <li><i class="fab fa-bootstrap icon-bootstrap"></i>,<i class="fab fa-gulp icon-gulp"></i>,<i class="fab fa-sass icon-sass"></i>,<i class="fab fa-js-square icon-js"></i></li>
+                                        <li><a class="portfolio-link" href="https://pushapage.github.io/MYATA/dist/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
+                                        <li><a class="portfolio-link" href="https://github.com/PushaPage/pushapage.github.io/tree/master/MYATA" target="_blank"><span class="code-lang">Код проэкта</span><i class="far fa-code icon-sing-in"></i></a></li>
+                                    </ul>
+                                </div>
+                                <img src="img/MYATA.jpg" alt="portfolio" class="img-fluid">
+                            </div>
+                            <div class="prtfl-footer">
+                                <span class="prtfl-footer-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-portfolio-next-one swiper-button-next fad fa-arrow-alt-circle-left"></div>
+                <div class="button-portfolio-prev-one swiper-button-prev fad fa-arrow-alt-circle-right"></div>
+                <div class="portfolio-pagination-one swiper-pagination"></div>
+            </div>
+            <div class="portfolio-swiper-two swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="portfolio-section">
+                            <div class="prtfl-head">
+                                <span class="prt-number">
+                                    <span>1</span>
+                                </span>
+                                <span class="prtfl-head-item">
+                                    <h3>Static</h3>
+                                </span>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-prompt">
+                                    <ul class="portfolio-text">
+                                        <li class="only-lang">Только:</li>
+                                        <li><i class="fab fa-html5 icon-html"></i>,<i class="fab fa-css3-alt icon-css"></i></li>
+                                        <li><a class="portfolio-link" href="https://pushapage.github.io/BREAD_BAKE/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
+                                        <li><a class="portfolio-link" href="https://github.com/PushaPage/pushapage.github.io/tree/master/BREAD_BAKE" target="_blank"><span class="code-lang">Код проэкта</span><i class="far fa-code icon-sing-in"></i></a></li>
+                                    </ul>
+                                </div>
+                                <img src="img/BREAD_BAKE.jpg" alt="portfolio" class="img-fluid">
+                            </div>
+                            <div class="prtfl-footer">
+                                <span class="prtfl-footer-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-section">
+                            <div class="prtfl-head">
+                                <span class="prt-number">
+                                    <span>2</span>
+                                </span>
+                                <span class="prtfl-head-item">
+                                    <h3>Static</h3>
+                                </span>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-prompt">
+                                    <ul class="portfolio-text">
+                                        <li class="only-lang">Только:</li>
+                                        <li><i class="fab fa-html5 icon-html"></i>,<i class="fab fa-css3-alt icon-css"></i></li>
+                                        <li><a class="portfolio-link" href="https://pushapage.github.io/DANIELA_RYALE/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
+                                        <li><a class="portfolio-link" href="https://github.com/PushaPage/pushapage.github.io/tree/master/DANIELA_RYALE" target="_blank"><span class="code-lang">Код проэкта</span><i class="far fa-code icon-sing-in"></i></a></li>
+                                    </ul>
+                                </div>
+                                <img src="img/DANIELA_RYALE.jpg" alt="portfolio" class="img-fluid">
+                            </div>
+                            <div class="prtfl-footer">
+                                <span class="prtfl-footer-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-section">
+                            <div class="prtfl-head">
+                                <span class="prt-number">
+                                    <span>3</span>
+                                </span>
+                                <span class="prtfl-head-item">
+                                    <h3>Static</h3>
+                                </span>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-prompt">
+                                    <ul class="portfolio-text">
+                                        <li class="only-lang">Только:</li>
+                                        <li><i class="fab fa-html5 icon-html"></i>,<i class="fab fa-css3-alt icon-css"></i></li>
+                                        <li><a class="portfolio-link" href="https://pushapage.github.io/STROYKA/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
+                                        <li><a class="portfolio-link" href="https://github.com/PushaPage/pushapage.github.io/tree/master/STROYKA" target="_blank"><span class="code-lang">Код проэкта</span><i class="far fa-code icon-sing-in"></i></a></li>
+                                    </ul>
+                                </div>
+                                <img src="img/STROYKA.jpg" alt="portfolio" class="img-fluid">
+                            </div>
+                            <div class="prtfl-footer">
+                                <span class="prtfl-footer-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-portfolio-next-two swiper-button-next fad fa-arrow-alt-circle-left"></div>
+                <div class="button-portfolio-prev-two swiper-button-prev fad fa-arrow-alt-circle-right"></div>
+                <div class="portfolio-pagination-two swiper-pagination"></div>
+            </div>
+            <div class="portfolio-swiper-two swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="portfolio-section section-js">
+                            <div class="prtfl-head">
+                                <span class="prt-number">
+                                    <span>1</span>
+                                </span>
+                                <span class="prtfl-head-item">
+                                    <h3>Responsive</h3>
+                                </span>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-prompt">
+                                    <ul class="portfolio-text">
+                                        <li><span class="section-title-js-lang">Опросник</span><i class="fal fa-question icon-font"></i></li>
+                                        <li><a class="portfolio-link" href="https://pushapage.github.io/SpongeBobInquirer/dist/#/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
+                                    </ul>
+                                </div>
+                                <img src="img/bg-react.png" alt="portfolio" class="img-fluid">
+                            </div>
+                            <div class="prtfl-footer">
+                                <span class="prtfl-footer-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-section section-js">
+                            <div class="prtfl-head">
+                                <span class="prt-number">
+                                    <span>2</span>
+                                </span>
+                                <span class="prtfl-head-item">
+                                    <h3>Static</h3>
+                                </span>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-prompt">
+                                    <ul class="portfolio-text">
+                                        <li><span class="section-title-js-lang">Игра</span><i class="fas fa-gamepad-alt icon-font"></i></li>
+                                        <li><a class="portfolio-link" href="https://pushapage.github.io/DebuggingWithAndroid(Desktop)/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
+                                    </ul>
+                                </div>
+                                <img src="img/bg-js.jpg" alt="portfolio" class="img-fluid">
+                            </div>
+                            <div class="prtfl-footer">
+                                <span class="prtfl-footer-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-section section-js">
+                            <div class="prtfl-head">
+                                <span class="prt-number">
+                                    <span>3</span>
+                                </span>
+                                <span class="prtfl-head-item">
+                                    <h3>Responsive</h3>
+                                </span>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-prompt">
+                                    <ul class="portfolio-text">
+                                        <li><span class="section-title-js-lang">Таймер cобытий</span><i class="fal fa-glass-cheers icon-font"></i></li>
+                                        <li><a class="portfolio-link" href="https://pushapage.github.io/EventTimer/dist/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
+                                    </ul>
+                                </div>
+                                <img src="img/bg-js.jpg" alt="portfolio" class="img-fluid">
+                            </div>
+                            <div class="prtfl-footer">
+                                <span class="prtfl-footer-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-section section-js">
+                            <div class="prtfl-head">
+                                <span class="prt-number">
+                                    <span>4</span>
+                                </span>
+                                <span class="prtfl-head-item">
+                                    <h3>Responsive</h3>
+                                </span>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-prompt">
+                                    <ul class="portfolio-text">
+                                        <li><span class="section-title-js-lang">Крестики-нолики</span><i class="fas fa-dice icon-font"></i></li>
+                                        <li><a class="portfolio-link" href="https://pushapage.github.io/Tick-tack-toe/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
+                                    </ul>
+                                </div>
+                                <img src="img/bg-js.jpg" alt="portfolio" class="img-fluid">
+                            </div>
+                            <div class="prtfl-footer">
+                                <span class="prtfl-footer-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-section section-js">
+                            <div class="prtfl-head">
+                                <span class="prt-number">
+                                    <span>5</span>
+                                </span>
+                                <span class="prtfl-head-item">
+                                    <h3>Responsive</h3>
+                                </span>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-prompt">
+                                    <ul class="portfolio-text">
+                                        <li><span class="section-title-js-lang">Бесконечная карусель</span><i class="fas fa-sync-alt icon-font"></i></i></li>
+                                        <li><a class="portfolio-link" href="https://pushapage.github.io/SpongeBobCarousel/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
+                                    </ul>
+                                </div>
+                                <img src="img/bg-js.jpg" alt="portfolio" class="img-fluid">
+                            </div>
+                            <div class="prtfl-footer">
+                                <span class="prtfl-footer-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-section section-js">
+                            <div class="prtfl-head">
+                                <span class="prt-number">
+                                    <span>6</span>
+                                </span>
+                                <span class="prtfl-head-item">
+                                    <h3>Responsive</h3>
+                                </span>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-prompt">
+                                    <ul class="portfolio-text">
+                                        <li><span class="section-title-js-lang">Смена имени в сказке</span><i class="fas fa-scroll-old icon-font"></i><i class="fas fa-feather-alt icon-font"></i></li>
+                                        <li><a class="portfolio-link" href="https://pushapage.github.io/ChangeFable/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
+                                    </ul>
+                                </div>
+                                <img src="img/bg-js.jpg" alt="portfolio" class="img-fluid">
+                            </div>
+                            <div class="prtfl-footer">
+                                <span class="prtfl-footer-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-section section-js">
+                            <div class="prtfl-head">
+                                <span class="prt-number">
+                                    <span>7</span>
+                                </span>
+                                <span class="prtfl-head-item">
+                                    <h3>Responsive</h3>
+                                </span>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-prompt">
+                                    <ul class="portfolio-text">
+                                        <li><span class="section-title-js-lang">Список дел (c редактированием)</span><i class="fas fa-clipboard-list-check icon-font"></i></li>
+                                        <li><a class="portfolio-link" href="https://pushapage.github.io/MyToDoList/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
+                                    </ul>
+                                </div>
+                                <img src="img/bg-js.jpg" alt="portfolio" class="img-fluid">
+                            </div>
+                            <div class="prtfl-footer">
+                                <span class="prtfl-footer-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-section section-js">
+                            <div class="prtfl-head">
+                                <span class="prt-number">
+                                    <span>8</span>
+                                </span>
+                                <span class="prtfl-head-item">
+                                    <h3>Responsive</h3>
+                                </span>
+                            </div>
+                            <div class="portfolio-item">
+                                <div class="portfolio-prompt">
+                                    <ul class="portfolio-text">
+                                        <li><span class="section-title-js-lang">Секундомер</span><i class="fal fa-stopwatch icon-font"></i></li>
+                                        <li><a class="portfolio-link" href="https://pushapage.github.io/StopWatch/" target="_blank"><span class="look-lang">Пocмотреть</span><i class="far fa-sign-in-alt icon-sing-in"></i></a></li>
+                                    </ul>
+                                </div>
+                                <img src="img/bg-js.jpg" alt="portfolio" class="img-fluid">
+                            </div>
+                            <div class="prtfl-footer">
+                                <span class="prtfl-footer-item"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-portfolio-next-two swiper-button-next fad fa-arrow-alt-circle-left"></div>
+                <div class="button-portfolio-prev-two swiper-button-prev fad fa-arrow-alt-circle-right"></div>
+                <div class="portfolio-pagination-two swiper-pagination"></div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <a href="#main" class="fas fa-caret-up on-up"></a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container p-0">
+            <div class="contact d-flex flex-column flex-md-row flex-wrap col-12 col-lg-10 col-xl-8 justify-content-md-between ml-auto">
+                <a class="contact-item" href="tg://resolve?domain=@pusha_salenko" target="_top">Telegram<i class="fab fa-telegram-plane icon-font"></i></a>
+                <span class="contact-item-tel">(073)0955652<i class="far fa-phone-volume icon-font"></i></span>
+                <span class="contact-item-tel d-block d-md-none d-lg-block">(050)8548645<i class="far fa-phone-volume icon-font"></i></span>
+                <a class="contact-item email-link" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&source=mailto&to=pusha.salenko@gmail.com" target="_blank">pusha.salenko@gmail.com<i class="fal fa-envelope icon-font"></i></a>
+                <a class="contact-item" href="https://github.com/PushaPage/pushapage.github.io" target="_blank">GitHub<i class="fab fa-github icon-font"></i></a>
+            </div>
+        </div>
+    </footer>
+    <div class="modal bd-example-modal-lg fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title ml-auto" id="exampleModalLongTitle"><span class="resume-title-lang">Саленко Павел</span><i class="fas fa-user md-icon-font"></i></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="fal fa-times-circle icon-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="modal-about-me col-11 col-sm-8 col-lg-7 text-right my-0 ml-auto">
+                        <li class="resume-me-lang"><span class="modal-item-list">Дата рождения:</span>26 апреля 1990г</li>
+                        <li class="resume-me-lang"><span class="modal-item-list">Город проживания:</span>Харьков</li>
+                        <li class="resume-me-lang"><span class="modal-item-list">Телефон:</span>(073) 095-56-52</li>
+                        <li><span class="modal-item-list">E-mail:</span><a class="modal-item-link" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&source=mailto&to=pusha.salenko@gmail.com" target="_blank">pusha.salenko@gmail.com</a></li>
+                    </ul>
+                    <div class="modal-section">
+                        <h5 class="modal-title"><span class="resume-title-lang">Цель</span><i class="far fa-bullseye-arrow md-icon-font"></i></h5>
+                        <ul class="modal-about-me col-11">
+                            <li><i class="fad fa-circle sm-icon-font"></i><span class="objectivs-lang">трудоустройство на вакансию Front-end/JavaScript разработчика</span></li>
+                            <li><i class="fad fa-circle sm-icon-font"></i><span class="objectivs-lang">желаемый уровень зарплаты от 400$</span></li>
+                        </ul>
+                        <h5 class="modal-title"><span class="resume-title-lang">Образование</span><i class="fas fa-user-graduate md-icon-font"></i></h5>
+                        <ul class="modal-about-me col-11">
+                            <li class="education-lang">Высшее</li>
+                            <li><i class="fad fa-circle sm-icon-font"></i>2019<i class="fal fa-long-arrow-alt-right icon-arrow"></i><a class="modal-item-link" href="http://uitschool.com/" target="_blank">Ukrainian IT School</a>
+                                <span class="education-lang">
+                                    <span class="new-line">
+                                        <span class="modal-item-list">Курсы:</span>«Программирование Front-end ( май − июль )», «JavaScript ( август − ноябрь)»
+                                    </span>
+                                </span>
+                            </li>
+                            <li class="education-lang"><i class="fad fa-circle sm-icon-font"></i>2009 − 2014<i class="fal fa-long-arrow-alt-right icon-arrow"></i><a class="modal-item-link" href="http://www.hduht.edu.ua/index.php/ru/" target="_blank">Харьковский государственный университет питания и торговли</a>
+                                <span class="new-line"><span class="modal-item-list">Факультет:</span>«Пищевые технологии и инженерия»</span>
+                                <span class="new-line"><span class="modal-item-list">Специальность:</span>«Технология хлеба, кондитерских и макаронных изделий»</span>
+                                <span class="new-line"><span class="modal-item-list">Диплом:</span>«Бакалавр»</span>
+                                <span class="new-line"><span class="modal-item-list">Форма обучения:</span>«Заочная»</span>
+                            </li>
+                        </ul>
+                        <h5 class="modal-title"><span class="resume-title-lang">Знание языков</span><i class="fad fa-book md-icon-font"></i></h5>
+                        <ul class="modal-about-me col-11">
+                            <li><i class="fad fa-circle sm-icon-font"></i><span class="knowledge-lang">Английский − средний ( чтение официальных документов, простейших инструкций, понимание сути телерепортажей, которые сопровождаются изображением )</span></li>
+                        </ul>
+                        <h5 class="modal-title"><span class="resume-title-lang">Опыт работы</span><i class="fas fa-user-hard-hat md-icon-font"></i></h5>
+                        <ul class="modal-about-me col-11">
+                            <li><i class="fad fa-circle sm-icon-font"></i>2008 − 2019<i class="fal fa-long-arrow-alt-right icon-arrow"></i><span class="work-experience-lang">ТОВ «Катюша 91»</span>
+                                <span class="new-line work-experience-lang"><span class="modal-item-list">Должность:</span>«Кондитер»</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script defer src="js/swiper.min.js"></script>
+        <script defer src="js/main.min.js"></script>
+    </body>
+
 </html>
