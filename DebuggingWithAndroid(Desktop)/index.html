@@ -1,134 +1,137 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>DebuggingWithAndroid</title>
-  <link rel="shortcut icon" href="img/android-icon.png" type="image/png">    
-  <link rel="stylesheet" href="fontawesome/all.min.css">  
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-  <script defer src="js/main.min.js"></script>    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>DebuggingWithAndroid</title>
+    <link rel="shortcut icon" href="img/android-icon.png" type="image/png">
+    <link rel="stylesheet" href="fontawesome/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script defer src="js/main.min.js"></script>
 </head>
-<body>  
-  <section id="wrapper">
-    <div id="fieldWrap">
-      <div id="playingField" class="fade-out">            
-        <span id="activeScreen">              
-          <i id="android" class="fab fa-android"></i>
-        </span>         
-        <span id="arrowLeft" class="fas fa-arrow-alt-circle-left"></span>
-        <span id="arrowRight" class="fas fa-arrow-alt-circle-right"></span>
-        <span id="boxlevel">
-          <span class="level-title">level</span>
-          <span id="countlevels"></span>
-        </span>
-        <span id="boxDeadBugs">
-          <span id="bugDead" class="fas fa-bug"></span>
-          <span id="countDeadBugs"></span>
-        </span>
-        <button type="button" class="fad fa-play button-play-in button-active" data-game="playInGame"></button>
-        <button type="button" class="fad fa-pause button-pause button-no-active" data-game="pause"></button>
-        <button id="buttonSound" type="button" class="fas fa-volume-up sound-on" data-game="sound"></button>
-      </div>
-      <div id="menuGame" class="menu-game fade-in">
-        <p class="title-game-menu">Destr<span class="far fa-debug debug-icon"></span>y all bugs on this page</p>        
-        <div class="option-game">
-          <span class="fas fa-gamepad-alt game-play"></span><button type="button" class="button-game" data-game="play">Play game</button>
+
+<body>
+    <section id="wrapper">
+        <div id="fieldWrap">
+            <div id="playingField" class="fade-out">
+                <span id="activeScreen">
+                    <i id="android" class="fab fa-android"></i>
+                </span>
+                <span id="arrowLeft" class="fas fa-arrow-alt-circle-left"></span>
+                <span id="arrowRight" class="fas fa-arrow-alt-circle-right"></span>
+                <span id="boxlevel">
+                    <span class="level-title">level</span>
+                    <span id="countlevels"></span>
+                </span>
+                <span id="boxDeadBugs">
+                    <span id="bugDead" class="fas fa-bug"></span>
+                    <span id="countDeadBugs"></span>
+                </span>
+                <button type="button" class="fad fa-play button-play-in button-active" data-game="playInGame"></button>
+                <button type="button" class="fad fa-pause button-pause button-no-active" data-game="pause"></button>
+                <button id="buttonSound" type="button" class="fas fa-volume-up sound-on" data-game="sound"></button>
+            </div>
+            <div id="menuGame" class="menu-game fade-in">
+                <p class="title-game-menu">Destr<span class="far fa-debug debug-icon"></span>y all bugs on this page</p>
+                <div class="option-game">
+                    <span class="fas fa-gamepad-alt game-play"></span><button type="button" class="button-game" data-game="play">Play game</button>
+                </div>
+                <div class="option-game">
+                    <span class="fab fa-whmcs game-play"></span><button type="button" class="button-game" data-game="option">Option game</button>
+                </div>
+                <div class="option-game">
+                    <span class="fas fa-bug game-play"></span><button type="button" class="button-game" data-game="specification">Bugs specification</button>
+                </div>
+            </div>
+            <div id="optionPage" class="option-page fade-out">
+                <div class="option-game">
+                    <span class="title-option">Shot</span><span class="far fa-long-arrow-alt-right option-arrow"></span>Left-click or Ctrl
+                </div>
+                <div class="option-game">
+                    <span class="title-option">Movement</span><span class="far fa-long-arrow-alt-right option-arrow"></span>ArrowLeft / ArrowRight
+                </div>
+                <div class="option-game">
+                    <span class="title-option">Play / Pause</span><span class="far fa-long-arrow-alt-right option-arrow"></span>Space
+                </div>
+                <div class="option-game">
+                    <span class="title-option">Sound on / off</span><span class="far fa-long-arrow-alt-right option-arrow"></span>Shift
+                </div>
+                <div class="back-menu">
+                    <span class="fas fa-undo-alt arrow-back"></span>
+                    <button type="button" class="button-back" data-game="backMenu">Back menu</button>
+                </div>
+            </div>
+            <div id="bugSpecification" class="option-page fade-out">
+                <div class="option-game">
+                    <span class="fas fa-bug bug-option-green bug-no-active"></span><span class="far fa-long-arrow-alt-right option-arrow"></span>One shot, one head
+                </div>
+                <div class="option-game">
+                    <span class="fas fa-spider bug-option-red bug-no-active"></span><span class="far fa-long-arrow-alt-right option-arrow"></span>2shot, one head
+                </div>
+                <div class="option-game">
+                    <span class="fad fa-bug bug-option-green bug-no-active"></span><span class="far fa-long-arrow-alt-right option-arrow"></span>All bug down faster
+                </div>
+                <div class="option-game">
+                    <span class="fad fa-spider bug-option-green bug-no-active"></span><span class="far fa-long-arrow-alt-right option-arrow"></span>All bug down yet faster
+                </div>
+                <div class="option-game">
+                    <span class="fal fa-spider-black-widow bug-option-green bug-no-active"></span><span class="far fa-long-arrow-alt-right option-arrow"></span>All bug up
+                </div>
+                <div class="option-game">
+                    <span class="fas fa-spider-black-widow bug-option-green bug-no-active"></span><span class="far fa-long-arrow-alt-right option-arrow"></span>All bug up faster
+                </div>
+                <div class="option-game">
+                    <span class="far fa-bug bug-option-grey bug-no-active"></span><span class="far fa-long-arrow-alt-right option-arrow"></span>Transform into<span class="far fa-random arrow-random-green"></span><span class="fas fa-bug bug-option-small-green"></span><span class="fas fa-spider bug-option-small-red"></span><span class="fad fa-bug bug-option-small-green"></span><span class="fad fa-spider bug-option-small-green"></span><span class="fal fa-spider-black-widow bug-option-small-green"></span>
+                </div>
+                <div class="option-game">
+                    <span class="fal fa-bug bug-option-red2 bug-no-active"></span><span class="far fa-long-arrow-alt-right option-arrow"></span>Transform into<span class="far fa-random arrow-random-red"></span><span class="fas fa-bug bug-option-small-red"></span><span class="fas fa-spider bug-option-small-red"></span><span class="fad fa-bug bug-option-small-red"></span><span class="fad fa-spider bug-option-small-red"></span><span class="fal fa-spider-black-widow bug-option-small-red"></span><span class="fas fa-spider-black-widow bug-option-small-red"></span>
+                </div>
+                <div class="back-menu">
+                    <span class="fas fa-undo-alt arrow-back"></span>
+                    <button type="button" class="button-back" data-game="backMenu2">Back menu</button>
+                </div>
+            </div>
+            <div id="levelTwo" class="levels fade-out">
+                <button type="button" class="button-level" data-game="levelTwo">level Up</button>
+            </div>
+            <div id="levelThree" class="levels fade-out">
+                <button type="button" class="button-level" data-game="levelThree">level Up</button>
+            </div>
+            <div id="levelFour" class="levels fade-out">
+                <button type="button" class="button-level" data-game="levelFour">level Up</button>
+            </div>
+            <div id="levelFive" class="levels fade-out">
+                <button type="button" class="button-level" data-game="levelFive">level Up</button>
+            </div>
+            <div id="gameWin" class="game-win fade-out">
+                <p class="title-game-win">Debugging progress <span class="number-one">1</span><span class="far fa-debug debug-icon"></span><span class="far fa-debug debug-icon"></span><span class="fad fa-percent"></span></p>
+                <div class="option-game">You Win!</div>
+                <div class="box-won">
+                    <span class="fad fa-trophy-alt trophy"></span>
+                </div>
+                <div class="back-menu">
+                    <span class="fas fa-undo-alt arrow-back"></span>
+                    <button type="button" class="button-back" data-game="winRestartGame">Back menu</button>
+                </div>
+            </div>
+            <div id="GameOver" class="game-over fade-out">
+                <p class="title-game-over">Don't worry, play again</p>
+                <div class="option-game">Game over</div>
+                <div class="coffin-android">
+                    <span id="creepBug1" class="fas fa-bug bug1"></span>
+                    <span id="creepBug2" class="fas fa-bug bug2"></span>
+                    <span id="creepBug3" class="fas fa-bug bug3"></span>
+                    <span id="creepBug4" class="fas fa-bug bug4"></span>
+                    <span class="fab fa-android android-dead"></span>
+                </div>
+                <div class="back-menu">
+                    <span class="fas fa-undo-alt arrow-back"></span>
+                    <button type="button" class="button-back" data-game="restartGame">Back menu</button>
+                </div>
+            </div>
         </div>
-        <div class="option-game">
-          <span class="fab fa-whmcs game-play"></span><button type="button" class="button-game" data-game="option">Option game</button>
-        </div>
-        <div class="option-game">
-          <span class="fas fa-bug game-play"></span><button type="button" class="button-game" data-game="specification">Bugs specification</button>
-        </div>
-      </div>
-      <div id="optionPage" class="option-page fade-out">
-        <div class="option-game">
-          <span class="title-option">Shot</span><span class="far fa-long-arrow-alt-right option-arrow"></span>Left-click or Ctrl 
-        </div>
-        <div class="option-game">
-          <span class="title-option">Movement</span><span class="far fa-long-arrow-alt-right option-arrow"></span>ArrowLeft / ArrowRight
-        </div>         
-        <div class="option-game">
-          <span class="title-option">Play / Pause</span><span class="far fa-long-arrow-alt-right option-arrow"></span>Space
-        </div>
-        <div class="option-game">
-          <span class="title-option">Sound on / off</span><span class="far fa-long-arrow-alt-right option-arrow"></span>Shift 
-        </div>
-        <div class="back-menu">
-           <span class="fas fa-undo-alt arrow-back"></span>
-           <button type="button" class="button-back" data-game="backMenu">Back menu</button>
-        </div>
-      </div>
-      <div id="bugSpecification" class="option-page fade-out">
-        <div class="option-game">
-          <span class="fas fa-bug bug-option-green bug-no-active"></span><span class="far fa-long-arrow-alt-right option-arrow"></span>One shot, one head
-        </div>
-        <div class="option-game">
-          <span class="fas fa-spider bug-option-red bug-no-active"></span><span class="far fa-long-arrow-alt-right option-arrow"></span>2shot, one head
-        </div>
-        <div class="option-game"> 
-          <span class="fad fa-bug bug-option-green bug-no-active"></span><span class="far fa-long-arrow-alt-right option-arrow"></span>All bug down faster
-        </div>
-        <div class="option-game"> 
-          <span class="fad fa-spider bug-option-green bug-no-active"></span><span class="far fa-long-arrow-alt-right option-arrow"></span>All bug down yet faster
-        </div>
-        <div class="option-game"> 
-          <span class="fal fa-spider-black-widow bug-option-green bug-no-active"></span><span class="far fa-long-arrow-alt-right option-arrow"></span>All bug up
-        </div>
-        <div class="option-game"> 
-          <span class="fas fa-spider-black-widow bug-option-green bug-no-active"></span><span class="far fa-long-arrow-alt-right option-arrow"></span>All bug up faster
-        </div>
-        <div class="option-game"> 
-          <span class="far fa-bug bug-option-grey bug-no-active"></span><span class="far fa-long-arrow-alt-right option-arrow"></span>Transform into<span class="far fa-random arrow-random-green"></span><span class="fas fa-bug bug-option-small-green"></span><span class="fas fa-spider bug-option-small-red"></span><span class="fad fa-bug bug-option-small-green"></span><span class="fad fa-spider bug-option-small-green"></span><span class="fal fa-spider-black-widow bug-option-small-green"></span>
-        </div>
-        <div class="option-game"> 
-          <span class="fal fa-bug bug-option-red2 bug-no-active"></span><span class="far fa-long-arrow-alt-right option-arrow"></span>Transform into<span class="far fa-random arrow-random-red"></span><span class="fas fa-bug bug-option-small-red"></span><span class="fas fa-spider bug-option-small-red"></span><span class="fad fa-bug bug-option-small-red"></span><span class="fad fa-spider bug-option-small-red"></span><span class="fal fa-spider-black-widow bug-option-small-red"></span><span class="fas fa-spider-black-widow bug-option-small-red"></span>
-        </div>
-        <div class="back-menu">
-           <span class="fas fa-undo-alt arrow-back"></span>
-           <button type="button" class="button-back" data-game="backMenu2">Back menu</button>
-        </div>  
-      </div>
-      <div id="levelTwo" class="levels fade-out"> 
-          <button type="button" class="button-level" data-game="levelTwo">level Up</button>       
-      </div>
-      <div id="levelThree" class="levels fade-out"> 
-          <button type="button" class="button-level" data-game="levelThree">level Up</button>       
-      </div>
-      <div id="levelFour" class="levels fade-out"> 
-          <button type="button" class="button-level" data-game="levelFour">level Up</button>       
-      </div>
-      <div id="levelFive" class="levels fade-out"> 
-          <button type="button" class="button-level" data-game="levelFive">level Up</button>       
-      </div>
-      <div id="gameWin" class="game-win fade-out">
-        <p class="title-game-win">Debugging progress <span class="number-one">1</span><span class="far fa-debug debug-icon"></span><span class="far fa-debug debug-icon"></span><span class="fad fa-percent"></span></p> 
-        <div class="option-game">You Win!</div>
-        <div class="box-won">                            
-          <span class="fad fa-trophy-alt trophy"></span> 
-        </div>        
-        <div class="back-menu">
-          <span class="fas fa-undo-alt arrow-back"></span>
-          <button type="button" class="button-back" data-game="winRestartGame">Back menu</button>
-        </div>               
-      </div>      
-      <div id="GameOver" class="game-over fade-out">
-        <p class="title-game-over">Don't worry, play again</p> 
-        <div class="option-game">Game over</div>
-        <div class="coffin-android">
-          <span id="creepBug1" class="fas fa-bug bug1"></span>
-          <span id="creepBug2" class="fas fa-bug bug2"></span>
-          <span id="creepBug3" class="fas fa-bug bug3"></span>
-          <span id="creepBug4" class="fas fa-bug bug4"></span>                   
-          <span class="fab fa-android android-dead"></span> 
-        </div>
-        <div class="back-menu">
-          <span class="fas fa-undo-alt arrow-back"></span>
-          <button type="button" class="button-back" data-game="restartGame">Back menu</button>
-        </div>               
-      </div>      
-    </div>
-  </section> 
+    </section>
 </body>
+
 </html>
