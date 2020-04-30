@@ -1,0 +1,217 @@
+.social-net-wrapper {
+  padding: 26px 68px 0 63px;
+  margin-bottom: 89px;
+  @media screen and (max-width: 991px) {
+    padding: 15px;
+    margin-bottom: 10px;
+    .social-net-container{
+      padding: 20px 20px 0;
+    }
+    .social-net-title {
+      font-size: $font-lg;
+    }
+
+    .social-net-block {
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+    .social-net-name,
+    .social-net-date,
+    .social-net-text {
+      font-size: $font-xs;
+    }
+
+    .social-net-text {
+      margin-bottom: 20px;
+    }
+
+    .facebook-icon {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  @media screen and (max-width: 576px) { 
+    padding: 10px;
+    .social-net-container {
+      border: 10px solid $decor-border;
+      padding: 20px 10px;
+    }
+
+    .social-net-text {
+      margin-bottom: 10px;
+    }  
+  }
+}
+
+
+
+
+.social-net-indent1 {
+  padding-bottom: 39px;
+  margin-bottom: 29px; 
+}
+
+.social-net-indent2 {
+  padding-bottom: 12px;
+  margin-bottom: 32px; 
+}
+
+.social-net-indent3 {
+   padding-bottom: 35px;
+   margin-bottom: 32px; 
+}
+
+.social-net-indent4 {
+   margin-bottom: 40px;
+   padding-bottom: 39px; 
+}
+
+.social-net-indent5 {
+   padding-bottom: 19px;
+   margin-bottom: 32px; 
+}
+
+.social-net-indent6 {
+  padding-bottom: 33px;
+  margin-bottom: 44px; 
+}
+
+.social-net-indent7 {
+  padding-bottom: 12px;
+  margin-bottom: 40px; 
+}
+
+
+.social-avatar-indent {
+    margin-top: 8px;
+}
+
+.social-img-indent {
+    padding-top: 6px;
+}
+
+.social-net-container {
+  border: 13px solid $decor-border;
+  background: $white;
+  margin-bottom: 10px;
+  padding: 41px 38px 12px 38px; 
+}
+
+.social-net-title {  
+  font-size: $story-title;  
+  font-weight: $bold;
+  line-height: 140%;
+  padding-left: 8px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: $black;
+}
+
+.social-net-list_indent {
+  padding-top: 10px;
+}
+
+.social-net-item {
+    display: flex;    
+    align-items: center;
+    margin-bottom: 11px;    
+}
+
+
+.facebook-icon {    
+    width: 30px;
+    height: 30px;
+    fill: $accent-blue;
+    margin-right: 12px;
+    opacity: .6;
+    margin-left: auto;
+}
+
+.social-net-date {
+    font-size: $font-lg;
+    font-weight: $normal;    
+    line-height: 147.69%;
+    color: $social-date;
+    padding-right: 10px;
+    margin-left: 17px;     
+}
+
+.social-net-date_indent {
+  margin-left: 28px;
+}
+
+.social-net-block {
+    display: flex;
+    border-bottom: 2px solid $decor-border;
+    &:last-child {
+      border-bottom: none;
+    }    
+    @media (max-width: 474px) {
+        padding-bottom: 0;        
+        flex-direction: column;
+        .social-net-text {
+            font-size: $font-sm;
+        }
+        .social-net-block-icons {
+            font-size: $font-xs;
+        }
+        .social-net-icon {
+            margin-right: 6px;
+        }
+        .social-net-block-like {
+            margin-right: 0;
+        }
+    }
+}
+
+.social-net-avatar {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.social-net-comment {
+    flex: 1 1 auto;
+}
+
+.social-net-name {
+    font-weight: $semi-bold_2;
+    font-size: $font-lg;
+    line-height: 147.69%;
+    color: $accent-blue;
+        
+}
+
+.social-net-text {
+    font-weight: $normal;
+    font-size: $font-md;
+    line-height: 135.19%;
+    color: $social-text;
+    margin-bottom: 29px;
+}
+
+.social-net-text-indent1 {
+    line-height: 150%;
+    padding-bottom: 7px;
+}
+
+.social-net-text-indent2 {
+    margin-bottom: 11px;
+}
+
+.social-net-text-indent3 {
+    margin-bottom: 33px;
+}
+
+.social-net-text-indent4 {
+    margin-bottom: 20px;
+}
+
+.social-net-text-indent5 {
+    margin-bottom: 25px;
+}
+
+
+
+
+

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ScrollAnimation from 'react-animate-on-scroll';
 import './Result.sass';
 
 
@@ -38,8 +39,8 @@ class Result extends React.Component {
       } = this.props.result;
 
       return (      
-          <div className="result-container container">
-            <div className="result-item">
+          <div className="result-container container">            
+            <div className="result-item">            
               <div className="table-responsive-md position-relative">
                 <table className="table table-bordered">
                   <thead>
@@ -100,21 +101,25 @@ class Result extends React.Component {
                 </table>               
               </div>
               <img 
-                className={result.tableClassImg} 
+                className="img-result-table"
                 src={result.tableImg}  
                 alt="SpongeBob"
               />  
             </div>
+            <ScrollAnimation animateIn="zoomInUp" animateOnce={true}> 
             <div className="title-item d-flex justify-content-between col-12 col-lg-10">
-             <h2 className="title-text-result">{result.resultText}</h2>
+             <h2 className="title-text-result">{result.resultText}</h2>           
              <img 
                 className="img-fluid img-result" 
                 src={result.resultImg} 
                 alt="SpongeBob"
-              />
-            </div>  
+              />             
+            </div>
+            </ScrollAnimation> 
             <div className="btn-box-result">
-              <Link to= "/" role="button" className="btn btn-dang" onClick={this.againTest}>Пройти тест заново</Link>
+              <ScrollAnimation animateIn="rubberBand"> 
+                <Link to= "/" role="button" className="btn btn-dang btn-dang-result" onClick={this.againTest}>Пройти тест заново</Link>
+              </ScrollAnimation> 
             </div>    
           </div>    
       );

@@ -1,0 +1,101 @@
+header {
+  position: relative;
+  padding: 62px 0 2px;
+  background: radial-gradient(36.19% 151.49% at 35.88% 78.64%, #3F3F3F 6.12%, #222222 100%);
+  &:before {
+    @include pseudofill;
+    transform: translateY(-27px);
+    background: url('../img/header-branch.png') no-repeat 100% 100%;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(to left,  #A4D1EF,  #A4D1EF 12.5%,
+      #A1E8BF 12.5%,  #A1E8BF 25%, #C9E8A1 25%, #C9E8A1 37.5%, #FAE893 37.5%,
+      #FAE893 50%,  #FFB58D 50%, #FFB58D 62.5%,  #F4A8CE 62.5%,  #F4A8CE 75%, #D3B5DF 75%, #D3B5DF 87.5%, #B4B8CE 87.5%, #B4B8CE);
+  }
+
+  @media(max-width: 1299.98px) {
+    .header__title {
+      font-size: $header-title-md;
+    }
+     .header__text {
+      font-size: $font-md;
+    }
+
+    .header__img {
+      width: 450px;
+    }
+  }
+  @media(max-width: 991px) {
+    .header__img {
+      display: none;
+    }        
+  }
+
+  @media(max-width: 576px) {
+    .header__title {
+      font-size: $header-title-sm;
+      margin-bottom: 40px;
+    }
+
+    .header__text {
+      font-size: $font-2xs;
+      white-space: normal;
+    }
+  }
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__img {
+  display: inline-block;
+  padding: 12px 0 0 17px;
+  @media(max-width: 1354px) {
+     padding-left: 5px;
+     padding-right: 5px;
+  }
+}
+
+.header__item {
+  margin-left: auto;
+  @media (max-width: 1354px) {
+    padding-right: 21px;
+  }
+  @media (max-width: 991px) {
+    padding-right: 10px;
+  }
+  @media(max-width: 517px) {
+    padding-right: 5px;
+  }
+}      
+
+.header__title {
+  font-weight: $bold;
+  font-size: $header-title;
+  line-height: 140%;
+  text-align: right; 
+  text-transform: capitalize;
+  white-space: pre-line;
+  color: $white;
+  margin-bottom: 58px;
+}
+
+.header__text {
+  font-weight: $normal;
+  font-size: $font-lg;
+  line-height: 140%;
+  text-align: right;
+  letter-spacing: -1px;
+  text-transform: capitalize;
+  white-space: pre-line;
+  color: rgba($white, .56);
+  margin-bottom: 40px;
+}

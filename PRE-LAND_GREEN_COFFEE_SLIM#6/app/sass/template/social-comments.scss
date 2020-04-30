@@ -1,0 +1,119 @@
+.social-comments {
+    @media(max-width: 768px) {
+      .soc-comment-block {
+        padding: 19px 5px 22px 5px;
+      }
+      .soc-comment__text {
+        font-size: $font-xs;
+      }
+      .soc-user-list__name {
+        font-size: $font-sm;
+      }
+      .soc-user-list__date {
+        font-size: $font-xs;
+      }
+      .soc-register-block {
+        font-size: $font-sm;
+      }
+
+    }
+}
+
+.social-comments-wrapper {
+  padding: 12px 0 0 0;
+}
+
+.soc-comment-block {
+  background: $comment-block;
+  padding: 19px 17px 22px 22px;
+  margin-bottom: 8px;
+}
+
+
+.soc-comment-block__indent {
+    padding-bottom: 33px;
+}
+
+.soc-comment__upper {
+  display: flex;
+  justify-content: flex-end;
+  background:  $comment-upper;
+  padding: 12px 13px 13px 13px;
+  margin-bottom: 25px;
+}
+
+
+.soc-user-list__name {
+  font-weight: $semi-bold_3;
+  font-size: $font-md;
+  line-height: 147.69%;
+  text-align: right;
+  color: $soc-user-name;
+  margin-bottom: 3px;
+
+}
+
+.soc-user-list__date {
+  font-weight: $semi-bold_2;
+  font-size: $font-sm;
+  line-height: 130%;
+  color: $basic-text;
+  text-align: right;
+}
+
+.soc-comment__text {
+  font-weight: $normal;
+  font-size: $font-lg;
+  line-height: 130%;
+  text-align: right;
+  color: $black;
+  margin-bottom: 20px;
+}
+
+.soc-comment__text_indent1 {
+  margin-bottom: 46px;
+}
+
+.soc-comment__text_indent2 {
+  margin-bottom: 7px;
+}
+
+.soc-user__avatar {
+  margin-left: 13px;
+}
+
+.soc-comment__img {
+  padding-left: 4px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.soc-comment__lower {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.soc-comment__reply {
+  background: $soc-user-reply;
+  font-weight: $semi-bold_1;
+  font-size: $font-xs;
+  line-height: 130%;
+  color: $white;
+  border-radius: 10px;
+  padding: 6px 22px 7px 30px;
+}
+
+.soc-register-block {
+  height: 89px;
+  padding: 10px 13px 10px 10px;
+  margin: 21px 0 24px 0;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $soc-register;
+  font-weight: $bold;
+  font-size: $font-lg;
+  line-height: 130%;
+  color: $black;
+}

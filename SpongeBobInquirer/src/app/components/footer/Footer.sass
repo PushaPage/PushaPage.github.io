@@ -8,5 +8,22 @@ footer
 	height: 180px
 	background: url("../../../img/bg-body.jpg") no-repeat 50% 100% /cover
 	&:before
-		@include pseudofill		
-		background: linear-gradient(to bottom, rgba(142, 142, 147, .7)4px, rgba(142, 142, 147, 0)20px)		
+		content: ""
+		position: absolute
+		top: -12px
+		left: 0
+		right: 0
+		bottom: 0		
+		background: linear-gradient(180deg,rgba(0, 188, 212, .7) 5px, rgba(0, 188, 212, 0) 33px  )
+		backdrop-filter: blur(4px)
+		@media(max-width: 768px)
+			backdrop-filter: blur(2px)
+	&:after
+		content: ""
+		position: absolute
+		top: -16px
+		left: 0
+		right: 0
+		height: 22px
+		background: url("../../../img/border-bubble.png") repeat-x 0/contain
+		z-index: 10 			

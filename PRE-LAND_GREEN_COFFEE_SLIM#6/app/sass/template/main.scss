@@ -1,0 +1,292 @@
+@import "./utils/mixnis";
+@import "./utils/vars";
+@import "./utils/fonts";
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+// HTML5 display-role reset for older browsers
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+a {	
+	
+	cursor: pointer;	
+	&:hover, &:active{
+		text-decoration: none;
+	}
+}
+
+button {
+	cursor: pointer;
+	&:focus {
+    border: none;
+	  outline: none;
+	}
+}
+
+input {
+  &:focus {
+    border: 1px solid $black; 
+  }
+  &:focus::-webkit-input-placeholder {
+    opacity: 0; 
+    transition: opacity .3s ease;
+  }
+  &:focus::-moz-placeholder {
+    opacity: 0; 
+    transition: opacity .3s ease;
+  }       
+  &:focus:-moz-placeholder {
+    opacity: 0; 
+    transition: opacity .3s ease;
+  }         
+  &:focus:-ms-input-placeholder {
+    opacity: 0; 
+    transition: opacity .3s ease;
+  }
+}
+
+body,
+html {
+  overflow-x: hidden
+}
+
+body {
+    font-family: $font-basic;
+    background: url("../img/body-bg.jpg") repeat 0/contain;    
+    background-attachment: fixed;
+    margin: 0 auto;
+    font-weight: $normal;
+    color: $basic-text;
+    line-height: 1;    
+}
+
+
+.rtl-text {
+
+}
+
+
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.upper-text {
+  text-transform: uppercase;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-bold {
+  font-weight: $bold;
+}
+
+.pre-line-text {
+  white-space: pre-line;
+  @media screen and (max-width: 768px) {
+    white-space: normal;
+  }
+
+}
+
+.link {
+  color: $accent;
+  text-decoration: underline;
+  &:hover, &:active {
+    text-decoration: underline;
+    color: rgba($accent, .8);
+  }
+}
+
+
+
+.container {
+    width: 1334px;
+    max-width: 100%;
+    margin: 0 auto;   
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    @media(max-width: 1354px) {
+      padding: 0 10px;
+    }
+    @media(max-width: 517px) {
+      padding: 0;
+    }
+}
+
+img {
+  max-width: 100%;
+    height: auto;
+}
+
+// HEADER===========>
+
+//= header.scss
+
+
+
+// CONTENT=============>
+
+.main-content {
+  padding: 42px 0px 0 20px;
+  margin-bottom: 129px;
+   &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  @media(max-width: 1354px) {
+     padding: 42px 10px 0;
+     margin-bottom: 80px;
+  }
+
+  @media(max-width: 517px) {
+      padding: 42px 0 0;
+      margin-bottom: 40px;
+  }
+}
+
+
+// CONTENT STORY===========>
+
+//= content-story.scss
+
+
+// SOCIAL COMMENTS===============>
+
+//= social-comments.scss
+
+
+// SIDEBAR===========>
+
+//= sidebar.scss
+
+
+// FOOTER===========>
+footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 15px 15px 2.6%;
+  height: 238px;
+  margin-bottom: 46px;
+  background: radial-gradient(36.19% 151.49% at 35.88% 78.64%, #3F3F3F 6.12%, #222222 100%); 
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: linear-gradient(to left,  #A4D1EF,  #A4D1EF 12.5%,
+      #A1E8BF 12.5%,  #A1E8BF 25%, #C9E8A1 25%, #C9E8A1 37.5%, #FAE893 37.5%,
+      #FAE893 50%,  #FFB58D 50%, #FFB58D 62.5%,  #F4A8CE 62.5%,  #F4A8CE 75%, #D3B5DF 75%, #D3B5DF 87.5%, #B4B8CE 87.5%, #B4B8CE);
+  }
+
+  @media screen and (max-width: 991px) {
+      height: 140px;
+      margin-bottom: 30px;
+      &:after {
+        height: 10px
+      }
+      .footer__copyright {
+        font-size: $font-sm;
+      }
+  }
+}
+
+.footer__copyright {
+  font-weight: $semi-bold_1;
+  font-size: $font-xl;
+  line-height: 121.12%;
+  text-align: center;
+  color: $white;
+}
+
+
+.ac_footer {
+    text-align: center;
+    padding: 0 0 57px 1.9%;
+    a { 
+        font-weight: $bold;
+        font-size: $font-ac_footer;
+        line-height: 140%;
+        text-decoration-line: underline;
+        color: $black;
+        &:hover, &:active {
+            color: rgba($black, .8);
+        }
+    }
+    @media screen and (max-width: 991px) {
+        padding: 0 0 30px 0;
+        a {
+          font-size: $font-sm;
+        } 
+  }
+}
+
+
+
+
+
+
+

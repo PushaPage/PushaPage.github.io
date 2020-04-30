@@ -1,0 +1,148 @@
+.sidebar {
+  width: 358px;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  @media (max-width: 1300px) {
+      display: none;      
+    }  
+}
+
+.sidebar-content {
+  background: $white;    
+  padding: 10px 24px 12px;
+  margin-bottom: 34px;
+}
+
+.sidebar__title {
+  font-weight: $semi-bold_3;
+  font-size: $font-md;
+  line-height: 175.69%;
+  text-align: center;
+  text-transform: uppercase;
+  color:$basic-text;
+  padding-top: 29px;
+  margin-bottom: 31px;
+}
+
+.form-sidebar {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 55px;
+
+}
+
+.form-sidebar__input {
+  width: 309px;
+  height: 46px;
+  background: $white;
+  border: 1px solid $sidebar-input-border;
+  box-sizing: border-box;
+  font-weight: normal;
+  font-size: $font-md;
+  line-height: 117%;
+  color: $input-text;
+  padding-left: 25px;
+  margin-bottom: 10px;
+}
+
+.form-sidebar__btn {
+  background: $btn-form;
+  font-weight: $semi-bold_3;
+  font-size: $font-md;
+  line-height: 140.62%;
+  text-transform: uppercase;
+  color: $white;
+  padding: 9px;
+  border: none;
+  outline: none;
+  transition: transform ease .3s;
+  &:active {
+    transform: scale(.99)
+  }
+}
+
+.sidebar__item {
+  margin-bottom: 32px;
+}
+
+.sidebar__item_indent {
+  margin-bottom: 30px;
+}
+
+.sidebar__img {
+  margin-bottom: 15px;
+}
+
+.sidebar-text,
+.read-more__text {
+  font-weight: $semi-bold_3;
+  font-size: $font-xs;
+  line-height: 175.69%;
+  text-align: right;
+  color: $sidebar-text;
+  padding-left: 2px;
+}
+
+.sidebar__read-more {
+  text-align: right;
+}
+
+.read-more__text {
+  margin-left: 13px;
+}
+
+.read-more__link {
+  font-weight: $semi-bold_3;
+  font-size: $font-xs;
+  line-height: 175.69%;
+  text-decoration-line: underline;
+  margin-right: 2px;
+  transition: all ease .3s;
+  color: $accent-blue;
+  &:hover, &:active {
+    text-decoration-line: underline;
+    color: rgba($accent-blue, .8);
+  }
+}
+
+.try-now {
+  background: $white;
+  text-align: center;
+  padding-bottom: 37px;
+}
+
+.try-now__header {
+  background: $try-now__head;
+  padding: 0px 5px 6px 0px;
+
+}
+
+.try-now__title {
+  font-weight: $normal;
+  font-size: 36px;
+  line-height: 175.69%;
+  text-align: center;
+  color: $white;
+}
+
+.try-now__img {
+  text-align: center;
+  padding: 41px 0 29px 71px;
+}
+
+.try-now__link_sm {
+    padding: 0 0px 0 12px;
+    margin: 0 10px 27px 0;
+    width: auto;
+}
+
+.btn-order-now-sm {
+    font-weight: $semi-bold_3;
+    font-size: $btn-try-now;
+    line-height: 140.62%;
+    padding: 18px;
+    width: 206px;
+    display: block;
+    margin: 0 auto 0 22.7%;
+}

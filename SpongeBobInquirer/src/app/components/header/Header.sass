@@ -8,6 +8,23 @@ header
 	background: url("../../../img/bg-body.jpg") no-repeat 50% 0 /cover	
 	position: relative
 	&:before
-		@include pseudofill
-		background: linear-gradient(to top, rgba(142, 142, 147, .7) 4px, rgba(142, 142, 147, 0) 20px)
+		content: ""
+		position: absolute
+		bottom: -12px
+		left: 0
+		right: 0
+		top: 0		
+		background: linear-gradient(0deg,rgba(0, 188, 212, .7) 5px, rgba(0, 188, 212, 0) 33px )
+		backdrop-filter: blur(4px)
+		@media(max-width: 768px)
+			backdrop-filter: blur(2px)
+	&:after
+		content: ""
+		position: absolute
+		bottom: -16px
+		left: 0
+		right: 0
+		height: 22px
+		background: url("../../../img/border-bubble.png") repeat-x 0/contain
+		z-index: 10 
 	

@@ -27,16 +27,18 @@ class App extends React.Component {
         anewTest = this.props.anewTest;
           
 
-      return (         
+      return (                   
           <div className="app-wrapper">             
               <div className="content">
                 <div className="bubbles">
-                  <img                
+                  <img
+                    className="bubbles-img"                
                     src="./img/underwater-bubbles.png" 
                     alt="Bubbles"
                   />
                 </div>                                                   
-                <Header />                                                                                                   
+                <Header />
+                                                                                                                              
                 <Switch>                   
                   <Route exact path="/" render={ () => <Title /> } />                                                         
                   <Route 
@@ -52,7 +54,8 @@ class App extends React.Component {
                                     /> } 
                     />
                   <Route exact path="/result" render={ () => <Result result={result} /> } />                                 
-                </Switch>                                                                          
+                </Switch>
+                                                                                      
               </div>                       
               <Footer />                              
           </div>    

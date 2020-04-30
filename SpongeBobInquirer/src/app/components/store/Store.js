@@ -88,8 +88,7 @@ let resultTableDefault = {
     
     countText: '', 
     totalPoint: '',
-    tableImg: '',
-    tableClassImg: '',
+    tableImg: '',    
     resultText: '',
     resultImg: ''
 
@@ -109,8 +108,8 @@ let resultTest = {
 
 	loserImgTable: './img/sponge-result-table-lose.gif',
 	enoughImgTable: './img/sponge-result-table.png',
-	loserClassImgTable: 'img-result-table-lose',
-	classImgTable: 'img-result-table',
+	winnerImgTable: './img/patrick-result-table-win.gif',
+	
 
 	failedImg: './img/patrick-result-failed.png',
 	loserImg: './img/patrick-result.png',
@@ -171,8 +170,7 @@ export let result = {
 		    ],
 	countText: resultTable.countText,
 	total: resultTable.totalPoint,
-	tableImg: resultTable.tableImg,
-	tableClassImg: resultTable.tableClassImg,
+	tableImg: resultTable.tableImg,	
 	resultText: resultTable.resultText,
 	resultImg: resultTable.resultImg
 }
@@ -334,9 +332,7 @@ export let getTest = (test) => {
 		result.countText = resultTest.failed;
 		resultTable.countText = resultTest.failed;
 		result.tableImg = resultTest.loserImgTable;
-		resultTable.tableImg = resultTest.loserImgTable;
-		result.tableClassImg = resultTest.loserClassImgTable;
-		resultTable.tableClassImg = resultTest.loserClassImgTable;
+		resultTable.tableImg = resultTest.loserImgTable;		
 		result.resultImg = resultTest.failedImg;
 		resultTable.resultImg = resultTest.failedImg;
 		result.resultText = resultTest.looser;
@@ -348,10 +344,7 @@ export let getTest = (test) => {
 		result.countText = resultTest.passed;
 		resultTable.countText = resultTest.passed;
 		result.tableImg = resultTest.enoughImgTable;
-		resultTable.tableImg = resultTest.enoughImgTable;
-		result.tableClassImg = resultTest.classImgTable;
-		resultTable.tableClassImg = resultTest.classImgTable;
-
+		resultTable.tableImg = resultTest.enoughImgTable;		
 	}
 
 	if (points <= 20 && points !== 0) {
@@ -359,7 +352,8 @@ export let getTest = (test) => {
 		result.resultText = resultTest.looser;		
 		result.resultImg = resultTest.loserImg;		
 		resultTable.resultText = resultTest.looser;		
-		resultTable.resultImg = resultTest.loserImg;		
+		resultTable.resultImg = resultTest.loserImg;
+
 	}
 
     if (points > 20 && points <= 60) {
@@ -385,6 +379,8 @@ export let getTest = (test) => {
 		result.resultImg = resultTest.winnerImg;		
 		resultTable.resultText = resultTest.winner;		
 		resultTable.resultImg = resultTest.winnerImg;
+		result.tableImg = resultTest.winnerImgTable;
+		resultTable.tableImg = resultTest.winnerImgTable;		
 	}
 
 	sessionStorage.setItem('resultTable', JSON.stringify(resultTable));

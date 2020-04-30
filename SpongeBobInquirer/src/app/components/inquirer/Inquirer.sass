@@ -15,8 +15,14 @@
 		display: inline-block
 		text-shadow: 0px -1px 1px #feff37, 0px 1px 1px #feff37
 	@media (max-width: 767px)
+		.btn-box-inquirer
+			flex-direction: column
+			align-items: center
+		.btn
+   			padding: 10px 20px
+   			margin-bottom: 10px		
 		.title-text
-			font-size: 33px	
+			font-size: 33px			
 	@media (max-width: 550px)
 		.styles_modal__gNwvD
 			transform: skew(0deg, 0deg)	
@@ -24,7 +30,9 @@
 			transform: skew(2deg, 2deg)
 			.ask-one
 				transform: skew(-2deg, -2deg)
-	@media (max-width: 400px)				
+	@media (max-width: 400px)
+		.styles_overlay__CLSq-
+			padding: 0 				
 		p
 			font-size: 18px
 		.ask-proviso,label,.form-control
@@ -116,7 +124,7 @@ input[type="checkbox"]+label
 
 input[type="checkbox"]+label	
 	&:before
-		border-radius: 0		
+		border-radius: 0
 
 .ask-three-curve,
 .ask-four-curve
@@ -127,10 +135,12 @@ input[type="checkbox"]+label
 .ask-four
 	transform: skew(-1deg, 0deg)	
 	padding: 0px 1px 2px 5px
+	
 
 .btn-box-inquirer
-	position: relative
-	text-align: center
+	display: flex
+	justify-content: center
+	position: relative	
 	margin: 20px 0 40px
 	.img-inquirer
 		position: absolute
@@ -141,53 +151,132 @@ input[type="checkbox"]+label
 			bottom: 63%	
 
 .btn
-   padding:	10px 20px
-   margin: 20px 15px
+   position: relative
+   overflow: hidden 
+   margin: 20px 15px   
    letter-spacing: .5px
    font-size: 25px
    border-radius: 40px
+   transition: all .5s ease
    box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22), inset 2px 2px 5px rgba(154,147,140,.5), 1px 1px 5px #fff
    &:focus
    	  box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22), inset 2px 2px 5px rgba(154,147,140,.5), 1px 1px 5px #fff
-   
+   @media (max-width: 767px)		
+   		padding: 10px 20px
+   		margin-bottom: 10px
 
 
-.btn-warn 
+.btn-warn
+	padding: 13px 24px
+	border-radius: 28px
 	background: #feff37
-	transform: skewX(-7deg)
-	border: 1px solid #ffc107
+	transform: skewX(-7deg)	
 	&:hover
-		background: rgba(254, 255, 55, .9)		
+		background: #feff37 * 1.9		
 	&:active
 	  	background: rgba(254, 255, 55, .9)
 	  	transform: skewX(-7deg) scale(.99)
 	  	box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22), inset 2px 2px 5px rgba(154,147,140,.5), 1px 1px 5px #fff
+	&:before
+      content: ""
+      position: absolute
+      top: -10%
+      bottom: -10%
+      left: -10%
+      right: -10%
+      background: url("../../../img/bubbling.png") repeat 0 400px      
+      animation: bubbling linear infinite 7s
+
+.btn-warn-Inquirer
+   border-top: 4px solid #ffc107
+   border-left: 2px solid #ffc107
+   border-right: 5px solid #ffc107
+   border-bottom: 2px solid #ffc107        
+
+
+.btn-warn-modal
+	padding: 10px 20px
+	border: 2px solid #ffc107
+   	
 
 .btn-warn-modal:hover
-	box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, .5) 	  	
-
+   	box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, .5)
+   	
 .btn-dang
+	padding: 13px 24px
+	border-radius: 28px
 	background: #dc3545
 	transform: skewX(5deg)
-	color: #fff
-	border: 1px solid #b21f2d
+	color: #fff	
 	&:hover
-		background: rgba(220, 53, 69, .9)
+		background: #dc3545 * 1.3
 		color: #fff
 	&:active
-	  	background: rgba(220, 53, 69, .9)
-	  	transform: skewX(5deg) scale(.99)
+	  	background: #dc3545 * 1.3
+	  	transform: skewX(5deg) scale(.95)
 	  	color: #fff
 	  	box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22), inset 2px 2px 5px rgba(154,147,140,.5), 1px 1px 5px #fff
+	&:before
+      content: ""
+      position: absolute
+      top: -10%
+      bottom: -10%
+      left: -10%
+      right: -10%
+      background: url("../../../img/bubbling.png") repeat 0 400px      
+      animation: bubbling linear infinite 5s 
+
+
+.btn-dang-Inquirer
+   border-top: 4px solid #b21f2d
+   border-left: 5px solid #b21f2d
+   border-right: 3px solid #b21f2d
+   border-bottom: 2px solid #b21f2d        
+
+
+@keyframes bubbling
+    from
+      background-position: 0  0 
+    
+    to
+      background-position: 0 -400px
+
+.btn-dang-modal
+	padding: 10px 20px
+	border: 2px solid #b21f2d
+   	
 
 .btn-dang-modal:hover
-	box-shadow: 0 0 0 0.2rem rgba(178, 31, 45, .5)
+   	box-shadow: 0 0 0 0.2rem rgba(178, 31, 45, .5)
 
 .styles_overlay__CLSq-
-	background: rgba(0, 188, 212, .7)
+	background: rgba(0, 188, 212, .5)
+	backdrop-filter: blur(10px)
+	padding: 40px 5px 20px
+	&:before
+		content: ""
+		position: absolute
+		top: -5px
+		left: 0
+		right: 0
+		height: 25px
+		background: url("../../../img/border-bubble.png") repeat-x 0/contain
+		z-index: 10
+		transform: scale(-1) 
+	&:after
+		content: ""
+		position: absolute
+		bottom: -10px
+		left: 0
+		right: 0
+		height: 25px
+		background: url("../../../img/border-bubble.png") repeat-x 0/contain
+		z-index: 10 
 
 .styles_modal__gNwvD	
 	transform: skew(2deg, 2deg)
+	h2
+		text-shadow: 0px -1px 1px #feff37, 0px 1px 1px #feff37
 	@media (max-width: 550px)		
 		transform: skew(0deg, 0deg)
 		h2
@@ -207,4 +296,17 @@ input[type="checkbox"]+label
 .btn-box-modal
 	display: flex	
 	margin-top: 40px
-	 
+
+.styles_closeButton__20ID4 
+	&:hover, &:focus
+		outline: none
+
+.styles_closeIcon__1QwbI	
+	width: 30px
+	height: 30px	
+	transition: transform ease .3s
+	&:hover, &:focus		
+		transform: scale(1.13)
+
+		
+
