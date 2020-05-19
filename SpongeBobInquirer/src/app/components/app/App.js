@@ -35,7 +35,7 @@ class App extends React.Component {
                     className="bubbles-img"                
                     src="./img/underwater-bubbles.png" 
                     alt="Bubbles"
-                  />
+                  />                 
                 </div>                                                   
                 <Header />
                                                                                                                               

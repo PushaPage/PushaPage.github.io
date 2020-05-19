@@ -13,7 +13,7 @@ export let questions = {
     selectDefault: 'Выберете правильный ответ...',
     selectName: 'selectAsk',
     patternText: `^[А-Яа-яЁё|a-zA-Z\s]+$`,
-    checkProviso: '(Правельных ответов должно быть 2)'
+    checkProviso: '(Правильных ответов должно быть 2)'
 
 };
 

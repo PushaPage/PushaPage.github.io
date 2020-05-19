@@ -15,9 +15,7 @@ footer
 		right: 0
 		bottom: 0		
 		background: linear-gradient(180deg,rgba(0, 188, 212, .7) 5px, rgba(0, 188, 212, 0) 33px  )
-		backdrop-filter: blur(4px)
-		@media(max-width: 768px)
-			backdrop-filter: blur(2px)
+		backdrop-filter: blur(4px)		
 	&:after
 		content: ""
 		position: absolute
@@ -26,4 +24,11 @@ footer
 		right: 0
 		height: 22px
 		background: url("../../../img/border-bubble.png") repeat-x 0/contain
-		z-index: 10 			
+		z-index: 10
+	@media(max-width: 768px)
+		height: 125px
+		background: url("../../../img/bg-body-mob.jpg") no-repeat 50% 100% /cover
+		&:before
+			backdrop-filter: blur(2px)	 
+		&:after
+			background: url("../../../img/border-bubble-mob.png") repeat-x 0/contain	 			
