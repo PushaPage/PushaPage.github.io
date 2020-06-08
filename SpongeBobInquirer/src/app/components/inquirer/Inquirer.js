@@ -175,7 +175,7 @@ class Inquirer extends React.Component {
 	  	    <form           
             onSubmit={this.state.submit === false ? this.onOpenModal : this.onHold}  
             onChange={this.checkSubmit}>           
-              <div className="col-11 col-lg-10 ask-one-curve">
+              <div className="col-12 col-sm-11 col-lg-10 ask-one-curve">
                 <div className="ask-one">
                   <p>{questions.ask1}</p>      
     	  	        <input 
@@ -190,7 +190,7 @@ class Inquirer extends React.Component {
                   />
                 </div>  
   	  	      </div>             
-  	  	      <div className="col-11 col-lg-9 ask-two-curve">               
+  	  	      <div className="col-12 col-sm-11 col-lg-9 ask-two-curve">               
                 <div className="ask-two">
                   <p>{questions.ask2}</p>
                   <ul className="ul-label">
@@ -212,7 +212,7 @@ class Inquirer extends React.Component {
                   </ul>                  
                 </div>        		    
       		    </div>           
-              <div className="col-11 ask-three-curve">
+              <div className="col-12 col-sm-11 ask-three-curve">
                 <div className="d-flex flex-column ask-three">
                   <p>{questions.ask3}</p>
                   <span className="ask-proviso">{questions.checkProviso}</span>
@@ -242,7 +242,7 @@ class Inquirer extends React.Component {
                   </div>                    
                 </div>                
               </div>             
-              <div className="col-11 col-lg-8 ask-four-curve">
+              <div className="col-12 col-sm-11 col-lg-8 ask-four-curve">
                 <div className="ask-four">
                   <p>{questions.ask4}</p>
                     <select 
@@ -265,7 +265,7 @@ class Inquirer extends React.Component {
                     </select>
                 </div>                
               </div>           
-              <div className="col-11 ask-five-curve">
+              <div className="col-12 col-sm-11 ask-five-curve">
                 <div className="ask-five">
                   <p>{questions.ask5}</p>
                   <ul className="ul-label">

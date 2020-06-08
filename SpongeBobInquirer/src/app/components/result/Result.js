@@ -39,7 +39,7 @@ class Result extends React.Component {
 
       return (      
           <div className="result-container container">            
-            <div className="result-item">            
+            <div className="result-item col-11 col-sm-12">            
               <div className="table-responsive-md position-relative">
                 <table className="table table-bordered">
                   <thead>
@@ -105,7 +105,7 @@ class Result extends React.Component {
                 alt="SpongeBob"
               />  
             </div>         
-            <div className="title-item d-flex justify-content-between col-12 col-lg-10">
+            <div className="title-item d-flex justify-content-between col-11 col-sm-12 col-lg-10">
              <h2 className="title-text-result">{result.resultText}</h2>           
              <img 
                 className="img-fluid img-result" 
