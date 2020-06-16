@@ -28,10 +28,12 @@ class Title extends React.Component {
                   alt="SpongeBob"
                 />
               </picture>	            
-	          </div>              
-  	          <div className="title-item col-11 col-lg-10">
-  	         	 <h1 className="title-text">Как хорошо ты знаешь Спанч Боба?</h1>
-  	          </div>                    
+	          </div>
+              <div className="title-item-wrap">              
+    	          <div className="title-item col-11 col-lg-10">
+    	         	  <h1 className="title-text">Как хорошо ты знаешь Спанч Боба?</h1>
+    	          </div>
+              </div>                    
             <div className="btn-box-title">                                
              	<Link className="btn btn-bg btn-dang btn-title position-relative mr-0" to="/inquirer" role="button">Проверить!!!</Link>           
               <div className="jelly-fish-animate-near-btn">              

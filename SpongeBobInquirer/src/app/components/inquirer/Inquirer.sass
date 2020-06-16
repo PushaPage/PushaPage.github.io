@@ -14,20 +14,19 @@
 		font-size: 25px
 		display: inline-block
 		text-shadow: 0px -1px 1px #feff37, 0px 1px 1px #feff37
-	@media (max-width: 767px)
-		.btn-box-inquirer
-			flex-wrap: wrap
-			justify-content: space-between
-		.btn-dang-Inquirer
-			margin-left: auto
-		.btn
-   			margin-top: 8px		
-	   		padding: 8px 20px 7px 20px
-	   		margin-bottom: 10px
-	   		font-size: 20px	 	   						
+	@media (max-width: 767px)	   						
 		.title-text
 			font-size: 30px			
 	@media (max-width: 550px)
+		.btn-box-inquirer
+			flex-wrap: wrap
+			flex-direction: column
+			align-items: flex-start
+			justify-content: space-between
+			.btn
+				margin-bottom: 0
+		.btn-dang-Inquirer
+			margin-left: auto			
 		.styles_modal__gNwvD
 			transform: skew(0deg, 0deg)	
 		.ask-one-curve
@@ -154,6 +153,8 @@ input[type="checkbox"]+label
 	justify-content: center
 	position: relative	
 	margin: 20px 0 40px
+	perspective: 300px
+   	transform-style: preserve-3d
 	.img-inquirer
 		position: absolute
 		bottom: 0
@@ -207,7 +208,10 @@ input[type="checkbox"]+label
    border-top: 4px solid #ffc107
    border-left: 2px solid #ffc107
    border-right: 5px solid #ffc107
-   border-bottom: 2px solid #ffc107        
+   border-bottom: 6px solid #ffc107
+   transform: rotateX(20deg) !important
+   &:active
+   	   transform: rotateX(20deg) scale(.95) !important     
 
 
 .btn-warn-modal
@@ -249,7 +253,10 @@ input[type="checkbox"]+label
    border-top: 4px solid #b21f2d
    border-left: 5px solid #b21f2d
    border-right: 3px solid #b21f2d
-   border-bottom: 2px solid #b21f2d        
+   border-bottom: 6px solid #b21f2d
+   transform: rotateX(20deg) !important
+   &:active
+   	   transform: rotateX(20deg) scale(.95) !important        
 
 
 @keyframes bubbling
