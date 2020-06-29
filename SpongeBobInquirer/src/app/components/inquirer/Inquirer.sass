@@ -17,7 +17,14 @@
 	@media (max-width: 767px)	   						
 		.title-text
 			font-size: 30px			
-	@media (max-width: 550px)
+	@media (max-width: 550px)				
+		.styles_modal__gNwvD
+			transform: skew(0deg, 0deg)	
+		.ask-one-curve
+			transform: skew(2deg, 2deg)
+			.ask-one
+				transform: skew(-2deg, -2deg)
+	@media (max-width: 415px)
 		.btn-box-inquirer
 			flex-wrap: wrap
 			flex-direction: column
@@ -25,15 +32,9 @@
 			justify-content: space-between
 			.btn
 				margin-bottom: 0
-		.btn-dang-Inquirer
-			margin-left: auto			
-		.styles_modal__gNwvD
-			transform: skew(0deg, 0deg)	
-		.ask-one-curve
-			transform: skew(2deg, 2deg)
-			.ask-one
-				transform: skew(-2deg, -2deg)
-	@media (max-width: 400px)
+			.btn-dang-Inquirer
+				margin-left: auto			
+	@media (max-width: 400px)		
 		.styles_overlay__CLSq-
 			padding: 0 				
 		p
@@ -277,7 +278,10 @@ input[type="checkbox"]+label
 .styles_overlay__CLSq-
 	background: rgba(0, 188, 212, .5)
 	backdrop-filter: blur(10px)
-	padding: 40px 5px 20px
+	padding: 0 5px
+	display: flex
+	align-items: center
+	justify-content: center
 	
 
 .styles_modal__gNwvD	
