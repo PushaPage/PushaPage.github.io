@@ -1,0 +1,8 @@
+https://jsonplaceholder.typicode.com/comments?_limit=42
+https://vue-demo-deploy-7fadf.web.app/
+
+
+Перезалить на fireBase
+yarn build
+потом:
+firebase deploy
