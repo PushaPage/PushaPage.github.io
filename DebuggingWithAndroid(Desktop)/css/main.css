@@ -280,7 +280,8 @@
       color: rgb(48, 209, 88);
       text-shadow: 0 4px 4px rgba(48, 209, 88, 1), 0 0 4px rgba(48, 209, 88, 1);
     }
-    .button-level{      
+    .button-level{
+      cursor: pointer;
       position: relative;
       width: 250px;      
       height: 40px;  
