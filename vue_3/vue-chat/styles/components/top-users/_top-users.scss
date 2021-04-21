@@ -1,0 +1,199 @@
+.top-users {
+    @include max-w-xl {
+        max-width: 14.286em;
+        padding: 1.786em 2.857em;
+    }
+    @include max-w-lg {
+        max-width: none;
+        border-radius: 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 3.571em;
+        padding-top: 2.857em;
+        padding-bottom: 3.214em;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            background: $gray-bg-color;
+            width: 100%;
+        }
+
+        &::before {
+            right: 100%;
+        }
+
+        &::after {
+            left: 100%;
+        }
+    }
+    @include max-w-sm {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    position: relative;
+    background: $gray-bg-color;
+    max-width: 18.571em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 2.857em;
+    padding-top: 2.857em;
+    padding-left: 3.143em;
+    padding-right: 3.143em;
+    padding-bottom: 2.143em;
+
+    &__title {
+        @include max-w-xl {
+            margin-bottom: 1.429em;
+
+            & > span {
+                font-size: .929em;
+            }
+
+            & > svg {
+                width: 1.071em;
+                height: 1.214em;
+            }
+
+            @include max-w-lg {
+                order: 1;
+
+                & > span {
+                    font-size: 1.071em;
+                }
+            }
+        }
+
+        .icon-fire {
+            width: 1em;
+            height: 1.214em;
+            fill: url(#paint0_linear);
+        }
+    }
+
+    &__list {
+        @include max-w-lg {
+            order: 3;
+            width: 100%;
+            padding-bottom: .357em;
+            overflow-x: auto;
+        }
+
+        ul {
+            @include max-w-xl {
+                margin: -.25em;
+            }
+            @include max-w-lg {
+                flex-wrap: nowrap;
+                margin: 0 -.429em;
+            }
+            display: inline-flex;
+            flex-wrap: wrap;
+            margin: -.429em;
+
+
+
+            & > li {
+                @include max-w-xl {
+                    width: 4em;
+                    height: 4em;
+                    margin: .25em;
+                }
+                @include max-w-lg {
+                    width: 5em;
+                    height: 5em;
+                    margin: 0 .429em;
+                }
+                margin: .429em;
+                width: 5.714em;
+                height: 5.714em;
+                overflow: hidden;
+                flex-shrink: 0;
+                border-radius: 20%;
+                position: relative;
+
+                & > img {
+                    object-fit: cover;
+                }
+
+                & > .icon-online {
+                    @include max-w-xl {
+                        width: .5em;
+                        height: .5em;
+                        right: .429em;
+                        bottom: .429em;
+                    }
+                    @include max-w-lg {
+                        width: .643em;
+                        height: .643em;
+                        right: .571em;
+                        bottom: .571em;
+                    }
+                    position: absolute;
+                    right: .643em;
+                    bottom: .643em;
+                }
+            }
+        }
+    }
+
+    &__btn-block {
+        @include max-w-xl {
+            & .xl-text-btn {
+                display: none;
+            }
+        }
+        @include min-w-xxl {
+            & .lg-text-btn {
+                display: none;
+            }
+        }
+        @include max-w-lg {
+            width: auto;
+            margin-top: 0;
+            order: 2;
+
+            & .lg-text-btn {
+                display: none;
+            }
+
+            & .xl-text-btn {
+                display: block;
+            }
+
+            & > .btn--outline {
+                line-height: 0;
+                letter-spacing: 1px;
+                margin-bottom: 1.429em;
+
+                & > span {
+                    font-size: .643em;
+                }
+            }
+        }
+        @include max-w-xs {
+            & .lg-text-btn {
+                display: block;
+            }
+
+            & .xl-text-btn {
+                display: none;
+            }
+        }
+        width: 100%;
+
+
+        & > .btn--outline {
+
+            &::before {
+                background: $gray-bg-color;
+            }
+        }
+    }
+}

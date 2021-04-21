@@ -1,0 +1,323 @@
+.card {
+    @include max-w-xs {
+        .tooltip {
+
+            &::before {
+                display: none;
+            }
+
+            &__content {
+                display: none;
+            }
+        }
+    }
+    position: relative;
+
+
+    &:hover {
+        @include min-w-sm {
+            & .card__img {
+                box-shadow: $card-shadow;
+            }
+        }
+        z-index: 1;
+
+        & .card__like {
+            opacity: 1;
+        }
+    }
+
+    &__inner {
+        display: block;
+        width: 100%;
+        // width: 19.786em;
+        // height: 26.786em;
+        position: relative;
+        // will-change: box-shadow;
+        // border-radius: 2.143em;
+        // transition: box-shadow $animate-main;
+    }
+
+    &__top {
+        position: absolute;
+        top: 4%;
+        left: 7.3%;
+        right: 5.1%;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    &__badge {
+        // catalog ==>
+        @include max-w-xl {
+            padding-left: .6em;
+            padding-right: .6em;
+
+        }
+
+        @include max-w-xs {
+            padding: .2em .5em;
+
+            & > span {
+                font-size: .571em;
+            }
+        }
+        // catalog <==
+    }
+
+    &__like {
+        // catalog ==>
+        @include max-w-xl {
+            width: 2.5em;
+            height: 2.5em;
+        }
+
+        @include max-w-xs {
+            width: 1.786em;
+            height: 1.786em;
+        }
+        // catalog <==
+        @include min-w-xl {
+            opacity: 0;
+            transition: opacity $animate-main;
+        }
+        width: 2.857em;
+        height: 2.857em;
+        pointer-events: auto;
+
+        svg {
+            width: 59%;
+            height: 59%;
+        }
+
+        &.active {
+            opacity: 1;
+        }
+    }
+
+    &__img {
+        @include max-w-xs {
+            &:hover {
+                box-shadow: $card-shadow;
+            }
+        }
+
+        @include max-w-lg {
+            border-radius: 1.563em;
+        }
+        width: 100%;
+        // height: 100%;
+        padding-top: 136%;
+        position: relative;
+        overflow: hidden;
+        will-change: box-shadow;
+        border-radius: 2.143em;
+        transition: box-shadow $animate-main;
+
+        
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, $secondary2-color 0%, transparent 100%);
+            height: 46.5%;
+        }
+
+        & > img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        &--no-photo {
+            background-color: $light-bg;
+
+            .no-photo-female,
+            .no-photo-male {
+                @extend %absCenter;
+                fill: $muted2-color;
+            }
+
+            .no-photo-female {
+                width: 98%;
+                height: 98%;
+            }
+
+            .no-photo-male {
+                width: 300%;
+                height: 300%;
+            }
+
+            &::after {
+                background: linear-gradient(to top, rgba($primary-color, 0.37) 0%, transparent 100%);
+            }
+
+        }
+    }
+
+    &__info {
+        // catalog ==>
+        @include min-w-sm {
+            position: absolute;
+            color: $white-color;
+            max-width: 65%;
+            padding-right: .286em;
+            // left: 2.143em;
+            // bottom: 1.4em;
+            left: 11%;
+            bottom: 5%;
+        }
+
+        @include max-w-xs {
+            padding-top: .714em;
+        }
+        // catalog <==
+
+        &-name {
+            // catalog ==>
+            @include max-w-xl {
+                font-size: 1.071em;
+                margin-right: .5em;
+            }
+
+            @include max-w-xs {
+                font-size: .813em;
+                word-break: break-word;
+            }
+            // catalog <==
+
+            font-size: 1.214em;
+            margin-right: .571em;
+        }
+
+        &-description {
+            // catalog ==>
+            @include max-w-lg {
+                font-size: .857em;
+            }
+
+            @include max-w-xs {
+                color: $secondary4-color;
+            }
+            // catalog <==
+
+            font-size: .929em;
+        }
+    }
+
+    &__icons {
+        // catalog ==>
+        @include min-w-xxl {
+
+            & > .icon-fire {
+                width: 1.143em;
+                height: 1.429em;
+            }
+        }
+
+        @include max-w-xl {
+            & > .icon-confirm {
+                width: 1.214em;
+                height: 1.214em;
+            }
+
+            & > .icon-fire {
+                width: 1.071em;
+                height: 1.214em;
+            }
+
+            .icon-online {
+                width: .5em;
+                height: .5em;
+            }
+        }
+
+        @include max-w-xs {
+            & > .icon-confirm {
+                width: 1em;
+                height: 1em;
+            }
+
+            & > .icon-fire {
+                width: .813em;
+                height: 1em;
+            }
+
+            .icon-online {
+                width: .4em;
+                height: .4em;
+            }
+        }
+        // catalog <==
+
+        & > .icon-fire {
+            fill: url(#paint0_linear);
+        }
+
+        &-item {
+
+            &:nth-child(n+2) {
+                // catalog ==>
+                @include max-w-xl {
+                    margin-left: .5em;
+                }
+
+                @include max-w-xs {
+                    margin-left: .357em;
+                }
+                // catalog <==
+
+                margin-left: .571em;
+            }
+        }
+
+    }
+
+    &__photo-count {
+        position: absolute;
+        // bottom: 1.6em;
+        // right: 1.929em;
+        right: 9%;
+        bottom: 6%;
+        z-index: 1;
+
+        & .icon-photo {
+            // catalog ==>
+            @include max-w-xl {
+                width: 1.071em;
+                height: .786em;
+            }
+
+            @include max-w-xs {
+                width: 1em;
+                height: .714em;
+            }
+            // catalog <==
+
+            fill: $white-color;
+            width: 1.143em;
+            height: .857em;
+            margin-right: .357em;
+        }
+
+        &-text {
+            // catalog ==>
+            @include max-w-xl {
+                font-size: .857em;
+            }
+
+            @include max-w-xs {
+                font-size: .714em;
+            }
+            // catalog <==
+            font-size: .929em;
+            min-width: 1.143em;
+        }
+    }
+}

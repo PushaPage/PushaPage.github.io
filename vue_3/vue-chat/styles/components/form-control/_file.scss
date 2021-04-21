@@ -1,0 +1,134 @@
+.file {
+    flex-shrink: 0;
+    position: relative;
+    display: inline-flex;
+    cursor: pointer;
+    overflow: hidden;
+
+    &--sm {
+        @include max-w-xs {
+            width: 7.857em;
+            height: 10.643em;
+            border-radius: 15%;
+        }
+        width: 5.643em;
+        height: 7.643em;
+        border-radius: 22%;
+
+    }
+
+    &--md {
+        width: 14.5em;
+        height: 19.5em;
+        border-radius: 2.143em;
+    }
+
+    &__upload {
+        @extend %flexCenter;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        overflow: hidden;
+
+        &::before,
+        &::after {
+            @extend %absXY;
+            content: "";
+            transition: $animate-main;
+        }
+
+        &::before {
+            background: $light-bg;
+            opacity: 1;
+        }
+
+        &::after {
+            background: $upload-photo-gradient;
+            opacity: 0;
+        }
+
+        &:hover,
+        &:active {
+
+            &::before {
+                opacity: 0;
+            }
+
+            &::after {
+                opacity: 1;
+            }
+
+            .file__label {
+                z-index: 1;
+
+                & > .icon-photo {
+                    fill: $white-bg;
+                }
+
+                & > .file__label-text {
+                    color: $white-color;
+                }
+            }
+        }
+
+        &.loaded {
+
+            &::before,
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    &__label {
+        position: relative;
+
+        .icon-photo {
+            position: relative;
+            z-index: 5;
+            width: 1.786em;
+            height: 1.357em;
+            fill: url(#paint0_linear);
+            fill: url(#paint1_linear);
+            transition: $animate-main;
+        }
+
+        &-text {
+            color: $info-color;
+            transition: color $animate-main;
+        }
+    }
+
+    &__img {
+        @extend %absXY;
+        z-index: 5;
+        opacity: 0;
+        transition: $animate-main;
+        pointer-events: none;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        &.active {
+            opacity: 1;
+
+            .file__remove {
+                pointer-events: auto;
+            }
+        }
+    }
+
+    &__remove {
+        position: absolute;
+        right: .5em;
+        bottom: .5em;
+    }
+
+    &__error {
+        @extend %error;
+    }
+}

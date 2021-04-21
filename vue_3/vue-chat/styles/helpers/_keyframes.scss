@@ -1,0 +1,40 @@
+@keyframes translateXBtnNext {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes translateXBtnPrev {
+    0% {
+        transform: translateX(0) scale(-1);
+    }
+
+    100% {
+        transform: translateX(5px) scale(-1);
+    }
+}
+
+
+@keyframes translateYBtnNext {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(5px);
+    }
+}
+
+@keyframes translateYBtnPrev {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(5px);
+    }
+}

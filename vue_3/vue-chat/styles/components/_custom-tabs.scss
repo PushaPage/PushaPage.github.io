@@ -1,0 +1,82 @@
+.custom-tabs {
+    @include max-w-lg {
+        display: flex;
+    }
+    display: inline-flex;
+
+    &__tab {
+        @include max-w-lg {
+            flex: 1 1 33.333%;
+        }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        a {
+            // @include min-w-lg {
+            //     font-size: .714em;
+            //     letter-spacing: 1.5px;
+            // }
+            @include min-w-xxl {
+               font-size: .786em;
+               letter-spacing: 2px;
+               padding-left: 2.5em;
+               padding-right: 2.5em;
+            }
+            @include max-w-lg {
+                width: 100%;
+                justify-content: center;
+                padding-left: .714em;
+                padding-right: .714em;
+            }
+            font-size: .714em;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            text-transform: uppercase;
+            white-space: nowrap;
+            color: $secondary-color;
+            position: relative;
+            display: inline-flex;
+            padding: 1.071em 2.1em;
+            transition: color $animate-main;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 1px;
+                background-color: $dark-color;
+                opacity: .1;
+                transition: background-color $animate-main, opacity $animate-main;
+            }
+
+            &:hover,
+            &:active,
+            &.active {
+                color: $primary-color;
+                font-weight: bold;
+
+                &::after {
+                    height: 2px;
+                    background: $primary-color;
+                    opacity: 1;
+                }
+            }
+        }
+
+        &-text-lg {
+            @include max-w-sm {
+                display: none;
+            }
+        }
+
+        &-text-mob {
+            @include max-w-sm {
+                display: block;
+            }
+            display: none;
+        }
+    }
+}

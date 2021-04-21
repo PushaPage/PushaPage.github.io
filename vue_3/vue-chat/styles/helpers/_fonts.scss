@@ -1,0 +1,35 @@
+@font-face {
+    font-family: "TT Norms";
+    src: url("../../fonts/TTNorms/ttnorms-regular.eot");
+    src: url("../../fonts/TTNorms/ttnorms-regular.eot?#iefix") format("embedded-opentype"),
+        url("../../fonts/TTNorms/ttnorms-regular.woff2") format("woff2"),
+        url("../../fonts/TTNorms/ttnorms-regular.woff") format("woff"),
+        url("../../fonts/TTNorms/ttnorms-regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "TT Norms";
+    src: url("../../fonts/TTNorms/ttnorms-medium.eot");
+    src: url("../../fonts/TTNorms/ttnorms-medium.eot?#iefix") format("embedded-opentype"),
+        url("../../fonts/TTNorms/ttnorms-medium.woff2") format("woff2"),
+        url("../../fonts/TTNorms/ttnorms-medium.woff") format("woff"),
+        url("../../fonts/TTNorms/ttnorms-medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "TT Norms";
+    src: url("../../fonts/TTNorms/ttnorms-bold.eot");
+    src: url("../../fonts/TTNorms/ttnorms-bold.eot?#iefix") format("embedded-opentype"),
+        url("../../fonts/TTNorms/ttnorms-bold.woff2") format("woff2"),
+        url("../../fonts/TTNorms/ttnorms-bold.woff") format("woff"),
+        url("../../fonts/TTNorms/ttnorms-bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}

@@ -1,0 +1,54 @@
+.irs {
+    height: 1px;
+    font-size: 14px;
+
+    .irs-line {
+        top: 0;
+        height: 100%;
+        background-color: $primary-color;
+        border-radius: none;
+    }
+
+    .irs-bar {
+        top: 0;
+        height: 100%;
+        background: $input-range-bar;
+    }
+
+    .irs-handle {
+        @include max-w-xl {
+            width: 1.214em;
+            height: 1.214em;
+        }
+        top: 50%;
+        transform: translateY(-50%);
+        height: 1.429em;
+        width: 1.429em;
+        background-color: $white-bg;
+        border: 1px solid $rose-color;
+        cursor: pointer;
+    }
+
+    .irs-from,
+    .irs-to,
+    .irs-single {
+        @include max-w-xl {
+            font-size: .929em;
+        }
+        top: .857em;
+        background: none;
+        font-size: 1em;
+        color: $primary-color;
+        font-weight: 500;
+        border-radius: 50%;
+
+        &::before {
+            display: none;
+        }
+    }
+
+    .irs-handle.state_hover,
+    .irs-handle:hover {
+        background-color: $white-bg;
+    }
+}

@@ -1,0 +1,419 @@
+
+
+@include placeholder {
+    opacity: 1;
+    line-height: normal;
+}
+
+.no-scroll {
+    @extend %fixedXY;
+    overflow-y: scroll;
+
+    // &::-webkit-scrollbar {
+    //     width: 0;
+    //     height: 0;
+    // }
+}
+
+.no-animate {
+    transition: none;
+}
+
+.events-none {
+    pointer-events: none !important;
+}
+
+.container {
+    @include max-w-xl {
+        max-width: 1170px;
+    }
+    @include max-w-xs {
+        padding-right: 1.071em;
+        padding-left: 1.071em;
+    }
+    width: 100%;
+    padding: 0 1.429em;
+    max-width: 1650px;
+    margin: 0 auto;
+
+    // &--large {
+    //     max-width: 1920px;
+    //     padding: 0 15px;
+    // }
+
+
+    &--profile {
+        @include max-w-xl {
+            padding: 0 6.9%;
+        }
+        @include max-w-lg {
+            padding-right: 1.071em;
+            padding-left: 1.071em;
+        }
+        @include max-w-xs {
+            padding-right: 1.071em;
+            padding-left: 1.071em;
+        }
+
+    //     max-width: 1805px;
+    //     padding: 0 20px;
+
+    //     @include min_w_992 {
+    //         padding: 0 60px;
+    //     }
+
+
+    //     @include max_w_479 {
+    //         padding: 0 15px;
+    //     }
+    }
+
+    // &--small {
+    //     max-width: 860px;
+    //     padding: 0 20px;
+    // }
+
+    // &--pos-r {
+    //     position: relative;
+    // }
+
+    // &--h-100per {
+    //     height: 100%;
+    // }
+
+    // &--hidden {
+    //     overflow: hidden;
+    // }
+
+}
+
+.relative {
+    position: relative;
+}
+
+.crs-pointer {
+    cursor: pointer;
+}
+
+.w-100per {
+    width: 100%;
+}
+
+.h-100per {
+    height: 100%;
+}
+
+.h-100vh {
+    height: 100vh;
+}
+
+.dash {
+    height: 1px;
+    width: 1.071em;
+    background-color: $primary-color;
+}
+
+a {
+    // word-break: break-word;
+    text-decoration: none;
+
+    svg {
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+        svg {
+            // fill: $primary-800;
+        }
+    }
+}
+
+
+
+
+// link
+.link {
+    @extend %link;
+}
+
+// link icon
+.link-with-icon {
+    display: inline-flex;
+    align-items: center;
+
+    & > span {
+        @extend %link;
+    }
+
+    & .icon-photo {
+        width: 1.786em;
+        height: 1.357em;
+        fill: url(#paint0_linear);
+        fill: url(#paint1_linear);
+    }
+
+    & .icon-lock {
+        width: 0.857em;
+        height: 1.143em;
+        stroke: url(#paint1_linear);
+        fill: url(#paint1_linear);
+    }
+
+    & .icon-plus {
+        width: 1.143em;
+        height: 1.143em;
+    }
+
+    & svg {
+        width: 1.786em;
+        height: 1.357em;
+    }
+}
+
+.link-dark {
+    display: inline-flex;
+    align-items: center;
+
+    & > span {
+        transition: $animate-main;
+    }
+
+    & > svg {
+        fill: $primary-color;
+        width: 1.071em;
+        height: .857em;
+    }
+
+    &:hover {
+        & .icon-arrow-reverse {
+            animation-play-state: running;
+        }
+    }
+
+    &:hover,
+    &:active {
+        color: $info-color;
+
+        & > svg {
+            fill: url(#paint0_linear);
+        }
+    }
+}
+
+// error
+span {
+    &.error {
+        @extend %error;
+    }
+}
+
+i {
+    &.error {
+        @extend %error;
+        font-style: normal;
+    }
+}
+
+.scroll {
+
+    &-auto {
+
+        &-y {
+            overflow-y: auto;
+        }
+    }
+
+    &-y {
+        overflow-y: scroll;
+    }
+}
+
+.o-hidden {
+    overflow: hidden;
+}
+
+.relative {
+    position: relative;
+}
+
+// Custom scrollbar
+%scrollbar {
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+}
+
+.custom-scrollbar {
+    @extend %scrollbar;
+
+    &::-webkit-scrollbar-track {
+        background-color: #e8e8e8;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $primary-bg;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: rgba($primary-bg, 0.6);
+    }
+
+    &--white {
+        @extend %scrollbar;
+
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $white-bg;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: rgba($white-bg, 0.6);
+        }
+    }
+}
+
+
+// LOGO
+.logo {
+    svg {
+        width: 6.714em;
+        height: 2.929em;
+        fill: $white-color;
+    }
+}
+
+// Icon Confirm
+.icon-confirm {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.429em;
+    height: 1.429em;
+    border-radius: 50%;
+    background: $icon-confirm-gradient;
+
+    svg {
+        width: 60%;
+        height: 60%;
+        fill: $white-color;
+    }
+
+    &--second {
+        background: $icon-second-confirm-gradient;
+    }
+}
+
+.block-tip {
+    background: $gray-bg-color;
+    padding: .857em;
+    border-radius: 1.429em;
+
+    &:hover,
+    &:active {
+        & .btn--outline {
+            background: $btn-main-gradient;
+            color: $white-color;
+
+            & .icon-edit {
+                fill: $white-color;
+            }
+
+            & .icon-photo {
+                fill: $white-color;
+            }
+        }
+    }
+
+}
+
+// badge
+.badge {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: .643em 1em;
+    border-radius: 1.143em;
+
+    &--new {
+        background: $badge-new-gradient;
+    }
+
+    &--sm {
+        padding: .5em .8em;
+    }
+}
+
+// icon online 
+.icon-online {
+    display: inline-flex;
+    width: .714em;
+    height: .714em;
+    border-radius: 50%;
+    background: $online-icon-gradient;
+
+    &--sm {
+        width: .5em;
+        height: .5em;
+    }
+}
+
+.icon-arrow-reverse {
+    will-change: transform;
+    animation: translateXBtnPrev .5s infinite alternate;
+    animation-play-state: paused;
+}
+
+.xs-d-none {
+    @include max-w-xs {
+        display: none !important;
+    }
+}
+
+// mail counter
+.counter {
+    background: $mail-counter-gradient;
+    min-width: 1.643em;
+    height: 1.643em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .214em .5em;
+    border-radius: .857em;
+
+    & > span {
+        font-size: .857em;
+        font-weight: bold;
+        color: $white-color;
+        max-width: 35px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &--sm {
+        min-width: 1.429em;
+        height: 1.429em;
+        padding-right: .3em;
+        padding-left: .3em;
+
+        & > span {
+            font-size: .786em;
+        }
+    }
+}
+
+.icon-paid {
+    width: 1.143em;
+    height: 1.143em;
+    fill: url(#paint0_linear);
+}
+
+.d-none-important {
+    display: none !important;
+}
+

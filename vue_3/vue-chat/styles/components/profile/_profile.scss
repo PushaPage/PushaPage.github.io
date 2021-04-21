@@ -1,0 +1,357 @@
+.profile {
+    position: relative;
+
+    &__inner {
+        @include max-w-sm {
+            flex-direction: column;
+            // align-items: center;
+        }
+
+        &-block {
+            @include max-w-xl {
+                padding-right: 0;
+            }
+
+            // @include max-w-lg {
+            //     padding-right: 1.429em;
+            // }
+
+            // @include max-w-xs {
+            //     padding-right: 1.071em;
+            //     padding-left: 1.071em;
+            // }
+        }
+
+        &-wrap {
+            @include max-w-lg {
+                max-width: 36.857em;
+                width: 100%;
+                flex-direction: column;
+            }
+            @include max-w-prev-xs {
+                max-width: 30em;
+            }
+        }
+    }
+
+    &__content {
+        @include max-w-xl {
+            padding-top: 4.286em;
+        }
+
+        @include max-w-lg {
+            padding-top: 5em;
+        }
+
+        @include max-w-xs {
+            padding-top: 3.571em;
+        }
+        // @include max-w-lg {
+        //     margin-left: auto;
+        //     margin-right: auto;
+        // }
+        padding-top: 5.357em;
+        padding-bottom: 4.286em;
+
+        // PROFILE OWN BEGIN
+        &--own {
+            @include max_w_xxl {
+                .gallery-slider,
+                .gallery-picture {
+                    margin-right: 0;
+                }
+            }
+            @include max-w-lg {
+                .profile__inner {
+                    flex-direction: column;
+                }
+            }
+
+            @include max-w-lg {
+                .gallery-slider,
+                .gallery-picture {
+                    margin-right: 1.071em;
+                }
+
+                // .profile__inner {
+                //     flex-direction: row;
+                // }
+            }
+
+            @include max-w-lg {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+
+                .gallery-slider,
+                .gallery-picture {
+                    margin-right: 0;
+                }
+
+                .profile__inner {
+                    flex-direction: column;
+                }
+            }
+
+            @include max-w-prev-xs {
+                .profile__inner {
+                    max-width: 30em;
+                    width: 100%;
+                }
+            }
+        }
+        // PROFILE OWN END
+
+        // PROFILE NOT OWN BEGIN
+        &--public {
+            @include max-w-xl {
+                .profile__inner {
+                    flex-direction: row;
+                }
+            }
+            @include max-w-lg {
+                padding-bottom: 0;
+
+                .profile__inner {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                .profile__description {
+                    padding-right: 0;
+                }
+            }
+            @include max-w-sm {
+                padding-top: 1.429em;
+
+                .profile__inner {
+                    flex-direction: column;
+                }
+
+                .profile__description {
+                    padding-left: 0;
+                }
+            }
+            padding-top: 2.857em;
+        }
+        // PROFILE NOT OWN END
+
+    }
+
+    &__description {
+        @include max-w-xl {
+            padding-top: 20px;
+
+            .badge {
+                padding: .4em .643em;
+                margin-right: .714em;
+
+                span {
+                    font-size: .643em;
+                }
+            }
+        }
+        @include max-w-lg {
+            padding-top: 1.429em;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        @include max-w-xs {
+            padding-top: .714em;
+        }
+        padding-right: 1.429em;
+
+        &-list {
+            @include max-w-lg {
+                max-width: 34.286em;
+            }
+            max-width: 25em;
+            width: 100%;
+
+            span {
+                @include max-w-xl {
+                    font-size: 1em;
+                }
+                font-size: 1.071em;
+            }
+        }
+
+        &-block {
+            @include max-w-lg {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            @include max-w-xs {
+                display: block;
+            }
+        }
+
+        &-btns {
+            @include max-w-lg {
+                flex-direction: column-reverse;
+                justify-content: flex-end;
+            }
+            @include max-w-xs {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+        }
+    }
+
+    &__form-edit {
+        @include min-w-lg {
+            max-width: 56em;
+        }
+        @include min-w-xxl {
+            max-width: 58.929em;
+        }
+        width: 100%;
+
+        .form__group-list {
+            @include max-w-xl {
+                margin-left: -.929em;
+                margin-right: -.929em;
+            }
+            @include max-w-xs {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            & > li {
+                @include max-w-xl {
+                    margin-left: .929em;
+                    margin-right: .929em;
+                }
+                @include max-w-xs {
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+            }
+        }
+
+        &--password {
+            @include max-w-xs {
+                width: 100%;
+                max-width: none;
+            }
+            max-width: 22.857em;
+        }
+    }
+
+    &__uploader {
+        @include max-w-xs {
+            text-align: center;
+        }
+    }
+
+    &__info {
+
+        &-block {
+            max-width: 33.571em;
+            width: 100%;
+        }
+
+        &-btns-block {
+            @include min-w-xl {
+                padding-right: 1.071em;
+            }
+
+            @include max-w-lg {
+                flex-direction: column;
+
+                & > .btn {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    &__images {
+
+        & > ul {
+            @include max-w-lg {
+                max-width: 56.5em;
+            }
+            @include max-w-xs {
+                justify-content: center;
+            }
+            @include min-w-sm {
+                margin-left: -.5em;
+                margin-right: -.5em;
+            }
+            margin-bottom: -1.786em;
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 70.29em;
+            width: 100%;
+
+            & > li {
+                flex-shrink: 0;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: .5em;
+                margin-right: .5em;
+                margin-bottom: 1.786em;
+                width: 12.857em;
+                height: 17.429em;
+                border-radius: 20px;
+                overflow: hidden;
+                background: $primary-bg;
+
+                img {
+                    object-fit: cover;
+                }
+
+                .img-remove {
+                    position: absolute;
+                    bottom: .643em;
+                    right: .643em;
+                }
+            }
+        }
+    }
+
+    &__btn-send {
+        @include max-w-xl {
+            padding: .857em 1.357em;
+            margin-right: .714em;
+            min-width: auto;
+
+            .profile__btn-text-hidden {
+                display: none;
+            }
+        }
+        @include max-w-lg {
+            margin-right: 0;
+            padding: 1.25em 1.786em;
+        }
+        @include max-w-xs {
+            width: 100%;
+            margin-bottom: 1.429em;
+
+            .profile__btn-text-hidden {
+                display: inline;
+            }
+        }
+    }
+
+    &__btn-add {
+        @include max-w-xl {
+            letter-spacing: .9px;
+
+            & span {
+                font-size: .643em;
+            }
+
+            & .icon-plus {
+                width: .857em;
+                height: .857em;
+            }
+        }
+    }
+}

@@ -1,0 +1,155 @@
+// .sm-max\:flex-direction-c {
+//     @include max_w_767 {
+//         flex-direction: column;
+//     }
+// }
+
+
+
+
+
+
+//NOTE: Media Request Max XL
+
+// display ==>
+.xl\:d {
+    @include max-w-xl {
+        &-none {
+            display: none;
+        }
+
+        &-flex {
+            display: flex;
+        }
+    }
+}
+//<==
+
+//NOTE: Media Request Max LG
+
+// display ==>
+.lg\:d {
+    @include max-w-lg {
+        &-none {
+            display: none;
+        }
+
+        &-inline {
+            display: inline;
+        }
+
+        &-block {
+            display: block;
+        }
+
+        &-flex {
+            display: flex;
+        }
+    }
+}
+//<==
+
+//NOTE: Media Request Max SM
+
+// display ==>
+.sm-max\:d {
+    @include max-w-sm {
+
+        &-block {
+            display: block;
+        }
+    }
+}
+//<==
+
+// Box alignment ==>
+.sm-max\:flex {
+    @include max-w-sm {
+        &-column {
+            flex-direction: column;
+        }
+    }
+}
+//<==
+
+//NOTE: Media Request Max XS
+
+// display ==>
+.xs-max\:d {
+    @include max-w-xs {
+        &-none {
+            display: none;
+        }
+
+        &-block {
+            display: block;
+        }
+
+        &-inline-block {
+            display: inline-block;
+        }
+
+        &-flex {
+            display: flex;
+        }
+
+        &-inline-flex {
+            display: inline-flex;
+        }
+    }
+}
+//<==
+
+// Box alignment ==>
+.xs-max\:justify-content {
+    @include max-w-xs {
+        &-between {
+            justify-content: space-between;
+        }
+    }
+}
+
+.xs-max\:flex {
+    @include max-w-xs {
+        &-column {
+            flex-direction: column;
+        }
+    }
+}
+//<==
+
+
+//NOTE: Media Request Min SM
+
+// display ==>
+.sm\:d {
+    @include min-w-sm {
+        &-none {
+            display: none;
+        }
+
+        &-block {
+            display: block;
+        }
+
+        &-inline-block {
+            display: inline-block;
+        }
+
+        &-flex {
+            display: flex;
+        }
+
+        &-inline-flex {
+            display: inline-flex;
+        }
+    }
+}
+//<==
+
+
+
+
+
+
+

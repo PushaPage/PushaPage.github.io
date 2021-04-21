@@ -1,0 +1,27 @@
+#crop-wrap {
+    overflow: hidden;
+    .cr-viewport,
+    .cr-resizer {
+        box-shadow: 0 0 2000px 2000px rgba($primary-bg, .15) !important;
+    }
+
+    .cr-boundary {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .cr-slider {
+        margin-top: 1.429em;
+
+        &::-webkit-slider-runnable-track {
+            background: $primary-bg;
+            height: 1px;
+        }
+
+        &::-webkit-slider-thumb {
+            background: $crop-thumb-gradient;
+            margin-top: -8px;
+        }
+    }
+}

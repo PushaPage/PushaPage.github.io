@@ -1,0 +1,53 @@
+.footer {
+    @include max-w-sm  {
+        padding-bottom: 2.143em;
+    }
+    @include max-w-sm {
+        padding-top: 2.429em;
+        padding-bottom: 1.286em;
+    }
+    flex-shrink: 0;
+    padding-top: 1.786em;
+    padding-bottom: 1.571em;
+    background: $dark2-bg-color;
+
+    &__copyright {
+        @include max-w-sm {
+            display: flex;
+            flex-direction: column;
+        }
+        @include max-w-xs {
+            order: 2;
+            flex-direction: row;
+        }
+        @include max-w-xxs {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__nav {
+        @include max-w-xs {
+            order: 1;
+            margin-bottom: 1.429em;
+        }
+        display: flex;
+        margin-left: -1.071em;
+        margin-right: -1.071em;
+
+        li {
+            margin-left: 1.071em;
+            margin-right: 1.071em;
+
+            & > a {
+                color: $white-color;
+                transition: $animate-main;
+
+                &:hover,
+                &:active {
+                    color: $info-color;
+                }
+            }
+        }
+    }
+}

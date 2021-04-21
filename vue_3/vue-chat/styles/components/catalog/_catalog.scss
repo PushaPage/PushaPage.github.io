@@ -1,0 +1,72 @@
+.catalog {
+    // catalog ==>
+    @include max-w-xl {
+        margin-right: -.714em;
+        margin-left: -.714em;
+        margin-bottom: -1.429em;
+    }
+
+    @include max-w-xs {
+        margin-right: -.5em;
+        margin-left: -.5em;
+        margin-bottom: -1.786em;
+    }
+    // catalog <==
+    margin-right: -1.071em;
+    margin-left: -1.071em;
+    margin-bottom: -2.143em;
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+        // catalog ==>
+        @include max-w-xl {
+            // flex-basis: 15.5em;
+            flex-basis: 14em;
+            margin-right: .714em;
+            margin-left: .714em;
+            margin-bottom: 1.429em;
+        }
+
+        @include max-w-lg {
+            flex-basis: 14em;
+            margin-right: .714em;
+            margin-left: .714em;
+            margin-bottom: 1.429em;
+        }
+
+        @include max-w-xs {
+            flex-basis: calc(50% - 1em);
+            margin-right: .5em;
+            margin-left: .5em;
+            margin-bottom: 1.786em;
+        }
+        // catalog <==
+
+        margin-right: 1.071em;
+        margin-left: 1.071em;
+        margin-bottom: 2.143em;
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 17.857em;
+
+        &--empty {
+            order: 20;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.catalog-loader {
+    @include max-w-md {
+        & .loader {
+            transform: scale(.8);
+        }
+    }
+    margin-top: 1.429em;
+    position: relative;
+    height: 1.429em;
+
+}
+
+

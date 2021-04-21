@@ -1,0 +1,90 @@
+$tt-norms: "TT Norms", arial, sans-serif;
+// $CyrveticaOutl: 'cyrvetica outline', sans-serif;
+// $TiemposHeadline: 'tiemposHeadline', arial, sans-serif;
+
+// Colors
+$primary-color: #000;
+$secondary-color: rgba($primary-color, .4);
+$secondary2-color: rgba($primary-color, .7);
+$secondary3-color: #ccc;
+$secondary4-color: rgba($primary-color, .6);
+$secondary5-color: #c7c7c7;
+$white-op-color: rgba(#fff, .7);
+$info-color: #e64940;
+$info2-color: #ee6647;
+$rose-color: #e54557;
+$success-color: #72cc2a;
+$white-color: #fff;
+// $mutedColor: #d0d0d0;
+$muted-color: #e0e0e0;
+$muted2-color: #a6a6a6;
+$muted-white-color: rgba($white-color, .34);
+$dark-color: #121212;
+
+// $thirdColor: #94c4f4;
+// $alertInfoErrColor: #ed5858;
+// $moderationColor: #f7921a;
+// $warnColor: #f1c800;
+// $approvedColor: #90ceb2;
+// $lightBlue: #336ff7;
+// $blueColor: #1c40f8;
+
+
+// Bg-colors
+$primary-bg: #000;
+// $secondaryBgColor: rgba($primaryColor, 0.4);
+$white-bg: #fff;
+$light-bg: #f0f0f0;
+$input-bg-er: #eb361e;
+// $almondBgColor: #f5f5f5;
+$gray-bg-color: #f4f4f4;
+$dark2-bg-color: #1b1b1b;
+// $orangeBgColor: #f1644d;
+// $nightHeader: #161616;
+// $thirdBgColor: #94c4f4;
+// $fourthBgColor: #72b6fb;
+// $alertInfoErrBgColor: #fffafa;
+// $mutedBgColor: #e8e8e8;
+// $fullBg: #f9f9f9;
+// $disable: rgba($primaryColor, 0.1);
+$popup-bg-overlay: rgba($primary-color, .5);
+$popup-shadow: 0 10px 57px 0 rgba(0, 0, 1, .17);
+$select-shadow: 0 12px 46px 0 rgba(0, 0, 1, .11);
+$select-shadow-above: 0 -13px 19px 0 rgba(0, 0, 1, .11);
+$tooltip-shadow: 0 4px 17px 0 rgba(0, 0, 1, .15);
+$btn-circle-white: 0 6px 16px 0 rgba(0, 0, 1, .2);
+$user-avatar-shadow: 0 6px 17px 0 rgba(0, 0, 1, .17);
+$card-shadow:  0 22px 35px 0 rgba(0, 0, 1, .26);
+
+// $shadowColor: 0px -15px 70px 25px rgba(0, 0, 0, 0.11);
+// $bannerPromoCardShadow: 0 16px 42px 0px rgba(0, 0, 0, 0.07);
+
+// animate
+$animate-main: .2s;
+
+// Gradient
+$auth-info-gradient: linear-gradient(319deg, #ff5409 0%, #e13a5c 100%);
+$input-gradient: linear-gradient(288deg, #ee6647 0%, #df3260 100%);
+$input-range-bar: linear-gradient(270deg, #fd963a 0%, #da3848 100%);
+$radio-gradient: linear-gradient(270deg, #ff612a 0%, #e0355f 100%);
+$checkbox-gradient: linear-gradient(288deg, #ee6647 0%, #df3260 100%);
+$checkbox-ios-gradient: linear-gradient(270deg, #ff612a 0%, #e0355f 100%);
+$icon-confirm-gradient: linear-gradient(270deg, #ff612a 0%, #e0355f 100%);
+$icon-second-confirm-gradient: linear-gradient(270deg, #2de7f2 0%, #035bfd 100%);
+$radio-gradient-border: linear-gradient(292deg, #ff5a00 0%, #e13a5c 100%);
+$upload-photo-gradient: linear-gradient(305deg, #fc7135 0%, #e2385b 100%);
+$menu-user-active-gradient: linear-gradient(180deg, #f98218 0%, #e1395c 100%);
+$badge-new-gradient: linear-gradient(270deg, #8ae342 0%, #60c80d 100%);
+$online-icon-gradient: linear-gradient(270deg, #41e427 0%, #00c900 100%);
+$no-photo-gradient: linear-gradient(to top, rgba(0, 0, 0, .37) 0%, transparent 80%);
+$crop-thumb-gradient: linear-gradient(270deg, #ff612a 0%, #e0355f 100%);
+$btn-main-gradient: linear-gradient(288deg, #ee6647 0%, #df3260 100%);
+$btn-main-animate-gradient: linear-gradient(288deg, #ee6647 50%, #df3260 100%);
+$navbar-gradient: linear-gradient(319deg, #ff5300 0%, #ff375d 100%);
+$circle-loader-gradient: linear-gradient(319deg, #ff5300 0%, #ff375d 100%);
+$mail-counter-gradient: linear-gradient(270deg, #fe6c33 0%, #db3a48 100%);
+
+
+
+
+

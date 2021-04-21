@@ -1,0 +1,183 @@
+.checkbox {
+    position: relative;
+    display: inline-flex;
+    cursor: pointer;
+
+    &__control {
+        flex-shrink: 0;
+        position: relative;
+        width: 1.286em;
+        height: 1.286em;
+        border-radius: .286em;
+        background: none;
+        border: 1px solid rgba($primary-color, .2);
+        transition: background $animate-main;
+
+        svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: scale(.8) translate(-50%, -50%);
+            opacity: 0;
+            fill: $white-color;
+            width: .857em;
+            height: .571em;
+            transition: opacity $animate-main, transform $animate-main;
+        }
+    }
+
+    &__label {
+        font-weight: 500;
+        letter-spacing: .5px;
+        color: $secondary-color;
+        white-space: nowrap;
+        transition: $animate-main;
+    }
+
+    input[type="checkbox"] {
+        @extend %inputHide;
+
+        &:hover {
+            & ~ .checkbox__control {
+                border-color: $primary-color;
+            }
+
+            & ~ .checkbox__label {
+                color: $primary-color;
+            }
+        }
+
+        &:checked {
+
+            & ~ .checkbox__control {
+                border-color: transparent;
+                background: $checkbox-gradient;
+
+                svg {
+                    transform: scale(1) translate(-50%, -50%);
+                    opacity: 1;
+                }
+            }
+
+            & ~ .checkbox__label {
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+
+// iOS
+.checkbox-ios {
+    position: relative;
+    display: inline-flex;
+    cursor: pointer;
+
+    &--fake {
+        &:hover {
+            & .checkbox-ios__control {
+                &::after {
+                    box-shadow: 0 0 5px rgba($primary-color, .3);
+                }
+            }
+        }
+    }
+
+    &__control {
+        width: 2.929em;
+        height: 1.857em;
+        border-radius: .929em;
+        border: 1px solid $rose-color;
+        position: relative;
+        overflow: hidden;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 1.429em;
+            height: 1.429em;
+            border-radius: 50%;
+            left: 1px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: $checkbox-ios-gradient;
+            transition: all .3s;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            border-radius: .929em;
+            background: $input-gradient;
+            transition: opacity .3s;
+        }
+    }
+
+    &__label {
+        // font-size: 1.071em;
+        // font-weight: 500;
+        // letter-spacing: .3px;
+    }
+
+    input[type="checkbox"] {
+        @extend %inputHide;
+
+        &:hover {
+            & ~ .checkbox-ios__control {
+                &::after {
+                    box-shadow: 0 0 5px rgba($primary-color, .3);
+                }
+            }
+        }
+
+        &:checked {
+            & ~ .checkbox-ios__control {
+                &::before {
+                    opacity: 1;
+                }
+
+                &::after {
+                    left: calc(100% - (1.429em + 1px));
+                    background: $white-color;
+                }
+            }
+        }
+    }
+}
+
+.checkbox-ios--mq\:xl-small {
+    @include max-w-xl {
+        .checkbox-ios__control {
+            width: 2.286em;
+            height: 1.429em;
+
+            &::after {
+                width: 1.143em;
+                height: 1.143em;
+            }
+        }
+
+        .icon-paid {
+            width: .929em;
+            height: .929em;
+        }
+
+        input[type="checkbox"] {
+            &:checked {
+                & ~ .checkbox-ios__control {
+
+                    &::after {
+                        left: calc(100% - (1.143em + 1px));
+                    }
+                }
+            }
+        }
+    }
+}
+
+

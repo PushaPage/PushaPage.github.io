@@ -1,0 +1,47 @@
+//NOTE: Media Request Max LG
+
+// x - axis ==>
+.lg-max\:px {
+    &-0 {
+        @include max-w-lg {
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
+}
+//<==
+
+
+//NOTE: Media Request Max XS
+
+// bottom ==>
+.xs-max\:pb {
+    @include max-w-xs {
+        // &-10 {
+        //     padding-bottom: .714em;
+        // }
+
+        &-20 {
+            padding-bottom: 1.429em;
+        }
+
+        // &-30 {
+        //     padding-bottom: 2.143em;
+        // }
+    }
+}
+//<==
+
+// x - axis ==>
+.xs-max\:px {
+    &-15 {
+        @include max-w-xs {
+            padding-right: 1.071em;
+            padding-left: 1.071em;
+        }
+    }
+}
+//<==
+
+
+

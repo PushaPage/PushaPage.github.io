@@ -1,0 +1,439 @@
+
+// Slider
+.gallery-slider {
+    @extend %galleryUser;
+
+    &__thumbs {
+        @include max-w-xl {
+            padding-top: 3.7em;
+            padding-bottom: 3.7em;
+            margin-right: .5em;
+        }
+        @include max-w-lg {
+            padding-top: 4.3em;
+            padding-bottom: 4.3em;
+            margin-right: 1.071em;
+        }
+        @include max-w-prev-xs {
+            // display: none;
+            z-index: -1;
+            visibility: hidden;
+            margin: 0;
+        }
+
+        // меньше 6-ти
+        // margin-top: auto;
+        // margin-bottom: auto;
+
+        // больше 6-ти
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-right: 1.429em;
+        padding-top: 5.2em;
+        padding-bottom: 5.2em;
+
+        &--not-slider {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        & .gallery-thumbs {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        & .swiper-wrapper {
+            height: 100%;
+            flex-direction: column;
+        }
+
+        & .swiper-slide {
+            @extend %galleryUserThumbs;
+            @include max-w-xl {
+                margin: .286em 0;
+            }
+            // height: 100%;
+            margin: .357em 0;
+            opacity: .75;
+            cursor: pointer;
+            background-color: $primary-bg;
+
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        & .swiper-slide-thumb-active {
+            opacity: 1;
+        }
+
+        & .swiper-button-next,
+        & .swiper-button-prev {
+            margin: 0;
+            left: 50%;
+            transform: translateX(-50%);
+
+            svg {
+                height: 1em;
+                width: 2em;
+                stroke: url(#paint0_linear);
+            }
+
+            &.swiper-button-disabled {
+                opacity: 0;
+                // svg {
+                //     stroke: rgba($primary-color, .15);
+                // }
+            }
+        }
+
+        & .swiper-button-next {
+            @include max-w-xl {
+                top: .714em;
+            }
+            top: 1.786em;
+
+            svg {
+                transform: rotate(-90deg);
+            }
+        }
+
+        & .swiper-button-prev {
+            @include max-w-xl {
+                bottom: .714em;
+            }
+            top: auto;
+            bottom: 1.786em;
+
+            svg {
+                transform: rotate(90deg);
+            }
+        }
+
+    }
+
+    &__main {
+        @extend %galleryUserMainPhoto;
+
+
+        &:hover {
+            & .gallery-picture-like {
+                opacity: 1;
+            }
+        }
+
+        & .gallery-top {
+            @extend %galleryUserMainInner;
+        }
+
+        & .swiper-container {
+            @include max-w-prev-xs {
+                border-radius: 1.875em;
+            }
+            border-radius: 2.857em;
+        }
+
+        & .swiper-slide {
+            background-color: $primary-bg;
+            display: flex;
+            align-items: center;
+
+            img {
+                object-fit: cover;
+                width: 100%;
+            }
+
+            &:first-child {
+                background: none;
+
+                img {
+                    height: 100%;
+                }
+            }
+        }
+
+        & .swiper-button-next,
+        & .swiper-button-prev {
+            @include max-w-xs {
+                display: none;
+            }
+            margin: 0;
+
+            svg {
+                width: 1.429em;
+                height: 1.071em;
+            }
+
+            &.swiper-button-disabled {
+                opacity: 0;
+            }
+        }
+
+        & .swiper-button-next {
+            right: 1em;
+        }
+
+        & .swiper-button-prev {
+            left: 1em;
+            transform: scale(-1);
+        }
+
+        & .swiper-pagination {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            padding: .714em 0;
+
+            &-current {
+                display: inline-flex;
+                min-width: 10px;
+                text-align: center;
+                font-size: 1.214em;
+                font-weight: 700;
+            }
+
+            &-total {
+                font-weight: 500;
+            }
+        }
+
+    }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+
+    &:focus {
+        outline: none;
+    }
+
+    &::after {
+        content: "";
+    }
+}
+
+.animate-button-next,
+.animate-button-prev {
+    will-change: transform;
+    animation: translateXBtnNext .5s infinite alternate;
+    animation-play-state: paused;
+
+    &:hover {
+        animation-play-state: running;
+
+    }
+}
+
+.animate-button-prev {
+    animation: translateXBtnPrev 0.5s infinite alternate;
+    animation-play-state: paused;
+}
+
+.animate-vertical-button-next,
+.animate-vertical-button-prev {
+    will-change: transform;
+    animation: translateYBtnNext .5s infinite alternate;
+    animation-play-state: paused;
+
+    &:hover {
+        animation-play-state: running;
+
+    }
+}
+
+.animate-vertical-button-prev {
+    animation: translateYBtnPrev 0.5s infinite alternate;
+    animation-play-state: paused;
+}
+
+// Picture
+.gallery-picture {
+    @extend %galleryUser;
+
+    &__thumbs {
+        @include max-w-xl {
+            margin-right: .5em;
+        }
+        @include max-w-lg {
+            margin-right: 1.071em;
+        }
+        @include max-w-prev-xs {
+            display: none;
+        }
+        margin-right: 1.429em;
+
+        &-img {
+            @extend %galleryUserThumbs;
+
+            &--no-photo {
+                background-color: $light-bg;
+
+                & > svg {
+                    @extend %absCenter;
+                    fill: $muted2-color;
+                }
+
+                & .no-photo-male {
+                    width: 240%;
+                    height: 240%;
+                }
+
+                & .no-photo-female {
+                    width: 80%;
+                    height: 80%;
+                }
+            }
+
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    &__link {
+        @include max-w-xs {
+            & > .icon-photo {
+                width: 1.429em;
+                margin-right: .571em;
+            }
+
+            & > span {
+                font-size: .786em;
+            }
+        }
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 6%;
+
+
+    }
+
+    &__like {
+        @include max-w-xl {
+            width: 2.857em;
+            height: 2.857em;
+        }
+        @include max-w-lg {
+            width: 3.571em;
+            height: 3.571em;
+        }
+        @include max-w-xs {
+            width: 2.857em;
+            height: 2.857em;
+        }
+        position: absolute;
+        top: 2.7%;
+        right: 3.65%;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity $animate-main;
+
+        &.active {
+            opacity: 1;
+        }
+
+        // & > .icon-heart {
+        //     position: absolute;
+        //     top: 50%;
+        //     left: 50%;
+        //     transform: translate(-50%, -43%);
+        // }
+    }
+
+    &__main {
+        @extend %galleryUserMainPhoto;
+
+        &:hover {
+            & .gallery-picture-like {
+                opacity: 1;
+            }
+        }
+
+        &-img {
+            @extend %galleryUserMainInner;
+            @include max-w-prev-xs {
+                border-radius: 1.875em;
+            }
+            overflow: hidden;
+            border-radius: 2.857em;
+            background: none;
+
+            &--no-photo {
+                background-color: $light-bg;
+
+                // &::after {
+                //     content: "";
+                //     position: absolute;
+                //     left: 0;
+                //     right: 0;
+                //     bottom: 0;
+                //     height: 35%;
+                //     background: $no-photo-gradient;
+                // }
+
+                & > svg {
+                    @extend %absCenter;
+                    fill: $muted2-color;
+                }
+
+                .no-photo-male {
+                    height: 100%;
+                    width: 300%;
+                }
+
+                .no-photo-female {
+                    height: 75%;
+                    width: 95%;
+                }
+            }
+        }
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+
+        }
+    }
+}
+
+
+.gallery-picture-like {
+    @include max-w-xl {
+        width: 2.857em;
+        height: 2.857em;
+    }
+    @include max-w-lg {
+        width: 3.571em;
+        height: 3.571em;
+    }
+    @include max-w-xs {
+        width: 2.857em;
+        height: 2.857em;
+    }
+    @include min-w-xl {
+        opacity: 0;
+        transition: opacity $animate-main;
+    }
+    position: absolute;
+    top: 2.7%;
+    right: 3.65%;
+    z-index: 1;
+
+    &.active {
+        opacity: 1;
+    }
+
+    // & > .icon-heart {
+    //     position: absolute;
+    //     top: 50%;
+    //     left: 50%;
+    //     transform: translate(-50%, -43%);
+    // }
+}

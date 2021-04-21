@@ -1,0 +1,103 @@
+
+.tooltip {
+    font-size: 10px;
+    position: relative;
+
+    &--ml-10 {
+        margin-left: 1em;
+    }
+
+    &::before {
+        @include fade-out(.3s, .3s);
+        content: "";
+        position: absolute;
+        top: -1.2em;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: .9em solid transparent;
+        border-right: .9em solid transparent;
+        border-top: .9em solid $white-bg;
+        opacity: 0;
+        z-index: -1;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    &:hover {
+        &::before {
+            @include fade-in(.3s);
+            opacity: 1;
+            z-index: 2;
+            visibility: visible;
+        }
+
+        & .tooltip__content {
+            @include fade-in(.3s);
+            opacity: 1;
+            z-index: 1;
+            visibility: visible;
+        }
+    }
+
+    .icon-confirm {
+        width: 1.8em;
+        height: 1.8em;
+
+        svg {
+            width: 1em;
+            height: .8em;
+        }
+    }
+
+    .icon-fire {
+        width: 1.8em;
+        height: 2em;
+        fill: url(#paint0_linear);
+    }
+
+    &__title {
+        
+    }
+
+    &__content {
+        @include fade-out(.3s, .3s);
+        // pointer-events: none;
+        padding: 1em 1.4em;
+        position: absolute;
+        top: -4.4em;
+        left: 50%;
+        background-color: $white-bg;
+        transform: translateX(-50%);
+        box-shadow: $tooltip-shadow;
+        border-radius: 2em;
+        opacity: 0;
+        z-index: -1;
+        visibility: hidden;
+       
+        // &-inner {
+        //     // pointer-events: auto;
+        //     padding-right: .5em;
+        //     margin-right: .5em;
+        //     max-height: 14.8em;
+        //     overflow-y: auto;
+        // }
+
+        &--left-5 {
+            left: .2em;
+            transform: translateX(0);
+        }
+
+        &--from-left {
+            left: -7px;
+            transform: none;
+        }
+
+        &--from-right {
+            left: auto;
+            right: -7px;
+            transform: none;
+        }
+    }
+}

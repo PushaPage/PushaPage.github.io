@@ -1,0 +1,37 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: $tt-norms;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.wrap-helper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: $white-bg;
+
+    &__inner {
+        flex: 1 0 auto;
+
+        &--flex {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
+
+// h1 {
+//     text-align: center;
+//     @include responsiveFz(25, 14, 1199);
+// }
+
+// img {
+//     display: block;
+//     margin: 0 auto;
+//     max-height: 400px;
+// }

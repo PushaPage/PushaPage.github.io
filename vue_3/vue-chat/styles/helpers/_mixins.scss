@@ -1,0 +1,125 @@
+// Responsive font-size
+@mixin responsive-fz($max-size, $min-size, $max-width: 1365, $min-width: 320) {
+    $add-size: $max-size - $min-size;
+    $max-width: $max-width - 320;
+    font-size: calc(#{$min-size + px} + #{$add-size} * ((100vw - #{$min-width + px}) / #{$max-width}));
+}
+
+// Fade-out
+@mixin fade-out($time, $delay) {
+    transition: opacity $time 0s, visibility 0s $delay, z-index 0s $delay;
+}
+
+// Fade-in
+@mixin fade-in($time, $delay: 0s) {
+    transition: opacity $time 0s, visibility 0s $delay, z-index 0s $delay;
+}
+
+// Placeholder
+@mixin placeholder {
+    &::placeholder {
+        @content;
+    }
+
+    &::-moz-placeholder {
+        @content;
+    }
+
+    &::-moz-placeholder {
+        @content;
+    }
+
+    &::-ms-input-placeholder {
+        @content;
+    }
+
+    &::-webkit-input-placeholder {
+        @content;
+    }
+}
+
+// mq max
+@mixin max-w-xxs {
+    @media (max-width: 359px) {
+        @content;
+    }
+}
+
+@mixin max-w-xs {
+    @media (max-width: 479px) {
+        @content;
+    }
+}
+
+@mixin max-w-prev-xs {
+    @media (max-width:  576px) {
+        @content;
+    }
+}
+
+@mixin max-w-sm {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin max-w-md {
+    @media (max-width: 991px) {
+        @content;
+    }
+}
+
+@mixin max-w-lg {
+    @media (max-width: 1199px) {
+        @content;
+    }
+}
+
+@mixin max-w-xl {
+    @media (max-width: 1439px) {
+        @content;
+    }
+}
+
+@mixin max-w-xxl {
+    @media (max-width: 1625px) {
+        @content;
+    }
+}
+
+// mq min
+@mixin min-w-sm {
+    @media (min-width: 480px) {
+        @content;
+    }
+}
+
+@mixin min-w-md {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin min-w-lg {
+    @media (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin min-w-1025 {
+    @media (min-width: 1025px) {
+        @content;
+    }
+}
+
+@mixin min-w-xl {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin min-w-xxl {
+    @media (min-width: 1440px) {
+        @content;
+    }
+}

@@ -1,0 +1,92 @@
+.dropdown-checkboxes {
+    position: relative;
+    cursor: pointer;
+    z-index: 5;
+
+    &__input {
+        @extend %input;
+        min-height: 2.57em;
+        position: relative;
+        z-index: 5;
+        padding-right: 1.429em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__arrow {
+        @extend %selectArrow;
+        width: .857em;
+        height: .5em;
+        fill: $secondary5-color;
+        z-index: 5;
+
+        &:hover,
+        &:active {
+            fill: $primary-color;
+        }
+    }
+
+    &:hover,
+    &.active {
+        & ~ .input-line {
+            @extend %inputLineHover;
+        }
+    }
+
+    &.active {
+        & ~ .form__tip {
+            @extend %tipFocus;
+        }
+
+        & > .dropdown-checkboxes__arrow {
+            transform: rotate(180deg) translateY(-50%);
+            fill: $primary-color;
+        }
+
+        & .dropdown-checkboxes__list {
+            opacity: 1;
+            z-index: 1;
+            visibility: visible;
+
+            &::before {
+                @extend %selectWrap;
+                pointer-events: none;
+                content: "";
+            }
+        }
+    }
+
+    &__content {
+        position: relative;
+    }
+
+    &__list {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding-top: .714em;
+        opacity: 0;
+        z-index: -1;
+        visibility: hidden;
+
+        & > li {
+            margin-top: .714em;
+            margin-bottom: .714em;
+
+            .checkbox__label {
+                white-space: normal;
+            }
+        }
+    }
+
+    & ~ .input-line {
+        @extend %inputLine;
+        z-index: 5;
+    }
+
+    & ~ .form__tip {
+        z-index: 5;
+    }
+}

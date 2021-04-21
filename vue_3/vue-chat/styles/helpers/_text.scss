@@ -1,0 +1,303 @@
+.text {
+    letter-spacing: .01em;
+
+    &--color-secondary {
+        color: $secondary-color;
+    }
+
+    &--color-secondary2 {
+        color: $secondary2-color;
+    }
+
+    // &--color-secondary3 {
+    //     color: #636363;
+    // }
+
+    &--color-primary {
+        color: $primary-color;
+    }
+
+    &--color-info {
+        color: $info-color;
+    }
+
+    &--color-white {
+        color: $white-color;
+    }
+
+    &--color-light {
+        color: $white-op-color;
+    }
+
+    &--color-success {
+        color: $success-color;
+    }
+
+    &--color-muted-white {
+        color: $muted-white-color;
+    }
+
+    // &--color-danger {
+    //     color: $alertInfoErrColor;
+    // }
+
+    // &--color-light-blue {
+    //     color: $lightBlue;
+    // }
+
+    &--upper {
+        text-transform: uppercase;
+    }
+
+    &--medium {
+        font-weight: 500;
+    }
+
+    &--bold {
+        font-weight: 700;
+    }
+
+    &--overflow {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &--fz-9 {
+        font-size: .643em;
+    }
+
+    &--fz-10 {
+        font-size: .714em;
+    }
+
+    &--fz-11 {
+        font-size: .786em;
+    }
+
+    &--fz-12 {
+        font-size: 12px;
+    }
+
+    &--fz-13 {
+        font-size: .929em;
+    }
+
+    &--fz-14 {
+        font-size: 14px;
+    }
+
+    &--fz-15 {
+        font-size: 1.071em;
+    }
+
+    &--fz-16 {
+        font-size: 1.143em;
+    }
+
+    &--fz-17 {
+        font-size: 1.214em;
+    }
+
+    &--fz-18 {
+        font-size: 1.286em;
+    }
+
+    &--fz-19 {
+        font-size: 19px;
+    }
+
+    &--fz-20 {
+        font-size: 20px;
+    }
+
+    &--lh-_8x {
+        line-height: .8em;
+    }
+
+    &--lh-1_2x {
+        line-height: 1.2em;
+    }
+
+    &--lh-1_1x {
+        line-height: 1.1em;
+    }
+
+    &--lh-1_4x {
+        line-height: 1.4em;
+    }
+
+    &--lh-1_5x {
+        line-height: 1.5em;
+    }
+
+    &--lh-1_6x {
+        line-height: 1.6em;
+    }
+
+    &--lh-1_8x {
+        line-height: 1.8em;
+    }
+
+    &--lh-1_9x {
+        line-height: 1.9em;
+    }
+
+    &--lh-2x {
+        line-height: 2em;
+    }
+
+    &--lh-2_2x {
+        line-height: 2.2em;
+    }
+
+    &--ff-normsmid {
+        font-weight: 500;
+    }
+
+    &--mb-30 {
+        margin-bottom: 30px;
+    }
+
+    &--mb-15 {
+        margin-bottom: 15px;
+    }
+
+    &--mt-20 {
+        margin-top: 20px;
+    }
+
+    &--mt-30 {
+        margin-top: 30px;
+    }
+
+    &--mt-40 {
+        margin-top: 40px;
+    }
+
+    &--nowrap {
+        white-space: nowrap;
+    }
+
+    &--break {
+        word-break: break-word;
+    }
+
+    &--center {
+        text-align: center;
+    }
+
+    &--left {
+        text-align: left;
+    }
+
+    // &--vertical-align-middle {
+    //     vertical-align: middle;
+    // }
+
+    // &__child {
+    //     &--d-block {
+    //         display: block;
+    //         text-align: center;
+    //     }
+
+    //     &--center {
+    //         text-align: center;
+    //     }
+
+    //     &--c-info {
+    //         color: $infoColor;
+    //     }
+    // }
+
+    &--spc-_3 {
+        letter-spacing: .3px;
+    }
+
+    &--spc-_5 {
+        letter-spacing: .5px;
+    }
+
+    &--spc-_6 {
+        letter-spacing: .6px;
+    }
+
+    &--spc-_7 {
+        letter-spacing: .7px;
+    }
+
+    &--spc-1 {
+        letter-spacing: 1px;
+    }
+
+    &--spc-1_5 {
+        letter-spacing: 1.5px;
+    }
+
+    &--spc-1_8 {
+        letter-spacing: 1.8px;
+    }
+
+    &--spc-3 {
+        letter-spacing: 3px;
+    }
+
+    &-ellipsis {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -moz-box;
+        display: -webkit-box;
+        -moz-box-orient: vertical;
+        -webkit-box-orient: vertical;
+        box-orient: vertical;
+
+        &--line-2 {
+            line-clamp: 2;
+            -webkit-line-clamp: 2;
+        }
+
+        &--line-5 {
+            line-clamp: 5;
+            -webkit-line-clamp: 5;
+        }
+    }
+
+    
+}
+
+// mq
+.text\:xl {
+    @include max-w-xl {
+        &--fz-14 {
+            font-size: 1em;
+        }
+    }
+}
+
+.text\:xs {
+    @include max-w-xs {
+        &--fz-14 {
+            font-size: 1em;
+        }
+
+        &--fz-13 {
+            font-size: .929em;
+        }
+
+        &--fz-12 {
+            font-size: .857em;
+        }
+
+        &--center {
+            text-align: center;
+        }
+    }
+}
+
+.text--fz-14\:xl-13 {
+    @include max-w-xl {
+        font-size: 0.929em;
+    }
+    font-size: 1em;
+}

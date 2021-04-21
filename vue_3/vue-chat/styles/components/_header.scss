@@ -1,0 +1,44 @@
+.header {
+    @include max-w-xs {
+        min-height: 3.929em;
+        padding-top: .357em;
+        padding-bottom: .357em;
+    }
+    // padding-top: 1.214em;
+    // padding-bottom: 1.214em;
+    border-bottom: 1px solid $muted-color;
+
+    &__logo {
+        @include max-w-lg {
+            order: 2;
+        }
+
+        @include max-w-lg {
+            min-width: auto;
+            margin-right: auto;
+            margin-left: 0.857em;
+        }
+        min-width: 17%;
+        // padding-top: 1.214em;
+        // padding-bottom: 1.214em;
+
+        svg {
+            @include max-w-xl {
+                width: 5em;
+                height: 2.143em;
+            }
+            fill: $primary-color;
+        }
+    }
+
+    &__control {
+        @include max-w-lg {
+            min-width: auto;
+            order: 3;
+            padding-top: 1.143em;
+            padding-bottom: 1.143em;
+        }
+        min-width: 17%;
+
+    }
+}

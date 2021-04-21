@@ -1,0 +1,227 @@
+%fixedXY {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+%flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+%absXY {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+%absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// input
+%input {
+    width: 100%;
+    padding-top: .714em;
+    padding-bottom: .714em;
+    font-weight: 500;
+    letter-spacing: .5px;
+}
+
+// input hidden
+%inputHide {
+    position: fixed !important;
+    width: 0;
+    height: 0;
+    z-index: -20;
+    visibility: hidden;
+    opacity: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+// input line
+%inputLine {
+    position: absolute;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        transition: $animate-main;
+    }
+
+    &::before {
+        width: 100%;
+        right: 0;
+        background: rgba($primary-color, .2);
+    }
+
+    &::after {
+        width: 0;
+        left: 0;
+        background: $input-gradient;
+    }
+}
+
+%inputLineHover {
+    &::before {
+        width: 0;
+        right: 0;
+    }
+
+    &::after {
+        width: 100%;
+        left: 0;
+    }
+}
+
+// focusin form-tip
+%tipFocus {
+    top: 0;
+    transform: translate(0, -100%);
+    font-size: .643em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+// error text
+%error {
+    color: $info-color;
+    font-size: .929em;
+    letter-spacing: .5px;
+    line-height: 1em;
+}
+
+// Gallery
+%galleryUser {
+    @include max-w-xl {
+        height: 32.786em;
+    }
+    @include max-w-lg {
+        margin-right: 0;
+        height: 40.429em;
+    }
+    @include max-w-prev-xs {
+        width: 100%;
+        height: auto;
+    }
+    height: 47.5em;
+    margin-bottom: 2.5em;
+    display: flex;
+    margin-right: 1.071em;
+}
+
+%galleryUserMainPhoto {
+    @include max-w-xl {
+        width: 24.286em;
+    }
+    @include max-w-lg {
+        max-width: 30em;
+        width: 100%;
+    }
+    @include max-w-prev-xs {
+        width: 100%;
+        max-width: none;
+        padding-top: 136%;
+    }
+    position: relative;
+    width: 35.143em;
+}
+
+%galleryUserThumbs {
+    @include max-w-xl {
+        width: 4.5em;
+        height: 4.5em;
+    }
+    @include max-w-lg {
+        width: 5.786em;
+        height: 5.786em;
+    }
+    @include max-w-prev-xs {
+        display: none;
+    }
+    width: 6.714em;
+    height: 6.714em;
+    overflow: hidden;
+    border-radius: 1.429em;
+    position: relative;
+}
+
+%galleryUserMainInner {
+    @include max-w-prev-xs {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+// link 
+%link {
+    color: $info-color;
+    display: inline-flex;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: $info-color;
+        transition: $animate-main;
+    }
+
+    &:hover,
+    &:active {
+
+        &::before {
+            width: 100%;
+        }
+    }
+}
+
+// select wrap
+%selectWrap {
+    @include max-w-xs {
+        left: -1.071em;
+        right: -1.071em;
+    }
+    position: absolute;
+    background: $white-bg;
+    top: -4.643em;
+    left: -1.143em;
+    right: -1.143em;
+    bottom: -1.143em;
+    border-radius: 1.429em;
+    box-shadow: $select-shadow;
+}
+
+// select arrow
+%selectArrow {
+    position: absolute;
+    top: 50%;
+    right: 1px;
+    transform-origin: top center;
+    transform: rotate(0deg) translateY(-50%);
+    transition: transform $animate-main;
+}
