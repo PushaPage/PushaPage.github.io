@@ -4,5 +4,6 @@ const ERROR_CODES = {
     auth: 'Пожалуйста войдите в систему',
 };
 export const error = code => {
+    console.log(code);
     return ERROR_CODES[code] ? ERROR_CODES[code] : 'Неизвестная ошибка';
 };

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <app-message/>
+        <app-message />
         <router-view></router-view>
     </div>
 </template>

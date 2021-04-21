@@ -35,6 +35,8 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes,
+    linkActiveClass: 'active',
+    linkExactActiveClass: 'active',
 });
 
 router.beforeEach((to, from, next) => {
@@ -43,7 +45,7 @@ router.beforeEach((to, from, next) => {
     if (requireAuth && store.getters['auth/isAuthenticated']) {
         next();
     } else if (requireAuth && !store.getters['auth/isAuthenticated']) {
-        next('/auth?message=auth/');
+        next('/auth?message=auth');
     } else {
         next();
     }
